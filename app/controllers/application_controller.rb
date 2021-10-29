@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 
 # This will be on the assessment
-  # protect_from_forgery with: :exception
+  protect_from_forgery with: :exception
 
   # make these methods available from within the views
   helper_method :current_user, :logged_in?
@@ -40,5 +40,5 @@ class ApplicationController < ActionController::Base
     # Prevent logged-out users from seeing certain pages
     redirect_to new_session_url unless logged_in?
   end
-  
+
 end
