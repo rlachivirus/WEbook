@@ -17,7 +17,7 @@ def create
   def destroy
     @user = current_user
     if @user
-      logout
+      logout!
       render json: {}
     else
       render json: ["Nobody signed in"], status: 404
