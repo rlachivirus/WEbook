@@ -8,7 +8,7 @@ class Greeting extends React.Component {
         const greeting = currentUser ? (
             <div>
                 <p>Welcome, {currentUser.email}</p>
-                <button onClick={() => logout()}></button>
+                <button onClick={() => logout()}>Logout</button>
             </div>
         ) : (
             <div>
