@@ -6,11 +6,11 @@ import LoginFormContainer from './session_form/login_form_container';
 
 const App = () => (
     <div>
-        <header>
+        {/* <header> */}
         <h1>WEbook</h1>
-        <GreetingContainer />
-        </header>
-
+        {/* <GreetingContainer />
+        </header> */}
+        <Route exact path="/" component={GreetingContainer}/>
         <Route path="/login" component={LoginFormContainer} />
         <Route path="/signup" component={SignupFormContainer} />
     </div>
