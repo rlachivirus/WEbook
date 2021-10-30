@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {login, signUp, logout } from './util/session_api_util'
+import {login, signup, logout } from './actions/session_actions'
+import configureStore from './store/store';
+import Root from './components/root';
 
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
-    ReactDOM.render(<h1>Hi!</h1>, root);
-    // window.login = login;
-    // window.signUp = signUp;
-    // window.logout = logout;
+    const store = configureStore();
+    ReactDOM.render(<Root store={store}/>, root);
+    window.login = login;
+    window.signup = signup;
+    window.logout = logout;
+    window.store = store;
 })
