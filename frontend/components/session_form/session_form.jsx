@@ -37,6 +37,7 @@ class SessionForm extends React.Component {
     render () {
         const { errors, formType } = this.props;
         const { email, password } = this.state;
+
         const errorMessages = errors ? (
             <div>
                 <ul>
@@ -46,7 +47,7 @@ class SessionForm extends React.Component {
                 </ul>
             </div>
         ) : (
-            <div></div>
+            null
         )
 
         const altLink = (formType === "Login") ? (
