@@ -13,6 +13,10 @@ class SessionForm extends React.Component {
         this.demoUser = this.demoUser.bind(this);
     }
 
+    componentWillUnmount() {
+        this.props.removeErrors();
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
@@ -37,7 +41,7 @@ class SessionForm extends React.Component {
         const { email, password } = this.state;
 
         const errorMessages = errors ? (
-            <div>
+            <div className="session-error">
                 <ul>
                     {errors.map(error => 
                         <li>{error}</li>
