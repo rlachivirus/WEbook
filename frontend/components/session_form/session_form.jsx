@@ -32,8 +32,6 @@ class SessionForm extends React.Component {
         this.props.processForm(demo);
     }
 
-
-
     render () {
         const { errors, formType } = this.props;
         const { email, password } = this.state;
@@ -51,9 +49,9 @@ class SessionForm extends React.Component {
         )
 
         const altLink = (formType === "Login") ? (
-            <Link to="/signup">Sign Up</Link>
+            <Link className="session-button" to="/signup">Sign Up</Link>
         ) : (
-            <Link to="/login">Log in</Link>
+            <Link className="session-button" to="/login">Log in</Link>
         )
 
         const demoLogin = (formType === "Login") ? (
@@ -65,29 +63,34 @@ class SessionForm extends React.Component {
         );
 
         return (
-            <div>
-                <h2>{formType}</h2>
-                <form onSubmit={this.handleSubmit}>
-                    <label>Email
-                        <input
-                        type="text"
-                        onChange={this.update('email')}
-                        value={email}
-                        />
-                    </label>
-                    <br/>
-                    <label>Password
-                        <input
-                        type="password"
-                        onChange={this.update('password')}
-                        value={password}
-                        />
-                    </label>
-                    {errorMessages}
+            <div className="session-form-container">
+                <h2 className="session-formtype">{formType}</h2>
+                <form className="session-form" onSubmit={this.handleSubmit}>
+                    <div className="session-form-input">
+                        <label>Email
+                            <input
+                            className="session-form-field"
+                            type="text"
+                            onChange={this.update('email')}
+                            value={email}
+                            />
+                        </label>
+                        <label>Password
+                            <input
+                            className="session-form-field"
+                            type="password"
+                            onChange={this.update('password')}
+                            value={password}
+                            />
+                        </label>
+                        {errorMessages}
+                    </div>
                     {altLink}
-                    <button>{formType}</button>
+                    <button className="session-button">{formType}</button>
                 </form>
-                {demoLogin}
+                <div className="demo-login">
+                        {demoLogin}
+                    </div>
             </div>
         )
     }

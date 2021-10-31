@@ -10,9 +10,66 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require_tree.
  *= require_self
  */
 
 /* CSS Reset */
 @import 'base/reset.scss';
 
+.header-title {
+
+}
+
+.main-title {
+    font-size: 50px;
+}
+
+.greeting {
+
+}
+
+.greeting-loggedIn {
+
+}
+
+.greeting-loggedOut {
+
+}
+
+.greeting-button {
+    display: block;
+    background-color: black;
+    color: white;
+}
+
+.session-form-container {
+    border: 2px solid black;
+}
+
+.session-formtype {
+
+}
+
+.session-form {
+
+}
+
+.session-form-input {
+    background-color: darkcyan;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.session-form-field {
+    background-color: darkgoldenrod;
+}
+
+.session-button {
+    background-color: darkmagenta;
+}
+
+.demo-login {
+background-color: darkslategrey;
+}
