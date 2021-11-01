@@ -20,9 +20,9 @@ const App = () => (
             <AuthRoute path="/signup" component={SignupFormContainer} />
             <Route path="/" component={GreetingContainer} />
         </Switch>
-            {/* <ProtectedRoute path="/profile" component={Profile}/> */}
             <ProtectedRoute path="/users/:userId" component={ProfileContainer} />
             <ProtectedRoute path="/users/:userId/edit" component={ProfileEditContainer} />
+            {/* <ProtectedRoute path="/profile" component={Profile}/> */}
     </div>
 );
 
