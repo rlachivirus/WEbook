@@ -10,20 +10,24 @@ User.destroy_all
 
 demoUser = User.create!(
     email: 'demo@email.com',
-    password: 'password'
+    password: 'password',
+    fname: 'Peter',
+    lname: 'Park',
+    bio: 'nah nah nah',
+    birthday: 'August 10, 2001'
 )
 
-user1 = User.create!(
-    email: 'user1@email.com',
-    password: 'passforuser1'
-)
+# user1 = User.create!(
+#     email: 'user1@email.com',
+#     password: 'passforuser1'
+# )
 
-user2 = User.create!(
-    email: 'user2@email.com',
-    password: 'passforuser2'
-)
+# user2 = User.create!(
+#     email: 'user2@email.com',
+#     password: 'passforuser2'
+# )
 
-user3 = User.create!(
-    email: 'user3@email.com',
-    password: 'passforuser3'
-)
+# user3 = User.create!(
+#     email: 'user3@email.com',
+#     password: 'passforuser3'
+# )
