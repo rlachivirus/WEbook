@@ -8,9 +8,9 @@ export const receiveAllUsers = (users) => ({
     users
 });
 
-export const receiveUser = userId => ({
+export const receiveUser = user => ({
     type: RECEIVE_USER,
-    userId
+    user
 });
 
 export const fetchUsers = () => dispatch => (
@@ -20,7 +20,7 @@ export const fetchUsers = () => dispatch => (
 
 export const fetchUser = userId => dispatch => (
     UsersUtil.fetchUser(userId)
-        .then(userId => dispatch(receiveUser(userId)))
+        .then(user => dispatch(receiveUser(user)))
 )
 
 export const updateUser = user => dispatch => (
