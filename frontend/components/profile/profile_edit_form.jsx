@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class ProfileEditForm extends React.Component {
     constructor(props) {
@@ -80,7 +80,12 @@ class ProfileEditForm extends React.Component {
                             />
                         </label>
                     </div>
+                    <div>
                     <button className="button">Submit Changes</button>
+                    </div>
+                    <div>
+                    <Link to={`users/${this.props.user.id}`}>Cancel</Link>
+                    </div>
                 </form>
             </div>
 
