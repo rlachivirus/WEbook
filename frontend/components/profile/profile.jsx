@@ -12,7 +12,12 @@ class Profile extends React.Component {
 
         return (
             <div>
+                
                 <p>{user.fname}</p>
+                <p>{user.lname}</p>
+                <p>{user.bio}</p>
+                <p>{user.birthday}</p>
+
                 <Link to={`/users/${user.id}/edit`}>Edit User Info!</Link>
             </div>
 

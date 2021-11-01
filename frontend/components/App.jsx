@@ -13,15 +13,15 @@ const App = () => (
     <div>
         <header className="header-title">
         <h1 className="main-title">WEbook</h1>
-        {/* <GreetingContainer /> */}
         </header>
+            <GreetingContainer />
         <Switch>
             <AuthRoute path="/login" component={LoginFormContainer} />
             <AuthRoute path="/signup" component={SignupFormContainer} />
-            <Route path="/" component={GreetingContainer} />
-        </Switch>
-            <ProtectedRoute path="/users/:userId" component={ProfileContainer} />
+            {/* <Route exact path="/" component={GreetingContainer} /> */}
             <ProtectedRoute path="/users/:userId/edit" component={ProfileEditContainer} />
+            <ProtectedRoute path="/users/:userId" component={ProfileContainer} />
+        </Switch>
             {/* <ProtectedRoute path="/profile" component={Profile}/> */}
     </div>
 );

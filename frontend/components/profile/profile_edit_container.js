@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { fetchUser, updateUser } from '../../actions/user_actions';
-import ProfileEditForm from './profile';
+import ProfileEditForm from './profile_edit_form';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => ({
     user: state.entities.users[ownProps.match.params.userId]
@@ -11,4 +12,4 @@ const mapDispatchToProps = dispatch => ({
     updateUser: user => dispatch(updateUser(user))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileEditForm);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProfileEditForm));

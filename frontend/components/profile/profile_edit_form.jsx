@@ -1,4 +1,5 @@
 import React from "react";
+import { Redirect } from 'react-router-dom';
 
 class ProfileEditForm extends React.Component {
     constructor(props) {
@@ -24,6 +25,7 @@ class ProfileEditForm extends React.Component {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.updateUser(user);
+        this.props.history.push(`/users/${this.props.user.id}`)
     }
 
     update(field) {
@@ -48,7 +50,7 @@ class ProfileEditForm extends React.Component {
                         <label>First Name
                             <input
                                 className="session-form-field"
-                                type="password"
+                                type="text"
                                 onChange={this.update('fname')}
                                 value={fname}
                             />
@@ -56,7 +58,7 @@ class ProfileEditForm extends React.Component {
                         <label>Last Name
                             <input
                                 className="session-form-field"
-                                type="password"
+                                type="text"
                                 onChange={this.update('lname')}
                                 value={lname}
                             />
@@ -64,7 +66,7 @@ class ProfileEditForm extends React.Component {
                         <label>Biography
                             <input
                                 className="session-form-field"
-                                type="password"
+                                type="textarea"
                                 onChange={this.update('bio')}
                                 value={bio}
                             />
@@ -72,7 +74,7 @@ class ProfileEditForm extends React.Component {
                         <label>Birthday
                             <input
                                 className="session-form-field"
-                                type="password"
+                                type="text"
                                 onChange={this.update('birthday')}
                                 value={birthday}
                             />
