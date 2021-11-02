@@ -10,12 +10,11 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree.
  *= require_self
  */
 
 /* CSS Reset */
-/* @import 'base/reset.scss'; */
+@import 'base/reset.scss';
 
 .modal-background {
   position: fixed;
@@ -37,9 +36,9 @@
 
 .close-x {
    position: absolute;
-   top: 5px;
-   right: 5px;
-   cursor: pointer;
+//    top: 5px;
+   right: 2px;
+   cursor: default;
 }
 
 /*
