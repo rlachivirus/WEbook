@@ -57,7 +57,7 @@ class SessionForm extends React.Component {
 
         const altLink = (formType === "Login") ? (
             // <Link className="session-button" to="/signup">Sign Up</Link>
-            <button onClick={() => this.props.openModal('signup')}>Sign Up</button>
+            <span onClick={() => this.props.openModal('signup')}>Sign Up</span>
         ) : (
             // <Link className="session-button" to="/login">Log in</Link>
             null
