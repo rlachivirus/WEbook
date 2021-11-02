@@ -36,7 +36,6 @@ class SessionForm extends React.Component {
             password: 'password'
         };
         this.props.processForm(demo);
-        // this.props.login(demo);
     }
 
     render () {
@@ -55,15 +54,15 @@ class SessionForm extends React.Component {
             null
         )
 
-        const altLink = (formType === "Login") ? (
+        const altLink = (formType === "Log In") ? (
             // <Link className="session-button" to="/signup">Sign Up</Link>
-            <span onClick={() => this.props.openModal('signup')}>Sign Up</span>
+            <span onClick={() => this.props.openModal('signup')}>Create New Account</span>
         ) : (
             // <Link className="session-button" to="/login">Log in</Link>
             null
         )
 
-        const demoLogin = (formType === "Login") ? (
+        const demoLogin = (formType === "Log In") ? (
             <p>Use a demo! &nbsp;
                 <span onClick={this.demoUser}>Demo User</span>
             </p>
@@ -72,12 +71,13 @@ class SessionForm extends React.Component {
         );
 
         const firstName = (formType === 'Sign up') ? (
-            <label>First Name
+            <label>
                 <input
                 className="session-form-field"
                 type="text"
                 onChange={this.update("fname")}
                 value={fname}
+                placeholder="First Name"
                 />
             </label>
         ) : (
@@ -85,12 +85,13 @@ class SessionForm extends React.Component {
         )
 
         const lastName = (formType === 'Sign up') ? (
-            <label>Last Name
+            <label>
                 <input
                 className="session-form-field"
                 type="text"
                 onChange={this.update("lname")}
                 value={lname}
+                placeholder="Last Name"
                 />
             </label>
         ) : (
@@ -102,28 +103,31 @@ class SessionForm extends React.Component {
                     <h2 className="session-formtype">{formType}</h2>
                     <form className="session-form" onSubmit={this.handleSubmit}>
                         <div className="session-form-input">
-                            <label>Email
+                            {firstName}
+                            {lastName}
+                            <label>
                                 <input
                                 className="session-form-field"
                                 type="text"
                                 onChange={this.update('email')}
                                 value={email}
+                                placeholder="Email or Phone Number"
                                 />
                             </label>
-                            <label>Password
+                            <label>
                                 <input
                                 className="session-form-field"
                                 type="password"
                                 onChange={this.update('password')}
                                 value={password}
+                                placeholder="Password"
                                 />
                             </label>
-                            {firstName}
-                            {lastName}
                             {errorMessages}
                         </div>
-                        {altLink}
                         <button className="session-button">{formType}</button>
+                        {altLink}
+                    {/* <span onClick={() => this.props.openModal('signup')}>Create New Account</span> */}
                     </form>
                     <div className="demo-login">
                             {demoLogin}
