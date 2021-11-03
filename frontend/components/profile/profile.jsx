@@ -27,21 +27,19 @@ class Profile extends React.Component {
     handleFile(e) {
         e.preventDefault();
         // debugger
-        // return this.setState({ photoFile: e.currentTarget.files[0] })
-        const file = e.currentTarget.files[0];
-        const fileReader = new FileReader();
-        fileReader.onloadend = () => {
-            // debugger
-            this.setState({ photoFile: file, photoUrl: fileReader.result });
-        };
+        return this.setState({ photoFile: e.currentTarget.files[0] })
+        // const file = e.currentTarget.files[0];
+        // const fileReader = new FileReader();
+        // fileReader.onloadend = () => {
+        //     // debugger
+        //     this.setState({ photoFile: file, photoUrl: fileReader.result });
+        // };
         
-        if (file) {
-            // debugger
-            fileReader.readAsDataURL(file);
-        }
-        
-        // debugger
-        // this.setState({ photoFile: e.currentTarget.files[0], photoUrl: e.currentTarget.files[0] });
+        // if (file) {
+        //     // debugger
+        //     fileReader.readAsDataURL(file);
+        // }
+    
         
     }
 
@@ -62,14 +60,14 @@ class Profile extends React.Component {
         // debugger
         
         this.props.updateUser(formData);
+        this.props.history.push(`/users/${this.props.user.id}`)
     }
 
     render() {
-        const { user } = this.props;   
+        // const { user } = this.props;
         console.log(this.state)
         console.log(this.props)
         // debugger
-        // const photo = user.photoUrl ? user.photoUrl : null
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
@@ -77,14 +75,13 @@ class Profile extends React.Component {
                     <button>Upload Photo</button>
                 </form>
 
+                <img id="image" src={this.state.photoUrl} />
                 <p>{this.state.fname}</p>
                 <p>{this.state.lname}</p>
                 <p>{this.state.bio}</p>
                 <p>{this.state.birthday}</p>
-                <img id="image" src={this.state.photoUrl} />
-                {/* <img src="https://app-webook-dev.s3.amazonaws.com/9B3CQYEsxjXGtU4hfnnMNMpW" /> */}
 
-                <Link to={`/users/${user.id}/edit`}>Edit User Info!</Link>
+                <Link to={`/users/${this.state.id}/edit`}>Edit User Info!</Link>
             </div>
 
         )
