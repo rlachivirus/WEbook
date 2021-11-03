@@ -12,9 +12,12 @@ class Profile extends React.Component {
             lname: user.lname,
             bio: user.bio,
             birthday: user.birthday,
-            photoFile: null
+            photoFile: null,
+            photoUrl: user.photoUrl
         }
 
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleFile = this.handleFile.bind(this);
     }
 
     componentDidMount() {
@@ -22,7 +25,24 @@ class Profile extends React.Component {
     }
 
     handleFile(e) {
-        this.setState({photoFile: e.currentTarget.files[0]})
+        e.preventDefault();
+        // debugger
+        // return this.setState({ photoFile: e.currentTarget.files[0] })
+        const file = e.currentTarget.files[0];
+        const fileReader = new FileReader();
+        fileReader.onloadend = () => {
+            // debugger
+            this.setState({ photoFile: file, photoUrl: fileReader.result });
+        };
+        
+        if (file) {
+            // debugger
+            fileReader.readAsDataURL(file);
+        }
+        
+        // debugger
+        // this.setState({ photoFile: e.currentTarget.files[0], photoUrl: e.currentTarget.files[0] });
+        
     }
 
     handleSubmit(e) {
@@ -34,29 +54,35 @@ class Profile extends React.Component {
         formData.append('user[lname]', this.state.lname);
         formData.append('user[bio]', this.state.bio);
         formData.append('user[birthday]', this.state.birthday);
-        formData.append('user[photo]', this.state.photoFile);
+        formData.append('user[photoUrl]', this.state.photoUrl);
+        if (this.state.photoFile) {
+            // debugger
+            formData.append('user[photo]', this.state.photoFile);
+        }
         // debugger
+        
         this.props.updateUser(formData);
     }
 
     render() {
         const { user } = this.props;   
         console.log(this.state)
+        console.log(this.props)
         // debugger
         // const photo = user.photoUrl ? user.photoUrl : null
         return (
             <div>
-                <form onSubmit={this.handleSubmit.bind(this)}>
-                    <input type="file" onChange={this.handleFile.bind(this)} />
+                <form onSubmit={this.handleSubmit}>
+                    <input type="file" onChange={this.handleFile} />
                     <button>Upload Photo</button>
                 </form>
 
-                <p>{user.fname}</p>
-                <p>{user.lname}</p>
-                <p>{user.bio}</p>
-                <p>{user.birthday}</p>
-                <img src={user.photoUrl} />
-                
+                <p>{this.state.fname}</p>
+                <p>{this.state.lname}</p>
+                <p>{this.state.bio}</p>
+                <p>{this.state.birthday}</p>
+                <img id="image" src={this.state.photoUrl} />
+                {/* <img src="https://app-webook-dev.s3.amazonaws.com/9B3CQYEsxjXGtU4hfnnMNMpW" /> */}
 
                 <Link to={`/users/${user.id}/edit`}>Edit User Info!</Link>
             </div>

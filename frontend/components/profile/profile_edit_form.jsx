@@ -11,7 +11,8 @@ class ProfileEditForm extends React.Component {
             fname: user.fname,
             lname: user.lname,
             bio: user.bio,
-            birthday: user.birthday
+            birthday: user.birthday,
+            photoFile: null
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
