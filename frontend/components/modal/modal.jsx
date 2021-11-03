@@ -17,6 +17,7 @@ function Modal({ modal, closeModal }) {
     //     default:
     //         return null;
     // }
+    
     return (
         <div className="modal-background">
         {/* <div> */}
