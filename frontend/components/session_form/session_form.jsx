@@ -98,6 +98,7 @@ class SessionForm extends React.Component {
         const intro = (formType === 'Log In') ? (
             <div className="splash-intro">WEbook
                 <p>Connect with friends and the world</p>
+                <p>around you on WEbook.</p>
             </div>
         ) : (
             null
