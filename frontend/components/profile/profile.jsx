@@ -26,20 +26,17 @@ class Profile extends React.Component {
 
     handleFile(e) {
         e.preventDefault();
-        // debugger
+
         return this.setState({ photoFile: e.currentTarget.files[0] })
         // const file = e.currentTarget.files[0];
         // const fileReader = new FileReader();
         // fileReader.onloadend = () => {
-        //     // debugger
         //     this.setState({ photoFile: file, photoUrl: fileReader.result });
         // };
         
         // if (file) {
-        //     // debugger
         //     fileReader.readAsDataURL(file);
         // }
-    
         
     }
 
@@ -53,21 +50,16 @@ class Profile extends React.Component {
         formData.append('user[bio]', this.state.bio);
         formData.append('user[birthday]', this.state.birthday);
         formData.append('user[photoUrl]', this.state.photoUrl);
+
         if (this.state.photoFile) {
-            // debugger
             formData.append('user[photo]', this.state.photoFile);
         }
-        // debugger
         
         this.props.updateUser(formData);
-        this.props.history.push(`/users/${this.props.user.id}`)
     }
 
     render() {
-        // const { user } = this.props;
-        console.log(this.state)
-        console.log(this.props)
-        // debugger
+
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>

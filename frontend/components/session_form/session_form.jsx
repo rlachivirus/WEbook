@@ -30,7 +30,6 @@ class SessionForm extends React.Component {
     }
 
     demoUser(e) {   
-        // e.preventDefault();
         const demo = {
             email: 'demo@email.com',
             password: 'password'
@@ -55,17 +54,15 @@ class SessionForm extends React.Component {
         )
 
         const altLink = (formType === "Log In") ? (
-            // <Link className="session-button" to="/signup">Sign Up</Link>
-            <span onClick={() => this.props.openModal('signup')}>Create New Account</span>
+            <div className="new-account" onClick={() => this.props.openModal('signup')}>Create New Account</div>
         ) : (
-            // <Link className="session-button" to="/login">Log in</Link>
             null
         )
 
         const demoLogin = (formType === "Log In") ? (
-            <p>Use a demo! &nbsp;
-                <span onClick={this.demoUser}>Demo User</span>
-            </p>
+            // <p>Use a demo! &nbsp;
+                <div className="demo-user" onClick={this.demoUser}>Try Demo?</div>
+            // </p>
         ) : (
             null
         );
@@ -97,15 +94,26 @@ class SessionForm extends React.Component {
         ) : (
             null
         )
+
+        const intro = (formType === 'Log In') ? (
+            <div className="splash-intro">WEbook
+                <p>Connect with friends and the world</p>
+            </div>
+        ) : (
+            null
+        )
     
         return (
-            <div className="session-form-container">
-                    <h2 className="session-formtype">{formType}</h2>
-                    <form className="session-form" onSubmit={this.handleSubmit}>
-                        <div className="session-form-input">
+            <div className="splash-page">
+
+                {intro}
+                <div className="login-box">
+                    <h2>{formType === 'Sign up' ? formType : null}</h2>
+
+                    <form onSubmit={this.handleSubmit}>
+                        {/* <div className="session-form-input"> */}
                             {firstName}
                             {lastName}
-                            <label>
                                 <input
                                 className="session-form-field"
                                 type="text"
@@ -113,8 +121,7 @@ class SessionForm extends React.Component {
                                 value={email}
                                 placeholder="Email or Phone Number"
                                 />
-                            </label>
-                            <label>
+                                <br/>
                                 <input
                                 className="session-form-field"
                                 type="password"
@@ -122,17 +129,16 @@ class SessionForm extends React.Component {
                                 value={password}
                                 placeholder="Password"
                                 />
-                            </label>
+
                             {errorMessages}
-                        </div>
-                        <button className="session-button">{formType}</button>
-                        {altLink}
-                    {/* <span onClick={() => this.props.openModal('signup')}>Create New Account</span> */}
-                    </form>
-                    <div className="demo-login">
+                            <button className="session-button">{formType}</button>
                             {demoLogin}
-                        </div>
+                            <br />
+                            {altLink}
+                        {/* </div> */}
+                    </form>
                 </div>
+            </div>
         )
     }
 }

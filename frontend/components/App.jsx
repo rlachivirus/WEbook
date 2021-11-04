@@ -12,19 +12,14 @@ import ModalContainer from "./modal/modal_container";
 const App = () => (
     <div>
         <header className="header-title">
-        <h1 className="main-title">WEbook</h1>
             <ModalContainer />
         </header>
-            {/* <LoginFormContainer /> */}
             <GreetingContainer />
         <Switch>
-            {/* <AuthRoute path="/login" component={LoginFormContainer} /> */}
-            {/* <Route path="/" component={GreetingContainer} /> */}
             <AuthRoute path="/signup" component={SignupFormContainer} />
             <ProtectedRoute path="/users/:userId/edit" component={ProfileEditContainer} />
             <ProtectedRoute path="/users/:userId" component={ProfileContainer} />
         </Switch>
-            {/* <ProtectedRoute path="/profile" component={Profile}/> */}
     </div>
 );
 

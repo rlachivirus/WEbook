@@ -15,13 +15,6 @@ class Greeting extends React.Component {
 
             </div>
         ) : (
-            // <div className="greeting-loggedOut">
-                // <Link className="greeting-button" to="/signup">Sign Up</Link>
-            //     <Link className="greeting-button" to="/login">Log In</Link>
-            //     <button onClick={() => openModal('login')}>Login</button>
-            //     {/* &nbsp;or&nbsp; */}
-                // <button onClick={() => openModal('signup')}>Signup</button>
-            // </div>
             <LoginFormContainer />
             )
 
