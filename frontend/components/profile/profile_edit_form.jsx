@@ -43,7 +43,6 @@ class ProfileEditForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        debugger
         this.props.updateUser(user);
         this.props.history.push(`/users/${this.state.id}`)
     }
@@ -73,7 +72,6 @@ class ProfileEditForm extends React.Component {
     render() {
         const { email, fname, lname, bio, birthday } = this.state;
 
-        console.log(this.state)
         return (
             <div>
                 <form onSubmit={this.handlePhotoSubmit}>

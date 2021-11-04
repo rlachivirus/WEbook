@@ -54,7 +54,7 @@ class SessionForm extends React.Component {
         )
 
         const altLink = (formType === "Log In") ? (
-            <div className="new-account" onClick={() => this.props.openModal('signup')}>Create New Account</div>
+            <div className="new-account" onClick={() => this.props.openModal('signup')}>Create new account</div>
         ) : (
             null
         )
@@ -96,7 +96,8 @@ class SessionForm extends React.Component {
         )
 
         const intro = (formType === 'Log In') ? (
-            <div className="splash-intro">WEbook
+            <div className="splash-intro">
+                <p>WEbook</p>
                 <p>Connect with friends and the world</p>
                 <p>around you on WEbook.</p>
             </div>
@@ -120,7 +121,7 @@ class SessionForm extends React.Component {
                                 type="text"
                                 onChange={this.update('email')}
                                 value={email}
-                                placeholder="Email or Phone Number"
+                                placeholder="Email or phone number"
                                 />
                                 <br/>
                                 <input
@@ -134,7 +135,8 @@ class SessionForm extends React.Component {
                             {errorMessages}
                             <button className="session-button">{formType}</button>
                             {demoLogin}
-                            <br />
+                            <br/>
+                            <hr/>
                             {altLink}
                         {/* </div> */}
                     </form>
