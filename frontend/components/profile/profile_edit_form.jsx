@@ -12,21 +12,58 @@ class ProfileEditForm extends React.Component {
             lname: user.lname,
             bio: user.bio,
             birthday: user.birthday,
-            photoFile: null
+            photoFile: null,
         }
 
+        this.handlePhotoSubmit = this.handlePhotoSubmit.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleFile = this.handleFile.bind(this);
     }
 
     componentDidMount() {
-        this.props.fetchUser(this.props.user.id);
+        this.props.fetchUser(this.state.id);
+    }
+
+    handleFile(e) {
+        e.preventDefault();
+
+        return this.setState({ photoFile: e.currentTarget.files[0] })
+        // const file = e.currentTarget.files[0];
+        // const fileReader = new FileReader();
+        // fileReader.onloadend = () => {
+        //     this.setState({ photoFile: file, photoUrl: fileReader.result });
+        // };
+
+        // if (file) {
+        //     fileReader.readAsDataURL(file);
+        // }
+
     }
 
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
+        debugger
         this.props.updateUser(user);
-        this.props.history.push(`/users/${this.props.user.id}`)
+        this.props.history.push(`/users/${this.state.id}`)
+    }
+
+    handlePhotoSubmit(e) {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('user[id]', this.state.id);
+        formData.append('user[email]', this.state.email);
+        formData.append('user[fname]', this.state.fname);
+        formData.append('user[lname]', this.state.lname);
+        formData.append('user[bio]', this.state.bio);
+        formData.append('user[birthday]', this.state.birthday);
+
+        if (this.state.photoFile) {
+            formData.append('user[photo]', this.state.photoFile);
+        }
+
+        this.props.updateUserPhoto(formData);
+        this.props.history.push(`/users/${this.state.id}`)
     }
 
     update(field) {
@@ -36,8 +73,14 @@ class ProfileEditForm extends React.Component {
     render() {
         const { email, fname, lname, bio, birthday } = this.state;
 
+        console.log(this.state)
         return (
             <div>
+                <form onSubmit={this.handlePhotoSubmit}>
+                    <input type="file" onChange={this.handleFile} />
+                    <button>Upload Photo</button>
+                </form>
+
                 <form className="session-form" onSubmit={this.handleSubmit}>
                     <div className="session-form-input">
                         <label>Email
@@ -85,7 +128,7 @@ class ProfileEditForm extends React.Component {
                     <button className="button">Submit Changes</button>
                     </div>
                     <div>
-                    <Link to={`users/${this.props.user.id}`}>Cancel</Link>
+                    <Link to={`users/${this.state.id}`}>Cancel</Link>
                     </div>
                 </form>
             </div>

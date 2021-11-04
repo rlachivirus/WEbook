@@ -12,7 +12,15 @@ export const fetchUser = (userId) => (
     })
 );
 
-export const updateUser = (formData) => (
+export const updateUser = (user) => (
+    $.ajax({
+        method: 'PATCH',
+        url: `/api/users/${user.id}`,
+        data: {user}
+    })
+)
+
+export const updateUserPhoto = (formData) => (
     $.ajax({
         method: 'PATCH',
         url: `/api/users/${parseInt(formData.get('user[id]'))}`,

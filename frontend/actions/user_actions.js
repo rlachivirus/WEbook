@@ -23,7 +23,12 @@ export const fetchUser = userId => dispatch => (
         .then(user => dispatch(receiveUser(user)))
 )
 
-export const updateUser = formData => dispatch => (
-    UsersUtil.updateUser(formData)
+export const updateUser = user => dispatch => (
+    UsersUtil.updateUser(user)
+        .then(user => dispatch(receiveUser(user)))
+)
+
+export const updateUserPhoto = formData => dispatch => (
+    UsersUtil.updateUserPhoto(formData)
         .then(user => dispatch(receiveUser(user)))
 )
