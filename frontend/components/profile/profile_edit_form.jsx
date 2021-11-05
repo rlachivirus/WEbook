@@ -44,7 +44,7 @@ class ProfileEditForm extends React.Component {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.updateUser(user);
-        this.props.history.push(`/users/${this.state.id}`)
+        this.props.history.push(`/users/${this.state.id}`);
     }
 
     handlePhotoSubmit(e) {

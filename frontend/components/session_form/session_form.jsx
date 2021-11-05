@@ -22,7 +22,8 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.processForm(user);
+        this.props.processForm(user)
+            .then(this.props.closeModal);
     }
 
     update(field) {
@@ -110,6 +111,17 @@ class SessionForm extends React.Component {
             null
         )
 
+        const footer = (formType === 'Log In') ? (
+            <div className="footer">
+                This is where my github, linkedin, etc logos go
+                and my info.
+            </div>
+        ) : (
+            null
+        );
+
+            console.log(this.props)
+            console.log(this.state)
         return (
             <div className="splash-page">
 
@@ -143,10 +155,7 @@ class SessionForm extends React.Component {
                         {altLink}
                     </form>
                 </div>
-                <div className="footer">
-                    This is where my github, linkedin, etc logos go
-                    and my info.
-                </div>
+                {footer}
             </div>
         )
     }
