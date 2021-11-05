@@ -11,9 +11,9 @@ import ModalContainer from "./modal/modal_container";
 
 const App = () => (
     <div>
-        <header className="header-title">
+        {/* <header className="header-title"> */}
             <ModalContainer />
-        </header>
+        {/* </header> */}
             <GreetingContainer />
         <Switch>
             <AuthRoute path="/signup" component={SignupFormContainer} />

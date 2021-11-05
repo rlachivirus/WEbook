@@ -67,30 +67,26 @@ class SessionForm extends React.Component {
             null
         );
 
-        const firstName = (formType === 'Sign up') ? (
-            <label>
+        const firstName = (formType === 'Sign Up') ? (
                 <input
-                className="session-form-field"
+                className="fname-field"
                 type="text"
                 onChange={this.update("fname")}
                 value={fname}
                 placeholder="First Name"
                 />
-            </label>
         ) : (
             null
         )
 
-        const lastName = (formType === 'Sign up') ? (
-            <label>
+        const lastName = (formType === 'Sign Up') ? (
                 <input
-                className="session-form-field"
+                className="lname-field"
                 type="text"
                 onChange={this.update("lname")}
                 value={lname}
                 placeholder="Last Name"
                 />
-            </label>
         ) : (
             null
         )
@@ -109,36 +105,32 @@ class SessionForm extends React.Component {
             <div className="splash-page">
 
                 {intro}
-                <div className="login-box">
-                    <h2>{formType === 'Sign up' ? formType : null}</h2>
+                <div className={ formType === 'Log In' ? "login-box" : "signup-box" }>
+                    <h2>{formType === 'Sign Up' ? formType : null}</h2>
 
                     <form onSubmit={this.handleSubmit}>
-                        {/* <div className="session-form-input"> */}
-                            {firstName}
-                            {lastName}
-                                <input
-                                className="session-form-field"
-                                type="text"
-                                onChange={this.update('email')}
-                                value={email}
-                                placeholder="Email or phone number"
-                                />
-                                <br/>
-                                <input
-                                className="session-form-field"
-                                type="password"
-                                onChange={this.update('password')}
-                                value={password}
-                                placeholder="Password"
-                                />
-
-                            {errorMessages}
-                            <button className="session-button">{formType}</button>
-                            {demoLogin}
+                        {firstName}
+                        {lastName}
+                            <input
+                            type="text"
+                            onChange={this.update('email')}
+                            value={email}
+                            placeholder="Email or phone number"
+                            />
                             <br/>
-                            <hr/>
-                            {altLink}
-                        {/* </div> */}
+                            <input
+                            type="password"
+                            onChange={this.update('password')}
+                            value={password}
+                            placeholder="Password"
+                            />
+
+                        {errorMessages}
+                        <button>{formType}</button>
+                        {demoLogin}
+                        <br/>
+                        <hr/>
+                        {altLink}
                     </form>
                 </div>
             </div>
