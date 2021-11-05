@@ -90,7 +90,11 @@
         text-decoration: underline;
     }
 
-    hr {
+    .hr-top {
+        display: none;
+    }
+    
+    .hr-bottom {
         margin: auto;
         width: 365px;
         color: rgb(212, 212, 212);
@@ -114,4 +118,15 @@
         background-color: rgba($color: #44a537, $alpha: 1.0);
     }
 
+}
+
+.footer {
+    position: absolute;
+    width: 100vw;
+    height: 178px;
+    top: 586px;
+    background-color: white;
+    border: 1.5px solid white;
+    box-shadow: 0 0 7px rgb(207, 207, 207), 0 0 10px rgb(238, 238, 238), 0 0 21px #f6f9fc;
+    text-align: center;
 }

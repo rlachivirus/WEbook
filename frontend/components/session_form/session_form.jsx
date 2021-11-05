@@ -60,9 +60,7 @@ class SessionForm extends React.Component {
         )
 
         const demoLogin = (formType === "Log In") ? (
-            // <p>Use a demo! &nbsp;
                 <div className="demo-user" onClick={this.demoUser}>Try Demo?</div>
-            // </p>
         ) : (
             null
         );
@@ -100,13 +98,25 @@ class SessionForm extends React.Component {
         ) : (
             null
         )
-    
+
+        const signupIntro = (formType === 'Sign Up') ? (
+            <div className='signup-intro'>
+                <h2>{formType}</h2>
+                <p>It's quick and easy.</p>
+                <hr className="hr-top" />
+                <div onClick={this.props.closeModal} className="close-x">X</div>
+            </div>
+        ) : (
+            null
+        )
+
         return (
             <div className="splash-page">
 
                 {intro}
                 <div className={ formType === 'Log In' ? "login-box" : "signup-box" }>
-                    <h2>{formType === 'Sign Up' ? formType : null}</h2>
+                    {/* <h2>{formType === 'Sign Up' ? formType : null}</h2> */}
+                    {signupIntro}
 
                     <form onSubmit={this.handleSubmit}>
                         {firstName}
@@ -129,9 +139,13 @@ class SessionForm extends React.Component {
                         <button>{formType}</button>
                         {demoLogin}
                         <br/>
-                        <hr/>
+                        <hr className="hr-bottom" />
                         {altLink}
                     </form>
+                </div>
+                <div className="footer">
+                    This is where my github, linkedin, etc logos go
+                    and my info.
                 </div>
             </div>
         )
