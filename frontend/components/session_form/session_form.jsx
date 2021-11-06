@@ -113,15 +113,13 @@ class SessionForm extends React.Component {
 
         const footer = (formType === 'Log In') ? (
             <div className="footer">
-                This is where my github, linkedin, etc logos go
-                and my info.
+                This is where my github, linkedin, etc logos
+                and my info will go.
             </div>
         ) : (
             null
         );
 
-            console.log(this.props)
-            console.log(this.state)
         return (
             <div className="splash-page">
 
