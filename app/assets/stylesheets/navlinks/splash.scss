@@ -1,0 +1,132 @@
+* {
+    background: rgba($color: #f6f9fc, $alpha: 1.0);
+}
+
+.splash-page {
+    position: relative;
+    top: 133px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    // height: 100vh;
+    // width: 100vw;
+}
+
+.splash-intro {
+    position: relative;
+    top: -35px;
+    left: 3px;
+
+
+    p:first-child {
+        font-size: 63px;
+        font-weight: 800;
+        color: rgba($color: #1475f3, $alpha: 1.0);
+    }
+
+    p {
+        font-size: 30px;
+        font-weight: 500;
+    }
+}
+
+.login-box {
+    border: 1.5px solid white;
+    background-color: white;
+    box-shadow: 0 0 7px rgb(207, 207, 207), 0 0 10px rgb(238, 238, 238), 0 0 21px #fff;
+    height: 350px;
+    width: 400px;
+    border-radius: 10px;
+    padding: 2px;
+
+    * {
+        background-color: white;
+    }
+
+    input {
+        border: 1.5px solid rgb(212, 212, 212);
+        font-size: 20px;
+        padding: 10px;
+        width: 372px;
+        margin: 10px;
+        border-radius: 10px;
+
+    }
+
+    input:focus::placeholder {
+        color: rgba($color: #c4c4c4, $alpha: 1.0);
+    }
+
+    button {
+        background-color: rgba($color: #1475f3, $alpha: 1.0);
+        border-radius: 10px;
+        font-size: 20px;
+        font-weight: 600;
+        color: white;
+        padding: 10px;
+        width: 372px;
+        margin: 10px;
+        text-align: center;
+    }
+
+    button:hover {
+        background-color: rgba($color: #066cf3, $alpha: 1.0);
+    }
+
+    .demo-user {
+        font-size: 14px;
+        padding: 10px;
+        width: 65px;
+        margin: auto;
+        margin-top: 10px;
+        padding: 0;
+        text-align: center;
+        cursor: pointer;
+        color: rgba($color: #1475f3, $alpha: 1.0);;
+    }
+
+    .demo-user:hover {
+        text-decoration: underline;
+    }
+
+    .hr-top {
+        display: none;
+    }
+    
+    .hr-bottom {
+        margin: auto;
+        width: 365px;
+        color: rgb(212, 212, 212);
+    }
+
+    .new-account {
+        background-color: rgba($color: #4bb93c, $alpha: 1.0);
+        border-radius: 10px;
+        font-size: 20px;
+        font-weight: 600;
+        color: white;
+        padding: 10px;
+        width: 200px;
+        margin: auto;
+        margin-top: 30px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .new-account:hover {
+        background-color: rgba($color: #44a537, $alpha: 1.0);
+    }
+
+}
+
+.footer {
+    position: absolute;
+    width: 100vw;
+    height: 178px;
+    top: 586px;
+    background-color: white;
+    border: 1.5px solid white;
+    box-shadow: 0 0 7px rgb(207, 207, 207), 0 0 10px rgb(238, 238, 238), 0 0 21px #f6f9fc;
+    text-align: center;
+}

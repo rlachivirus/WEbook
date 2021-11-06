@@ -1,15 +1,17 @@
 class User < ApplicationRecord
 
-    attr_reader :password
+  attr_reader :password
     
-  validates :password_digest, :session_token, presence: true
+  validates :fname, :lname, :password_digest, :session_token, presence: true
   validates :email, presence: true, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
   validates_format_of :email, :with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, uniqueness: true
 
   after_initialize :ensure_session_token
 
-def self.find_by_credentials(email, password)
+  has_one_attached :photo
+
+  def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     return nil unless user
     user.is_password?(password) ? user : nil

@@ -6,7 +6,9 @@ class SessionForm extends React.Component {
         super(props);
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            fname: '',
+            lname: ''
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -20,7 +22,8 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.processForm(user);
+        this.props.processForm(user)
+            .then(this.props.closeModal);
     }
 
     update(field) {
@@ -28,7 +31,6 @@ class SessionForm extends React.Component {
     }
 
     demoUser(e) {   
-        // e.preventDefault();
         const demo = {
             email: 'demo@email.com',
             password: 'password'
@@ -38,7 +40,7 @@ class SessionForm extends React.Component {
 
     render () {
         const { errors, formType } = this.props;
-        const { email, password } = this.state;
+        const { email, password, fname, lname } = this.state;
 
         const errorMessages = errors ? (
             <div className="session-error">
@@ -52,49 +54,106 @@ class SessionForm extends React.Component {
             null
         )
 
-        const altLink = (formType === "Login") ? (
-            <Link className="session-button" to="/signup">Sign Up</Link>
+        const altLink = (formType === "Log In") ? (
+            <div className="new-account" onClick={() => this.props.openModal('signup')}>Create new account</div>
         ) : (
-            <Link className="session-button" to="/login">Log in</Link>
+            null
         )
 
-        const demoLogin = (formType === "Login") ? (
-            <p>Use a demo! &nbsp;
-                <span onClick={this.demoUser}>Demo User</span>
-            </p>
+        const demoLogin = (formType === "Log In") ? (
+                <div className="demo-user" onClick={this.demoUser}>Try Demo?</div>
+        ) : (
+            null
+        );
+
+        const firstName = (formType === 'Sign Up') ? (
+                <input
+                className="fname-field"
+                type="text"
+                onChange={this.update("fname")}
+                value={fname}
+                placeholder="First Name"
+                />
+        ) : (
+            null
+        )
+
+        const lastName = (formType === 'Sign Up') ? (
+                <input
+                className="lname-field"
+                type="text"
+                onChange={this.update("lname")}
+                value={lname}
+                placeholder="Last Name"
+                />
+        ) : (
+            null
+        )
+
+        const intro = (formType === 'Log In') ? (
+            <div className="splash-intro">
+                <p>WEbook</p>
+                <p>Connect with friends and the world</p>
+                <p>around you on WEbook.</p>
+            </div>
+        ) : (
+            null
+        )
+
+        const signupIntro = (formType === 'Sign Up') ? (
+            <div className='signup-intro'>
+                <h2>{formType}</h2>
+                <p>It's quick and easy.</p>
+                <hr className="hr-top" />
+                <div onClick={this.props.closeModal} className="close-x">X</div>
+            </div>
+        ) : (
+            null
+        )
+
+        const footer = (formType === 'Log In') ? (
+            <div className="footer">
+                This is where my github, linkedin, etc logos
+                and my info will go.
+            </div>
         ) : (
             null
         );
 
         return (
-            <div className="session-form-container">
-                <h2 className="session-formtype">{formType}</h2>
-                <form className="session-form" onSubmit={this.handleSubmit}>
-                    <div className="session-form-input">
-                        <label>Email
+            <div className="splash-page">
+
+                {intro}
+                <div className={ formType === 'Log In' ? "login-box" : "signup-box" }>
+                    {/* <h2>{formType === 'Sign Up' ? formType : null}</h2> */}
+                    {signupIntro}
+
+                    <form onSubmit={this.handleSubmit}>
+                        {firstName}
+                        {lastName}
                             <input
-                            className="session-form-field"
                             type="text"
                             onChange={this.update('email')}
                             value={email}
+                            placeholder="Email or phone number"
                             />
-                        </label>
-                        <label>Password
+                            <br/>
                             <input
-                            className="session-form-field"
                             type="password"
                             onChange={this.update('password')}
                             value={password}
+                            placeholder="Password"
                             />
-                        </label>
+
                         {errorMessages}
-                    </div>
-                    {altLink}
-                    <button className="session-button">{formType}</button>
-                </form>
-                <div className="demo-login">
+                        <button>{formType}</button>
                         {demoLogin}
-                    </div>
+                        <br/>
+                        <hr className="hr-bottom" />
+                        {altLink}
+                    </form>
+                </div>
+                {footer}
             </div>
         )
     }
