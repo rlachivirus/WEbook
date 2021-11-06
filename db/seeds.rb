@@ -9,7 +9,7 @@
 User.destroy_all
 ApplicationRecord.connection.reset_pk_sequence!('users')
 
-demoUser = User.create(
+demoUser = User.create!(
     email: 'demo@email.com',
     password: 'password',
     fname: 'Peter',
