@@ -13,15 +13,10 @@
  *= require_self
  */
 
-/* CSS Reset */
-<<<<<<< HEAD:app/assets/stylesheets/application.css
-/* @import 'base/reset.scss'; */
-=======
 @import 'base/reset.scss';
 @import 'base/font.scss';
 @import 'navlinks/splash.scss';
 @import 'navlinks/signup.scss';
->>>>>>> profile:app/assets/stylesheets/application.scss
 
 /*
 .header-title {
