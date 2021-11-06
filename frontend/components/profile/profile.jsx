@@ -22,6 +22,7 @@ class Profile extends React.Component {
                 <p>{user.lname}</p>
                 <p>{user.bio}</p>
                 <p>{user.birthday}</p>
+                <ul></ul>
 
                 <Link to={`/users/${user.id}/edit`}>Edit User Info!</Link>
             </div>
