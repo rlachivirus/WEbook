@@ -16,7 +16,7 @@ const App = () => (
         {/* </header> */}
             <GreetingContainer />
         <Switch>
-            {/* <AuthRoute path="/signup" component={SignupFormContainer} /> */}
+            <AuthRoute path="/signup" component={SignupFormContainer} />
             <ProtectedRoute path="/users/:userId/edit" component={ProfileEditContainer} />
             <ProtectedRoute path="/users/:userId" component={ProfileContainer} />
         </Switch>
