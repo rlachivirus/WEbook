@@ -45,8 +45,7 @@ class SessionForm extends React.Component {
         const errorMessages = errors ? (
             <div className="session-error">
                 <ul>
-                    {this.props.errors.map((error, idx) => <li key={idx}>{error}</li>)}
-                    {console.log(this.props.errors)}
+                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
             </div>
         ) : (
@@ -119,7 +118,6 @@ class SessionForm extends React.Component {
             null
         );
 
-        console.log(this.props)
         return (
             <div className="splash-page">
 
