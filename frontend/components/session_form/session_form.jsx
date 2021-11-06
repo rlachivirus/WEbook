@@ -45,8 +45,8 @@ class SessionForm extends React.Component {
         const errorMessages = errors ? (
             <div className="session-error">
                 <ul>
-                    {errors.map(error => 
-                        <li>{error}</li>
+                    {errors.map((error, idx) => 
+                        <li key={idx}>{error}</li>
                     )}
                 </ul>
             </div>
