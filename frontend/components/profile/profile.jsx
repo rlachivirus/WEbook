@@ -5,12 +5,15 @@ class Profile extends React.Component {
 
     componentDidMount() {
         this.props.fetchUser(this.props.user.id);
-        // this.props.fetchUsers();
     }
 
     render() {
         const { user } = this.props;
 
+        if (!user) {
+            return null
+        }
+        
         return (
             <div>
                 {/* <form onSubmit={this.handlePhotoSubmit}>
@@ -23,13 +26,13 @@ class Profile extends React.Component {
                 <p>{user.lname}</p>
                 <p>{user.bio}</p>
                 <p>{user.birthday}</p>
+                <Link to={`/users/${user.id}/edit`}>Edit User Info!</Link>
 
                     {user.friends.map(friend =>
                         <img src={friend.photoUrl} />
                     )}
 
 
-                <Link to={`/users/${user.id}/edit`}>Edit User Info!</Link>
             </div>
 
         )
