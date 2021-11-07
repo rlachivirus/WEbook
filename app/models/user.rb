@@ -10,9 +10,13 @@ class User < ApplicationRecord
 
   has_one_attached :photo
 
-  has_many :friends,
+  has_many :friend_lists,
     foreign_key: :user_id,
     class_name: :Friend
+
+  has_many :friends,
+    through: :friend_lists,
+    source: :friend
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

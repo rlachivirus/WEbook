@@ -5,6 +5,7 @@ class Profile extends React.Component {
 
     componentDidMount() {
         this.props.fetchUser(this.props.user.id);
+        // this.props.fetchUsers();
     }
 
     render() {
@@ -12,17 +13,21 @@ class Profile extends React.Component {
 
         return (
             <div>
-                <form onSubmit={this.handlePhotoSubmit}>
+                {/* <form onSubmit={this.handlePhotoSubmit}>
                     <input type="file" onChange={this.handleFile} />
                     <button>Upload Photo</button>
-                </form>
+                </form> */}
 
                 <img src={user.photoUrl} />
                 <p>{user.fname}</p>
                 <p>{user.lname}</p>
                 <p>{user.bio}</p>
                 <p>{user.birthday}</p>
-                <ul></ul>
+
+                    {user.friends.map(friend =>
+                        <img src={friend.photoUrl} />
+                    )}
+
 
                 <Link to={`/users/${user.id}/edit`}>Edit User Info!</Link>
             </div>
