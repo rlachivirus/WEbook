@@ -7,7 +7,7 @@ end
 json.friends user.friends.each do |friend| 
     json.extract! friend, :id
 
-    if friend.photo.attached?
-        json.photoUrl url_for(friend.photo)
-    end
+    # if friend.photo.attached?
+    #     json.photoUrl url_for(friend.photo)
+    # end
 end

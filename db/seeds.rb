@@ -59,36 +59,31 @@ friend2 = Friend.create!(
 )
 
 friend3 = Friend.create!(
-    user_id: 1,
-    friend_id: 4
+    user_id: 2,
+    friend_id: 1
 )
 
 friend4 = Friend.create!(
     user_id: 2,
-    friend_id: 3
+    friend_id: 4
 )
 
 friend5 = Friend.create!(
-    user_id: 2,
-    friend_id: 4
+    user_id: 3,
+    friend_id: 1
 )
 
 friend6 = Friend.create!(
     user_id: 3,
-    friend_id: 2
-)
-
-friend7 = Friend.create!(
-    user_id: 3,
     friend_id: 4
 )
 
-friend8 = Friend.create!(
+friend7 = Friend.create!(
     user_id: 4,
     friend_id: 2
 )
 
-friend9 = Friend.create!(
+friend8 = Friend.create!(
     user_id: 4,
     friend_id: 3
 )

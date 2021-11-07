@@ -1,0 +1,20 @@
+.profile-picture {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    // background-size: 10px;
+}
+
+.profile-edit {
+    border: 2px solid black;
+}
+
+.user-friends {
+    border: 2px solid black;
+
+    .user-friend {
+        height: 50px;
+        width: auto;
+        // background-size: 10px;
+    }
+}
