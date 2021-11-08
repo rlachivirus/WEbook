@@ -19,8 +19,11 @@ class Profile extends React.Component {
         return (
             <div>
                 <div className="profile-background">
+                    <div className="background-layer"></div>
                     <div className="cover-photo"></div>
                     <img className="profile-picture" src={user.photoUrl} />
+                    <div className="profile-fixed-bar"></div>
+                    <div className="profile-nav-bar"></div>
                 </div>
 
                 <div className="middle-page">

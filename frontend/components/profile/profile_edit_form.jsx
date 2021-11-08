@@ -73,7 +73,7 @@ class ProfileEditForm extends React.Component {
         const { email, fname, lname, bio, birthday } = this.state;
 
         return (
-            <div>
+            <div className="profile-edit-form">
                 <form onSubmit={this.handlePhotoSubmit}>
                     <input type="file" onChange={this.handleFile} />
                     <button>Upload Photo</button>
