@@ -7,6 +7,7 @@ import LoginFormContainer from './session_form/login_form_container';
 import ProfileContainer from "./profile/profile_container";
 import ProfileEditContainer from "./profile/profile_edit_container";
 import ModalContainer from "./modal/modal_container";
+import FriendContainer from "./friend/friend_container";
 
 
 const App = () => (
@@ -18,6 +19,7 @@ const App = () => (
         <Switch>
             {/* <AuthRoute path="/signup" component={SignupFormContainer} /> */}
             <ProtectedRoute path="/users/:userId/edit" component={ProfileEditContainer} />
+            {/* <ProtectedRoute path="/users/:userId/friends" component={FriendContainer} /> */}
             <ProtectedRoute path="/users/:userId" component={ProfileContainer} />
         </Switch>
     </div>

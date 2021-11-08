@@ -1,7 +1,10 @@
-export const createFriend = () => (
+export const createFriend = (formData) => (
     $.ajax({
         method: 'POST',
-        url: `/api/friends`
+        url: `/api/friends`,
+        data: formData,
+        contentType: false,
+        processData: false
     })
 );
 

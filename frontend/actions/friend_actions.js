@@ -13,12 +13,12 @@ export const removeFriend = (friendId) => ({
     friendId
 });
 
-export const createFriend = () => dispatch => (
-    FriendsUtil.createFriend()
+export const createFriend = (formData) => dispatch => (
+    FriendsUtil.createFriend(formData)
         .then((friend) => dispatch(addFriend(friend)))
 )
 
 export const deleteFriend = (friendId) => dispatch => (
     FriendsUtil.deleteFriend(friendId)
-        .then((friendId) => dispatch(removeFriend(friendId)))
+        .then(() => dispatch(removeFriend(friendId)))
 )

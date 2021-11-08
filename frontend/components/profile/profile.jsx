@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom'
+import FriendContainer from '../friend/friend_container';
 
 class Profile extends React.Component {
 
@@ -16,6 +17,7 @@ class Profile extends React.Component {
         }
         const friendsIds = [];
 
+        // debugger
         return (
             <div>
                 <div className="profile-background">
@@ -25,6 +27,8 @@ class Profile extends React.Component {
                     <div className="profile-fixed-bar"></div>
                     <div className="profile-nav-bar"></div>
                 </div>
+
+                <FriendContainer />
 
                 <div className="middle-page">
                     <div className="middle-left-side">
