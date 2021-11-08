@@ -48,8 +48,9 @@
 
     .profile-fixed-bar {
         position: fixed;
-        border: 2px solid red;
-        height: 70px;
+        // border: 2px solid red;
+        background-color: red;
+        height: 65px;
         width: 100%;
         top: 60px;
         z-index: 3;
@@ -57,7 +58,7 @@
 
     .profile-nav-bar {
         position: relative;
-        border: 2px solid blue;
+        // border: 2px solid blue;
         height: 65px;
         width: 100%;
         top: 555px;

@@ -4,13 +4,20 @@ import LoginFormContainer from "../session_form/login_form_container";
 
 class Greeting extends React.Component {
 
+    scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+
     render () {
         const { currentUser, logout, openModal } = this.props;
         const greeting = currentUser ? (
             <div className="greeting-header">
                 {/* <p className="greeting-welcome">Welcome, {currentUser.fname}</p> */}
                 <Link className="we-button" to="/">LOGO HERE</Link>
-                <Link className="profile-button" to={`/users/${currentUser.id}`}>Profile</Link>
+                <Link className="profile-button" to={`/users/${currentUser.id}`} onClick={this.scrollToTop}>Profile</Link>
                 <button className="greeting-button" onClick={() => logout()}>Logout</button>
 
             </div>
