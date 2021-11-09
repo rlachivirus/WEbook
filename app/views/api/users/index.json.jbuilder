@@ -6,7 +6,7 @@
         #     json.extract! friend, :id
         # end
 
-        json.friends user.friends, :id
+        json.friends user.friend_lists, :id, :user_id, :friend_id
 
         if user.photo.attached?
             json.photoUrl url_for(user.photo)

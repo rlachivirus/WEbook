@@ -51,7 +51,7 @@ class Profile extends React.Component {
                         <div className="user-friends">
                             <p>Friends</p>
 
-                            {user.friends.forEach(friend => friendsIds.push(friend.id))}
+                            {user.friends.forEach(friend => friendsIds.push(friend.friend_id))}
                             {Object.values(this.props.users).map(friend => {
                                 if (user.id !== friend.id && friendsIds.includes(friend.id)) {
                                     return <Link to={`/users/${friend.id}`} onClick={() => window.scrollTo(0, 0)}><img className="user-friend" src={friend.photoUrl} /></Link>

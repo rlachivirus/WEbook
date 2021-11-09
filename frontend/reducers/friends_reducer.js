@@ -6,8 +6,8 @@ const friendsReducer = (state = {}, action) => {
 
     switch (action.type) {
         case ADD_FRIEND:
-            // nextState[action.friend.id] = action.friend;
-            nextState.table = action.friend;
+            nextState[action.friend.id] = action.friend;
+            // nextState.table = action.friend;
             return nextState;
         case REMOVE_FRIEND:
             delete nextState[action.friendId];
