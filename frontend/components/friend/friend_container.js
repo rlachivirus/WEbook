@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import Friend from './friend';
 
 const mapStateToProps = (state, ownProps) => ({
+    friends: state.entities.friends.table,
     friendId: parseInt(ownProps.match.params.userId),
     currentUserId: state.session.id
 })

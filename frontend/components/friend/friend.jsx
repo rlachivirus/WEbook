@@ -4,31 +4,46 @@ import { Link } from 'react-router-dom'
 class Friend extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.props;
+        // const { friends } = this.props;
+        this.state = {
+            // id: this.props.friends.id,
+            currentUserId: this.props.currentUserId,
+            friendId: this.props.friendId,
+            status: "Add Friend"
+        }
 
         this.handleClick = this.handleClick.bind(this)
     }
-    handleClick = (e) => {
+    handleClick(e) {
         e.preventDefault();
         const formData = new FormData();
-        formData.append('friend[user_id]', this.state.currentUserId);
-        formData.append('friend[friend_id]', this.state.friendId);
-        for (var pair of formData.entries()) {
-            console.log(pair[0], pair[1]);
+        formData.append('friend[user_id]', this.props.currentUserId);
+        formData.append('friend[friend_id]', this.props.friendId);
+        // for (var pair of formData.entries()) {
+        //     console.log(pair[0], pair[1]);
+        // }
+
+        if (this.state.status === "Add Friend") {
+            this.props.createFriend(formData)
+            debugger
+            this.setState({ status: "Friends" })
+        } else {
+            debugger
+            this.props.deleteFriend(this.props.friends.id)
+            this.setState({ status: "Add Friend" })
         }
-        // debugger
-        this.props.createFriend(formData);
-        // debugger
-        // this.props.history.push(`/users/${this.state.id}`)
+
     }
 
     render() {
-        console.log(this.state)
-        // debugger
+        console.log(this.state);
+        console.log(this.props);
+        console.log(this.props.friends)
+
         return (
             <div>
-                <p>{this.state.friendId}</p>
-                <p>{this.state.currentUserId}</p>
+                <p>{this.props.friendId}</p>
+                <p>{this.props.currentUserId}</p>
                 <span onClick={this.handleClick}>Friend Me</span>
             </div>
         )
