@@ -62,6 +62,8 @@ class Friend extends React.Component {
         if (friender && friendee) {
             this.props.deleteFriend(friender)
             this.props.deleteFriend(friendee)
+        } else if (currentUserId === friendId) {
+            null
         } else {
             this.props.createFriend(formData1)
             this.props.createFriend(formData2)
@@ -70,14 +72,30 @@ class Friend extends React.Component {
     }
 
     render() {
+        const { currentUserId, friendId } = this.props;
+
+        let friender;
+        Object.values(this.props.friends).forEach(table => {
+            if ((table.user_id === currentUserId) && (table.friend_id === friendId)) {
+                friender = table.id;
+            }
+        })
+
+        let friendee;
+        Object.values(this.props.friends).forEach(table => {
+            if ((table.user_id === friendId) && (table.friend_id === currentUserId)) {
+                friendee = table.id;
+            }
+        })
+
+        // const buttonName = if (this.props.friends[friendee].status === "Friends") {
+            
+        // }
         return (
-            <div>
-                <p>{this.props.friendId}</p>
-                <p>{this.props.currentUserId}</p>
-                <span onClick={this.handleClick}>Friend Me</span>
+            <div className="friend-button"
+                onClick={this.handleClick}>{friender && friendee ? "Friends" : currentUserId === friendId ? "Add to Story" : "Add Friend"}
             </div>
         )
-        
         }
 }
 

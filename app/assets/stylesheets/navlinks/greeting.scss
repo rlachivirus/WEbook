@@ -1,6 +1,7 @@
 .greeting-header {
     position: fixed;
-    border: 2px solid black;
+    // border: 2px solid black;
+    box-shadow: 0 0 5px rgb(207, 207, 207);
     height: 60px;
     width: 100%;
     z-index: 10;

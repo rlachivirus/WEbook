@@ -8,10 +8,20 @@
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    border: 2px solid black;
+    // border: 2px solid black;
+    // box-shadow: 0 0 5px rgb(207, 207, 207);
     height: 625px;
     // z-index: 5;
     // background-color: blue;
+
+    .background-shadow {
+        position: absolute;
+        top: 60px;
+        height: 260px;
+        width: 100%;
+        background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(37,37,37,1) 11%, rgba(255,255,255,1) 100%);
+        z-index: 6;
+    }
 
     .background-layer {
         position: absolute;
@@ -23,12 +33,14 @@
 
     .cover-photo {
         position: absolute;
-        border: 2px solid black;
-        background-color: black;
+        // border: 2px solid rgba($color: #247bdf, $alpha: 1.0);
+        border-radius: 0 0 10px 10px;
+        background-color: rgba($color: #247bdf, $alpha: 1.0);
         height: 340px;
-        width: 950px;
+        // height: 30%;
+        width: 65%;
         top: 60px;
-        z-index: 5;
+        z-index: 6;
         // transform: translate(30%);
     }
 
@@ -36,14 +48,29 @@
         position: absolute;
         border-radius: 50%;
         border: 4px solid white;
-        top: 365px;
-        left: 283px;
+        // top: 365px;
+        top: 46.5%;
+        // left: 283px;
+        left: 19.5%;
         height: 180px;
         width: 180px;
         object-fit: cover;
-        z-index: 5;
+        z-index: 6;
         // object-position: 50% 50%;
         // background-size: 10px;
+    }
+
+    .friend-button {
+        position: absolute;
+        border: 2px solid black;
+        height: 35px;
+        width: 100px;
+        top: 62%;
+        left: 65.3%;
+        z-index: 6;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 7px;
     }
 
     .profile-fixed-bar {
@@ -56,14 +83,25 @@
         z-index: 3;
     }
 
-    .profile-nav-bar {
-        position: relative;
-        // border: 2px solid blue;
-        height: 65px;
-        width: 100%;
-        top: 555px;
+    .profile-hr {
+        position: absolute;
+        top: 70.7%;
+        // margin-top: 15px;
+        // margin-left: -19px;
+        width: 875px;
+        color: rgb(194, 194, 194);
         z-index: 5;
-        background-color: blue;
+    }
+
+    .profile-nav-bar {
+        position: absolute;
+        // border: 2px solid blue;
+        box-shadow: 0 1px 2px rgb(207, 207, 207);
+        height: 57px;
+        width: 100%;
+        top: 565px;
+        z-index: 5;
+        background-color: white;
     }
 
     // .profile-fixed-bar {
@@ -78,6 +116,7 @@
 .middle-page {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     
     .middle-left-side {
         display: flex;
@@ -110,3 +149,9 @@
     }
 }    
 
+// .friend-botton {
+//     // position: relative;
+//     border: 2px solid black;
+//     top: 20%;
+//     z-index: 10;
+// }
