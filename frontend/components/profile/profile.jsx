@@ -17,6 +17,13 @@ class Profile extends React.Component {
         }
         const friendsIds = [];
 
+        const editButton2 = user.id === this.props.sessionId ? (
+            <Link className="profile-edit-button2" to={`/users/${user.id}/edit`}>Edit Profile</Link>
+        ) : (
+                <div className="profile-edit-button2">Message</div>
+
+        )
+
 
         return (
             <div>
@@ -24,8 +31,13 @@ class Profile extends React.Component {
                     <div className="background-shadow"></div>
                     <div className="background-layer"></div>
                     <div className="cover-photo"></div>
-                    <img className="profile-picture" src={user.photoUrl} />
-                    <FriendContainer />
+                    {/* <div className="picture-and-buttons"> */}
+                        <img className="profile-picture" src={user.photoUrl} />
+                        <div className="friend-edit-button">
+                            <FriendContainer />
+                            {editButton2}
+                        </div>
+                    {/* </div> */}
                     <div className="profile-fixed-bar"></div>
                     <hr className="profile-hr"/>
                     <div className="profile-nav-bar"></div>
@@ -42,7 +54,7 @@ class Profile extends React.Component {
                             <p>{user.birthday}</p>
                                 {
                                     user.id === this.props.sessionId ? (
-                                        <Link to={`/users/${user.id}/edit`}>Edit User Info!</Link>
+                                        <Link className="profile-edit-button1" to={`/users/${user.id}/edit`}>Edit User Info!</Link>
                                     ) : (
                                         null
                                     )

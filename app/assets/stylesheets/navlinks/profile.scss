@@ -4,6 +4,7 @@
 }
 
 .profile-background {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -30,7 +31,7 @@
         width: 100%;
         z-index: 5;
     }
-
+    
     .cover-photo {
         position: absolute;
         // border: 2px solid rgba($color: #247bdf, $alpha: 1.0);
@@ -49,7 +50,7 @@
         border-radius: 50%;
         border: 4px solid white;
         // top: 365px;
-        top: 46.5%;
+        top: 59%;
         // left: 283px;
         left: 19.5%;
         height: 180px;
@@ -60,17 +61,46 @@
         // background-size: 10px;
     }
 
-    .friend-button {
+    .friend-edit-button {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
         position: absolute;
-        border: 2px solid black;
-        height: 35px;
-        width: 100px;
-        top: 62%;
+        top: 79%;
         left: 65.3%;
         z-index: 6;
-        text-align: center;
-        cursor: pointer;
-        border-radius: 7px;
+
+        .friend-button {
+            // position: absolute;
+            // border: 2px solid black;
+
+            font-size: 16px;
+            color: white;
+            height: 35px;
+            width: 100px;
+            // top: 62%;
+            // left: 65.3%;
+            z-index: 6;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 7px;
+            background-color: rgba($color: #1475f3, $alpha: 1.0);
+            padding: auto;
+        }
+    
+        .profile-edit-button2 {
+            // position: absolute;
+            border: 2px solid black;
+            height: 35px;
+            width: 100px;
+            // top: 62%;
+            // left: 88%;
+            z-index: 6;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 7px;
+            margin: auto;
+        }
     }
 
     .profile-fixed-bar {
@@ -85,7 +115,8 @@
 
     .profile-hr {
         position: absolute;
-        top: 70.7%;
+        // top: 70.7%;
+        top: 563px;
         // margin-top: 15px;
         // margin-left: -19px;
         width: 875px;
@@ -117,21 +148,35 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
     
     .middle-left-side {
         display: flex;
         flex-direction: column;
+        gap: 15px 15px;
 
         .profile-edit {
-            border: 2px solid black;
+            // border: 2px solid black;
+            p {
+                background-color: white;
+            }
+            background-color: white;
+            border: 1px solid rgb(231, 231, 231);
+            box-shadow: 0 1px 2px rgb(207, 207, 207);
+            border-radius: 10px;
             height: 400px;
-            width: 350px;
+            width: 355px;
         }
         
         .user-friends {
-            border: 2px solid black;
+            // border: 2px solid black;
+            background-color: white;
+            border: 1px solid rgb(231, 231, 231);
+            box-shadow: 0 1px 2px rgb(207, 207, 207);
+            border-radius: 10px;
             height: 400px;
-            width: 350px;
+            width: 355px;
         
             .user-friend {
                 height: 50px;
@@ -143,9 +188,13 @@
     .middle-right-side {
         display: flex;
         flex-direction: column;
-        border: 2px solid black;
+        // border: 2px solid black;
+        background-color: white;
+        border: 1px solid rgb(231, 231, 231);
+        box-shadow: 0 1px 2px rgb(207, 207, 207);
+        border-radius: 10px;
         height: 1000px;
-        width: 600px;
+        width: 500px;
     }
 }    
 
