@@ -17,7 +17,7 @@ class Profile extends React.Component {
         }
         const friendsIds = [];
 
-        // debugger
+
         return (
             <div>
                 <div className="profile-background">

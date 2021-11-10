@@ -1,4 +1,4 @@
-import { ADD_FRIEND, REMOVE_FRIEND } from '../actions/friend_actions';
+import { ADD_FRIEND, REMOVE_FRIEND, RECEIVE_ALL_FRIENDS } from '../actions/friend_actions';
 
 const friendsReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -9,6 +9,8 @@ const friendsReducer = (state = {}, action) => {
             nextState[action.friend.id] = action.friend;
             // nextState.table = action.friend;
             return nextState;
+        case RECEIVE_ALL_FRIENDS:
+            return action.friends
         case REMOVE_FRIEND:
             delete nextState[action.friendId];
             return nextState;

@@ -1,5 +1,5 @@
 export const createFriend = (formData) => {
-    debugger
+
     return $.ajax({
         method: 'POST',
         url: `/api/friends`,
@@ -15,3 +15,20 @@ export const deleteFriend = (friendId) => (
         url: `/api/friends/${friendId}`
     })
 )
+
+export const updateFriend = (formData) => {
+    return $.ajax({
+        method: 'PATCH',
+        url: `/api/friends/${parseInt(formData.get('friend[id]'))}`,
+        data: formData,
+        contentType: false,
+        processData: false
+    })
+}
+
+export const fetchFriends = () => (
+    $.ajax({
+        method: 'GET',
+        url: '/api/friends'
+    })
+);
