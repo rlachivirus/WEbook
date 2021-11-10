@@ -9,6 +9,13 @@ class Profile extends React.Component {
         this.props.fetchUsers();
     }
 
+    scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+
     render() {
         const { user } = this.props;
 
@@ -24,7 +31,7 @@ class Profile extends React.Component {
 
         )
 
-
+            console.log(this.props)
         return (
             <div>
                 <div className="profile-background">
@@ -38,7 +45,9 @@ class Profile extends React.Component {
                             {editButton2}
                         </div>
                     {/* </div> */}
-                    <div className="profile-fixed-bar"></div>
+                    <div className="profile-fixed-bar">
+                        <Link className="profile-button" to={`/users/${this.props.user.id}`} onClick={this.scrollToTop}>{`${this.props.user.fname} ${this.props.user.lname}`}</Link>
+                    </div>
                     <hr className="profile-hr"/>
                     <div className="profile-nav-bar"></div>
                 </div>
