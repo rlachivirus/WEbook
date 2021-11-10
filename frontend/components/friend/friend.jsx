@@ -19,10 +19,12 @@ class Friend extends React.Component {
         this.props.fetchFriends()
     }
 
-    // componentDidUpdate(prevProps) {
-    //     if (this.props.friends !== prevProps.friends) {
-    //     }
-    // }
+    componentDidUpdate(prevProps) {
+        if (this.props.friends !== prevProps.friends) {
+            this.props.fetchUser(this.props.currentUserId)
+            this.props.fetchUser(this.props.friendId)
+        }
+    }
 
     handleClick(e) {
         e.preventDefault();
@@ -43,20 +45,6 @@ class Friend extends React.Component {
         //     console.log(pair[0], pair[1]);
         // }
 
-        // let friender;
-        // currentUserTable.forEach(table => {
-        //     if ((table.user_id === currentUserId) && (table.friend_id === friendId)) {
-        //         return friender = table.id;
-        //     }
-        // })
-
-        // let friendee;
-        // friendTable.forEach(table => {
-        //     if ((table.user_id === friendId) && (table.friend_id === currentUserId)) {
-        //         friendee = table.id;
-        //     }
-        // })
-
         let friender;
         Object.values(this.props.friends).forEach(table => {
             if ((table.user_id === currentUserId) && (table.friend_id === friendId)) {
@@ -74,24 +62,14 @@ class Friend extends React.Component {
         if (friender && friendee) {
             this.props.deleteFriend(friender)
             this.props.deleteFriend(friendee)
-            // this.setState({ status: "Friends" })
         } else {
             this.props.createFriend(formData1)
             this.props.createFriend(formData2)
-            // this.setState({ status: "Add Friend" })
         }
 
     }
 
     render() {
-        console.log(this.state);
-        console.log(this.props);
-        console.log(this.props.friends)
-
-        // if (!this.props.friends) {
-        //     return null;
-        // } else {
-        // }
         return (
             <div>
                 <p>{this.props.friendId}</p>
