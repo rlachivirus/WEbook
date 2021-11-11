@@ -6,6 +6,65 @@
     height: 60px;
     width: 100%;
     z-index: 10;
-    // width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
+    .greeting-left {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+
+        .we-button {
+            height: 50px;
+            width: 50px;
+        }
+    
+        .searchbar {
+            height: 50px;
+            width: 50px;
+        }
+    }
+
+    .greeting-center {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        .github {
+            height: 50px;
+            width: 50px;
+        }
+    
+        .linkedin {
+            height: 50px;
+            width: 50px;
+        }
+    
+        .portfolio {
+            height: 50px;
+            width: 50px;
+        }
+    }
+
+    .greeting-right {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+
+        .profile-button {
+            height: 50px;
+            width: 50px;
+        }
+    
+        .notification {
+            height: 50px;
+            width: 50px;
+        }
+        
+        .account-button {
+            height: 50px;
+            width: 50px;
+        }
+    }
 }

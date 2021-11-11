@@ -27,8 +27,7 @@ class Profile extends React.Component {
         const editButton2 = user.id === this.props.sessionId ? (
             <Link className="profile-edit-button2" to={`/users/${user.id}/edit`}>Edit Profile</Link>
         ) : (
-                <div className="profile-edit-button2">Message</div>
-
+            <div className="profile-edit-button2">Message</div>
         )
 
             console.log(this.props)
@@ -49,7 +48,11 @@ class Profile extends React.Component {
                         <Link className="profile-button" to={`/users/${this.props.user.id}`} onClick={this.scrollToTop}>{`${this.props.user.fname} ${this.props.user.lname}`}</Link>
                     </div>
                     <hr className="profile-hr"/>
-                    <div className="profile-nav-bar"></div>
+                    <div className="profile-nav-bar">
+                        <div>Posts</div>
+                        <div>About</div>
+                        <div>Friends</div>
+                    </div>
                 </div>
 
 
@@ -57,8 +60,7 @@ class Profile extends React.Component {
                     <div className="middle-left-side">
                         <div className="profile-edit">
                             <p>Intro</p>
-                            <p>{user.fname}</p>
-                            <p>{user.lname}</p>
+                            <p>{`Hi! My name is ${user.fname} ${user.lname}`}</p>
                             <p>{user.bio}</p>
                             <p>{user.birthday}</p>
                                 {
@@ -74,13 +76,15 @@ class Profile extends React.Component {
                         <div className="user-friends">
                             <p>Friends</p>
 
-                            {user.friends.forEach(friend => friendsIds.push(friend.friend_id))}
-                            {Object.values(this.props.users).map(friend => {
-                                if (user.id !== friend.id && friendsIds.includes(friend.id)) {
-                                    return <Link to={`/users/${friend.id}`} onClick={() => window.scrollTo(0, 0)}><img className="user-friend" src={friend.photoUrl} /></Link>
+                            <div className="user-friends-list">
+                                {user.friends.forEach(friend => friendsIds.push(friend.friend_id))}
+                                {Object.values(this.props.users).map(friend => {
+                                    if (user.id !== friend.id && friendsIds.includes(friend.id)) {
+                                        return <Link to={`/users/${friend.id}`} onClick={() => window.scrollTo(0, 0)}><div><img className="user-friend" src={friend.photoUrl} /><p className="friend-name">{`${friend.fname} ${friend.lname}`}</p></div></Link>
+                                    }
+                                })
                                 }
-                            })
-                            }
+                            </div>
                         </div>
                     </div>
 

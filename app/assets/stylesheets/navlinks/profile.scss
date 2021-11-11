@@ -27,9 +27,9 @@
     .background-layer {
         position: absolute;
         background-color: white;
-        height: 620px;
+        height: 565px;
         width: 100%;
-        z-index: 5;
+        z-index: 4;
     }
     
     .cover-photo {
@@ -86,7 +86,7 @@
             cursor: pointer;
             border-radius: 7px;
             background-color: rgba($color: #1475f3, $alpha: 1.0);
-            padding: auto;
+
         }
     
         .profile-edit-button2 {
@@ -104,7 +104,7 @@
             text-align: center;
             cursor: pointer;
             border-radius: 7px;
-            margin: auto;
+
         }
     }
 
@@ -139,12 +139,12 @@
     }
 
     .profile-hr {
-        position: absolute;
+        position: relative;
         // top: 70.7%;
         top: 563px;
         // margin-top: 15px;
         // margin-left: -19px;
-        width: 875px;
+        width: 100%;
         color: rgb(194, 194, 194);
         z-index: 5;
     }
@@ -156,8 +156,32 @@
         height: 57px;
         width: 100%;
         top: 565px;
-        z-index: 5;
+        // z-index: 4;
         background-color: white;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        div {
+            // position: absolute;
+            background-color: white;
+            font-weight: 500;
+            color: rgb(122, 122, 122);
+            border-radius: 10px;
+            padding-top: 18px;
+            // padding: 15px;
+            height: 55.5px;
+            width: 100px;
+            top: 3px;
+            font-size: 17px;
+            text-align: center;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        div:hover {
+            background-color: rgba(223, 223, 223, 0.651);
+        }
     }
 
     // .profile-fixed-bar {
@@ -183,15 +207,40 @@
 
         .profile-edit {
             // border: 2px solid black;
-            p {
-                background-color: white;
-            }
             background-color: white;
             border: 1px solid rgb(231, 231, 231);
             box-shadow: 0 1px 2px rgb(207, 207, 207);
             border-radius: 10px;
             height: 400px;
-            width: 355px;
+            // width: 355px;
+
+            p {
+                background-color: white;
+                margin: 10px;
+                padding: 10px;
+                font-size: 20px;
+            }
+
+            p:first-child {
+                font-size: 25px;
+                font-weight: 700;
+                border-bottom: 1px solid rgba($color: #dbdbdb, $alpha: 1.0);
+            }
+
+            .profile-edit-button1 {
+                position: absolute;
+                padding-top: 10px;
+                font-size: 16px;
+                font-weight: 600;
+                background-color: rgba($color: #dbdbdb, $alpha: 1.0);
+                height: 35px;
+                width: 300px;
+                margin-left: 26px;
+                top: 980px;
+                text-align: center;
+                cursor: pointer;
+                border-radius: 7px;
+            }
         }
         
         .user-friends {
@@ -202,10 +251,46 @@
             border-radius: 10px;
             height: 400px;
             width: 355px;
-        
-            .user-friend {
-                height: 50px;
-                width: auto;
+
+            p {
+                background-color: white;
+                margin: 10px;
+                padding: 10px;
+                font-size: 25px;
+                font-weight: 700;
+                border-bottom: 1px solid rgba($color: #dbdbdb, $alpha: 1.0);
+            }
+
+            .user-friends-list {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                gap: 10px;
+                background-color: white;
+                padding: 12px;
+
+                .user-friend {
+                    object-fit: cover;
+                    height: 103px;
+                    width: 103px;
+                    border-radius: 7px;
+                    background-color: white;
+                    // margin: 0;
+                }
+
+                .friend-name {
+                    margin: 0;
+                    padding: 5px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    background-color: white;
+                    border-color: white;
+                }
+
+                .friend-name:hover {
+                    text-decoration: underline;
+                }
             }
         }
     }
