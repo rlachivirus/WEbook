@@ -1,33 +1,33 @@
-export const createFriend = (formData) => (
+export const createPost = (formData) => (
     $.ajax({
         method: 'POST',
-        url: `/api/friends`,
+        url: `/api/posts`,
         data: formData,
         contentType: false,
         processData: false
     })
 );
 
-export const deleteFriend = (friendId) => (
+export const deletePost = (postId) => (
     $.ajax({
         method: 'DELETE',
-        url: `/api/friends/${friendId}`
+        url: `/api/posts/${postId}`
     })
 )
 
-export const updateFriend = (formData) => {
+export const updatePost = (formData) => {
     return $.ajax({
         method: 'PATCH',
-        url: `/api/friends/${parseInt(formData.get('friend[id]'))}`,
+        url: `/api/posts/${parseInt(formData.get('post[id]'))}`,
         data: formData,
         contentType: false,
         processData: false
     })
 }
 
-export const fetchFriends = () => (
+export const fetchPosts = () => (
     $.ajax({
         method: 'GET',
-        url: '/api/friends'
+        url: '/api/posts'
     })
 );
