@@ -32,19 +32,25 @@ class Greeting extends React.Component {
         const { currentUser, logout, openModal } = this.props;
 
         const menuButton = this.state.status === 'open' ? (
-            <div className="menu-open">
-                <Link className="profile-button" to={`/users/${currentUser.id}`} onClick={this.scrollToTop}>Profile</Link>
-                <button className="logout-button" onClick={() => logout()}>Logout</button>
+            <div className="account-button2" onClick={this.handleClick}>▼
+                <div className="menu-open">
+                    <Link className="profile-button" 
+                        to={`/users/${currentUser.id}`} 
+                        onClick={this.scrollToTop}>{`${currentUser.fname} ${currentUser.lname} Profile`}
+                        {/* <p>See your profile</p> */}
+                    </Link>
+                    <button className="logout-button" onClick={() => logout()}>Log Out</button>
+                </div>
             </div>
         ) : (
-            null
+            <div className="account-button" onClick={this.handleClick}>▼</div>
         )
 
         const greeting = currentUser ? (
             <div className="greeting-header">
                 {/* <p className="greeting-welcome">Welcome, {currentUser.fname}</p> */}
                 <div className="greeting-left">
-                    <Link className="we-button" to="/">LOGO HERE</Link>
+                    <Link className="we-button" to="/">WE</Link>
                     <div className="searchbar"></div>
                 </div>
                 <div className="greeting-center">
@@ -53,13 +59,10 @@ class Greeting extends React.Component {
                     <div className="portfolio"></div>
                 </div>
                 <div className="greeting-right">
-                    <div className="profile-button"></div>
+                    {/* <div className="profile-button">{this.props.currentUser.fname}</div> */}
+                    <Link className="profile-button-outside" to={`/users/${currentUser.id}`} onClick={this.scrollToTop}>{this.props.currentUser.fname}</Link>
                     <div className="notification"></div>
-                    <div className="account-button" onClick={this.handleClick}>
-                        {menuButton}
-                        {/* <Link className="profile-button" to={`/users/${currentUser.id}`} onClick={this.scrollToTop}>Profile</Link>
-                        <button className="greeting-button" onClick={() => logout()}>Logout</button> */}
-                    </div>
+                    {menuButton}
                 </div>
             </div>
         ) : (

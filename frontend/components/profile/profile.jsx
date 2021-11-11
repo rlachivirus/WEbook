@@ -38,11 +38,12 @@ class Profile extends React.Component {
                     <div className="background-layer"></div>
                     <div className="cover-photo"></div>
                     {/* <div className="picture-and-buttons"> */}
-                        <img className="profile-picture" src={user.photoUrl} />
-                        <div className="friend-edit-button">
-                            <FriendContainer />
-                            {editButton2}
-                        </div>
+                    <img className="profile-picture" src={user.photoUrl} />
+                    <div className="profile-name">{`${user.fname} ${user.lname}`}</div>
+                    <div className="friend-edit-button">
+                        <FriendContainer />
+                        {editButton2}
+                    </div>
                     {/* </div> */}
                     <div className="profile-fixed-bar">
                         <Link className="profile-button" to={`/users/${this.props.user.id}`} onClick={this.scrollToTop}>{`${this.props.user.fname} ${this.props.user.lname}`}</Link>
