@@ -9,18 +9,22 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 
     .greeting-left {
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
+        gap: 20px;
 
         .we-button {
+            border: 2px solid black;
             height: 50px;
             width: 50px;
         }
     
         .searchbar {
+            border: 2px solid black;
             height: 50px;
             width: 50px;
         }
@@ -31,17 +35,22 @@
         flex-direction: row;
         justify-content: center;
 
+        gap: 50px;
+
         .github {
+            border: 2px solid black;
             height: 50px;
             width: 50px;
         }
     
         .linkedin {
+            border: 2px solid black;
             height: 50px;
             width: 50px;
         }
     
         .portfolio {
+            border: 2px solid black;
             height: 50px;
             width: 50px;
         }
@@ -51,20 +60,44 @@
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
+        gap: 20px;
 
         .profile-button {
+            border: 2px solid black;
             height: 50px;
             width: 50px;
         }
     
         .notification {
+            border: 2px solid black;
             height: 50px;
             width: 50px;
         }
         
         .account-button {
+            border: 2px solid black;
             height: 50px;
             width: 50px;
+
+            .menu-open {
+                position: absolute;
+                border: 2px solid black;
+                height: 100px;
+                width: 200px;
+                top: 60px;
+                right: 17px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .profile-button {
+
+                }
+
+                .logout-button {
+
+                }
+            }
         }
     }
 }

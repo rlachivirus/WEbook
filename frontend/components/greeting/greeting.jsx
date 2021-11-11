@@ -34,7 +34,7 @@ class Greeting extends React.Component {
         const menuButton = this.state.status === 'open' ? (
             <div className="menu-open">
                 <Link className="profile-button" to={`/users/${currentUser.id}`} onClick={this.scrollToTop}>Profile</Link>
-                <button className="greeting-button" onClick={() => logout()}>Logout</button>
+                <button className="logout-button" onClick={() => logout()}>Logout</button>
             </div>
         ) : (
             null
