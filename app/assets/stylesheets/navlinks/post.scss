@@ -1,0 +1,44 @@
+.newsfeed {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    flex-wrap: wrap;
+    top: 100px;
+    gap: 30px;
+
+    // justify-content: center;
+
+    .create-post {
+        border: 2px solid black;
+        position: relative;
+        text-align: center;
+        margin: auto;
+        height: 125px;
+        width: 680px;
+        // top: 50px;
+
+        span {
+            position: relative;
+            top: 30px;
+        }
+    }
+
+    .newsfeed-posts {
+        // border: 2px solid black;
+        position: relative;
+        margin: auto;
+        height: 50px;
+        width: 680px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 90px;
+
+        .post {
+            border: 2px solid black;
+            font-size: 20px;
+            height: 100px;
+            width: 680px;
+            margin-bottom: 30px;
+        }
+    }
+}

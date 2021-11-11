@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom'
 import LoginFormContainer from "../session_form/login_form_container";
+// import PostContainer from "../post/post_container";
 
 class Greeting extends React.Component {
     constructor(props) {
@@ -54,8 +55,10 @@ class Greeting extends React.Component {
                     <div className="searchbar"></div>
                 </div>
                 <div className="greeting-center">
-                    <div className="github"></div>
-                    <div className="linkedin"></div>
+                    {/* <div className="github"></div> */}
+                    {/* <div className="linkedin"></div> */}
+                    <a href="https://github.com/rlachivirus" target="_blank"><img className="github" src={window.github} /></a>
+                    <a href="https://www.linkedin.com/in/albertck/" target="_blank"><img className="linkedin" src={window.linkedin} /></a>
                     <div className="portfolio"></div>
                 </div>
                 <div className="greeting-right">

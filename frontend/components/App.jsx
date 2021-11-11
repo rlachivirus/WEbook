@@ -7,7 +7,7 @@ import LoginFormContainer from './session_form/login_form_container';
 import ProfileContainer from "./profile/profile_container";
 import ProfileEditContainer from "./profile/profile_edit_container";
 import ModalContainer from "./modal/modal_container";
-import FriendContainer from "./friend/friend_container";
+import PostContainer from "./post/post_container";
 
 
 const App = () => (
@@ -21,6 +21,7 @@ const App = () => (
             <ProtectedRoute path="/users/:userId/edit" component={ProfileEditContainer} />
             {/* <ProtectedRoute path="/users/:userId/friends" component={FriendContainer} /> */}
             <ProtectedRoute path="/users/:userId" component={ProfileContainer} />
+            <ProtectedRoute exact path="/" component={PostContainer} />
         </Switch>
     </div>
 );

@@ -87,3 +87,31 @@ friend8 = Friend.create!(
     user_id: 4,
     friend_id: 3
 )
+
+Post.destroy_all
+ApplicationRecord.connection.reset_pk_sequence!('posts')
+
+post1 = Post.create!(
+    author_id: 1,
+    body: "this is demo's post!"
+)
+
+post2 = Post.create!(
+    author_id: 2,
+    body: "this Peter Park"
+)
+
+post3 = Post.create!(
+    author_id: 3,
+    body: "this is Tony Shark"
+)
+
+post4 = Post.create!(
+    author_id: 4,
+    body: "this is Carol"
+)
+
+post5 = Post.create!(
+    author_id: 1,
+    body: "another demo's post!"
+)

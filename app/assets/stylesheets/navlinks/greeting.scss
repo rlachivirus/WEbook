@@ -36,7 +36,7 @@
             // border: 2px solid black;
             background-color: white;
             height: 50px;
-            width: 50px;
+            width: 105px;
         }
     }
 
@@ -48,21 +48,36 @@
         gap: 50px;
 
         .github {
-            border: 2px solid black;
+            // border: 2px solid black;
+            border-radius: 10px;
             height: 50px;
             width: 50px;
+        }
+
+        .github:hover {
+            border: 5px solid black;
         }
     
         .linkedin {
-            border: 2px solid black;
+            // border: 2px solid black;
+            border-radius: 10px;
             height: 50px;
             width: 50px;
         }
+
+        .linkedin:hover {
+            border: 5px solid white;
+        }
     
         .portfolio {
-            border: 2px solid black;
+            // border: 2px solid black;
+            border-radius: 10px;
             height: 50px;
             width: 50px;
+        }
+
+        .portfolio:hover {
+            border: 5px solid black;
         }
     }
 
