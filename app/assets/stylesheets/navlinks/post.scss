@@ -15,11 +15,42 @@
         margin: auto;
         height: 125px;
         width: 680px;
+        // z-index: 5;
         // top: 50px;
-
+        
         span {
-            position: relative;
+            // position: relative;
             top: 30px;
+            margin: 0;
+            padding: 0;
+            background-color: red;
+        }
+
+
+    }
+
+    .close-post {
+    height: 125px;
+    width: 680px;
+
+        .close-X {
+            height: 5px;
+            width: 5px;
+
+            .form {
+
+
+                .textarea {
+                    height: 100px;
+                    width: 100px;
+                    background-color: black;
+                }
+
+                .create-post-button {
+
+                }
+            }
+
         }
     }
 
@@ -42,3 +73,4 @@
         }
     }
 }
+

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom'
 import FriendContainer from '../friend/friend_container';
+import PostContainer from '../post/post_container';
 
 class Profile extends React.Component {
 
@@ -91,7 +92,7 @@ class Profile extends React.Component {
 
                     <div className="middle-right-side">
                         <div className="posts-comments">
-                            <p>POSTS and COMMENTS</p>
+                            <PostContainer />
                         </div>
                     </div>
                 </div>
