@@ -2,7 +2,8 @@ import * as PostsUtil from '../util/post_util';
 
 export const ADD_POST = 'ADD_POST';
 export const REMOVE_POST = 'REMOVE_POST';
-export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS'
+export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS';
+export const RECEIVE_POST = 'RECEIVE_POST';
 
 export const addPost = post => ({
     type: ADD_POST,
@@ -18,6 +19,11 @@ export const receiveAllPosts = (posts) => ({
     type: RECEIVE_ALL_POSTS,
     posts
 });
+
+export const receivePost = (postId) => ({
+    type: RECEIVE_POST,
+    postId
+})
 
 export const createPost = (formData) => dispatch => (
     PostsUtil.createPost(formData)
@@ -37,4 +43,9 @@ export const updatePost = (post) => dispatch => (
 export const fetchPosts = () => dispatch => (
     PostsUtil.fetchPosts()
         .then((posts) => dispatch(receiveAllPosts(posts)))
+)
+
+export const fetchPost = (postId) => dispatch => (
+    PostsUtil.fetchPost(postId)
+        .then((postId) => dispatch(receivePost(postId)))
 )

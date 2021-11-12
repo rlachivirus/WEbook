@@ -7,7 +7,6 @@ import Post from './post';
 const mapStateToProps = (state, ownProps) => ({
     posts: state.entities.posts,
     userId: parseInt(ownProps.match.params.userId),
-    userInfo: state.entities.users[ownProps.match.params.userId],
     entities: state.entities,
     friends: state.entities.users[state.session.id].friends,
     currentUser: state.entities.users[state.session.id],

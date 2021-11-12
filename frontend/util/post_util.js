@@ -31,3 +31,10 @@ export const fetchPosts = () => (
         url: '/api/posts'
     })
 );
+
+export const fetchPost = (userId) => (
+    $.ajax({
+        method: 'GET',
+        url: `/api/posts/${userId}`
+    })
+)

@@ -29,19 +29,12 @@ class Post extends React.Component {
     }
 
     handleSubmit() {
-        // e.preventDefault();
         const formData = new FormData();
         formData.append('post[author_id]', this.props.currentUserId);
         formData.append('post[body]', this.state.body);
         formData.append('post[user_id]', this.props.userId);
         this.setState({ status: 'closed' });
-        this.props.createPost(formData).then(res => this.props.fetchUser(parseInt(formData.get('post[author_id]'))));
-        // if (this.props.userId) {
-        //     this.props.history.push(`/users/${this.props.userId}`);
-        // } else {
-        //     this.props.history.push(`/`);
-        // }
-        // this.props.history.push(`/users/${this.state.id}`);
+        this.props.createPost(formData);
     }
 
     update(field) {
@@ -86,7 +79,8 @@ class Post extends React.Component {
                             if (friendIds.includes(post.author_id)) {
                                 return (
                                     <div>
-                                        <li className="post">NEWSFEED
+                                        <li id={post.id} className="post">
+                                            <span id={post.id}></span>
                                             <span className="post-name">{`${post.fname} ${post.lname}`}</span>
                                             <br/>
                                             <span className="post-body">{ post.body }</span>
@@ -107,7 +101,8 @@ class Post extends React.Component {
                             if (friendIds.includes(post.author_id) && post.user_id === userId) {
                                 return (
                                     <div>
-                                        <li className="post">MYFEED
+                                        <li id={post.id} className="post">
+                                            <span id={post.id}></span>
                                             <span className="post-name">{`${post.fname} ${post.lname}`}</span>
                                             <br />
                                             <span className="post-body">{post.body}</span>
@@ -128,7 +123,8 @@ class Post extends React.Component {
                             if (userFriendIds.includes(post.author_id) && post.user_id === userId) {
                                 return (
                                     <div>
-                                        <li className="post">FRIENDFEEDS
+                                        <li id={post.id} className="post">
+                                            <span id={post.id}></span>
                                             <span className="post-name">{`${post.fname} ${post.lname}`}</span>
                                             <br />
                                             <span className="post-body">{post.body}</span>
@@ -142,9 +138,9 @@ class Post extends React.Component {
             </div>
         )
         
-        console.log(this.props.userId)
-        console.log(this.props.currentUserId)
-        console.log(this.state)
+        // console.log(this.props)
+        // console.log(this.state)
+
         return (
             showFeeds
         )

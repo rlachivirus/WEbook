@@ -1,4 +1,4 @@
-import { ADD_POST, REMOVE_POST, RECEIVE_ALL_POSTS } from '../actions/post_actions';
+import { ADD_POST, REMOVE_POST, RECEIVE_ALL_POSTS, RECEIVE_POST } from '../actions/post_actions';
 
 const postsReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -8,6 +8,9 @@ const postsReducer = (state = {}, action) => {
         case ADD_POST:
             nextState[action.post.id] = action.post;
             // nextState.table = action.friend;
+            return nextState;
+        case RECEIVE_POST:
+            nextState[action.post.id] = action.post
             return nextState;
         case RECEIVE_ALL_POSTS:
             return action.posts
