@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom'
+import { fetchUser } from "../../actions/user_actions";
 
 class Post extends React.Component {
     constructor(props) {
@@ -33,8 +34,7 @@ class Post extends React.Component {
         formData.append('post[author_id]', this.props.currentUserId);
         formData.append('post[body]', this.state.body);
         this.setState({ status: 'closed' });
-        this.props.createPost(formData);
-
+        this.props.createPost(formData).then(res => this.props.fetchUser(parseInt(formData.get('post[author_id]'))));
         // if (this.props.userId) {
         //     this.props.history.push(`/users/${this.props.userId}`);
         // } else {
@@ -48,15 +48,7 @@ class Post extends React.Component {
     }
 
     render() {
-        const { posts, friends, userId, currentUserId, userInfo} = this.props;
-
-        const friendIds = [currentUserId];
-        friends.forEach(friend => friendIds.push(friend.friend_id));
-
-        const userFriendIds = [userId];
-        if (this.props.entities.users[userId]) {
-            this.props.entities.users[userId].friends.forEach(friend => userFriendIds.push(friend.friend_id));
-        }
+        const { posts, friends, userId, currentUserId } = this.props;
 
         const createPost = this.state.status === 'open' ? (
             <div className="close-post">
@@ -75,19 +67,25 @@ class Post extends React.Component {
             </div>
         )
 
+        const friendIds = [currentUserId];
+        friends.forEach(friend => friendIds.push(friend.friend_id));
+
+
+        // const userFriendIds = [];
+        // if (this.props.entities.users[userId]) {
+        //     this.props.entities.users[userId].friends.forEach(friend => userFriendIds.push(friend.friend_id));
+        // }
+
         const showFeeds = !this.props.entities.users[userId] ? (
             <div className="newsfeed">
-                {/* <div className="create-post"> */}
-                    {createPost}
-                    {/* <span onClick={this.handleClick}>{`What's on your mind, ${this.props.currentUser.fname}`}</span> */}
-                {/* </div> */}
+                {createPost}
                 <div className="newsfeed-posts">
                     <ul>
                         {Object.values(posts).reverse().map(post => {
                             if (friendIds.includes(post.author_id)) {
                                 return (
                                     <div>
-                                        <li className="post">
+                                        <li className="post">NEWSFEED
                                             <span className="post-name">{`${post.fname} ${post.lname}`}</span>
                                             <br/>
                                             <span className="post-body">{ post.body }</span>
@@ -101,16 +99,15 @@ class Post extends React.Component {
             </div>
         ) : userId === currentUserId ? (
             <div className="myfeed">
-                <div className="create-post">
-                    <span>{`What's on your mind, ${this.props.currentUser.fname}`}</span>
-                </div>
+                {createPost}
                 <div className="newsfeed-posts">
                     <ul>
                         {Object.values(posts).reverse().map(post => {
-                            if (friendIds.includes(post.author_id)) {
+                            if (currentUserId === post.author_id || (currentUserId !== post.author_id && friendIds.includes(post.author_id))) {
+                                if (currentUserId === userId) 
                                 return (
                                     <div>
-                                        <li className="post">
+                                        <li className="post">MYFEED
                                             <span className="post-name">{`${post.fname} ${post.lname}`}</span>
                                             <br />
                                             <span className="post-body">{post.body}</span>
@@ -124,16 +121,14 @@ class Post extends React.Component {
             </div>
         ) : (
             <div className="friendfeeds">
-                <div className="create-post">
-                    <span>{`Write something to ${userInfo.fname}...`}</span>
-                </div>
+                {createPost}
                 <div className="newsfeed-posts">
                     <ul>
                         {Object.values(posts).reverse().map(post => {
-                            if (userFriendIds.includes(post.author_id)) {
+                            if (post.author_id === userId || userFriendIds.includes(post.author_id)) {
                                 return (
                                     <div>
-                                        <li className="post">
+                                        <li className="post">FRIENDFEEDS
                                             <span className="post-name">{`${post.fname} ${post.lname}`}</span>
                                             <br />
                                             <span className="post-body">{post.body}</span>
@@ -146,7 +141,9 @@ class Post extends React.Component {
                 </div>
             </div>
         )
-    
+        
+        console.log(this.props.userId)
+        console.log(this.props.currentUserId)
         console.log(this.state)
         return (
             showFeeds

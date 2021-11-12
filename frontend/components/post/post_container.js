@@ -15,6 +15,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
+    fetchUser: (userId) => dispatch(fetchUser(userId)),
     fetchPosts: () => dispatch(fetchPosts()),
     createPost: (formData) => dispatch(createPost(formData)),
     deletePost: (postId) => dispatch(deletePost(postId)),
