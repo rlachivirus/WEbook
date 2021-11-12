@@ -1,24 +1,9 @@
-# README
+# WEbook
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Live site link](https://w3book.herokuapp.com/#/)
 
-Things you may want to cover:
+# Overview
+WEbook is a Facebook clone which allows you to interact with your friends. Similar to the actual app, you can visit your friends' profile and add posts to the main newsfeed and profile page. 
 
-* Ruby version
+# Features
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
