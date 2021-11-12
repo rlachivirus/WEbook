@@ -6,53 +6,103 @@ class PostEditForm extends React.Component {
         super(props);
 
         this.state = {
-            id: '',
-            body: this.props.post,
-            status: 'closed'
+            body: this.props.post.body,
+            status: 'closed',
+            editStatus: 'closed'
         }
 
-        this.handleClick = this.handleClick.bind(this);
+        this.handleStatus = this.handleStatus.bind(this);
+        this.handleEditStatus = this.handleEditStatus.bind(this);
         this.handleEdit = this.handleEdit.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
+        // this.update = this.update.bind(this);
     }
 
     // componentDidMount() {
     //     this.props.fetchUser(this.state.id);
     // }
 
-    handleClick() {
+    componentDidUpdate(prevProps) {
+        if (this.props.post.id !== prevProps.id) {
+            this.setState({ body: this.props.post.body })
+        }
+    }
+
+    handleStatus() {
         this.state.status === 'closed' ? (
             this.setState({ status: 'open' })
         ) : (
             this.setState({ status: 'closed' })
         )
+
+        // this.state.editStatus === 'closed' ? (
+        //     this.setState({ editStatus: 'open' })
+        // ) : (
+        //     this.setState({ editStatus: 'closed' })
+        // )
     }
 
-    handleEdit() {
+    handleEditStatus() {
+        this.state.editStatus === 'closed' ? (
+            this.setState({ editStatus: 'open' })
+        ) : (
+            this.setState({ editStatus: 'closed' })
+        )
+    }
 
+    handleEdit(e) {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('post[id]', this.props.id);
+        formData.append('post[body]', this.state.body);
+        this.props.updatePost(formData);
+        this.props.history.push(this.props.match.url);
+        this.setState({ status: 'closed' })
+        this.setState({ editStatus: 'closed' })
     }
 
     handleDelete() {
-
+        this.props.deletePost(this.props.id);
+        this.setState({ status: 'closed' });
     }
 
     update(field) {
-        return e => this.setState({ [field]: e.currentTarget.id })
+        return e => { this.setState({ [field]: e.currentTarget.value }) }
     }
 
     render() {
 
-        const editform = 
+        const editDeleteBox = this.state.status === 'closed' ? (
+            null
+        ) : (
+            <div className="options">
+                <div onClick={this.handleEditStatus} className="edit" >Edit</div>
+                <div onClick={this.handleDelete} className="delete">Delete</div>
+            </div>
+        )
 
-        console.log(this.props)
-        console.log(this.state)
+        const editform = this.state.editStatus === 'closed' ? (
+            null
+        ) : (
+            <div className="edit-background">
+                <form onSubmit={this.handleEdit}>
+                    <textarea 
+                        value={this.state.body}
+                        onChange={this.update('body')}
+                    />
+                    <button>edit</button>
+                </form>
+            </div>
+        )
+
+        // console.log(this.props)
+        // console.log(this.state)
+        // console.log(this.props.post)
         return (
                 <div className="edit-delete-button">
-                    <p className="button" onClick={this.handleClick}>O</p>
-                    <div className="options">
-                        <div id={this.props.id} className="edit" >Edit</div>
-                        <div id={this.props.id} className="delete">Delete</div>
-                    </div>
+                    <p className="button" onClick={this.handleStatus}>O</p>
+                    {editDeleteBox}
+                    {editform}
                 </div>
                 // <form className="session-form" onSubmit={this.handleSubmit}>
                 //     <div className="session-form-input">
