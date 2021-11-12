@@ -50,7 +50,7 @@ class Post extends React.Component {
                 <div className="close-X">
                     <p onClick={this.handleClick}>X</p>
                     <form onSubmit={this.handleSubmit}>
-                        <textarea onChange={this.update('body')} placeholder={`What's on your mind, ${this.props.currentUser.fname}`} />
+                        <textarea onChange={this.update('body')} placeholder={`What's on your mind, ${this.props.currentUser.fname}?`} />
                         <button className="create-post-button">Post</button>
                     </form>
                 </div>
@@ -58,7 +58,7 @@ class Post extends React.Component {
         ) : (
             // <div className="account-button" onClick={this.handleClick}>▼</div>
             <div className="create-post">
-                <span onClick={this.handleClick}>{`What's on your mind, ${this.props.currentUser.fname}`}</span>
+                    <div onClick={this.handleClick}>{`What's on your mind?`}</div>
             </div>
         )
 
@@ -79,7 +79,7 @@ class Post extends React.Component {
                         {Object.values(posts).reverse().map(post => {
                             if (friendIds.includes(post.author_id)) {
                                 return (
-                                    <div>
+                                    <div key={post.id}>
                                         <li id={post.id} className="post">
                                             <span id={post.id}></span>
                                             <span className="post-name">{`${post.fname} ${post.lname}`}</span>
@@ -95,14 +95,14 @@ class Post extends React.Component {
                 </div>
             </div>
         ) : userId === currentUserId ? (
-            <div className="myfeed">
+            <div className="profile-feed">
                 {createPost}
                 <div className="newsfeed-posts">
                     <ul>
                         {Object.values(posts).reverse().map(post => {
                             if (friendIds.includes(post.author_id) && post.user_id === userId) {
                                 return (
-                                    <div>
+                                    <div key={post.id}>
                                         <li id={post.id} className="post">
                                             <span id={post.id}></span>
                                             <span className="post-name">{`${post.fname} ${post.lname}`}</span>
@@ -118,14 +118,14 @@ class Post extends React.Component {
                 </div>
             </div>
         ) : (
-            <div className="friendfeeds">
+                <div className="profile-feed">
                 {createPost}
                 <div className="newsfeed-posts">
                     <ul>
                         {Object.values(posts).reverse().map(post => {
                             if (userFriendIds.includes(post.author_id) && post.user_id === userId) {
                                 return (
-                                    <div>
+                                    <div key={post.id}>
                                         <li id={post.id} className="post">
                                             <span id={post.id}></span>
                                             <span className="post-name">{`${post.fname} ${post.lname}`}</span>

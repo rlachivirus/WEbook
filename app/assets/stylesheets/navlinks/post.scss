@@ -9,21 +9,31 @@
     // justify-content: center;
 
     .create-post {
-        border: 2px solid black;
+        border: 1px solid rgb(231, 231, 231);
+        box-shadow: 0 1px 2px rgb(207, 207, 207);
+        border-radius: 10px;
         position: relative;
         text-align: center;
         margin: auto;
         height: 125px;
         width: 680px;
+        background-color: white;
         // z-index: 5;
         // top: 50px;
         
-        span {
-            // position: relative;
-            top: 30px;
-            margin: 0;
-            padding: 0;
-            background-color: red;
+        div {
+            position: relative;
+            display: inline-block;
+            background-color: white;
+            border-radius: 5%/50%;
+            width: 500px;
+            height: 40px;
+            top: 20px;
+            background-color: rgba(226, 225, 225, 0.541);
+            padding: 12px;
+            color: rgb(92, 92, 92);
+            cursor: pointer;
+
         }
 
 
@@ -65,11 +75,71 @@
         row-gap: 90px;
 
         .post {
-            border: 2px solid black;
+            border: 1px solid rgb(231, 231, 231);
+            box-shadow: 0 1px 2px rgb(207, 207, 207);
+            border-radius: 10px;
+            background-color: white;
             font-size: 20px;
-            height: 100px;
+            height: 200px;
             width: 680px;
             margin-bottom: 30px;
+
+        }
+    }
+
+}
+
+.profile-feed {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    flex-wrap: wrap;
+    top: 100px;
+    gap: 30px;
+
+        .create-post {
+        background-color: white;
+        border: 1px solid rgb(231, 231, 231);
+        box-shadow: 0 1px 2px rgb(207, 207, 207);
+        border-radius: 10px;
+        position: absolute;
+        text-align: center;
+        margin: auto;
+        height: 125px;
+        width: 500px;
+        // z-index: 5;
+        // top: 50px;
+        
+        div {
+            // position: absolute;
+            display: inline-block;
+            background-color: white;
+            border-radius: 5%/50%;
+            width: 400px;
+            height: 40px;
+            top: 20px;
+            background-color: rgba(226, 225, 225, 0.541);
+            padding: 12px;
+            color: rgb(92, 92, 92);
+            cursor: pointer;
+
+        }
+
+
+    }
+
+    .newsfeed-posts {
+
+        .post {
+            background-color: white;
+            border: 1px solid rgb(231, 231, 231);
+            box-shadow: 0 1px 2px rgb(207, 207, 207);
+            border-radius: 10px;
+            position: absolute;
+            text-align: center;
+            margin: auto;
+            height: 125px;
+            width: 500px;
         }
     }
 }

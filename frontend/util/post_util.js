@@ -25,14 +25,6 @@ export const updatePost = (formData) => {
     })
 }
 
-// export const updatePost = (post) => {
-//     return $.ajax({
-//         method: 'PATCH',
-//         url: `/api/posts/${post.id}`,
-//         data: { post }
-//     })
-// }
-
 export const fetchPosts = () => (
     $.ajax({
         method: 'GET',
