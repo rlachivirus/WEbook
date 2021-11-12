@@ -33,6 +33,7 @@ class Post extends React.Component {
         const formData = new FormData();
         formData.append('post[author_id]', this.props.currentUserId);
         formData.append('post[body]', this.state.body);
+        formData.append('post[user_id]', this.props.userId);
         this.setState({ status: 'closed' });
         this.props.createPost(formData).then(res => this.props.fetchUser(parseInt(formData.get('post[author_id]'))));
         // if (this.props.userId) {
@@ -71,10 +72,10 @@ class Post extends React.Component {
         friends.forEach(friend => friendIds.push(friend.friend_id));
 
 
-        // const userFriendIds = [];
-        // if (this.props.entities.users[userId]) {
-        //     this.props.entities.users[userId].friends.forEach(friend => userFriendIds.push(friend.friend_id));
-        // }
+        const userFriendIds = [];
+        if (this.props.entities.users[userId]) {
+            this.props.entities.users[userId].friends.forEach(friend => userFriendIds.push(friend.friend_id));
+        }
 
         const showFeeds = !this.props.entities.users[userId] ? (
             <div className="newsfeed">
@@ -103,8 +104,7 @@ class Post extends React.Component {
                 <div className="newsfeed-posts">
                     <ul>
                         {Object.values(posts).reverse().map(post => {
-                            if (currentUserId === post.author_id || (currentUserId !== post.author_id && friendIds.includes(post.author_id))) {
-                                if (currentUserId === userId) 
+                            if (friendIds.includes(post.author_id) && post.user_id === userId) {
                                 return (
                                     <div>
                                         <li className="post">MYFEED
@@ -125,7 +125,7 @@ class Post extends React.Component {
                 <div className="newsfeed-posts">
                     <ul>
                         {Object.values(posts).reverse().map(post => {
-                            if (post.author_id === userId || userFriendIds.includes(post.author_id)) {
+                            if (userFriendIds.includes(post.author_id) && post.user_id === userId) {
                                 return (
                                     <div>
                                         <li className="post">FRIENDFEEDS
