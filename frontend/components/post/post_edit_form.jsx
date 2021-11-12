@@ -42,14 +42,17 @@ class PostEditForm extends React.Component {
 
     render() {
 
+        const editform = 
 
         console.log(this.props)
         console.log(this.state)
         return (
                 <div className="edit-delete-button">
-                    <div className="button" onClick={this.handleClick}></div>
-                    <div id={this.props.id} onClick={} className="edit" >Edit</div>
-                    <div id={this.props.id} className="delete">Delete</div>
+                    <p className="button" onClick={this.handleClick}>O</p>
+                    <div className="options">
+                        <div id={this.props.id} className="edit" >Edit</div>
+                        <div id={this.props.id} className="delete">Delete</div>
+                    </div>
                 </div>
                 // <form className="session-form" onSubmit={this.handleSubmit}>
                 //     <div className="session-form-input">

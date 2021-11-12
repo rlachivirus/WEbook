@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom'
 import { fetchUser } from "../../actions/user_actions";
+import PostEditContainer from "./post_edit_container";
 
 class Post extends React.Component {
     constructor(props) {
@@ -84,6 +85,7 @@ class Post extends React.Component {
                                             <span className="post-name">{`${post.fname} ${post.lname}`}</span>
                                             <br/>
                                             <span className="post-body">{ post.body }</span>
+                                            <PostEditContainer id={post.id} />
                                         </li>
                                     </div>
                                 )
@@ -106,6 +108,7 @@ class Post extends React.Component {
                                             <span className="post-name">{`${post.fname} ${post.lname}`}</span>
                                             <br />
                                             <span className="post-body">{post.body}</span>
+                                            <PostEditContainer id={post.id} />
                                         </li>
                                     </div>
                                 )
@@ -128,6 +131,7 @@ class Post extends React.Component {
                                             <span className="post-name">{`${post.fname} ${post.lname}`}</span>
                                             <br />
                                             <span className="post-body">{post.body}</span>
+                                            <PostEditContainer id={post.id}/>
                                         </li>
                                     </div>
                                 )
