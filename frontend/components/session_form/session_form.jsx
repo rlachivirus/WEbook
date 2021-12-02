@@ -17,9 +17,9 @@ class SessionForm extends React.Component {
         this.demoUser = this.demoUser.bind(this);
     }
 
-    componentWillUnmount() {
-        this.props.removeErrors();
-    }
+    // componentWillUnmount() {
+    //     this.props.removeErrors();
+    // }
 
     handleSubmit(e) {
         e.preventDefault();
@@ -248,7 +248,7 @@ class SessionForm extends React.Component {
                         </p>
 
                         {/* {errorMessages} */}
-                        <button>{formType}</button>
+                        <button>Log In</button>
                         {/* {demoLogin} */}
                         <div className="demo-user" onClick={this.demoUser}>Try Demo?</div>
                         <br/>

@@ -214,7 +214,7 @@ class SignupForm extends React.Component {
                     {/* <h2>{formType === 'Sign Up' ? formType : null}</h2> */}
                     {/* {signupIntro} */}
                     <div className='signup-intro'>
-                        <h2>{formType}</h2>
+                        <h2>Sign Up</h2>
                         <p>It's quick and easy.</p>
                         <hr className="hr-top" />
                         <div onClick={this.props.closeModal} className="close-x">X</div>
@@ -273,7 +273,7 @@ class SignupForm extends React.Component {
                         </p>
 
                         {/* {errorMessages} */}
-                        <button>{formType}</button>
+                        <button>Sign Up</button>
                         {/* {demoLogin} */}
                         <br />
                         <hr className="hr-bottom" />
