@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import SessionForm from './session_form';
 import { signup, removeErrors } from '../../actions/session_actions'
 import { closeModal } from '../../actions/modal_actions';
+import SignupForm from './signup_form';
 
 const mapStateToProps = state => ({
     errors: state.errors.session,
@@ -13,4 +14,4 @@ const mapDispatchToProps = dispatch => ({
     removeErrors: () => dispatch(removeErrors())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);
+export default connect(mapStateToProps, mapDispatchToProps)(SignupForm);
