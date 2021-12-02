@@ -67,7 +67,7 @@ class SessionForm extends React.Component {
                         type="text"
                         onChange={this.update('email')}
                         value={email}
-                        placeholder="Email or phone number"
+                        placeholder="Email"
                         style={ errors.includes("Invalid email/password combination") ? ({ borderColor: "red" }) : ({ borderColor: ""})}
                         />
                         <br/>

@@ -66,6 +66,11 @@ class SignupForm extends React.Component {
                             placeholder="First Name"
                             style={ errors.includes("Fname can't be blank") ? ({ borderColor: "red" }) : ({ borderColor: "" })}
                         />
+
+                        <p className="fnameError" style={errors.includes("Fname can't be blank") ? ({ display: "" }) : ({ display: "none" })}>
+                            First name can't be blank!
+                        </p>
+                        
                         <input
                             className="lname-field"
                             type="text"
@@ -74,14 +79,23 @@ class SignupForm extends React.Component {
                             placeholder="Last Name"
                             style={ errors.includes("Lname can't be blank") ? ({ borderColor: "red" }) : ({ borderColor: "" })}
                         />
+
+                        <p className="lnameError" style={errors.includes("Lname can't be blank") ? ({ display: "" }) : ({ display: "none" })}>
+                            Last name can't be blank!
+                        </p>
+
                         <input
                             type="text"
                             onChange={this.update('email')}
                             value={email}
-                            placeholder="Email or phone number"
+                            placeholder="Email"
                             style={ errors.includes("Email can't be blank") || errors.includes("Email is invalid") ? ({ borderColor: "red" }) : ({ borderColor: "" })}
                         />
-                        <br />
+
+                        <p className="emailError" style={errors.includes("Email can't be blank") || errors.includes("Email is invalid") ? ({ display: "" }) : ({ display: "none" })}>
+                            Email can't be blank or Email is invalid!
+                        </p>
+
                         <input
                             type="password"
                             onChange={this.update('password')}
@@ -90,19 +104,7 @@ class SignupForm extends React.Component {
                             style={ errors.includes("Password is too short (minimum is 6 characters)") ? ({ borderColor: "red" }) : ({ borderColor: "" })}
                         />
 
-                        <p style={ errors.includes("Email can't be blank") ? ({ display: "" }) : ({ display: "none" })}>
-                            Email can't be blank!
-                        </p>
-                        <p style={ errors.includes("Email is invalid") ? ({ display: "" }) : ({ display: "none" })}>
-                            Email is invalid!
-                        </p>
-                        <p style={ errors.includes("Fname can't be blank") ? ({ display: "" }) : ({ display: "none" })}>
-                            First name can't be blank!
-                        </p>
-                        <p style={ errors.includes("Lname can't be blank") ? ({ display: "" }) : ({ display: "none" })}>
-                            Last name can't be blank!
-                        </p>
-                        <p style={errors.includes("Password is too short (minimum is 6 characters)") ? ({ display: "" }) : ({ display: "none" })}>
+                        <p className="passwordError" style={errors.includes("Password is too short (minimum is 6 characters)") ? ({ display: "" }) : ({ display: "none" })}>
                             Password is too short (minimum is 6 characters)
                         </p>
 
