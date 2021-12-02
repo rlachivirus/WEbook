@@ -15,6 +15,7 @@ class SessionForm extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.demoUser = this.demoUser.bind(this);
+        this.openModal = this.openModal.bind(this);
     }
 
     // componentWillUnmount() {
@@ -38,6 +39,18 @@ class SessionForm extends React.Component {
             password: 'password'
         };
         this.props.processForm(demo);
+    }
+
+    openModal() {
+        const emailInput = document.getElementById('email')
+        const passwordInput = document.getElementById('password')
+        const errorInput = document.getElementById('error')
+
+        emailInput.style.borderColor = ""
+        passwordInput.style.borderColor = ""
+        errorInput.style.display = "none"
+
+        this.props.openModal('signup');
     }
 
     render () {
@@ -228,6 +241,7 @@ class SessionForm extends React.Component {
                         {/* {lastName} */}
 
                             <input
+                            id="email"
                             type="text"
                             onChange={this.update('email')}
                             value={email}
@@ -236,6 +250,7 @@ class SessionForm extends React.Component {
                             />
                             <br/>
                             <input
+                            id="password"
                             type="password"
                             onChange={this.update('password')}
                             value={password}
@@ -243,7 +258,7 @@ class SessionForm extends React.Component {
                             style={errors.includes("Invalid email/password combination") ? ({ borderColor: "red" }) : ({ borderColor: "" })}
                             />
 
-                        <p style={errors.includes("Invalid email/password combination") ? ({ display: "" }) : ({ display: "none" })}>
+                        <p id="error" style={errors.includes("Invalid email/password combination") ? ({ display: "" }) : ({ display: "none" })}>
                             Invalid email/password combination!
                         </p>
 
@@ -254,7 +269,7 @@ class SessionForm extends React.Component {
                         <br/>
                         <hr className="hr-bottom" />
                         {/* {altLink} */}
-                        <div className="new-account" onClick={() => this.props.openModal('signup')}>Create new account</div>
+                        <div className="new-account" onClick={this.openModal}>Create new account</div>
                     </form>
                 </div>
                 {/* {footer} */}
