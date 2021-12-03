@@ -129,52 +129,59 @@
 .footer {
     position: absolute;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 10px;
+    flex-direction: row;
+    justify-content: center;
     width: 100vw;
-    height: 178px;
+    height: auto;
     top: 586px;
     background-color: white;
     border: 1.5px solid white;
     box-shadow: 0 0 7px rgb(207, 207, 207), 0 0 10px rgb(238, 238, 238), 0 0 21px #f6f9fc;
-    text-align: center;
 
-    ul {
+    .myInfo {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: flex-start;
-        gap: 20px;
+        background-color: transparent;
         width: 1000px;
-        margin-left: 230px;
-        color: #999999;
-        background-color: transparent;
-    }
+        padding-left: 40px;
+        padding-right: 40px;
+    
 
-    ul:first-child {
-        margin-top: 30px;
-        margin-left: 230px;
-        padding-bottom: 10px;
-        gap: 50px;
-        border-bottom: 1px solid #cacaca;
-        width: 1000px;
-    }
+        ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            column-gap: 20px;
+            color: #999999;
+            background-color: transparent;
+            margin-top: 10px;
+        }
 
-    li {
-        background-color: transparent;
-    }
+        ul:first-child {
+            margin-top: 30px;
+            padding-bottom: 10px;
+            column-gap: 50px;
+            border-bottom: 1px solid #cacaca;
+        }
 
-    li:hover {
-        cursor: default;
-        text-decoration: underline;
-    }
+        li {
+            background-color: transparent;
+        }
 
-    p {
-        width: 80px;
-        margin-top: 10px;
-        margin-left: 224px;
-        color: #999999;
-        background-color: transparent;
+        li:hover {
+            cursor: default;
+            text-decoration: underline;
+        }
+
+        p {
+            text-align: start;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            color: #999999;
+            background-color: transparent;
+        }
     }
 }
 
