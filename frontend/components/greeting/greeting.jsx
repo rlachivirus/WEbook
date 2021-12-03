@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from 'react-router-dom'
-import LoginFormContainer from "../session_form/login_form_container";
-import PostContainer from "../post/post_container"
 // import PostContainer from "../post/post_container";
 
 class Greeting extends React.Component {
@@ -71,7 +69,6 @@ class Greeting extends React.Component {
                 </div>
             </div>
         ) : (
-            // <LoginFormContainer />
             null
             )
 

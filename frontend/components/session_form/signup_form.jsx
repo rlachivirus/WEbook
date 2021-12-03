@@ -25,11 +25,6 @@ class SignupForm extends React.Component {
         const user = Object.assign({}, this.state);
 
         this.props.processForm(user)
-            // .then(res => {
-            //     if (res.type === "RECEIVE_CURRENT_USER") {
-            //         this.props.history.push("/posts");
-            //     }
-            // })
             .then(this.props.closeModal);
     }
 
