@@ -37,11 +37,11 @@ class SessionForm extends React.Component {
         };
 
         this.props.processForm(demo)
-            .then(res => {
-                if (res.type === "RECEIVE_CURRENT_USER") {
-                    this.props.history.push("/posts");
-                }
-            });
+            // .then(res => {
+            //     if (res.type === "RECEIVE_CURRENT_USER") {
+            //         this.props.history.push("/posts");
+            //     }
+            // });
     }
 
     openModal() {

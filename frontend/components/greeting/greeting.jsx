@@ -71,7 +71,8 @@ class Greeting extends React.Component {
                 </div>
             </div>
         ) : (
-            <LoginFormContainer />
+            // <LoginFormContainer />
+            null
             )
 
         return (
