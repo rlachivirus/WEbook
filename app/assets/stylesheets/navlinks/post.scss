@@ -1,10 +1,11 @@
 .newsfeed {
     display: flex;
     flex-direction: column;
-    position: relative;
+    position: absolute;
     flex-wrap: wrap;
     top: 100px;
     gap: 30px;
+    left: 27%;
 
     // justify-content: center;
 

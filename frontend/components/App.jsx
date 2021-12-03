@@ -18,10 +18,10 @@ const App = () => (
             <GreetingContainer />
         <Switch>
             {/* <AuthRoute path="/signup" component={SignupFormContainer} /> */}
+            <ProtectedRoute path="/posts" component={PostContainer} />
             <ProtectedRoute path="/users/:userId/edit" component={ProfileEditContainer} />
             {/* <ProtectedRoute path="/users/:userId/friends" component={FriendContainer} /> */}
             <ProtectedRoute path="/users/:userId" component={ProfileContainer} />
-            <ProtectedRoute exact path="/" component={PostContainer} />
         </Switch>
     </div>
 );

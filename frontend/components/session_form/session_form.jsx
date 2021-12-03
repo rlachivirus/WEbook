@@ -17,8 +17,13 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
+        
         this.props.processForm(user)
-            .then(this.props.closeModal);
+            .then(res => {
+                if (res.type === "RECEIVE_CURRENT_USER") {
+                    this.props.history.push("/posts");
+                }
+            });
     }
 
     update(field) {
@@ -30,7 +35,13 @@ class SessionForm extends React.Component {
             email: 'demo@email.com',
             password: 'password'
         };
-        this.props.processForm(demo);
+
+        this.props.processForm(demo)
+            .then(res => {
+                if (res.type === "RECEIVE_CURRENT_USER") {
+                    this.props.history.push("/posts");
+                }
+            });
     }
 
     openModal() {

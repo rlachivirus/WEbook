@@ -14,7 +14,6 @@ class SignupForm extends React.Component {
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.demoUser = this.demoUser.bind(this);
     }
 
     componentWillUnmount() {
@@ -24,20 +23,18 @@ class SignupForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
+
         this.props.processForm(user)
+            .then(res => {
+                if (res.type === "RECEIVE_CURRENT_USER") {
+                    this.props.history.push("/posts");
+                }
+            })
             .then(this.props.closeModal);
     }
 
     update(field) {
         return e => { this.setState({ [field]: e.currentTarget.value }) }
-    }
-
-    demoUser() {
-        const demo = {
-            email: 'demo@email.com',
-            password: 'password'
-        };
-        this.props.processForm(demo);
     }
 
     render() {
