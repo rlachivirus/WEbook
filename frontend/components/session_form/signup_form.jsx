@@ -96,6 +96,10 @@ class SignupForm extends React.Component {
                             Email can't be blank or Email is invalid!
                         </p>
 
+                        <p className="emailError" style={errors.includes("Email has already been taken") ? ({ display: "" }) : ({ display: "none" })}>
+                            Email has already been taken!
+                        </p>
+
                         <input
                             type="password"
                             onChange={this.update('password')}
