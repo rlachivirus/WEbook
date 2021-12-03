@@ -5,6 +5,7 @@ class ProfileEditForm extends React.Component {
     constructor(props) {
         super(props);
         const { user } = this.props;
+        // this.state = this.props.user;
         this.state = {
             id: user.id,
             email: user.email,
@@ -45,6 +46,7 @@ class ProfileEditForm extends React.Component {
         const user = Object.assign({}, this.state);
         this.props.updateUser(user);
         this.props.history.push(`/users/${this.state.id}`);
+        this.props.closeModal();
     }
 
     handlePhotoSubmit(e) {
@@ -126,7 +128,7 @@ class ProfileEditForm extends React.Component {
                     <button className="button">Submit Changes</button>
                     </div>
                     <div>
-                    <Link to={`users/${this.state.id}`}>Cancel</Link>
+                    <div onClick={this.props.closeModal}>Cancel</div>
                     </div>
                 </form>
             </div>

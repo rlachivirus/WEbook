@@ -4,7 +4,8 @@ import ProfileEditForm from './profile_edit_form';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => ({
-    user: state.entities.users[ownProps.match.params.userId]
+    // user: state.entities.users[ownProps.match.params.userId]
+    user: state.ui.modal.user
 })
 
 const mapDispatchToProps = dispatch => ({

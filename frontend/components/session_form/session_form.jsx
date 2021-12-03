@@ -43,7 +43,7 @@ class SessionForm extends React.Component {
         passwordInput.style.borderColor = ""
         errorInput.style.display = "none"
 
-        this.props.openModal('signup');
+        this.props.openModal({type: 'signup'});
     }
 
     render () {

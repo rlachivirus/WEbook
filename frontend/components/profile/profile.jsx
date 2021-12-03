@@ -4,6 +4,11 @@ import FriendContainer from '../friend/friend_container';
 import PostContainer from '../post/post_container';
 
 class Profile extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.openModal = this.openModal.bind(this);
+    }
 
     componentDidMount() {
         // this.props.fetchUser(this.props.user.id);
@@ -17,6 +22,11 @@ class Profile extends React.Component {
         });
     };
 
+    openModal(obj) {
+        // debugger
+        this.props.openModal(obj);
+    }
+
     render() {
         const { user } = this.props;
 
@@ -26,7 +36,8 @@ class Profile extends React.Component {
         const friendsIds = [];
 
         const editButton2 = user.id === this.props.sessionId ? (
-            <Link className="profile-edit-button2" to={`/users/${user.id}/edit`}>Edit Profile</Link>
+            // <Link className="profile-edit-button2" to={`/users/${user.id}/edit`}>Edit Profile</Link>
+            <div className="profile-edit-button2" onClick={() => this.openModal({type: "profileEdit", user: this.props.user})}>Edit Profile</div>
         ) : (
             <div className="profile-edit-button2">Message</div>
         )
@@ -70,7 +81,7 @@ class Profile extends React.Component {
                             <p>{user.birthday}</p>
                                 {
                                     user.id === this.props.sessionId ? (
-                                        <Link className="profile-edit-button1" to={`/users/${user.id}/edit`}>Edit User Info!</Link>
+                                        <div className="profile-edit-button1" onClick={() => this.props.openModal({type: 'profileEdit', user: this.props.user})}>Edit User Info!</div>
                                     ) : (
                                         null
                                     )

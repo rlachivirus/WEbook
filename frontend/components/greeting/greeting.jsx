@@ -75,7 +75,7 @@ class Greeting extends React.Component {
             )
             console.log(this.props)
         return (
-            <div className="greeting">
+            <div className="greeting" onScroll={this.handleClick}>
                 {greeting}
             </div>
         )
