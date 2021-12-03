@@ -49,30 +49,26 @@ class Greeting extends React.Component {
         )
 
         const greeting = currentUser ? (
-            <div>
-                <div className="greeting-header">
-                    {/* <p className="greeting-welcome">Welcome, {currentUser.fname}</p> */}
-                    <div className="greeting-left">
-                        <Link className="we-button" to="/">WE</Link>
-                        <div className="searchbar"></div>
-                    </div>
-                    <div className="greeting-center">
-                        {/* <div className="github"></div> */}
-                        {/* <div className="linkedin"></div> */}
-                        <a href="https://github.com/rlachivirus" target="_blank"><img className="github" src={window.github} /></a>
-                        <a href="https://www.linkedin.com/in/albertck/" target="_blank"><img className="linkedin" src={window.linkedin} /></a>
-                        <a href="https://rlachivirus.github.io/albertck/" target="_blank"><img className="portfolio" src={window.portfolio} /></a>
-                        {/* <div className="portfolio"></div> */}
-                    </div>
-                    <div className="greeting-right">
-                        {/* <div className="profile-button">{this.props.currentUser.fname}</div> */}
-                        <Link className="profile-button-outside" to={`/users/${currentUser.id}`} onClick={this.scrollToTop}>{this.props.currentUser.fname}</Link>
-                        <div className="notification"></div>
-                        {menuButton}
-                    </div>
+            <div className="greeting-header">
+                {/* <p className="greeting-welcome">Welcome, {currentUser.fname}</p> */}
+                <div className="greeting-left">
+                    <Link className="we-button" to="/">WE</Link>
+                    <div className="searchbar"></div>
                 </div>
-
-                {/* <PostContainer/> */}
+                <div className="greeting-center">
+                    {/* <div className="github"></div> */}
+                    {/* <div className="linkedin"></div> */}
+                    <a href="https://github.com/rlachivirus" target="_blank"><img className="github" src={window.github} /></a>
+                    <a href="https://www.linkedin.com/in/albertck/" target="_blank"><img className="linkedin" src={window.linkedin} /></a>
+                    <a href="https://rlachivirus.github.io/albertck/" target="_blank"><img className="portfolio" src={window.portfolio} /></a>
+                    {/* <div className="portfolio"></div> */}
+                </div>
+                <div className="greeting-right">
+                    {/* <div className="profile-button">{this.props.currentUser.fname}</div> */}
+                    <Link className="profile-button-outside" to={`/users/${currentUser.id}`} onClick={this.scrollToTop}>{this.props.currentUser.fname}</Link>
+                    <div className="notification"></div>
+                    {menuButton}
+                </div>
             </div>
         ) : (
             <LoginFormContainer />
