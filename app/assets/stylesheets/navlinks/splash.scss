@@ -1,5 +1,5 @@
 * {
-    background: rgba($color: #f6f9fc, $alpha: 1.0);
+    background: rgba($color: #eff2f5, $alpha: 1.0);
 }
 
 .splash-page {
@@ -129,9 +129,9 @@
 .footer {
     position: absolute;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 30px;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
     width: 100vw;
     height: 178px;
     top: 586px;
@@ -140,40 +140,41 @@
     box-shadow: 0 0 7px rgb(207, 207, 207), 0 0 10px rgb(238, 238, 238), 0 0 21px #f6f9fc;
     text-align: center;
 
-    .github {
-        // border: 2px solid black;
+    ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 20px;
+        width: 1000px;
+        margin-left: 230px;
+        color: #999999;
         background-color: transparent;
-        border-radius: 10px;
-        height: 50px;
-        width: 50px;
     }
 
-    .github:hover {
-        border: 5px solid black;
+    ul:first-child {
+        margin-top: 30px;
+        margin-left: 230px;
+        padding-bottom: 10px;
+        gap: 50px;
+        border-bottom: 1px solid #cacaca;
+        width: 1000px;
     }
 
-    .linkedin {
-        // border: 2px solid black;
+    li {
         background-color: transparent;
-        border-radius: 10px;
-        height: 50px;
-        width: 50px;
     }
 
-    .linkedin:hover {
-        border: 5px solid white;
+    li:hover {
+        cursor: default;
+        text-decoration: underline;
     }
 
-    .portfolio {
-        // border: 2px solid black;
+    p {
+        width: 80px;
+        margin-top: 10px;
+        margin-left: 224px;
+        color: #999999;
         background-color: transparent;
-        border-radius: 10px;
-        height: 50px;
-        width: 50px;
     }
-
-    .portfolio:hover {
-        border: 5px solid white;
-    }
-
 }
+

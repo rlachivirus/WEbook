@@ -95,10 +95,22 @@ class SessionForm extends React.Component {
                 </div>
 
                 <div className="footer">
-                    {/* <a href="https://github.com/rlachivirus" target="_blank"><img className="github" src={window.github} /></a>
-                    <a href="https://www.linkedin.com/in/albertck/" target="_blank"><img className="linkedin" src={window.linkedin} /></a>
-                    <a href="https://rlachivirus.github.io/albertck/" target="_blank"><img className="portfolio" src={window.portfolio} /></a> */}
-                    
+                    <ul>
+                        <li><a href="https://rlachivirus.github.io/albertck/" target="_blank">Portfolio</a></li>
+                        <li><a href="https://www.linkedin.com/in/albertck/" target="_blank">LinkedIn</a></li>
+                        <li><a href="https://angel.co/u/albert-kim-39" target="_blank">AngelList</a></li>
+                        <li><a href="https://github.com/rlachivirus" target="_blank">GitHub</a></li>
+                    </ul>
+
+                    <ul>
+                        <li>A</li><li>Facebook</li><li>clone</li><li>created</li><li>by</li><li>Albert</li><li>Kim</li>
+                    </ul>
+
+                    <ul>
+                        <li>Built</li><li>with</li><li>React</li><li>Redux</li><li>JavaScript</li><li>Node.js</li><li>JQuery</li><li>Jbuilder</li><li>HTML</li><li>SCSS</li><li>Postgres</li><li>Ruby on Rails</li>
+                    </ul>
+
+                    <p>AK © 2021</p>
                 </div>
             </div>
         )
