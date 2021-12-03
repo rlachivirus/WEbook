@@ -95,8 +95,10 @@ class SessionForm extends React.Component {
                 </div>
 
                 <div className="footer">
-                    This is where my github, linkedin, etc logos
-                    and my info will go.
+                    {/* <a href="https://github.com/rlachivirus" target="_blank"><img className="github" src={window.github} /></a>
+                    <a href="https://www.linkedin.com/in/albertck/" target="_blank"><img className="linkedin" src={window.linkedin} /></a>
+                    <a href="https://rlachivirus.github.io/albertck/" target="_blank"><img className="portfolio" src={window.portfolio} /></a> */}
+                    
                 </div>
             </div>
         )

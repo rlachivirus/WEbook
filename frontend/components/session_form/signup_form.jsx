@@ -105,7 +105,7 @@ class SignupForm extends React.Component {
                         />
 
                         <p className="passwordError" style={errors.includes("Password is too short (minimum is 6 characters)") ? ({ display: "" }) : ({ display: "none" })}>
-                            Password is too short (minimum is 6 characters)
+                            Password is too short! (minimum is 6 characters)
                         </p>
 
                         <button>Sign Up</button>
