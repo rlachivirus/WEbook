@@ -47,7 +47,10 @@ class Profile extends React.Component {
                     </div>
                     {/* </div> */}
                     <div className="profile-fixed-bar">
-                        <Link className="profile-button" to={`/users/${this.props.user.id}`} onClick={this.scrollToTop}>{`${this.props.user.fname} ${this.props.user.lname}`}</Link>
+                        <Link className="profile-button" to={`/users/${this.props.user.id}`} onClick={this.scrollToTop}>
+                            <img className="profile-picture2" src={this.props.user.photoUrl} />
+                            <p>{`${this.props.user.fname} ${this.props.user.lname}`}</p>
+                        </Link>
                     </div>
                     <hr className="profile-hr"/>
                     <div className="profile-nav-bar">

@@ -34,10 +34,9 @@ class Greeting extends React.Component {
         const menuButton = this.state.status === 'open' ? (
             <div className="account-button2" onClick={this.handleClick}>▼
                 <div className="menu-open">
-                    <Link className="profile-button" 
-                        to={`/users/${currentUser.id}`} 
-                        onClick={this.scrollToTop}>{`${currentUser.fname} ${currentUser.lname} Profile`}
-                        {/* <p>See your profile</p> */}
+                    <Link className="profile-button" to={`/users/${currentUser.id}`} onClick={this.scrollToTop}>
+                        <img className="profile-picture" src={this.props.currentUser.photoUrl} />
+                        <p>{`${currentUser.fname} ${currentUser.lname} Profile`}</p>
                     </Link>
                     <button className="logout-button" onClick={() => logout()}>Log Out</button>
                 </div>
@@ -63,7 +62,10 @@ class Greeting extends React.Component {
                 </div>
                 <div className="greeting-right">
                     {/* <div className="profile-button">{this.props.currentUser.fname}</div> */}
-                    <Link className="profile-button-outside" to={`/users/${currentUser.id}`} onClick={this.scrollToTop}>{this.props.currentUser.fname}</Link>
+                    <Link className="profile-button-outside" to={`/users/${currentUser.id}`} onClick={this.scrollToTop}>
+                        <img className="profile-picture" src={this.props.currentUser.photoUrl} />
+                        <p>{this.props.currentUser.fname}</p>
+                    </Link>
                     <div className="notification"></div>
                     {menuButton}
                 </div>
@@ -71,7 +73,7 @@ class Greeting extends React.Component {
         ) : (
             null
             )
-
+            console.log(this.props)
         return (
             <div className="greeting">
                 {greeting}
