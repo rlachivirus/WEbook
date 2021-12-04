@@ -23,6 +23,9 @@ function Modal({ modal, closeModal }) {
         case 'createPost':
             component = <CreatePost closeModal={closeModal} currentUserId={modal.currentUserId} userId={modal.userId} createPost={modal.createPost} />;
             break;
+        case 'editPost':
+            component = <PostEditContainer closeModal={closeModal} post={modal.post} id={modal.id} />;
+            break;
         default:
             return null;
     }

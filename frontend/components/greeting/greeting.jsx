@@ -44,6 +44,7 @@ class Greeting extends React.Component {
             }
         }, 0)
     }
+    
     render () {
         const { currentUser, logout, openModal } = this.props;
 

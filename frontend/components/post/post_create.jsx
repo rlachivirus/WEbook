@@ -35,7 +35,7 @@ class CreatePost extends React.Component {
     }
     render() {
         // debugger
-        console.log(this.props)
+
         return (
             <div className="create-post-modal">
                 <p onClick={this.props.closeModal}>X</p>

@@ -6,6 +6,7 @@ import Post from './post';
 import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => ({
+    post: state.entities.posts[ownProps.id],
     posts: state.entities.posts,
     userId: parseInt(ownProps.match.params.userId),
     entities: state.entities,
