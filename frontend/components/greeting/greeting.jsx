@@ -11,6 +11,7 @@ class Greeting extends React.Component {
         }
 
         this.handleClick = this.handleClick.bind(this);
+        this.closeDropDown = this.closeDropDown.bind(this);
     }
 
     scrollToTop = () => {
@@ -21,14 +22,30 @@ class Greeting extends React.Component {
     };
 
     handleClick() {
-        this.state.status === 'closed' ? (
+        if (this.state.status === 'closed') {
             this.setState({ status: 'open' })
-        ) : (
-            this.setState({ status: 'closed' })
-        )
+        }
     }
 
+    closeDropDown() {
+        this.setState({
+            status: 'closed'
+        })
+    }
+
+    componentDidUpdate() {
+        const { status } = this.state;
+
+        setTimeout(() => {
+            if (status === 'open') {
+                window.addEventListener('click', this.closeDropDown)
+            } else {
+                window.removeEventListener('click', this.closeDropDown)
+            }
+        }, 0)
+    }
     render () {
+        console.log(this.state);
         const { currentUser, logout, openModal } = this.props;
 
         const menuButton = this.state.status === 'open' ? (
@@ -75,7 +92,7 @@ class Greeting extends React.Component {
             )
             console.log(this.props)
         return (
-            <div className="greeting" onScroll={this.handleClick}>
+            <div className="greeting">
                 {greeting}
             </div>
         )
