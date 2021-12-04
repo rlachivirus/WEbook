@@ -16,6 +16,7 @@ class CreatePost extends React.Component {
         // this.handleEdit = this.handleEdit.bind(this);
         // this.handleDelete = this.handleDelete.bind(this);
         // this.update = this.update.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit() {
@@ -24,14 +25,17 @@ class CreatePost extends React.Component {
         formData.append('post[body]', this.state.body);
         formData.append('post[user_id]', this.props.userId);
         // this.setState({ status: 'closed' });
+
         this.props.createPost(formData);
+        this.props.closeModal();
     }
 
     update(field) {
         return e => { this.setState({ [field]: e.currentTarget.value }) }
     }
-
     render() {
+        // debugger
+        console.log(this.props)
         return (
             <div className="create-post-modal">
                 <p onClick={this.props.closeModal}>X</p>

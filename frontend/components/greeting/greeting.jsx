@@ -45,7 +45,6 @@ class Greeting extends React.Component {
         }, 0)
     }
     render () {
-        console.log(this.state);
         const { currentUser, logout, openModal } = this.props;
 
         const menuButton = this.state.status === 'open' ? (
@@ -90,7 +89,6 @@ class Greeting extends React.Component {
         ) : (
             null
             )
-            console.log(this.props)
         return (
             <div className="greeting">
                 {greeting}

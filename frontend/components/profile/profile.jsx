@@ -42,7 +42,6 @@ class Profile extends React.Component {
             <div className="profile-edit-button2">Message</div>
         )
 
-            console.log(this.props)
         return (
             <div>
                 <div className="profile-background">

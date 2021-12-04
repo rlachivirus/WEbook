@@ -95,7 +95,7 @@ class PostEditForm extends React.Component {
             </div>
         )
 
-        console.log(this.props)
+        // console.log(this.props)
         // console.log(this.state)
         // console.log(this.props.post)
         return (

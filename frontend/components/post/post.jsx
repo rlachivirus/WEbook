@@ -13,7 +13,7 @@ class Post extends React.Component {
         }
 
         // this.handleClick = this.handleClick.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
         this.openModal = this.openModal.bind(this);
     }
 
@@ -34,14 +34,14 @@ class Post extends React.Component {
         this.props.openModal(obj);
     }
 
-    handleSubmit() {
-        const formData = new FormData();
-        formData.append('post[author_id]', this.props.currentUserId);
-        formData.append('post[body]', this.state.body);
-        formData.append('post[user_id]', this.props.userId);
-        // this.setState({ status: 'closed' });
-        this.props.createPost(formData);
-    }
+    // handleSubmit() {
+    //     const formData = new FormData();
+    //     formData.append('post[author_id]', this.props.currentUserId);
+    //     formData.append('post[body]', this.state.body);
+    //     formData.append('post[user_id]', this.props.userId);
+    //     // this.setState({ status: 'closed' });
+    //     this.props.createPost(formData);
+    // }
 
     update(field) {
         return e => { this.setState({ [field]: e.currentTarget.value }) }
@@ -51,19 +51,20 @@ class Post extends React.Component {
         const { posts, friends, userId, currentUserId } = this.props;
 
         const createPost = this.state.status === 'open' ? (
-            <div className="close-post">
-                <div className="close-X">
-                    <p onClick={this.handleClick}>X</p>
-                    <form onSubmit={this.handleSubmit}>
-                        <textarea onChange={this.update('body')} placeholder={`What's on your mind, ${this.props.currentUser.fname}?`} />
-                        <button className="create-post-button">Post</button>
-                    </form>
-                </div>
-            </div>
+            // <div className="close-post">
+            //     <div className="close-X">
+            //         <p onClick={this.handleClick}>X</p>
+            //         <form onSubmit={this.handleSubmit}>
+            //             <textarea onChange={this.update('body')} placeholder={`What's on your mind, ${this.props.currentUser.fname}?`} />
+            //             <button className="create-post-button">Post</button>
+            //         </form>
+            //     </div>
+            // </div>
+            null
         ) : (
             // <div className="account-button" onClick={this.handleClick}>▼</div>
             <div className="create-post">
-                    <div onClick={() => this.openModal({ type: 'createPost' })}>{`What's on your mind?`}</div>
+                    <div onClick={() => this.openModal({ type: 'createPost', currentUserId: this.props.currentUserId, userId: this.props.userId, createPost: this.props.createPost })}>{`What's on your mind?`}</div>
             </div>
         )
 
