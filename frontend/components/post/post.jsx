@@ -9,11 +9,12 @@ class Post extends React.Component {
 
         this.state = {
             body: '',
-            status: 'closed'
+            // status: 'closed'
         }
 
-        this.handleClick = this.handleClick.bind(this);
+        // this.handleClick = this.handleClick.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.openModal = this.openModal.bind(this);
     }
 
     componentDidMount() {
@@ -21,12 +22,16 @@ class Post extends React.Component {
 
     }
 
-    handleClick() {
-        this.state.status === 'closed' ? (
-            this.setState({ status: 'open' })
-        ) : (
-            this.setState({ status: 'closed' })
-        )
+    // handleClick() {
+    //     this.state.status === 'closed' ? (
+    //         this.setState({ status: 'open' })
+    //     ) : (
+    //         this.setState({ status: 'closed' })
+    //     )
+    // }
+
+    openModal(obj) {
+        this.props.openModal(obj);
     }
 
     handleSubmit() {
@@ -34,7 +39,7 @@ class Post extends React.Component {
         formData.append('post[author_id]', this.props.currentUserId);
         formData.append('post[body]', this.state.body);
         formData.append('post[user_id]', this.props.userId);
-        this.setState({ status: 'closed' });
+        // this.setState({ status: 'closed' });
         this.props.createPost(formData);
     }
 
@@ -58,7 +63,7 @@ class Post extends React.Component {
         ) : (
             // <div className="account-button" onClick={this.handleClick}>▼</div>
             <div className="create-post">
-                    <div onClick={this.handleClick}>{`What's on your mind?`}</div>
+                    <div onClick={() => this.openModal({ type: 'createPost' })}>{`What's on your mind?`}</div>
             </div>
         )
 
@@ -146,7 +151,10 @@ class Post extends React.Component {
         // console.log(this.state)
 
         return (
-            showFeeds
+            <div>
+                {showFeeds}
+
+            </div>
         )
     }
 }

@@ -3,6 +3,7 @@ import { createPost, deletePost, fetchPosts, updatePost } from '../../actions/po
 import { fetchUser, fetchUsers } from '../../actions/user_actions'
 import { withRouter } from 'react-router-dom';
 import Post from './post';
+import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => ({
     posts: state.entities.posts,
@@ -14,6 +15,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
+    openModal: modal => dispatch(openModal(modal)),
     fetchUser: (userId) => dispatch(fetchUser(userId)),
     fetchPosts: () => dispatch(fetchPosts()),
     createPost: (formData) => dispatch(createPost(formData)),

@@ -4,7 +4,8 @@ import PostEditForm from './post_edit_form';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => ({
-    post: state.entities.posts[ownProps.id]
+    post: state.entities.posts[ownProps.id],
+    // postToEdit: state.ui.modal.post
 })
 
 const mapDispatchToProps = dispatch => ({

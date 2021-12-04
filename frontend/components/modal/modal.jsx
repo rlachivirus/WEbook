@@ -2,6 +2,8 @@ import React from 'react';
 import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
 import ProfileEditContainer from '../profile/profile_edit_container';
+import PostEditContainer from '../post/post_edit_container';
+import PostFormContainer from '../post/post_container';
 
 
 function Modal({ modal, closeModal }) {
@@ -17,6 +19,9 @@ function Modal({ modal, closeModal }) {
         case 'profileEdit':
             component = <ProfileEditContainer closeModal={closeModal} />;
             // debugger
+            break;
+        case 'createPost':
+            component = <PostFormContainer closeModal={closeModal} />;
             break;
         default:
             return null;
