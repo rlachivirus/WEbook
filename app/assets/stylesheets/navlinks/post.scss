@@ -20,7 +20,7 @@
         width: 680px;
         background-color: white;
         // z-index: 5;
-        // top: 50px;
+        top: 5px;
         
         div {
             position: relative;
@@ -93,7 +93,7 @@
 .profile-feed {
     display: flex;
     flex-direction: column;
-    position: relative;
+    // position: relative;
     flex-wrap: wrap;
     top: 100px;
     gap: 30px;
@@ -103,13 +103,13 @@
         border: 1px solid rgb(231, 231, 231);
         box-shadow: 0 1px 2px rgb(207, 207, 207);
         border-radius: 10px;
-        position: absolute;
+        // position: absolute;
         text-align: center;
         margin: auto;
         height: 125px;
         width: 500px;
         // z-index: 5;
-        // top: 50px;
+        // top: -100px;
         
         div {
             // position: absolute;
@@ -118,12 +118,12 @@
             border-radius: 5%/50%;
             width: 400px;
             height: 40px;
-            top: 20px;
+            top: 30px;
             background-color: rgba(226, 225, 225, 0.541);
             padding: 12px;
             color: rgb(92, 92, 92);
             cursor: pointer;
-
+            position: relative;
         }
 
 
@@ -136,11 +136,12 @@
             border: 1px solid rgb(231, 231, 231);
             box-shadow: 0 1px 2px rgb(207, 207, 207);
             border-radius: 10px;
-            position: absolute;
+            // position: absolute;
             text-align: center;
             margin: auto;
             height: 125px;
             width: 500px;
+            top: 50px;
         }
     }
 }
