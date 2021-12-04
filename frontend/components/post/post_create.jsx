@@ -6,15 +6,15 @@ class CreatePost extends React.Component {
         super(props);
 
         this.state = {
-            body: this.props.post.body,
-            status: 'closed',
-            editStatus: 'closed'
+            body: "",
+            // status: 'closed',
+            // editStatus: 'closed'
         }
 
-        this.handleStatus = this.handleStatus.bind(this);
-        this.handleEditStatus = this.handleEditStatus.bind(this);
-        this.handleEdit = this.handleEdit.bind(this);
-        this.handleDelete = this.handleDelete.bind(this);
+        // this.handleStatus = this.handleStatus.bind(this);
+        // this.handleEditStatus = this.handleEditStatus.bind(this);
+        // this.handleEdit = this.handleEdit.bind(this);
+        // this.handleDelete = this.handleDelete.bind(this);
         // this.update = this.update.bind(this);
     }
 
@@ -33,11 +33,17 @@ class CreatePost extends React.Component {
 
     render() {
         return (
-            <div>
-                
+            <div className="create-post-modal">
+                <p onClick={this.props.closeModal}>X</p>
+                <form onSubmit={this.handleSubmit}>
+                    <textarea onChange={this.update('body')} placeholder={`What's on your mind, ${/*this.props.currentUser.fname*/"you"}?`} />
+                    <button className="create-post-button">Post</button>
+                </form>
             </div>
         )
     }
 }
 
 export default CreatePost;
+
+

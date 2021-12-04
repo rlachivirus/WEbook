@@ -3,7 +3,7 @@ import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
 import ProfileEditContainer from '../profile/profile_edit_container';
 import PostEditContainer from '../post/post_edit_container';
-import PostFormContainer from '../post/post_container';
+import CreatePost from '../post/post_create';
 
 
 function Modal({ modal, closeModal }) {
@@ -21,7 +21,7 @@ function Modal({ modal, closeModal }) {
             // debugger
             break;
         case 'createPost':
-            component = <PostFormContainer closeModal={closeModal} />;
+            component = <CreatePost closeModal={closeModal} />;
             break;
         default:
             return null;
