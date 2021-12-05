@@ -10,6 +10,7 @@ const mapStateToProps = (state, ownProps) => ({
     posts: state.entities.posts,
     userId: parseInt(ownProps.match.params.userId),
     entities: state.entities,
+    users: state.entities.users,
     friends: state.entities.users[state.session.id].friends,
     currentUser: state.entities.users[state.session.id],
     currentUserId: state.session.id
@@ -18,6 +19,7 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => ({
     openModal: modal => dispatch(openModal(modal)),
     fetchUser: (userId) => dispatch(fetchUser(userId)),
+    fetchUsers: () => dispatch(fetchUsers()),
     fetchPosts: () => dispatch(fetchPosts()),
     createPost: (formData) => dispatch(createPost(formData)),
     deletePost: (postId) => dispatch(deletePost(postId)),

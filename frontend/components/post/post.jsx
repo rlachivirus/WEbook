@@ -19,6 +19,7 @@ class Post extends React.Component {
 
     componentDidMount() {
         this.props.fetchPosts()
+        this.props.fetchUsers()
 
     }
 
@@ -31,7 +32,6 @@ class Post extends React.Component {
     }
 
     render() {
-        console.log(this.state.date)
         const { posts, friends, userId, currentUserId } = this.props;
 
         // const createPost = (
@@ -59,19 +59,30 @@ class Post extends React.Component {
                     {/* <div className="newsfeed-posts"> */}
                         <ul className="newsfeed-posts">
                             {Object.values(posts).reverse().map(post => {
+                                console.log(this.props.users[post.user_id])
                                 if (friendIds.includes(post.author_id)) {
                                     let months = { 1: "January", 2: "February", 3: "March", 4: "April", 5: "May", 6: "June", 7: "July", 8: "August", 9: "September", 10: "October", 11: "November", 12: "December" };
                                     let currentYear = this.state.date;
                                     let postYear = parseInt(post.created_at.slice(0, 10).split("-")[0]) !== currentYear ? `, ${post.created_at.slice(0, 10).split("-")[0]}` : "";
                                     let postMonth = months[post.created_at.slice(0, 10).split("-")[1]];
                                     let postDay = post.created_at.slice(0, 10).split("-")[2];
+                                    let postName;
+
+                                    if (this.props.users[post.user_id]) {
+                                        // postName = post.author_id === post.user_id ? `${post.fname} ${post.lname}` : post.user_id === 0 ? `${post.fname} ${post.lname}` : `${post.fname} ${post.lname} TO ${this.props.users[post.user_id].fname} ${this.props.users[post.user_id].lname}`
+                                        postName = post.author_id === post.user_id ? `${post.fname} ${post.lname}` : `${post.fname} ${post.lname} TO ${this.props.users[post.user_id].fname} ${this.props.users[post.user_id].lname}`
+                                    } else {
+                                        // postName = post.author_id === post.user_id ? `${post.fname} ${post.lname}` : post.user_id ? `${post.fname} ${post.lname} TO ${this.props.users[post.user_id].fname} ${this.props.users[post.user_id].lname}` : null
+                                        postName = `${post.fname} ${post.lname}`
+                                    }
 
                                     return (
                                         // <div key={post.id}>
                                         // <div id={post.id} className="newsfeed-posts">
                                             <li id={post.id} className="post">
                                                 {/* <span id={post.id}></span> */}
-                                                <span className="post-name">{`${post.fname} ${post.lname}`}</span>
+                                                {/* <span className="post-name">{`${post.fname} ${post.lname}`}</span> */}
+                                                <span className="post-name">{postName}</span>
                                                 <span>{`${postMonth} ${postDay}${postYear}`}</span>
                                                 <br/>
                                                 <span className="post-body">{ post.body }</span>
