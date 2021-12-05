@@ -87,7 +87,8 @@ class Post extends React.Component {
                                                 <span>{`${postMonth} ${postDay}${postYear}`}</span>
                                                 <br/>
                                                 <span className="post-body">{post.body}</span>
-                                                
+                                                <br/>
+                                                <img className="post-picture" src={post.photoUrl} />
                                                 <PostEditButton id={post.id} />
                                             </li>
                                         // </div>

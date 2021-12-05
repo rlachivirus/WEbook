@@ -34,6 +34,7 @@ class PostEditForm extends React.Component {
                             value={this.state.body}
                             onChange={this.update('body')}
                         />
+                        {/* <input type="file" onChange={this.handleFile} /> */}
                         <button>edit</button>
                     </form>
                 </div>

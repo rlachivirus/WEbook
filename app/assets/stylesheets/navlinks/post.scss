@@ -108,8 +108,14 @@
                 margin-bottom: 30px;
                 // list-style-type: none;
 
-                img {
+                .profile-picture {
                     width: 30px;
+                    height: auto;
+                    object-fit: cover;
+                }
+
+                .post-picture {
+                    width: 100px;
                     height: auto;
                     object-fit: cover;
                 }
