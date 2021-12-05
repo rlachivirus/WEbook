@@ -9,14 +9,10 @@ class Post extends React.Component {
         super(props);
 
         this.state = {
-            body: '',
-            // status: 'closed'
+            body: ''
         }
 
-        // this.handleClick = this.handleClick.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
         this.openModal = this.openModal.bind(this);
-        // this.handleDelete = this.handleDelete.bind(this);
     }
 
     componentDidMount() {
@@ -24,31 +20,9 @@ class Post extends React.Component {
 
     }
 
-    // handleClick() {
-    //     this.state.status === 'closed' ? (
-    //         this.setState({ status: 'open' })
-    //     ) : (
-    //         this.setState({ status: 'closed' })
-    //     )
-    // }
-
-    // handleDelete() {
-    //     this.props.deletePost(this.props.id);
-    //     this.setState({ status: 'closed' });
-    // }
-
     openModal(obj) {
         this.props.openModal(obj);
     }
-
-    // handleSubmit() {
-    //     const formData = new FormData();
-    //     formData.append('post[author_id]', this.props.currentUserId);
-    //     formData.append('post[body]', this.state.body);
-    //     formData.append('post[user_id]', this.props.userId);
-    //     // this.setState({ status: 'closed' });
-    //     this.props.createPost(formData);
-    // }
 
     update(field) {
         return e => { this.setState({ [field]: e.currentTarget.value }) }
@@ -57,38 +31,11 @@ class Post extends React.Component {
     render() {
         const { posts, friends, userId, currentUserId } = this.props;
 
-        // const editDeleteBox = this.state.status === 'closed' ? (
-        //     null
-        // ) : (
-        //     <div className="options">
-        //             <div onClick={() => this.openModal({ type: 'editPost', post: this.props.post, id: this.props.post.id })} className="edit" >Edit</div>
-        //         <div onClick={this.handleDelete} className="delete">Delete</div>
-        //     </div>
-        // )
-
-        // const createPost = this.state.status === 'open' ? (
-        //     // <div className="close-post">
-        //     //     <div className="close-X">
-        //     //         <p onClick={this.handleClick}>X</p>
-        //     //         <form onSubmit={this.handleSubmit}>
-        //     //             <textarea onChange={this.update('body')} placeholder={`What's on your mind, ${this.props.currentUser.fname}?`} />
-        //     //             <button className="create-post-button">Post</button>
-        //     //         </form>
-        //     //     </div>
-        //     // </div>
-        //     null
-        // ) : (
-        //     // <div className="account-button" onClick={this.handleClick}>▼</div>
+        // const createPost = (
         //     <div className="create-post">
-        //             <div onClick={() => this.openModal({ type: 'createPost', currentUserId: this.props.currentUserId, userId: this.props.userId, createPost: this.props.createPost })}>{`What's on your mind?`}</div>
+        //         <div onClick={() => this.openModal({ type: 'createPost', currentUserId: this.props.currentUserId, userId: this.props.userId, createPost: this.props.createPost, currentUser: this.props.currentUser })}>{`What's on your mind, ${this.props.currentUser.fname}?`}</div>
         //     </div>
         // )
-
-        const createPost = (
-            <div className="create-post">
-                <div onClick={() => this.openModal({ type: 'createPost', currentUserId: this.props.currentUserId, userId: this.props.userId, createPost: this.props.createPost })}>{`What's on your mind?`}</div>
-            </div>
-        )
 
         const friendIds = [currentUserId];
         friends.forEach(friend => friendIds.push(friend.friend_id));
@@ -101,7 +48,9 @@ class Post extends React.Component {
 
         const showFeeds = !this.props.entities.users[userId] ? (
             <div className="newsfeed">
-                {createPost}
+                <div className="create-post">
+                    <div onClick={() => this.openModal({ type: 'createPost', currentUserId: this.props.currentUserId, userId: this.props.userId, createPost: this.props.createPost, currentUser: this.props.currentUser })}>{`What's on your mind, ${this.props.currentUser.fname}?`}</div>
+                </div>
                 <div className="newsfeed-posts">
                     <ul>
                         {Object.values(posts).reverse().map(post => {
@@ -114,8 +63,6 @@ class Post extends React.Component {
                                             <br/>
                                             <span className="post-body">{ post.body }</span>
                                             <PostEditButton id={post.id} />
-
-                                            {/* {editDeleteBox} */}
                                         </li>
                                     </div>
                                 )
@@ -126,7 +73,9 @@ class Post extends React.Component {
             </div>
         ) : userId === currentUserId ? (
             <div className="profile-feed">
-                {createPost}
+                <div className="create-post">
+                    <div onClick={() => this.openModal({ type: 'createPost', currentUserId: this.props.currentUserId, userId: this.props.userId, createPost: this.props.createPost, currentUser: this.props.currentUser })}>{`What's on your mind, ${this.props.currentUser.fname}?`}</div>
+                </div>
                 <div className="newsfeed-posts">
                     <ul>
                         {Object.values(posts).reverse().map(post => {
@@ -139,7 +88,6 @@ class Post extends React.Component {
                                             <br />
                                             <span className="post-body">{post.body}</span>
                                             <PostEditButton id={post.id} />
-                                            {/* {editDeleteBox} */}
                                         </li>
                                     </div>
                                 )
@@ -149,8 +97,10 @@ class Post extends React.Component {
                 </div>
             </div>
         ) : (
-                <div className="profile-feed">
-                {createPost}
+            <div className="profile-feed">
+                <div className="create-post">
+                    <div onClick={() => this.openModal({ type: 'createPost', currentUserId: this.props.currentUserId, userId: this.props.userId, createPost: this.props.createPost, currentUser: this.props.currentUser })}>{`Write something to your friend...`}</div>
+                </div>
                 <div className="newsfeed-posts">
                     <ul>
                         {Object.values(posts).reverse().map(post => {
@@ -163,7 +113,6 @@ class Post extends React.Component {
                                             <br />
                                             <span className="post-body">{post.body}</span>
                                             <PostEditButton id={post.id} />
-                                            {/* {editDeleteBox} */}
                                         </li>
                                     </div>
                                 )
@@ -173,14 +122,10 @@ class Post extends React.Component {
                 </div>
             </div>
         )
-        
-        // console.log(this.props)
-        // console.log(this.state)
 
         return (
             <div>
                 {showFeeds}
-
             </div>
         )
     }

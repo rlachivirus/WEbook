@@ -5,8 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => ({
-    // post: state.entities.posts[ownProps.id],
-    // postToEdit: state.ui.modal.post
+
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -10,12 +10,11 @@ class PostEditButton extends React.Component {
 
         this.state = {
             status: 'closed'
-            // editStatus: 'closed'
         }
 
         this.handleClick = this.handleClick.bind(this);
-        this.openModal = this.openModal.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
+        this.openModal = this.openModal.bind(this);
         this.closeDropDown = this.closeDropDown.bind(this);
     }
 
@@ -33,7 +32,6 @@ class PostEditButton extends React.Component {
     }
 
     openModal(obj) {
-        // debugger
         this.props.openModal(obj);
     }
 

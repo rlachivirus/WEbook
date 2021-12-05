@@ -6,16 +6,9 @@ class CreatePost extends React.Component {
         super(props);
 
         this.state = {
-            body: "",
-            // status: 'closed',
-            // editStatus: 'closed'
+            body: ""
         }
 
-        // this.handleStatus = this.handleStatus.bind(this);
-        // this.handleEditStatus = this.handleEditStatus.bind(this);
-        // this.handleEdit = this.handleEdit.bind(this);
-        // this.handleDelete = this.handleDelete.bind(this);
-        // this.update = this.update.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -24,8 +17,6 @@ class CreatePost extends React.Component {
         formData.append('post[author_id]', this.props.currentUserId);
         formData.append('post[body]', this.state.body);
         formData.append('post[user_id]', this.props.userId);
-        // this.setState({ status: 'closed' });
-
         this.props.createPost(formData);
         this.props.closeModal();
     }
@@ -34,13 +25,11 @@ class CreatePost extends React.Component {
         return e => { this.setState({ [field]: e.currentTarget.value }) }
     }
     render() {
-        // debugger
-
         return (
             <div className="create-post-modal">
                 <p onClick={this.props.closeModal}>X</p>
                 <form onSubmit={this.handleSubmit}>
-                    <textarea onChange={this.update('body')} placeholder={`What's on your mind, ${/*this.props.currentUser.fname*/"you"}?`} />
+                    <textarea onChange={this.update('body')} placeholder={`What's on your mind?`} />
                     <button className="create-post-button">Post</button>
                 </form>
             </div>
