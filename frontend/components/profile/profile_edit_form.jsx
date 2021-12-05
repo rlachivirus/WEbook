@@ -13,10 +13,10 @@ class ProfileEditForm extends React.Component {
             lname: user.lname,
             bio: user.bio,
             birthday: user.birthday,
-            photoFile: null,
+            photoFile: null
         }
 
-        this.handlePhotoSubmit = this.handlePhotoSubmit.bind(this);
+        // this.handlePhotoSubmit = this.handlePhotoSubmit.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
     }
@@ -43,14 +43,11 @@ class ProfileEditForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const user = Object.assign({}, this.state);
-        this.props.updateUser(user);
-        this.props.history.push(`/users/${this.state.id}`);
-        this.props.closeModal();
-    }
+        // const user = Object.assign({}, this.state);
+        // this.props.updateUser(user);
+        // this.props.history.push(`/users/${this.state.id}`);
+        // this.props.closeModal();
 
-    handlePhotoSubmit(e) {
-        e.preventDefault();
         const formData = new FormData();
         formData.append('user[id]', this.state.id);
         formData.append('user[email]', this.state.email);
@@ -62,10 +59,30 @@ class ProfileEditForm extends React.Component {
         if (this.state.photoFile) {
             formData.append('user[photo]', this.state.photoFile);
         }
-
+        // debugger
+        // this.props.updateUser(user)
         this.props.updateUserPhoto(formData);
-        this.props.history.push(`/users/${this.state.id}`)
+        this.props.closeModal();
+        // this.props.history.push(`/users/${this.state.id}`)
     }
+
+    // handlePhotoSubmit(e) {
+    //     e.preventDefault();
+    //     const formData = new FormData();
+    //     formData.append('user[id]', this.state.id);
+    //     formData.append('user[email]', this.state.email);
+    //     formData.append('user[fname]', this.state.fname);
+    //     formData.append('user[lname]', this.state.lname);
+    //     formData.append('user[bio]', this.state.bio);
+    //     formData.append('user[birthday]', this.state.birthday);
+
+    //     if (this.state.photoFile) {
+    //         formData.append('user[photo]', this.state.photoFile);
+    //     }
+
+    //     this.props.updateUserPhoto(formData);
+    //     this.props.history.push(`/users/${this.state.id}`)
+    // }
 
     update(field) {
         return e => { this.setState({ [field]: e.currentTarget.value }) }
@@ -76,12 +93,13 @@ class ProfileEditForm extends React.Component {
 
         return (
             <div className="profile-edit-form">
-                <form onSubmit={this.handlePhotoSubmit}>
+                {/* <form onSubmit={this.handlePhotoSubmit}>
                     <input type="file" onChange={this.handleFile} />
                     <button>Upload Photo</button>
-                </form>
+                </form> */}
 
                 <form className="session-form" onSubmit={this.handleSubmit}>
+                    <input type="file" onChange={this.handleFile} />
                     <div className="session-form-input">
                         <label>Email
                             <input

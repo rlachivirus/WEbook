@@ -59,7 +59,7 @@ class Post extends React.Component {
                     {/* <div className="newsfeed-posts"> */}
                         <ul className="newsfeed-posts">
                             {Object.values(posts).reverse().map(post => {
-                                console.log(this.props.users[post.user_id])
+                                // console.log(this.props.users[post.user_id])
                                 if (friendIds.includes(post.author_id)) {
                                     let months = { 1: "January", 2: "February", 3: "March", 4: "April", 5: "May", 6: "June", 7: "July", 8: "August", 9: "September", 10: "October", 11: "November", 12: "December" };
                                     let currentYear = this.state.date;
@@ -70,7 +70,7 @@ class Post extends React.Component {
 
                                     if (this.props.users[post.user_id]) {
                                         // postName = post.author_id === post.user_id ? `${post.fname} ${post.lname}` : post.user_id === 0 ? `${post.fname} ${post.lname}` : `${post.fname} ${post.lname} TO ${this.props.users[post.user_id].fname} ${this.props.users[post.user_id].lname}`
-                                        postName = post.author_id === post.user_id ? `${post.fname} ${post.lname}` : `${post.fname} ${post.lname} TO ${this.props.users[post.user_id].fname} ${this.props.users[post.user_id].lname}`
+                                        postName = post.author_id === post.user_id ? `${post.fname} ${post.lname}` : `${post.fname} ${post.lname} ▶ ${this.props.users[post.user_id].fname} ${this.props.users[post.user_id].lname}`
                                     } else {
                                         // postName = post.author_id === post.user_id ? `${post.fname} ${post.lname}` : post.user_id ? `${post.fname} ${post.lname} TO ${this.props.users[post.user_id].fname} ${this.props.users[post.user_id].lname}` : null
                                         postName = `${post.fname} ${post.lname}`
@@ -82,10 +82,12 @@ class Post extends React.Component {
                                             <li id={post.id} className="post">
                                                 {/* <span id={post.id}></span> */}
                                                 {/* <span className="post-name">{`${post.fname} ${post.lname}`}</span> */}
+                                                <img className="profile-picture" src={this.props.users[post.author_id].photoUrl} />
                                                 <span className="post-name">{postName}</span>
                                                 <span>{`${postMonth} ${postDay}${postYear}`}</span>
                                                 <br/>
-                                                <span className="post-body">{ post.body }</span>
+                                                <span className="post-body">{post.body}</span>
+                                                
                                                 <PostEditButton id={post.id} />
                                             </li>
                                         // </div>

@@ -107,6 +107,12 @@
                 margin: 0;
                 margin-bottom: 30px;
                 // list-style-type: none;
+
+                img {
+                    width: 30px;
+                    height: auto;
+                    object-fit: cover;
+                }
             }
         }
             // ul {
