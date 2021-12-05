@@ -1,92 +1,176 @@
 .newsfeed {
+    position: relative;
     display: flex;
-    flex-direction: column;
-    position: absolute;
-    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    // column-gap: 10px;
     top: 100px;
-    gap: 30px;
-    left: 27%;
 
-    // justify-content: center;
-
-    .create-post {
-        border: 1px solid rgb(231, 231, 231);
-        box-shadow: 0 1px 2px rgb(207, 207, 207);
-        border-radius: 10px;
-        position: relative;
-        text-align: center;
-        margin: auto;
-        height: 125px;
-        width: 680px;
-        background-color: white;
-        // z-index: 5;
-        top: 5px;
-        
-        div {
-            position: relative;
-            display: inline-block;
-            background-color: white;
-            border-radius: 5%/50%;
-            width: 500px;
-            height: 40px;
-            top: 20px;
-            background-color: rgba(226, 225, 225, 0.541);
-            padding: 12px;
-            color: rgb(92, 92, 92);
-            cursor: pointer;
-
-        }
-
-
+    .newsfeed-left {
+        border: 1px solid black;
+        height: 100vh;
+        // width: 25vw;
+        width: 25%;
     }
 
-    .close-post {
-    height: 125px;
-    width: 680px;
-
-        .close-X {
-            height: 5px;
-            width: 5px;
-
-            .form {
-
-
-                .textarea {
-                    height: 100px;
-                    width: 100px;
-                    background-color: black;
-                }
-
-                .create-post-button {
-
-                }
-            }
-
-        }
+    .newsfeed-right {
+        border: 1px solid black;
+        height: 100vh;
+        // width: 25vw;
+        width: 25%;
     }
 
-    .newsfeed-posts {
-        // border: 2px solid black;
-        position: relative;
-        margin: auto;
-        height: 50px;
-        width: 680px;
+    .newsfeed-middle {
         display: flex;
         flex-direction: column;
-        row-gap: 90px;
+        align-items: center;
+        // position: absolute;
+        // flex-wrap: wrap;
+        // top: 100px;
+        // row-gap: 30px;
+        // left: 27%;
+        // width: 50vw;
+        width: 50%;
 
-        .post {
+        // justify-content: center;
+
+        .create-post {
             border: 1px solid rgb(231, 231, 231);
             box-shadow: 0 1px 2px rgb(207, 207, 207);
             border-radius: 10px;
+            // position: relative;
+            text-align: center;
+            // margin: auto;
+            height: 125px;
+            // width: 680px;
+            width: 95%;
             background-color: white;
-            font-size: 20px;
-            height: 200px;
-            width: 680px;
+            // z-index: 5;
+            // top: 5px;
             margin-bottom: 30px;
+            
+            div {
+                position: relative;
+                display: inline-block;
+                background-color: white;
+                border-radius: 50px;
+                width: 500px;
+                height: 40px;
+                top: 20px;
+                background-color: rgba(226, 225, 225, 0.541);
+                padding: 12px;
+                color: rgb(92, 92, 92);
+                cursor: pointer;
+
+            }
+
 
         }
+
+        .close-post {
+        height: 125px;
+        width: 680px;
+
+            .close-X {
+                height: 5px;
+                width: 5px;
+
+                .form {
+
+
+                    .textarea {
+                        height: 100px;
+                        width: 100px;
+                        background-color: black;
+                    }
+
+                    .create-post-button {
+
+                    }
+                }
+
+            }
+        }
+
+        .newsfeed-posts {
+            // border: 2px solid black;
+            // position: relative;
+            // margin: auto;
+            // height: 50px;
+            // width: 680px;
+            // display: flex;
+            // flex-direction: column;
+            // row-gap: 90px;
+            // display: flex;
+            // flex-direction: column;
+            // align-items: center;
+            // width: 50vw;
+
+            .post {
+                border: 1px solid rgb(231, 231, 231);
+                box-shadow: 0 1px 2px rgb(207, 207, 207);
+                border-radius: 10px;
+                background-color: white;
+                font-size: 20px;
+                height: 200px;
+                width: 95%;
+                margin-bottom: 30px;
+
+            }
+        }
+
     }
+
+    @media only screen and (max-width: 1100px) {
+        .newsfeed-left {
+            width: 15%;
+        }
+
+        .newsfeed-middle {
+            width: 70%;
+
+            .create-post {
+                width: 80%;
+            }
+        }
+
+        .newsfeed-right {
+            width: 15%;
+        }
+    }
+
+    // @media only screen and (max-width: 500px) {
+    //     .newsfeed-left {
+    //         width: 5vw;
+    //     }
+
+    //     .newsfeed-middle {
+    //         width: 90vw;
+    //     }
+
+    //     .newsfeed-right {
+    //         width: 5vw;
+    //     }
+    // }
+
+    @media only screen and (max-width: 600px) {
+        .newsfeed-left {
+            display: none;
+        }
+
+        .newsfeed-middle {
+            width: 100%;
+
+            .create-post {
+                width: 95%;
+            }
+        }
+
+        .newsfeed-right {
+            display: none;
+        }
+    }
+
 
 }
 

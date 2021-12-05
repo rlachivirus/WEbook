@@ -48,28 +48,32 @@ class Post extends React.Component {
 
         const showFeeds = !this.props.entities.users[userId] ? (
             <div className="newsfeed">
-                <div className="create-post">
-                    <div onClick={() => this.openModal({ type: 'createPost', currentUserId: this.props.currentUserId, userId: this.props.userId, createPost: this.props.createPost, currentUser: this.props.currentUser })}>{`What's on your mind, ${this.props.currentUser.fname}?`}</div>
+                <div className="newsfeed-left"></div>
+                <div className="newsfeed-middle">
+                    <div className="create-post">
+                        <div onClick={() => this.openModal({ type: 'createPost', currentUserId: this.props.currentUserId, userId: this.props.userId, createPost: this.props.createPost, currentUser: this.props.currentUser })}>{`What's on your mind, ${this.props.currentUser.fname}?`}</div>
+                    </div>
+                    <div className="newsfeed-posts">
+                        <ul>
+                            {Object.values(posts).reverse().map(post => {
+                                if (friendIds.includes(post.author_id)) {
+                                    return (
+                                        <div key={post.id}>
+                                            <li id={post.id} className="post">
+                                                <span id={post.id}></span>
+                                                <span className="post-name">{`${post.fname} ${post.lname}`}</span>
+                                                <br/>
+                                                <span className="post-body">{ post.body }</span>
+                                                <PostEditButton id={post.id} />
+                                            </li>
+                                        </div>
+                                    )
+                                }
+                            })}
+                            </ul>
+                    </div>
                 </div>
-                <div className="newsfeed-posts">
-                    <ul>
-                        {Object.values(posts).reverse().map(post => {
-                            if (friendIds.includes(post.author_id)) {
-                                return (
-                                    <div key={post.id}>
-                                        <li id={post.id} className="post">
-                                            <span id={post.id}></span>
-                                            <span className="post-name">{`${post.fname} ${post.lname}`}</span>
-                                            <br/>
-                                            <span className="post-body">{ post.body }</span>
-                                            <PostEditButton id={post.id} />
-                                        </li>
-                                    </div>
-                                )
-                            }
-                        })}
-                        </ul>
-                </div>
+                <div className="newsfeed-right"></div>
             </div>
         ) : userId === currentUserId ? (
             <div className="profile-feed">
