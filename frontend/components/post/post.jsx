@@ -53,12 +53,13 @@ class Post extends React.Component {
                     <div className="create-post">
                         <div onClick={() => this.openModal({ type: 'createPost', currentUserId: this.props.currentUserId, userId: this.props.userId, createPost: this.props.createPost, currentUser: this.props.currentUser })}>{`What's on your mind, ${this.props.currentUser.fname}?`}</div>
                     </div>
-                    <div className="newsfeed-posts">
-                        <ul>
+                    {/* <div className="newsfeed-posts"> */}
+                        <ul className="newsfeed-posts">
                             {Object.values(posts).reverse().map(post => {
                                 if (friendIds.includes(post.author_id)) {
                                     return (
-                                        <div key={post.id}>
+                                        // <div key={post.id}>
+                                        // <div id={post.id} className="newsfeed-posts">
                                             <li id={post.id} className="post">
                                                 <span id={post.id}></span>
                                                 <span className="post-name">{`${post.fname} ${post.lname}`}</span>
@@ -66,12 +67,12 @@ class Post extends React.Component {
                                                 <span className="post-body">{ post.body }</span>
                                                 <PostEditButton id={post.id} />
                                             </li>
-                                        </div>
+                                        // </div>
                                     )
                                 }
                             })}
-                            </ul>
-                    </div>
+                        </ul>
+                    {/* </div> */}
                 </div>
                 <div className="newsfeed-right"></div>
             </div>
