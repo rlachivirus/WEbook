@@ -49,7 +49,7 @@
             // top: 5px;
             margin-bottom: 30px;
             
-            div {
+            .create-button {
                 position: relative;
                 display: inline-block;
                 background-color: white;
@@ -84,10 +84,6 @@
                         width: 100px;
                         background-color: black;
                     }
-
-                    .create-post-button {
-
-                    }
                 }
 
             }
@@ -97,22 +93,45 @@
             width: 95%;
 
             .post {
+                padding: 20px;
                 border: 1px solid rgb(231, 231, 231);
                 box-shadow: 0 1px 2px rgb(207, 207, 207);
                 border-radius: 10px;
                 background-color: white;
                 font-size: 20px;
-                height: 200px;
+                height: auto;
                 // width: 47.5vw;
                 margin: 0;
                 margin-bottom: 30px;
                 // list-style-type: none;
 
-                .profile-picture {
-                    width: 30px;
-                    height: auto;
-                    object-fit: cover;
+                .post-top {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+
+                    .post-top-left {
+                        display: flex;
+                        flex-direction: row;
+                        width: auto;
+
+                        .profile-picture {
+                            border-radius: 50px;
+                            width: 50px;
+                            height: auto;
+                            object-fit: cover;
+                        }
+    
+                        .post-nameAndDate {
+                            display: flex;
+                            flex-direction: column;
+                            margin-left: 10px;
+    
+                        }
+                    }
+                    
                 }
+
 
                 .post-picture {
                     width: 100px;
