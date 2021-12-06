@@ -32,7 +32,7 @@ class Api::CommentsController < ApplicationController
     end
 
     def destroy
-        @comment = Post.find_by(id: params[:id])
+        @comment = Comment.find_by(id: params[:id])
         if @comment
             @comment.destroy
             render json: {}
