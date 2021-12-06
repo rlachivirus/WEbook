@@ -26,7 +26,7 @@ class Api::PostsController < ApplicationController
         if @post.update(post_params)
             render :show
         else
-            render json: @friend.errors.full_messages, status: 422
+            render json: @post.errors.full_messages, status: 422
         end
             
     end
