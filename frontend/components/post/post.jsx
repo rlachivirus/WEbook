@@ -15,12 +15,23 @@ class Post extends React.Component {
         }
 
         this.openModal = this.openModal.bind(this);
+        this.clickComment = this.clickComment.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchPosts()
         this.props.fetchUsers()
 
+    }
+
+    clickComment(postId) {
+        let commentInput = document.getElementById(`input-${postId}`)
+        // debugger
+        if (commentInput.style.display === "none") {
+            commentInput.style.display = "";
+        } else {
+            commentInput.style.display = "none";
+        }
     }
 
     openModal(obj) {
@@ -91,10 +102,10 @@ class Post extends React.Component {
                                         <hr/>
                                         <div className="likeAndComment">
                                             <div className="post-like">Like</div>
-                                            <div className="post-comment">Comment</div>
+                                            <div className="post-comment" onClick={() => this.clickComment(post.id)}>Comment</div>
                                         </div>
                                         <hr/>
-                                        <input className="commentInput" type="text" placeholder="Write a Comment..." />
+                                        <input className="commentInput" id={`input-${post.id}`} style={{display: "none"}} type="text" placeholder="Write a Comment..." />
                                     </li>
                                 )
                             }

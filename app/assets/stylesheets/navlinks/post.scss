@@ -168,7 +168,7 @@
                         }
 
                         .button:hover {
-                            background-color: grey;
+                            background-color: rgba(226, 225, 225, 0.541);
                         }
                     }
                     
@@ -201,10 +201,11 @@
                         text-align: center;
                         line-height: 2;
                         border-radius: 5px;
+                        cursor: pointer;
                     }
 
                     .post-like:hover {
-                        background-color: rgba(226, 225, 225, 0.541);
+                        background-color: rgba(236, 236, 236, 0.541);
                     }
 
                     .post-comment {
@@ -213,10 +214,11 @@
                         text-align: center;
                         line-height: 2;
                         border-radius: 5px;
+                        cursor: pointer;
                     }
 
                     .post-comment:hover {
-                        background-color: rgba(226, 225, 225, 0.541);
+                        background-color: rgba(236, 236, 236, 0.541);
                     }
                 }
 
@@ -232,6 +234,10 @@
                     color: rgb(92, 92, 92);
                     cursor: pointer;
                     // margin-top: 50px;
+                }
+
+                hr {
+                    color: rgba(146, 146, 146, 0.541);
                 }
             }
         }
