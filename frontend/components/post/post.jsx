@@ -105,7 +105,14 @@ class Post extends React.Component {
                                             <div className="post-comment" onClick={() => this.clickComment(post.id)}>Comment</div>
                                         </div>
                                         <hr/>
-                                        <input className="commentInput" id={`input-${post.id}`} style={{display: "none"}} type="text" placeholder="Write a Comment..." />
+                                        <div id={`input-${post.id}`} style={{ display: "none" }}>
+                                            <input className="commentInput" type="text" placeholder="Write a Comment..." />
+                                            <p>check</p>
+                                            <p>check</p>
+                                            <p>check</p>
+                                            <p>check</p>
+                                            <p>check</p>
+                                        </div>
                                     </li>
                                 )
                             }
@@ -163,10 +170,17 @@ class Post extends React.Component {
                                         <hr />
                                         <div className="likeAndComment">
                                             <div className="post-like">Like</div>
-                                            <div className="post-comment">Comment</div>
+                                            <div className="post-comment" onClick={() => this.clickComment(post.id)}>Comment</div>
                                         </div>
                                         <hr />
-                                        <input className="commentInput" type="text" placeholder="Write a Comment..." />
+                                        <div id={`input-${post.id}`} style={{ display: "none" }}>
+                                            <input className="commentInput" type="text" placeholder="Write a Comment..." />
+                                            <p>check</p>
+                                            <p>check</p>
+                                            <p>check</p>
+                                            <p>check</p>
+                                            <p>check</p>
+                                        </div>
                                     </li>
                                 )
                             }
@@ -224,10 +238,17 @@ class Post extends React.Component {
                                     <hr />
                                     <div className="likeAndComment">
                                         <div className="post-like">Like</div>
-                                        <div className="post-comment">Comment</div>
+                                        <div className="post-comment" onClick={() => this.clickComment(post.id)}>Comment</div>
                                     </div>
                                     <hr />
-                                    <input className="commentInput" type="text" placeholder="Write a Comment..." />
+                                    <div id={`input-${post.id}`} style={{ display: "none" }}>
+                                        <input className="commentInput" type="text" placeholder="Write a Comment..." />
+                                        <p>check</p>
+                                        <p>check</p>
+                                        <p>check</p>
+                                        <p>check</p>
+                                        <p>check</p>
+                                    </div>
                                 </li>
                             )
                         }
