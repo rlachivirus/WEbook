@@ -70,7 +70,7 @@ class Post extends React.Component {
 
                                 if (this.props.users[post.user_id]) {
                                     // postName = post.author_id === post.user_id ? `${post.fname} ${post.lname}` : post.user_id === 0 ? `${post.fname} ${post.lname}` : `${post.fname} ${post.lname} TO ${this.props.users[post.user_id].fname} ${this.props.users[post.user_id].lname}`
-                                    postName = post.author_id === post.user_id ? `${post.fname} ${post.lname}` : `${post.fname} ${post.lname} ▶ ${this.props.users[post.user_id].fname} ${this.props.users[post.user_id].lname}`
+                                    postName = post.author_id === post.user_id ? `${post.fname} ${post.lname}` : `${post.fname} ${post.lname} ▸ ${this.props.users[post.user_id].fname} ${this.props.users[post.user_id].lname}`
                                 } else {
                                     // postName = post.author_id === post.user_id ? `${post.fname} ${post.lname}` : post.user_id ? `${post.fname} ${post.lname} TO ${this.props.users[post.user_id].fname} ${this.props.users[post.user_id].lname}` : null
                                     postName = `${post.fname} ${post.lname}`
@@ -97,7 +97,7 @@ class Post extends React.Component {
                                             <br/>
                                             <img className="post-picture" src={post.photoUrl} />
                                             <hr/>
-                                            <div>
+                                            <div className="likeAndComment">
                                                 <div>Like</div>
                                                 <div>Comment</div>
                                             </div>

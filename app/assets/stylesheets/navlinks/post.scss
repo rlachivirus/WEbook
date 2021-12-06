@@ -8,14 +8,14 @@
 
     .newsfeed-left {
         border: 1px solid black;
-        height: 100vh;
+        height: 696px;
         // width: 25vw;
         width: 25%;
     }
 
     .newsfeed-right {
         border: 1px solid black;
-        height: 100vh;
+        height: 696px;
         // width: 25vw;
         width: 25%;
     }
@@ -29,8 +29,11 @@
         // top: 100px;
         // row-gap: 30px;
         // left: 27%;
-        // width: 50vw;
+        // height: 120vh;
         width: 50%;
+        height: 696px;
+        overflow: scroll;
+        
 
         // justify-content: center;
 
@@ -62,6 +65,9 @@
                 padding: 12px;
                 color: rgb(92, 92, 92);
                 cursor: pointer;
+                // margin-top: 50px;
+                margin-bottom: 40px;
+
 
             }
 
@@ -88,14 +94,13 @@
 
             }
         }
-        
+
         .newsfeed-posts * {
             background-color: white;
         }
 
         .newsfeed-posts {
             width: 95%;
-
 
             .post {
                 padding: 20px;
@@ -120,15 +125,29 @@
 
                         .profile-picture {
                             border-radius: 50px;
-                            width: 50px;
-                            height: auto;
+                            width: 40px;
+                            height: 40px;
                             object-fit: cover;
                         }
     
                         .post-nameAndDate {
                             display: flex;
                             flex-direction: column;
+                            justify-content: center;
                             margin-left: 10px;
+
+                            .post-name {
+                                font-size: 15px;
+                                font-weight: bold;
+
+                                span {
+                                    font-size: 50px;
+                                }
+                            }
+
+                            .post-date {
+                                font-size: 15px;
+                            }
                         }
                     }
 
@@ -162,9 +181,14 @@
 
 
                 .post-picture {
-                    width: 100px;
+                    width: 100%;
                     height: auto;
-                    object-fit: cover;
+                }
+
+                .likeAndComment {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
                 }
             }
         }
