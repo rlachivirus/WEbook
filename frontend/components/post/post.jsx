@@ -98,11 +98,12 @@ class Post extends React.Component {
                                             <img className="post-picture" src={post.photoUrl} />
                                             <hr/>
                                             <div className="likeAndComment">
-                                                <div>Like</div>
-                                                <div>Comment</div>
+                                                <div className="post-like">Like</div>
+                                                <div className="post-comment">Comment</div>
                                             </div>
                                             <hr/>
-                                            <div>Write a Comment...</div>
+                                            <input className="commentInput" type="text" placeholder="Write a Comment..." />
+                                            {/* <input className="commentInput">Write a Comment...</input> */}
                                         </li>
                                     // </div>
                                 )

@@ -189,6 +189,36 @@
                     display: flex;
                     flex-direction: row;
                     justify-content: space-around;
+                    margin: 2px;
+                    height: auto;
+                    
+                    .post-like {
+                        height: 35px;
+                        width: 50%;
+                        text-align: center;
+                        line-height: 2;
+                        border-radius: 5px;
+                    }
+
+                    .post-like:hover {
+                        background-color: lightgrey;
+                    }
+
+                    .post-comment {
+                        height: 35px;
+                        width: 50%;
+                        text-align: center;
+                        line-height: 2;
+                        border-radius: 5px;
+                    }
+
+                    .post-comment:hover {
+                        background-color: lightgrey;
+                    }
+                }
+
+                .commentInput {
+                    // display: none;
                 }
             }
         }
