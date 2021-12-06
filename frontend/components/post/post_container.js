@@ -4,6 +4,7 @@ import { fetchUser, fetchUsers } from '../../actions/user_actions'
 import { withRouter } from 'react-router-dom';
 import Post from './post';
 import { openModal } from '../../actions/modal_actions';
+import { fetchComments } from '../../actions/comment_actions';
 
 const mapStateToProps = (state, ownProps) => ({
     post: state.entities.posts[ownProps.id],
@@ -13,7 +14,8 @@ const mapStateToProps = (state, ownProps) => ({
     users: state.entities.users,
     friends: state.entities.users[state.session.id].friends,
     currentUser: state.entities.users[state.session.id],
-    currentUserId: state.session.id
+    currentUserId: state.session.id,
+    comments: state.entities.comments
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -23,7 +25,8 @@ const mapDispatchToProps = dispatch => ({
     fetchPosts: () => dispatch(fetchPosts()),
     createPost: (formData) => dispatch(createPost(formData)),
     deletePost: (postId) => dispatch(deletePost(postId)),
-    updatePost: (post) => dispatch(updatePost(post))
+    updatePost: (post) => dispatch(updatePost(post)),
+    fetchComments: () => dispatch(fetchComments())
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Post));

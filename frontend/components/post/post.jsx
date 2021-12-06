@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { fetchUser } from "../../actions/user_actions";
 import PostEditContainer from "./post_edit_container";
 import PostEditButton from "./post_edit_button";
+import CommentContainer from "../comment/comment_container";
 
 
 class Post extends React.Component {
@@ -19,9 +20,9 @@ class Post extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchPosts()
-        this.props.fetchUsers()
-
+        this.props.fetchPosts();
+        this.props.fetchUsers();
+        this.props.fetchComments();
     }
 
     clickComment(postId) {
@@ -106,12 +107,13 @@ class Post extends React.Component {
                                         </div>
                                         <hr/>
                                         <div id={`input-${post.id}`} style={{ display: "none" }}>
-                                            <input className="commentInput" type="text" placeholder="Write a Comment..." />
+                                            <CommentContainer currentUserId={this.props.currentUserId} postId={post.id} />
+                                            {/* <input className="commentInput" type="text" placeholder="Write a Comment..." />
                                             <p>check</p>
                                             <p>check</p>
                                             <p>check</p>
                                             <p>check</p>
-                                            <p>check</p>
+                                            <p>check</p> */}
                                         </div>
                                     </li>
                                 )

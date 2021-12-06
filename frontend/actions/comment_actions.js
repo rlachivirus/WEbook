@@ -25,8 +25,8 @@ export const receiveComment = (commentId) => ({
     commentId
 })
 
-export const createComment = (comment) => dispatch => (
-    CommentsUtil.createComment(comment)
+export const createComment = (formData) => dispatch => (
+    CommentsUtil.createComment(formData)
         .then((comment) => dispatch(addComment(comment)))
 )
 
