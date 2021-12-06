@@ -57,15 +57,15 @@ class PostEditButton extends React.Component {
         const editDeleteBox = this.state.status === 'closed' ? (
             null
         ) : (
-            <div className="options">
+            <div className="post-edit-options">
                 <div onClick={() => this.openModal({ type: 'editPost', post: this.props.post, id: this.props.id })} className="edit" >Edit</div>
                 <div onClick={this.handleDelete} className="delete">Delete</div>
             </div>
         )
 
         return (
-            <div>
-                <p className="button" onClick={this.handleClick}>O</p>
+            <div className="post-edit-button">
+                <p className="button" onClick={this.handleClick}>...</p>
                 {editDeleteBox}
             </div>
         )

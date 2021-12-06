@@ -87,7 +87,7 @@ class Post extends React.Component {
                                                     <img className="profile-picture" src={this.props.users[post.author_id].photoUrl} />
                                                     <div className="post-nameAndDate">
                                                         <span className="post-name">{postName}</span>
-                                                        <span>{`${postMonth} ${postDay}${postYear}`}</span>
+                                                        <span className="post-date">{`${postMonth} ${postDay}${postYear}`}</span>
                                                     </div>
                                                 </div>
                                                 <PostEditButton id={post.id} />
