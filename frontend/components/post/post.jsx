@@ -137,7 +137,7 @@ class Post extends React.Component {
                                     <li id={post.id} className="post">
                                         <div className="post-top">
                                             <div className="post-top-left">
-                                                {/* <img className="profile-picture" src={this.props.users[post.author_id].photoUrl} /> */}
+                                                <img className="profile-picture" src={this.props.users[post.author_id].photoUrl} />
                                                 <div className="post-nameAndDate">
                                                     <span className="post-name">{postName}</span>
                                                     <span className="post-date">{`${postMonth} ${postDay}${postYear}`}</span>
@@ -198,7 +198,7 @@ class Post extends React.Component {
                                 <li id={post.id} className="post">
                                     <div className="post-top">
                                         <div className="post-top-left">
-                                            {/* <img className="profile-picture" src={this.props.users[post.author_id].photoUrl} /> */}
+                                            <img className="profile-picture" src={this.props.users[post.author_id].photoUrl} />
                                             <div className="post-nameAndDate">
                                                 <span className="post-name">{postName}</span>
                                                 <span className="post-date">{`${postMonth} ${postDay}${postYear}`}</span>
