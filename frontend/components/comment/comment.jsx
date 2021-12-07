@@ -61,9 +61,9 @@ class Comment extends React.Component {
                             return (
                                 <ul>
                                     <li className="comment-list">
-                                        <span className="comment-body" id={`comment-${comment.id}`} style={{ backgroundColor: "rgba(226, 225, 225, 0.541)"}}>
+                                        <p className="comment-body" id={`comment-${comment.id}`} style={{ backgroundColor: "rgba(226, 225, 225, 0.541)"}}>
                                             {comment.body}
-                                        </span>
+                                        </p>
                                         <CommentEditFormContainer comment={comment} />
                                         <CommentEditButton id={comment.id} />
                                     </li>

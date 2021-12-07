@@ -1,18 +1,19 @@
 .comment-list {
-    width: 50%;
 
     .comment-body {
-        height: auto;
-        width: 100%;
+        display: inline-block;
+        // height: auto;
+        // max-width: 50%;
         background-color: rgba(226, 225, 225, 0.541);
         border-radius: 50px;
-        padding: 5px;
+        padding: 10px;
+        word-wrap: break-word;
+        // word-break: break-all;
     }
     
     .comment-edit-form {
-        border-radius: 50px;
         width: 100%;
-        height: auto;
+        border-radius: 50px;
         background-color: rgba(226, 225, 225, 0.541);
         padding: 12px;
         cursor: pointer;

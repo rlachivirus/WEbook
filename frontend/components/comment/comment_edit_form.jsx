@@ -23,9 +23,9 @@ class CommentEditForm extends React.Component {
         let commentToEdit = document.getElementById(`comment-edit-${this.props.comment.id}`)
         let comment = document.getElementById(`comment-${this.props.comment.id}`)
 
-        if (commentToEdit.focus()) {
+        // if (commentToEdit.focus()) {
             this.props.updateComment(this.state)
-        }
+        // }
 
         commentToEdit.style.display = "none";
         comment.style.display = "";
@@ -39,7 +39,7 @@ class CommentEditForm extends React.Component {
         return (
             // <div className="">
                 <form onSubmit={this.handleEdit}>
-                    <input className="comment-edit-form" id={`comment-edit-${this.props.comment.id}`} autoComplete="off" style={{ display: "none", backgroundColor: "rgba(226, 225, 225, 0.541)" }} type="text" onChange={this.update('body')} value={this.state.body} />
+                    <input type="text" className="comment-edit-form" id={`comment-edit-${this.props.comment.id}`} autoComplete="off" style={{ display: "none", backgroundColor: "rgba(226, 225, 225, 0.541)" }} onChange={this.update('body')} value={this.state.body} />
                     {/* <button>edit</button> */}
                 </form>
             // </div>
