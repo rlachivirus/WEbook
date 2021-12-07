@@ -15,14 +15,20 @@ class CommentEditForm extends React.Component {
 
     handleEdit(e) {
         e.preventDefault();
-        const editComment = Object.assign({}, this.state);
+        // const editComment = Object.assign({}, this.state);
         // const formData = new FormData();
         // formData.append('comment[id]', this.props.comment.id);
         // formData.append('comment[body]', this.state.body);
         // debugger
-        this.props.updateComment(editComment)
-            .then(res => console.log(res));
+        let commentToEdit = document.getElementById(`comment-edit-${this.props.comment.id}`)
+        let comment = document.getElementById(`comment-${this.props.comment.id}`)
 
+        if (commentToEdit.focus()) {
+            this.props.updateComment(this.state)
+        }
+
+        commentToEdit.style.display = "none";
+        comment.style.display = "";
     }
 
     update(field) {
@@ -31,12 +37,12 @@ class CommentEditForm extends React.Component {
 
     render() {
         return (
-            <div className="">
+            // <div className="">
                 <form onSubmit={this.handleEdit}>
-                    <input className="" id={`comment-edit-${this.props.comment.id}`} type="text" onChange={this.update('body')} value={this.state.body} />
+                    <input className="comment-edit-form" id={`comment-edit-${this.props.comment.id}`} autoComplete="off" style={{ display: "none", backgroundColor: "rgba(226, 225, 225, 0.541)" }} type="text" onChange={this.update('body')} value={this.state.body} />
                     {/* <button>edit</button> */}
                 </form>
-            </div>
+            // </div>
         )
 
     }

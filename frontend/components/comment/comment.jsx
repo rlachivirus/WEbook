@@ -60,13 +60,13 @@ class Comment extends React.Component {
                         if (comment.post_id === this.props.postId) {
                             return (
                                 <ul>
-                                    <li>
-                                        <span id={`comment-${comment.id}`}>
+                                    <li className="comment-list">
+                                        <span className="comment-body" id={`comment-${comment.id}`} style={{ backgroundColor: "rgba(226, 225, 225, 0.541)"}}>
                                             {comment.body}
                                         </span>
+                                        <CommentEditFormContainer comment={comment} />
                                         <CommentEditButton id={comment.id} />
                                     </li>
-                                    <CommentEditFormContainer comment={comment} />
                                 </ul>
                             )
                         }

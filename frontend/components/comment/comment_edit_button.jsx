@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 import { openModal } from "../../actions/modal_actions";
 import { deleteComment } from "../../actions/comment_actions";
-import CommentEditContainer from './comment_edit_container';
+import CommentEditFormContainer from './comment_edit_container';
 
 class CommentEditButton extends React.Component {
     constructor(props) {
@@ -16,7 +16,7 @@ class CommentEditButton extends React.Component {
         this.handleDelete = this.handleDelete.bind(this);
         // this.openModal = this.openModal.bind(this);
         this.closeDropDown = this.closeDropDown.bind(this);
-        // this.openEdit = this.openEdit.bind(this);
+        this.openEdit = this.openEdit.bind(this);
     }
 
     handleClick() {
@@ -37,13 +37,13 @@ class CommentEditButton extends React.Component {
     //     this.props.openModal(obj);
     // }
 
-    // openEdit() {
-    //     let commentToEdit = document.getElementById(`comment-edit-${this.props.comment.id}`)
-    //     let comment = document.getElementById(`comment-${this.props.comment.id}`)
+    openEdit() {
+        let commentToEdit = document.getElementById(`comment-edit-${this.props.comment.id}`)
+        let comment = document.getElementById(`comment-${this.props.comment.id}`)
 
-    //     comment.style.display = "none";
-    //     commentToEdit.style.display = "";
-    // }
+        comment.style.display = "none";
+        commentToEdit.style.display = "";
+    }
 
     closeDropDown() {
         this.setState({
@@ -68,7 +68,7 @@ class CommentEditButton extends React.Component {
             null
         ) : (
             <div className="post-edit-options">
-                <div onClick="" className="edit" >Edit</div>
+                <div onClick={this.openEdit} className="edit" >Edit</div>
                 <div onClick={this.handleDelete} className="delete">Delete</div>
             </div>
         )

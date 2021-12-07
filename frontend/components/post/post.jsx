@@ -27,9 +27,11 @@ class Post extends React.Component {
 
     clickComment(postId) {
         let commentInput = document.getElementById(`input-${postId}`)
+        let inputFocus = document.getElementById(`inputPlaceholder-${postId}`)
         // debugger
         if (commentInput.style.display === "none") {
             commentInput.style.display = "";
+            inputFocus.focus();
         } else {
             commentInput.style.display = "none";
         }
