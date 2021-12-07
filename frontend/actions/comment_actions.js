@@ -20,9 +20,9 @@ export const receiveAllComments = (comments) => ({
     comments
 });
 
-export const receiveComment = (commentId) => ({
+export const receiveComment = (comment) => ({
     type: RECEIVE_COMMENT,
-    commentId
+    comment
 })
 
 export const createComment = (formData) => dispatch => (
@@ -37,7 +37,7 @@ export const deleteComment = (commentId) => dispatch => (
 
 export const updateComment = (comment) => dispatch => (
     CommentsUtil.updateComment(comment)
-        .then((comment) => dispatch(addComment(comment)))
+        .then((comment) => dispatch(receiveComment(comment)))
 )
 
 export const fetchComments = () => dispatch => (

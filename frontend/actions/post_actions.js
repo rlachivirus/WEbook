@@ -20,9 +20,9 @@ export const receiveAllPosts = (posts) => ({
     posts
 });
 
-export const receivePost = (postId) => ({
+export const receivePost = (post) => ({
     type: RECEIVE_POST,
-    postId
+    post
 })
 
 export const createPost = (formData) => dispatch => (
@@ -35,9 +35,9 @@ export const deletePost = (postId) => dispatch => (
         .then(() => dispatch(removePost(postId)))
 )
 
-export const updatePost = (post) => dispatch => (
-    PostsUtil.updatePost(post)
-        .then((post) => dispatch(addPost(post)))
+export const updatePost = (formData) => dispatch => (
+    PostsUtil.updatePost(formData)
+        .then((post) => dispatch(receivePost(post)))
 )
 
 export const fetchPosts = () => dispatch => (

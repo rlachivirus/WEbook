@@ -1,6 +1,7 @@
 import React from "react";
 import { fetchUser } from "../../actions/user_actions";
 import CommentEditButton from './comment_edit_button';
+import CommentEditFormContainer from './comment_edit_container';
 
 
 class Comment extends React.Component {
@@ -13,6 +14,13 @@ class Comment extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+    // componentDidUpdate(prevState) {
+    //     if (this.state.body !== prevState.comment.body) {
+    //         this.props.fetchComments();
+    //         // this.props.fetchUser(this.props.friendId)
+    //     }
+    // }
 
     // componentDidMount() {
     //     this.props.fetchComments();
@@ -32,6 +40,12 @@ class Comment extends React.Component {
 
         this.props.createComment(formData)
         commentInput.value = "";
+
+        // let commentToEdit = document.getElementById(`comment-edit-${this.props.comment.id}`)
+        // let comment = document.getElementById(`comment-${this.props.comment.id}`)
+
+        // comment.style.display = "none";
+        // commentToEdit.style.display = "";
     }
 
 
@@ -41,20 +55,24 @@ class Comment extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <input className="commentInput" id={`inputPlaceholder-${this.props.postId}`} type="text" onChange={this.update('body')} placeholder={`What's on your mind?`} />
                     {/* <button className="create-post-button">Post</button> */}
-                    <ul>
-                        {Object.values(this.props.comments).reverse().map(comment => {
-                            if (comment.post_id === this.props.postId) {
-                                return (
+                </form>
+                    {Object.values(this.props.comments).reverse().map(comment => {
+                        if (comment.post_id === this.props.postId) {
+                            return (
+                                <ul>
                                     <li>
-                                        {comment.body}
+                                        <span id={`comment-${comment.id}`}>
+                                            {comment.body}
+                                        </span>
                                         <CommentEditButton id={comment.id} />
                                     </li>
-                                )
-                            }
-                        })
+                                    <CommentEditFormContainer comment={comment} />
+                                </ul>
+                            )
                         }
-                    </ul>
-                </form>
+                    })
+                    }
+                {/* </form> */}
             </div>
         )
     }
