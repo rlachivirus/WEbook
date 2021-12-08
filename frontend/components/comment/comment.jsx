@@ -54,7 +54,7 @@ class Comment extends React.Component {
                                             <br/>
                                             {comment.body}
                                         </p>
-                                        <p className="comment-like">Like</p>
+                                        <p className="comment-like" id={`comment-like-${comment.id}`}>Like</p>
                                         <CommentEditFormContainer comment={comment} />
                                     </div>
                                     <CommentEditButton comment={comment} />

@@ -31,14 +31,18 @@ class CommentEditButton extends React.Component {
     }
 
     openEdit() {
-        let commentToEdit = document.getElementById(`comment-edit-${this.props.comment.id}`)
-        let escapeInfo = document.getElementById(`comment-edit-${this.props.comment.id}-p`)
-        let comment = document.getElementById(`comment-${this.props.comment.id}`)
+        let commentToEdit = document.getElementById(`comment-edit-${this.props.comment.id}`);
+        let escapeInfo = document.getElementById(`comment-edit-${this.props.comment.id}-p`);
+        let comment = document.getElementById(`comment-${this.props.comment.id}`);
+        let commentEditButton = document.getElementById(`comment-edit-button-${this.props.comment.id}`);
+        let commentLike = document.getElementById(`comment-like-${this.props.comment.id}`);
 
         if (commentToEdit.style.display === "none") {
             commentToEdit.style.display = "";
             escapeInfo.style.display = "";
             comment.style.display = "none";
+            commentEditButton.style.display = "none";
+            commentLike.style.display = "none";
         }
     }
 
@@ -71,7 +75,7 @@ class CommentEditButton extends React.Component {
         )
 
         return (
-            <div className="post-edit-button">
+            <div className="comment-edit-button" id={`comment-edit-button-${this.props.comment.id}`}>
                 <p className="button" onClick={this.handleClick}>...</p>
                 {commentEditDeleteBox}
             </div>

@@ -1,5 +1,6 @@
 .commentInput {
     margin-bottom: 10px;
+    outline: none;
 }
 
 .comment-list {
@@ -10,7 +11,6 @@
     align-items: center;
     margin-top: 10px;
     margin-bottom: 10px;
-    width: auto;
 
     .profile-picture {
         align-self: flex-start;
@@ -41,19 +41,42 @@
     .comment-like {
         position: relative;
         font-size: 13px;
-        font-weight: bold;
+        font-weight: 600;
         top: 5px;
         left: 10px;
     }
     
     .comment-edit-form {
-        // margin-top: 5px;
-        width: 100%;
+        width: 276%;
         border-radius: 50px;
         background-color: rgba(226, 225, 225, 0.541);
         padding: 12px;
         cursor: pointer;
         // z-index: 10;
     }
+
+    .comment-edit-button {
+    // position: relative;
+    // line-height: 0;
+    // height: auto;
+    // width: 50px;
+
+    .button {
+        // line-height: 0;
+        position: relative;
+        top: -6px;
+        font-size: 20px;
+        border-radius: 50px;
+        height: 25px;
+        width: 25px;
+        line-height: 0.9;
+        padding-left: 8px;
+        cursor: pointer;
+    }
+
+    .button:hover {
+        background-color: rgba(226, 225, 225, 0.541);
+    }
+}
 }
 

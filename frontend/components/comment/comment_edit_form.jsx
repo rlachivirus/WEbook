@@ -14,6 +14,9 @@ class CommentEditForm extends React.Component {
         let commentToEdit = document.getElementById(`comment-edit-${this.state.id}`)
         let escapeInfo = document.getElementById(`comment-edit-${this.state.id}-p`)
         let comment = document.getElementById(`comment-${this.state.id}`)
+        let commentEditButton = document.getElementById(`comment-edit-button-${this.state.id}`);
+        let commentLike = document.getElementById(`comment-like-${this.state.id}`);
+
 
         window.addEventListener("keydown", function(e) {
 
@@ -22,6 +25,8 @@ class CommentEditForm extends React.Component {
                     commentToEdit.style.display = "none";
                     escapeInfo.style.display = "none";
                     comment.style.display = "";
+                    commentEditButton.style.display = "";
+                    commentLike.style.display = "";
                 }
             }
         })
@@ -34,6 +39,9 @@ class CommentEditForm extends React.Component {
         let commentToEdit = document.getElementById(`comment-edit-${this.state.id}`)
         let escapeInfo = document.getElementById(`comment-edit-${this.state.id}-p`)
         let comment = document.getElementById(`comment-${this.state.id}`)
+        let commentEditButton = document.getElementById(`comment-edit-button-${this.state.id}`);
+        let commentLike = document.getElementById(`comment-like-${this.state.id}`);
+
 
         this.props.updateComment(newState);
 
@@ -41,6 +49,8 @@ class CommentEditForm extends React.Component {
             commentToEdit.style.display = "none";
             escapeInfo.style.display = "none";
             comment.style.display = "";
+            commentEditButton.style.display = "";
+            commentLike.style.display = "";
         }
     }
 
