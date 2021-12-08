@@ -31,6 +31,7 @@ class Comment extends React.Component {
 
         if (commentInput.value !== "") {
             commentInput.value = "";
+            commentInput.blur();
         }
     }
 

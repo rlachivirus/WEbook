@@ -32,10 +32,12 @@ class CommentEditButton extends React.Component {
 
     openEdit() {
         let commentToEdit = document.getElementById(`comment-edit-${this.props.comment.id}`)
+        let escapeInfo = document.getElementById(`comment-edit-${this.props.comment.id}-p`)
         let comment = document.getElementById(`comment-${this.props.comment.id}`)
 
         if (commentToEdit.style.display === "none") {
             commentToEdit.style.display = "";
+            escapeInfo.style.display = "";
             comment.style.display = "none";
         }
     }

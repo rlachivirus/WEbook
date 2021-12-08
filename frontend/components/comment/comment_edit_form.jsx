@@ -12,6 +12,7 @@ class CommentEditForm extends React.Component {
 
     componentDidMount() {
         let commentToEdit = document.getElementById(`comment-edit-${this.state.id}`)
+        let escapeInfo = document.getElementById(`comment-edit-${this.state.id}-p`)
         let comment = document.getElementById(`comment-${this.state.id}`)
 
         window.addEventListener("keydown", function(e) {
@@ -19,6 +20,7 @@ class CommentEditForm extends React.Component {
             if (e.key === "Escape") {
                 if (commentToEdit.style.display === "") {
                     commentToEdit.style.display = "none";
+                    escapeInfo.style.display = "none";
                     comment.style.display = "";
                 }
             }
@@ -30,12 +32,14 @@ class CommentEditForm extends React.Component {
         const newState = Object.assign({}, this.state);
 
         let commentToEdit = document.getElementById(`comment-edit-${this.state.id}`)
+        let escapeInfo = document.getElementById(`comment-edit-${this.state.id}-p`)
         let comment = document.getElementById(`comment-${this.state.id}`)
 
         this.props.updateComment(newState);
 
         if (commentToEdit.style.display === "") {
             commentToEdit.style.display = "none";
+            escapeInfo.style.display = "none";
             comment.style.display = "";
         }
     }
@@ -48,6 +52,7 @@ class CommentEditForm extends React.Component {
         return (
             <form onSubmit={this.handleEdit}>
                 <input type="text" className="comment-edit-form" id={`comment-edit-${this.state.id}`} autoComplete="off" style={{ display: "none", backgroundColor: "rgba(226, 225, 225, 0.541)" }} onChange={this.update('body')} value={this.state.body} />
+                <p id={`comment-edit-${this.state.id}-p`} style={{ display: "none" }}>Press Esc to cancel.</p>
             </form>
         )
 
