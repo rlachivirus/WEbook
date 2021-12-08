@@ -20,3 +20,10 @@
         z-index: 10;
     }
 }
+
+.profile-picture {
+    border-radius: 50px;
+    height: 30px;
+    width: 30px;
+    object-fit: cover;
+}

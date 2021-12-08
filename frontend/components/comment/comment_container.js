@@ -9,9 +9,9 @@ const mapStateToProps = (state, ownProps) => ({
     // posts: state.entities.posts,
     // userId: parseInt(ownProps.match.params.userId),
     // entities: state.entities,
-    // users: state.entities.users,
+    users: state.entities.users,
     // friends: state.entities.users[state.session.id].friends,
-    currentUser: state.entities.users[state.session.id],
+    // currentUser: state.entities.users[state.session.id],
     // currentUserId: state.session.id
     comments: state.entities.comments
 })

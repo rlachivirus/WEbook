@@ -45,15 +45,17 @@ class Comment extends React.Component {
                 <ul>
                     {Object.values(this.props.comments).reverse().map((comment, idx) => {
                         if (comment.post_id === this.props.postId) {
-                            // let userName = this.props.currentUserId === comment.author_id ? `${this.props.currentUser.fname} ${this.props.currentUser.lname} ` :
                             return (
                                 <li className="comment-list" key={`${comment.id}-${idx}`}>
-                                    <p className="comment-body" id={`comment-${comment.id}`} style={{ backgroundColor: "rgba(226, 225, 225, 0.541)"}}>
-                                        {`${comment.fname} ${comment.lname} `}
-                                        <br/>
-                                        {comment.body}
-                                    </p>
-                                    <CommentEditFormContainer comment={comment} />
+                                    <img className="profile-picture" src={this.props.users[comment.author_id].photoUrl} />
+                                    <div>
+                                        <p className="comment-body" id={`comment-${comment.id}`} style={{ backgroundColor: "rgba(226, 225, 225, 0.541)"}}>
+                                            {`${comment.fname} ${comment.lname} `}
+                                            <br/>
+                                            {comment.body}
+                                        </p>
+                                        <CommentEditFormContainer comment={comment} />
+                                    </div>
                                     <CommentEditButton comment={comment} />
                                 </li>
                             )
