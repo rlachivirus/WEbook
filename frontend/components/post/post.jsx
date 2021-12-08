@@ -184,12 +184,13 @@ class Post extends React.Component {
                                         </div>
                                         <hr />
                                         <div id={`input-${post.id}`} style={{ display: "none" }}>
-                                            <input className="commentInput" type="text" placeholder="Write a Comment..." />
+                                            <CommentContainer currentUserId={this.props.currentUserId} postId={post.id} />
+                                            {/* <input className="commentInput" type="text" placeholder="Write a Comment..." />
                                             <p>check</p>
                                             <p>check</p>
                                             <p>check</p>
                                             <p>check</p>
-                                            <p>check</p>
+                                            <p>check</p> */}
                                         </div>
                                     </li>
                                 )
@@ -252,12 +253,13 @@ class Post extends React.Component {
                                     </div>
                                     <hr />
                                     <div id={`input-${post.id}`} style={{ display: "none" }}>
-                                        <input className="commentInput" type="text" placeholder="Write a Comment..." />
+                                        <CommentContainer currentUserId={this.props.currentUserId} postId={post.id} />
+                                        {/* <input className="commentInput" type="text" placeholder="Write a Comment..." />
                                         <p>check</p>
                                         <p>check</p>
                                         <p>check</p>
                                         <p>check</p>
-                                        <p>check</p>
+                                        <p>check</p> */}
                                     </div>
                                 </li>
                             )

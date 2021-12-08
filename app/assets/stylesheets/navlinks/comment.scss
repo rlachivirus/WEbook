@@ -1,6 +1,7 @@
 .commentInput {
     margin-bottom: 10px;
     outline: none;
+    font-size: 16px;
 }
 
 .comment-list {
@@ -47,7 +48,7 @@
     }
     
     .comment-edit-form {
-        width: 276%;
+        width: 100%;
         border-radius: 50px;
         background-color: rgba(226, 225, 225, 0.541);
         padding: 12px;
@@ -55,28 +56,39 @@
         // z-index: 10;
     }
 
+    .comment-escape {
+        position: relative;
+        font-size: 13px;
+        left: 20px;
+        margin-top: 5px;
+    }
     .comment-edit-button {
+        position: relative;
     // position: relative;
     // line-height: 0;
     // height: auto;
     // width: 50px;
 
-    .button {
-        // line-height: 0;
-        position: relative;
-        top: -6px;
-        font-size: 20px;
-        border-radius: 50px;
-        height: 25px;
-        width: 25px;
-        line-height: 0.9;
-        padding-left: 8px;
-        cursor: pointer;
-    }
+        .button {
+            // line-height: 0;
+            position: relative;
+            top: -6px;
+            font-size: 20px;
+            border-radius: 50px;
+            height: 25px;
+            width: 25px;
+            line-height: 0.9;
+            padding-left: 8px;
+            cursor: pointer;
+        }
 
-    .button:hover {
-        background-color: rgba(226, 225, 225, 0.541);
+        .button:hover {
+            background-color: rgba(226, 225, 225, 0.541);
+        }
+
+        .comment-edit-options {
+            position: absolute;
+        }
     }
-}
 }
 

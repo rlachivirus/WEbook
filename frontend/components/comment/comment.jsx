@@ -48,7 +48,7 @@ class Comment extends React.Component {
                             return (
                                 <li className="comment-list" key={`${comment.id}-${idx}`}>
                                     <img className="profile-picture" src={this.props.users[comment.author_id].photoUrl} />
-                                    <div>
+                                    <div id={`comment-div-${comment.id}`} style={{ width: "" }}>
                                         <p className="comment-body" id={`comment-${comment.id}`} style={{ backgroundColor: "rgba(226, 225, 225, 0.541)"}}>
                                             {`${comment.fname} ${comment.lname} `}
                                             <br/>

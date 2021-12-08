@@ -36,9 +36,11 @@ class CommentEditButton extends React.Component {
         let comment = document.getElementById(`comment-${this.props.comment.id}`);
         let commentEditButton = document.getElementById(`comment-edit-button-${this.props.comment.id}`);
         let commentLike = document.getElementById(`comment-like-${this.props.comment.id}`);
+        let commentDiv = document.getElementById(`comment-div-${this.props.comment.id}`);
 
         if (commentToEdit.style.display === "none") {
             commentToEdit.style.display = "";
+            commentDiv.style.width = "100%";
             escapeInfo.style.display = "";
             comment.style.display = "none";
             commentEditButton.style.display = "none";
@@ -68,7 +70,7 @@ class CommentEditButton extends React.Component {
         const commentEditDeleteBox = this.state.status === 'closed' ? (
             null
         ) : (
-            <div className="post-edit-options">
+            <div className="comment-edit-options">
                 <div onClick={this.openEdit} className="edit" >Edit</div>
                 <div onClick={this.handleDelete} className="delete">Delete</div>
             </div>

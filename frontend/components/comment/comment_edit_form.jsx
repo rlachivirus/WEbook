@@ -17,6 +17,7 @@ class CommentEditForm extends React.Component {
         let comment = document.getElementById(`comment-${this.state.id}`)
         let commentEditButton = document.getElementById(`comment-edit-button-${this.state.id}`);
         let commentLike = document.getElementById(`comment-like-${this.state.id}`);
+        let commentDiv = document.getElementById(`comment-div-${this.state.id}`);
         let originalState = this.originalState;
 
 
@@ -25,6 +26,7 @@ class CommentEditForm extends React.Component {
             if (e.key === "Escape") {
                 if (commentToEdit.style.display === "") {
                     commentToEdit.style.display = "none";
+                    commentDiv.style.width = "";
                     escapeInfo.style.display = "none";
                     comment.style.display = "";
                     commentEditButton.style.display = "";
@@ -62,12 +64,14 @@ class CommentEditForm extends React.Component {
         let comment = document.getElementById(`comment-${this.state.id}`)
         let commentEditButton = document.getElementById(`comment-edit-button-${this.state.id}`);
         let commentLike = document.getElementById(`comment-like-${this.state.id}`);
+        let commentDiv = document.getElementById(`comment-div-${this.state.id}`);
 
 
         this.props.updateComment(newState);
 
         if (commentToEdit.style.display === "") {
             commentToEdit.style.display = "none";
+            commentDiv.style.width = "";
             escapeInfo.style.display = "none";
             comment.style.display = "";
             commentEditButton.style.display = "";
@@ -77,7 +81,7 @@ class CommentEditForm extends React.Component {
             //     body: newState.body
             // })
         }
-        
+
         this.originalState.body = newState.body
     }
 
@@ -86,12 +90,10 @@ class CommentEditForm extends React.Component {
     }
 
     render() {
-        console.log(this.originalState)
-        console.log(this.state)
         return (
             <form onSubmit={this.handleEdit}>
                 <input type="text" className="comment-edit-form" id={`comment-edit-${this.state.id}`} autoComplete="off" style={{ display: "none", backgroundColor: "rgba(226, 225, 225, 0.541)" }} onChange={this.update('body')} value={this.state.body} />
-                <p id={`comment-edit-${this.state.id}-p`} style={{ display: "none" }}>Press Esc to cancel.</p>
+                <p className="comment-escape" id={`comment-edit-${this.state.id}-p`} style={{ display: "none" }}>Press Esc to cancel.</p>
             </form>
         )
 
