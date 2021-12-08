@@ -1,4 +1,14 @@
 .comment-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    img {
+        align-self: flex-start;
+    }
 
     .comment-body {
         display: inline-block;
