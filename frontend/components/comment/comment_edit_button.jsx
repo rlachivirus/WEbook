@@ -1,8 +1,5 @@
 import React from "react";
 import { connect } from 'react-redux';
-import { openModal } from "../../actions/modal_actions";
-import { deleteComment, fetchComments } from "../../actions/comment_actions";
-import CommentEditFormContainer from './comment_edit_container';
 import { withRouter } from 'react-router-dom';
 
 class CommentEditButton extends React.Component {
@@ -15,17 +12,9 @@ class CommentEditButton extends React.Component {
 
         this.handleClick = this.handleClick.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
-        // this.openModal = this.openModal.bind(this);
         this.closeDropDown = this.closeDropDown.bind(this);
         this.openEdit = this.openEdit.bind(this);
     }
-
-    // componentDidUpdate(prevProps) {
-    //     if (this.props.comment !== prevProps.comment) {
-    //         this.props.fetchComments();
-    //     }
-
-    // }
 
     handleClick() {
         this.state.status === 'closed' ? (
@@ -39,10 +28,6 @@ class CommentEditButton extends React.Component {
         this.props.deleteComment(this.props.comment.id);
         this.setState({ status: 'closed' });
     }
-
-    // openModal(obj) {
-    //     this.props.openModal(obj);
-    // }
 
     openEdit() {
         debugger
@@ -81,10 +66,6 @@ class CommentEditButton extends React.Component {
             </div>
         )
 
-        // if (!this.props.id) {
-        //     return null;
-        // }
-
         return (
             <div className="post-edit-button">
                 <p className="button" onClick={this.handleClick}>...</p>
@@ -95,11 +76,10 @@ class CommentEditButton extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    // comment: state.entities.comments[ownProps.id]
+
 });
 
 const mapDispatchToProps = dispatch => ({
-    // openModal: modal => dispatch(openModal(modal)),
     deleteComment: (commentId) => dispatch(deleteComment(commentId))
 });
 
