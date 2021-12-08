@@ -28,7 +28,10 @@ class Comment extends React.Component {
         let commentInput = document.getElementById(`inputPlaceholder-${this.props.postId}`)
 
         this.props.createComment(formData)
-        commentInput.value = "";
+
+        if (commentInput.value !== "") {
+            commentInput.value = "";
+        }
     }
 
 
@@ -36,7 +39,7 @@ class Comment extends React.Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" className="commentInput" id={`inputPlaceholder-${this.props.postId}`} onChange={this.update('body')} placeholder={`What's on your mind?`} />
+                    <input type="text" className="commentInput" id={`inputPlaceholder-${this.props.postId}`} autoComplete="off" onChange={this.update('body')} placeholder={`What's on your mind?`} />
                 </form>
                 <ul>
                     {Object.values(this.props.comments).reverse().map((comment, idx) => {

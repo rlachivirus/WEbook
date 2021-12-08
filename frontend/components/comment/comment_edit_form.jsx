@@ -10,6 +10,21 @@ class CommentEditForm extends React.Component {
         this.handleEdit = this.handleEdit.bind(this);
     }
 
+    componentDidMount() {
+        let commentToEdit = document.getElementById(`comment-edit-${this.state.id}`)
+        let comment = document.getElementById(`comment-${this.state.id}`)
+
+        window.addEventListener("keydown", function(e) {
+
+            if (e.key === "Escape") {
+                if (commentToEdit.style.display === "") {
+                    commentToEdit.style.display = "none";
+                    comment.style.display = "";
+                }
+            }
+        })
+    }
+
     handleEdit(e) {
         e.preventDefault();
         const newState = Object.assign({}, this.state);
@@ -19,8 +34,10 @@ class CommentEditForm extends React.Component {
 
         this.props.updateComment(newState);
 
-        commentToEdit.style.display = "none";
-        comment.style.display = "";
+        if (commentToEdit.style.display === "") {
+            commentToEdit.style.display = "none";
+            comment.style.display = "";
+        }
     }
 
     update(field) {

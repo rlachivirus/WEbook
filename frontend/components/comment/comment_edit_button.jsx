@@ -34,8 +34,10 @@ class CommentEditButton extends React.Component {
         let commentToEdit = document.getElementById(`comment-edit-${this.props.comment.id}`)
         let comment = document.getElementById(`comment-${this.props.comment.id}`)
 
-        comment.style.display = "none";
-        commentToEdit.style.display = "";
+        if (commentToEdit.style.display === "none") {
+            commentToEdit.style.display = "";
+            comment.style.display = "none";
+        }
     }
 
     closeDropDown() {
