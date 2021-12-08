@@ -1,8 +1,9 @@
 import React from "react";
 import { connect } from 'react-redux';
 import { openModal } from "../../actions/modal_actions";
-import { deleteComment } from "../../actions/comment_actions";
+import { deleteComment, fetchComments } from "../../actions/comment_actions";
 import CommentEditFormContainer from './comment_edit_container';
+import { withRouter } from 'react-router-dom';
 
 class CommentEditButton extends React.Component {
     constructor(props) {
@@ -19,6 +20,13 @@ class CommentEditButton extends React.Component {
         this.openEdit = this.openEdit.bind(this);
     }
 
+    // componentDidUpdate(prevProps) {
+    //     if (this.props.comment !== prevProps.comment) {
+    //         this.props.fetchComments();
+    //     }
+
+    // }
+
     handleClick() {
         this.state.status === 'closed' ? (
             this.setState({ status: 'open' })
@@ -28,8 +36,7 @@ class CommentEditButton extends React.Component {
     }
 
     handleDelete() {
-        debugger
-        this.props.deleteComment(this.props.id);
+        this.props.deleteComment(this.props.comment.id);
         this.setState({ status: 'closed' });
     }
 
@@ -38,6 +45,7 @@ class CommentEditButton extends React.Component {
     // }
 
     openEdit() {
+        debugger
         let commentToEdit = document.getElementById(`comment-edit-${this.props.comment.id}`)
         let comment = document.getElementById(`comment-${this.props.comment.id}`)
 
@@ -73,6 +81,10 @@ class CommentEditButton extends React.Component {
             </div>
         )
 
+        // if (!this.props.id) {
+        //     return null;
+        // }
+
         return (
             <div className="post-edit-button">
                 <p className="button" onClick={this.handleClick}>...</p>
@@ -83,12 +95,12 @@ class CommentEditButton extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    comment: state.entities.comments[ownProps.id]
+    // comment: state.entities.comments[ownProps.id]
 });
 
 const mapDispatchToProps = dispatch => ({
     // openModal: modal => dispatch(openModal(modal)),
-    deleteComment: (commentId) => dispatch(deleteComment(commentId)),
+    deleteComment: (commentId) => dispatch(deleteComment(commentId))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CommentEditButton);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CommentEditButton));

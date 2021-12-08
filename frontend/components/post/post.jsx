@@ -25,6 +25,12 @@ class Post extends React.Component {
         this.props.fetchComments();
     }
 
+    // componentDidUpdate(prevProps) {
+    //     if (Object.values(this.props.comments).length !== Object.values(prevProps.comments).length) {
+    //         this.props.fetchComments()
+    //     }
+    // }
+
     clickComment(postId) {
         let commentInput = document.getElementById(`input-${postId}`)
         let inputFocus = document.getElementById(`inputPlaceholder-${postId}`)
@@ -46,6 +52,7 @@ class Post extends React.Component {
     }
 
     render() {
+        console.log(Object.values(this.props.comments).length)
         const { posts, friends, userId, currentUserId } = this.props;
 
         // const createPost = (
