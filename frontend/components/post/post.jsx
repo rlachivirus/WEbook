@@ -52,7 +52,6 @@ class Post extends React.Component {
     }
 
     render() {
-        console.log(Object.values(this.props.comments).length)
         const { posts, friends, userId, currentUserId } = this.props;
 
         // const createPost = (

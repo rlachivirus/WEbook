@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { deleteComment } from '../../actions/comment_actions';
 
 class CommentEditButton extends React.Component {
     constructor(props) {
@@ -30,7 +31,6 @@ class CommentEditButton extends React.Component {
     }
 
     openEdit() {
-        debugger
         let commentToEdit = document.getElementById(`comment-edit-${this.props.comment.id}`)
         let comment = document.getElementById(`comment-${this.props.comment.id}`)
 
