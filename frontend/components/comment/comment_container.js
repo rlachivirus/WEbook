@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => ({
     // entities: state.entities,
     // users: state.entities.users,
     // friends: state.entities.users[state.session.id].friends,
-    // currentUser: state.entities.users[state.session.id],
+    currentUser: state.entities.users[state.session.id],
     // currentUserId: state.session.id
     comments: state.entities.comments
 })
