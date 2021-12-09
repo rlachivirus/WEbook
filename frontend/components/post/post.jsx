@@ -56,18 +56,18 @@ class Post extends React.Component {
 
         Object.values(this.props.likes).forEach(like => {
             if (like.like_id === postId) {
-                return likeId = like.id
+                likeId = like.id
+                return;
             }
         })
         // debugger
 
-        if (likeId === postId) {
+        if (likeId) {
             this.props.deleteLike(likeId);
         } else {
             const formData = new FormData();
             formData.append('like[like_id]', postId);
             formData.append('like[like_type]', "Post");
-            debugger
             this.props.createLike(formData)
         }
     }

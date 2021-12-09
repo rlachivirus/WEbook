@@ -9,7 +9,10 @@ class Like extends React.Component {
     }
 
     render() {
-        console.log(this.props)
+
+        if (!this.props.comment || !this.props.post ) {
+            return null
+        }
 
         const postLikeCount = Object.values(this.props.likes).forEach(like => {
             let count = 0;
