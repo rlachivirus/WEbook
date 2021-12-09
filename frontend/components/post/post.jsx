@@ -4,6 +4,7 @@ import { fetchUser } from "../../actions/user_actions";
 import PostEditContainer from "./post_edit_container";
 import PostEditButton from "./post_edit_button";
 import CommentContainer from "../comment/comment_container";
+import LikeContainer from "../like/like_container";
 
 
 class Post extends React.Component {
@@ -23,6 +24,7 @@ class Post extends React.Component {
         this.props.fetchPosts();
         this.props.fetchUsers();
         this.props.fetchComments();
+        this.props.fetchLikes();
     }
 
     // componentDidUpdate(prevProps) {
@@ -109,6 +111,7 @@ class Post extends React.Component {
                                         <span className="post-body">{post.body}</span>
                                         <br/>
                                         <img className="post-picture" src={post.photoUrl} />
+                                        {/* <LikeContainer post={post} type="post"/> */}
                                         <hr/>
                                         <div className="likeAndComment">
                                             <div className="post-like">Like</div>

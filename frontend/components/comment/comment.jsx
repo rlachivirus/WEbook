@@ -2,6 +2,7 @@ import React from "react";
 import { fetchUser } from "../../actions/user_actions";
 import CommentEditButton from './comment_edit_button';
 import CommentEditFormContainer from './comment_edit_container';
+import LikeContainer from '../like/like_container';
 
 
 class Comment extends React.Component {
@@ -49,12 +50,13 @@ class Comment extends React.Component {
                             return (
                                 <li className="comment-list" key={`${comment.id}-${idx}`}>
                                     <img className="profile-picture" src={this.props.users[comment.author_id].photoUrl} />
-                                    <div id={`comment-div-${comment.id}`} style={{ width: "" }}>
+                                    <div className="comment-div" id={`comment-div-${comment.id}`} style={{ width: "" }}>
                                         <p className="comment-body" id={`comment-${comment.id}`} style={{ backgroundColor: "rgba(226, 225, 225, 0.541)"}}>
                                             {`${comment.fname} ${comment.lname} `}
                                             <br/>
                                             {comment.body}
                                         </p>
+                                        {/* <LikeContainer comment={comment} type="comment"/> */}
                                         <p className="comment-like" id={`comment-like-${comment.id}`}>Like</p>
                                         <CommentEditFormContainer comment={comment} />
                                     </div>

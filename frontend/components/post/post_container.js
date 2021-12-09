@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { createPost, deletePost, fetchPosts, updatePost } from '../../actions/post_actions';
 import { fetchUser, fetchUsers } from '../../actions/user_actions'
+import { fetchLikes } from '../../actions/like_actions';
 import { withRouter } from 'react-router-dom';
 import Post from './post';
 import { openModal } from '../../actions/modal_actions';
@@ -26,7 +27,8 @@ const mapDispatchToProps = dispatch => ({
     createPost: (formData) => dispatch(createPost(formData)),
     deletePost: (postId) => dispatch(deletePost(postId)),
     updatePost: (post) => dispatch(updatePost(post)),
-    fetchComments: () => dispatch(fetchComments())
+    fetchComments: () => dispatch(fetchComments()),
+    fetchLikes: () => dispatch(fetchLikes())
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Post));
