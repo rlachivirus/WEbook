@@ -4,7 +4,8 @@ import { fetchUser } from "../../actions/user_actions";
 import PostEditContainer from "./post_edit_container";
 import PostEditButton from "./post_edit_button";
 import CommentContainer from "../comment/comment_container";
-import LikeContainer from "../like/like_container";
+import LikePostContainer from "../like/like_post";
+
 
 
 class Post extends React.Component {
@@ -46,7 +47,7 @@ class Post extends React.Component {
         }
     }
 
-    likePost(postId) {
+    likePost(post) {
         // let postIds = [];
 
         // Object.values(this.props.posts).forEach(post => {
@@ -54,21 +55,23 @@ class Post extends React.Component {
         // })
         let likeId = null;
 
-        Object.values(this.props.likes).forEach(like => {
-            if (like.like_id === postId) {
-                likeId = like.id
-                return;
+        this.props.currentUser.likes.forEach(like => {
+            if (like.like_id === post.id && like.like_type === "Post") {
+                return likeId = like.id
             }
         })
         // debugger
 
         if (likeId) {
-            this.props.deleteLike(likeId);
+            this.props.deleteLike(likeId)
+                .then(res => console.log(res))
         } else {
+            // debugger
             const formData = new FormData();
-            formData.append('like[like_id]', postId);
+            formData.append('like[like_id]', post.id);
             formData.append('like[like_type]', "Post");
             this.props.createLike(formData)
+                .then(res => console.log(res))
         }
     }
 
@@ -107,7 +110,7 @@ class Post extends React.Component {
                         <div className="create-button" onClick={() => this.openModal({ type: 'createPost', currentUserId: this.props.currentUserId, userId: this.props.userId, createPost: this.props.createPost, currentUser: this.props.currentUser })}>{`What's on your mind, ${this.props.currentUser.fname}?`}</div>
                     </div>
                     <ul className="newsfeed-posts">
-                        {Object.values(posts).reverse().map(post => {
+                        {Object.values(posts).reverse().map((post, idx) => {
                             if (friendIds.includes(post.author_id)) {
                                 let months = { 1: "January", 2: "February", 3: "March", 4: "April", 5: "May", 6: "June", 7: "July", 8: "August", 9: "September", 10: "October", 11: "November", 12: "December" };
                                 let currentYear = this.state.date;
@@ -123,7 +126,7 @@ class Post extends React.Component {
                                 }
 
                                 return (
-                                    <li id={post.id} className="post">
+                                    <li key={`${post.id}-${idx}`} id={post.id} className="post">
                                         <div className="post-top">
                                             <div className="post-top-left">
                                                 <img className="profile-picture" src={this.props.users[post.author_id].photoUrl} />
@@ -138,10 +141,14 @@ class Post extends React.Component {
                                         <span className="post-body">{post.body}</span>
                                         <br/>
                                         <img className="post-picture" src={post.photoUrl} />
-                                        <LikeContainer post={post} typePost="post"/>
+                                        <LikePostContainer post={post} typePost="post"/>
+                                        {/* <div className="post-like-count">
+                                            <img />
+                                            <p>{post.likes.length}</p>
+                                        </div> */}
                                         <hr/>
                                         <div className="likeAndComment">
-                                            <div className="post-like" onClick={() => this.likePost(post.id)}>Like</div>
+                                            <div className="post-like" onClick={() => this.likePost(post)}>Like</div>
                                             <div className="post-comment" onClick={() => this.clickComment(post.id)}>Comment</div>
                                         </div>
                                         <hr/>
@@ -194,7 +201,7 @@ class Post extends React.Component {
                                     //         <PostEditButton id={post.id} />
                                     //     </li>
                                     // </div>
-                                    <li id={post.id} className="post">
+                                    <li key={`${post.id}-${idx}`} id={post.id} className="post">
                                         <div className="post-top">
                                             <div className="post-top-left">
                                                 <img className="profile-picture" src={this.props.users[post.author_id].photoUrl} />
@@ -209,7 +216,7 @@ class Post extends React.Component {
                                         <span className="post-body">{post.body}</span>
                                         <br />
                                         <img className="post-picture" src={post.photoUrl} />
-                                        <LikeContainer post={post} typePost="post" />
+                                        <LikePostContainer post={post} typePost="post" />
                                         <hr />
                                         <div className="likeAndComment">
                                             <div className="post-like">Like</div>
@@ -265,7 +272,7 @@ class Post extends React.Component {
                                 //         <PostEditButton id={post.id} />
                                 //     </li>
                                 // </div>
-                                <li id={post.id} className="post">
+                                <li key={`${post.id}-${idx}`} id={post.id} className="post">
                                     <div className="post-top">
                                         <div className="post-top-left">
                                             <img className="profile-picture" src={this.props.users[post.author_id].photoUrl} />
@@ -280,7 +287,7 @@ class Post extends React.Component {
                                     <span className="post-body">{post.body}</span>
                                     <br />
                                     <img className="post-picture" src={post.photoUrl} />
-                                    <LikeContainer post={post} typePost="post" />
+                                    <LikePostContainer post={post} typePost="post" />
                                     <hr />
                                     <div className="likeAndComment">
                                         <div className="post-like">Like</div>

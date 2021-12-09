@@ -2,7 +2,7 @@ import React from "react";
 import { fetchUser } from "../../actions/user_actions";
 import CommentEditButton from './comment_edit_button';
 import CommentEditFormContainer from './comment_edit_container';
-import LikeContainer from '../like/like_container';
+import LikeCommentContainer from '../like/like_comment';
 
 
 class Comment extends React.Component {
@@ -56,7 +56,7 @@ class Comment extends React.Component {
                                             <br/>
                                             {comment.body}
                                         </p>
-                                        <LikeContainer comment={comment} typeComment="comment"/>
+                                        <LikeCommentContainer comment={comment} typeComment="comment"/>
                                         <p className="comment-like" id={`comment-like-${comment.id}`}>Like</p>
                                         <CommentEditFormContainer comment={comment} />
                                     </div>
