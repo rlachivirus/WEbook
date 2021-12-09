@@ -31,14 +31,16 @@ class Like extends React.Component {
         })
 
         const renderLikes = this.props.type === "post" ? (
-            <div>
+            <div className="post-like-count">
                 <img />
                 <p>{postLikeCount}</p>
+                {/* <p>1</p> */}
             </div>
         ) : (
             <div className="comment-like-count">
                 <img />
                 <p>{commentLikeCount}</p>
+                {/* <p>1</p> */}
             </div>
         )
 

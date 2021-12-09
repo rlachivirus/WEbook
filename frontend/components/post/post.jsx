@@ -111,7 +111,7 @@ class Post extends React.Component {
                                         <span className="post-body">{post.body}</span>
                                         <br/>
                                         <img className="post-picture" src={post.photoUrl} />
-                                        {/* <LikeContainer post={post} type="post"/> */}
+                                        <LikeContainer post={post} type="post"/>
                                         <hr/>
                                         <div className="likeAndComment">
                                             <div className="post-like">Like</div>
@@ -182,6 +182,7 @@ class Post extends React.Component {
                                         <span className="post-body">{post.body}</span>
                                         <br />
                                         <img className="post-picture" src={post.photoUrl} />
+                                        <LikeContainer post={post} type="post" />
                                         <hr />
                                         <div className="likeAndComment">
                                             <div className="post-like">Like</div>
@@ -252,6 +253,7 @@ class Post extends React.Component {
                                     <span className="post-body">{post.body}</span>
                                     <br />
                                     <img className="post-picture" src={post.photoUrl} />
+                                    <LikeContainer post={post} type="post" />
                                     <hr />
                                     <div className="likeAndComment">
                                         <div className="post-like">Like</div>

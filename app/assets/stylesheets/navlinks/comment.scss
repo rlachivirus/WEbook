@@ -17,6 +17,19 @@
     // img {
     //     align-self: flex-start;
     // }
+
+    .comment-like-count {
+        position: relative;
+        // border: 1px solid red;
+        height: 0;
+
+        p {
+            left: 100%;
+            position: relative;
+            top: -13px;
+            display: inline-block;
+        }
+    }
         
     .comment-body {
         // display: inline-block;
@@ -39,6 +52,7 @@
         font-weight: 600;
         top: 5px;
         left: 10px;
+        display: inline-block
     }
     
     .comment-edit-form {

@@ -124,6 +124,7 @@
                 // width: 47.5vw;
                 margin: 0;
                 margin-bottom: 20px;
+                position: relative;
 
                 .post-top {
                     display: flex;
@@ -198,6 +199,30 @@
                 .post-picture {
                     width: 100%;
                     height: auto;
+                }
+
+                .comment-like-count {
+                    position: relative;
+                    // border: 1px solid red;
+                    height: 0;
+
+                    p {
+                        left: 100%;
+                        position: relative;
+                        top: -13px;
+                        display: inline-block;
+                    }
+                }
+
+                .post-like-count {
+                    position: relative;
+                    left: 30px;
+                    background-color: transparent;
+
+                    p {
+                        display: inline-block;
+
+                    }
                 }
 
                 .likeAndComment {
@@ -569,6 +594,18 @@
                     top: 50px;
                 }
                 
+            }
+
+            .post-like-count {
+                position: relative;
+                // border: 1px solid red;
+                left: 30px;
+                background-color: transparent;
+
+                p {
+                    display: inline-block;
+
+                }
             }
 
             .post-body {
