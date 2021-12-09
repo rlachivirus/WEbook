@@ -74,6 +74,7 @@ class Post extends React.Component {
                 <div className="newsfeed-left"></div>
                 <div className="newsfeed-middle">
                     <div className="create-post">
+                        <img className="profile-picture" src={this.props.users[this.props.currentUserId].photoUrl} />
                         <div className="create-button" onClick={() => this.openModal({ type: 'createPost', currentUserId: this.props.currentUserId, userId: this.props.userId, createPost: this.props.createPost, currentUser: this.props.currentUser })}>{`What's on your mind, ${this.props.currentUser.fname}?`}</div>
                     </div>
                     <ul className="newsfeed-posts">
@@ -134,6 +135,7 @@ class Post extends React.Component {
         ) : userId === currentUserId ? (
             <div className="profile-feed">
                 <div className="create-post">
+                    <img className="profile-picture" src={this.props.users[this.props.currentUserId].photoUrl} />
                     <div className="create-button" onClick={() => this.openModal({ type: 'createPost', currentUserId: this.props.currentUserId, userId: this.props.userId, createPost: this.props.createPost, currentUser: this.props.currentUser })}>{`What's on your mind, ${this.props.currentUser.fname}?`}</div>
                 </div>
                 {/* <div className="newsfeed-posts"> */}
@@ -202,6 +204,7 @@ class Post extends React.Component {
         ) : (
             <div className="profile-feed">
                 <div className="create-post">
+                    <img className="profile-picture" src={this.props.users[this.props.currentUserId].photoUrl} />
                     <div className="create-button" onClick={() => this.openModal({ type: 'createPost', currentUserId: this.props.currentUserId, userId: this.props.userId, createPost: this.props.createPost, currentUser: this.props.currentUser })}>{`Write something to your friend...`}</div>
                 </div>
                 {/* <div className="newsfeed-posts"> */}

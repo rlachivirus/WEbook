@@ -39,7 +39,8 @@ class Comment extends React.Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form className="comment-create-form" onSubmit={this.handleSubmit}>
+                    <img className="profile-picture" src={this.props.users[this.props.currentUserId].photoUrl} />
                     <input type="text" className="commentInput" id={`inputPlaceholder-${this.props.postId}`} autoComplete="off" onChange={this.update('body')} placeholder={`What's on your mind?`} />
                 </form>
                 <ul>
