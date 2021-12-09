@@ -1,4 +1,4 @@
-import { ADD_LIKE, REMOVE_LIKE, RECEIVE_ALL_LIKES } from '../actions/comment_actions';
+import { ADD_LIKE, REMOVE_LIKE, RECEIVE_ALL_LIKES } from '../actions/like_actions';
 
 const likesReducer = (state = {}, action) => {
     Object.freeze(state);

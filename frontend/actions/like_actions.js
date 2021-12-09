@@ -21,7 +21,7 @@ export const receiveAllLikes = (likes) => ({
 
 export const createLike = (formData) => dispatch => (
     LikesUtil.createLike(formData)
-        .then((comment) => dispatch(addLike(comment)))
+        .then((like) => dispatch(addLike(like)))
 )
 
 export const deleteLike = (likeId) => dispatch => (

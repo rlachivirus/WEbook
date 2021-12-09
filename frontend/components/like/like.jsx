@@ -9,11 +9,12 @@ class Like extends React.Component {
     }
 
     render() {
+        console.log(this.props)
 
         const postLikeCount = Object.values(this.props.likes).forEach(like => {
             let count = 0;
 
-            if (like.like_id === this.props.post.id && like.like_type === "post") {
+            if (like.like_id === this.props.post.id && like.like_type === "Post") {
                 count++
             }
 
@@ -23,7 +24,7 @@ class Like extends React.Component {
         const commentLikeCount = Object.values(this.props.likes).forEach(like => {
             let count = 0;
 
-            if (like.like_id === this.props.comment.id && like.like_type === "comment") {
+            if (like.like_id === this.props.comment.id && like.like_type === "Comment") {
                 count++;
             }
 
@@ -43,7 +44,7 @@ class Like extends React.Component {
                 {/* <p>1</p> */}
             </div>
         )
-
+            debugger
         return renderLikes
     }
 }

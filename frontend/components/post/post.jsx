@@ -18,6 +18,7 @@ class Post extends React.Component {
 
         this.openModal = this.openModal.bind(this);
         this.clickComment = this.clickComment.bind(this);
+        this.likePost = this.likePost.bind(this);
     }
 
     componentDidMount() {
@@ -42,6 +43,32 @@ class Post extends React.Component {
             inputFocus.focus();
         } else {
             commentInput.style.display = "none";
+        }
+    }
+
+    likePost(postId) {
+        // let postIds = [];
+
+        // Object.values(this.props.posts).forEach(post => {
+        //     postIds.push(post.)
+        // })
+        let likeId = null;
+
+        Object.values(this.props.likes).forEach(like => {
+            if (like.like_id === postId) {
+                return likeId = like.id
+            }
+        })
+        // debugger
+
+        if (likeId === postId) {
+            this.props.deleteLike(likeId);
+        } else {
+            const formData = new FormData();
+            formData.append('like[like_id]', postId);
+            formData.append('like[like_type]', "Post");
+            debugger
+            this.props.createLike(formData)
         }
     }
 
@@ -111,10 +138,10 @@ class Post extends React.Component {
                                         <span className="post-body">{post.body}</span>
                                         <br/>
                                         <img className="post-picture" src={post.photoUrl} />
-                                        <LikeContainer post={post} type="post"/>
+                                        <LikeContainer post={post} typePost="post"/>
                                         <hr/>
                                         <div className="likeAndComment">
-                                            <div className="post-like">Like</div>
+                                            <div className="post-like" onClick={() => this.likePost(post.id)}>Like</div>
                                             <div className="post-comment" onClick={() => this.clickComment(post.id)}>Comment</div>
                                         </div>
                                         <hr/>
@@ -182,7 +209,7 @@ class Post extends React.Component {
                                         <span className="post-body">{post.body}</span>
                                         <br />
                                         <img className="post-picture" src={post.photoUrl} />
-                                        <LikeContainer post={post} type="post" />
+                                        <LikeContainer post={post} typePost="post" />
                                         <hr />
                                         <div className="likeAndComment">
                                             <div className="post-like">Like</div>
@@ -253,7 +280,7 @@ class Post extends React.Component {
                                     <span className="post-body">{post.body}</span>
                                     <br />
                                     <img className="post-picture" src={post.photoUrl} />
-                                    <LikeContainer post={post} type="post" />
+                                    <LikeContainer post={post} typePost="post" />
                                     <hr />
                                     <div className="likeAndComment">
                                         <div className="post-like">Like</div>

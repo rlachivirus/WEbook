@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { createPost, deletePost, fetchPosts, updatePost } from '../../actions/post_actions';
 import { fetchUser, fetchUsers } from '../../actions/user_actions'
-import { fetchLikes } from '../../actions/like_actions';
+import { fetchLikes, createLike, deleteLike } from '../../actions/like_actions';
 import { withRouter } from 'react-router-dom';
 import Post from './post';
 import { openModal } from '../../actions/modal_actions';
@@ -16,7 +16,8 @@ const mapStateToProps = (state, ownProps) => ({
     friends: state.entities.users[state.session.id].friends,
     currentUser: state.entities.users[state.session.id],
     currentUserId: state.session.id,
-    comments: state.entities.comments
+    comments: state.entities.comments,
+    likes: state.entities.likes
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -28,7 +29,10 @@ const mapDispatchToProps = dispatch => ({
     deletePost: (postId) => dispatch(deletePost(postId)),
     updatePost: (post) => dispatch(updatePost(post)),
     fetchComments: () => dispatch(fetchComments()),
-    fetchLikes: () => dispatch(fetchLikes())
+    fetchLikes: () => dispatch(fetchLikes()),
+    createLike: (formData) => dispatch(createLike(formData)),
+    deleteLike: (likeId) => dispatch(deleteLike(likeId))
+
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Post));
