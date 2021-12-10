@@ -83,7 +83,7 @@ class LikePost extends React.Component {
         let LikedPosts = [];
 
         Object.values(this.props.likes).forEach(like => {
-            if (like.like_type === "Post") {
+            if (this.props.currentUserId === like.user_id && like.like_type === "Post") {
                 LikedPosts.push(like.like_id)
             }
         })
@@ -95,10 +95,11 @@ class LikePost extends React.Component {
             likeButton.classList.add("post-liked")
         }
         
-        // if (likeButton && !LikedPosts.includes(this.state.id)) {
-        //     likeButton.classList.remove("post-liked")
-        //     likeButton.classList.add("post-like")
-        // }
+        // debugger
+        if (likeButton && !LikedPosts.includes(this.state.id)) {
+            likeButton.classList.remove("post-liked")
+            likeButton.classList.add("post-like")
+        }
 
 
         // likeButton.classList.remove("post-like")
@@ -146,7 +147,7 @@ const mapStateToProps = (state, ownProps) => ({
     // users: state.entities.users,
     // friends: state.entities.users[state.session.id].friends,
     currentUser: state.entities.users[state.session.id],
-    // currentUserId: state.session.id,
+    currentUserId: state.session.id,
     // comments: state.entities.comments
     likes: state.entities.likes
 

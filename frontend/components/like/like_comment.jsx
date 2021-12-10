@@ -54,13 +54,35 @@ class LikeComment extends React.Component {
     //     })
     // }
 
-        let commentLikes = 0;
+        let commentLikesCount = 0;
 
         Object.values(this.props.likes).forEach(like => {
             if (like.like_id === this.state.id) {
-                commentLikes++;
+                commentLikesCount++;
             }
         })
+
+        let LikedComments = [];
+
+        Object.values(this.props.likes).forEach(like => {
+            if (this.props.currentUserId === like.user_id && like.like_type === "Comment") {
+                LikedComments.push(like.like_id)
+            }
+        })
+
+        let likeButton = document.getElementById(`comment-like-${this.state.id}`)
+
+        if (likeButton && LikedComments.includes(this.state.id)) {
+            likeButton.classList.remove("comment-like")
+            likeButton.classList.add("comment-liked")
+        }
+
+        // debugger
+        if (likeButton && !LikedComments.includes(this.state.id)) {
+            likeButton.classList.remove("comment-liked")
+            likeButton.classList.add("comment-like")
+        }
+        
         // const renderLikes = this.props.typePost === "post" ? (
         //     <div className="post-like-count">
         //         <img />
@@ -81,7 +103,7 @@ class LikeComment extends React.Component {
         return (
             <div className="comment-like-count">
                 <img />
-                <p>{commentLikes === 0 ? null : commentLikes}</p>
+                <p>{commentLikesCount === 0 ? null : commentLikesCount}</p>
                 {/* <p>1</p> */}
             </div>
         )
@@ -96,7 +118,7 @@ const mapStateToProps = (state, ownProps) => ({
     // users: state.entities.users,
     // friends: state.entities.users[state.session.id].friends,
     currentUser: state.entities.users[state.session.id],
-    // currentUserId: state.session.id,
+    currentUserId: state.session.id,
     // comments: state.entities.comments
     likes: state.entities.likes
 

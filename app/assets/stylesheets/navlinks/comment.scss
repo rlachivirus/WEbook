@@ -54,6 +54,16 @@
         left: 10px;
         display: inline-block
     }
+
+    .comment-liked {
+        position: relative;
+        font-size: 13px;
+        font-weight: 600;
+        top: 5px;
+        left: 10px;
+        display: inline-block;
+        color: blue;
+    }
     
     .comment-edit-form {
         width: 100%;

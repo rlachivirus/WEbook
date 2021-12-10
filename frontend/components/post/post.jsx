@@ -6,16 +6,12 @@ import PostEditButton from "./post_edit_button";
 import CommentContainer from "../comment/comment_container";
 import LikePostContainer from "../like/like_post";
 
-
-
-
 class Post extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
             body: '',
-            like: false,
             date: new Date().getFullYear()
         }
 
@@ -31,9 +27,9 @@ class Post extends React.Component {
         this.props.fetchLikes();
     }
 
-    componentWillUnmount() {
+    // componentWillUnmount() {
 
-    }
+    // }
     // componentDidUpdate(prevProps) {
     //     if (Object.values(this.props.comments).length !== Object.values(prevProps.comments).length) {
     //         this.props.fetchComments()
