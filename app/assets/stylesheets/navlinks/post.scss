@@ -244,6 +244,20 @@
                     .post-like:hover {
                         background-color: rgba(236, 236, 236, 0.541);
                     }
+                    
+                    .post-liked {
+                        height: 35px;
+                        width: 50%;
+                        text-align: center;
+                        line-height: 2;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        color: blue;
+                    }
+
+                    .post-liked:hover {
+                        background-color: rgba(236, 236, 236, 0.541);
+                    }
 
                     .post-comment {
                         height: 35px;
@@ -634,6 +648,20 @@
                 }
 
                 .post-like:hover {
+                    background-color: rgba(236, 236, 236, 0.541);
+                }
+
+                .post-liked {
+                    height: 35px;
+                    width: 50%;
+                    text-align: center;
+                    line-height: 2;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    color: blue;
+                }
+
+                .post-liked:hover {
                     background-color: rgba(236, 236, 236, 0.541);
                 }
 

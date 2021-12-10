@@ -15,6 +15,7 @@ class Post extends React.Component {
 
         this.state = {
             body: '',
+            like: false,
             date: new Date().getFullYear()
         }
 
@@ -30,6 +31,9 @@ class Post extends React.Component {
         this.props.fetchLikes();
     }
 
+    componentWillUnmount() {
+
+    }
     // componentDidUpdate(prevProps) {
     //     if (Object.values(this.props.comments).length !== Object.values(prevProps.comments).length) {
     //         this.props.fetchComments()
@@ -49,11 +53,6 @@ class Post extends React.Component {
     }
 
     likePost(post) {
-        // let postIds = [];
-
-        // Object.values(this.props.posts).forEach(post => {
-        //     postIds.push(post.)
-        // })
         let likeId = null;
 
         Object.values(this.props.likes).forEach(like => {
@@ -61,19 +60,30 @@ class Post extends React.Component {
                 return likeId = like.id
             }
         })
-        // let likeButton = document.getElementById(`like-button-${post.id}`)
+        // let likeButton = document.getElementById(`post-like-${post.id}`)
 
-
+        // console.log(likeButton.className)
         if (likeId) {
             this.props.deleteLike(likeId)
+            // likeButton.classList.remove("post-liked")
+            // likeButton.classList.add("post-like")
+            // this.setState({ like: false })
         } else {
             const formData = new FormData();
             formData.append('like[like_id]', post.id);
             formData.append('like[like_type]', "Post");
             formData.append('like[user_id]', this.props.currentUserId);
             this.props.createLike(formData)
-            // likeButton.style.color = "blue"
+            // likeButton.classList.remove("post-like")
+            // likeButton.classList.add("post-liked")
+            // this.setState({ like: true })
         }
+
+        // if (this.state.like) {
+        //     likeButton.style.color = "blue"
+        // } else {
+        //     likeButton.style.color = "";
+        // }
     }
 
     openModal(obj) {
@@ -145,7 +155,7 @@ class Post extends React.Component {
                                         <LikePostContainer post={post} type="post"/>
                                         <hr/>
                                         <div className="likeAndComment">
-                                            <div className="post-like" id={`like-button-${post.id}`} onClick={() => this.likePost(post)}>Like</div>
+                                            <div className="post-like" id={`post-like-${post.id}`} onClick={() => this.likePost(post)}>Like</div>
                                             <div className="post-comment" onClick={() => this.clickComment(post.id)}>Comment</div>
                                         </div>
                                         <hr/>
@@ -216,7 +226,7 @@ class Post extends React.Component {
                                         <LikePostContainer post={post} type="post" />
                                         <hr />
                                         <div className="likeAndComment">
-                                            <div className="post-like" onClick={() => this.likePost(post)}>Like</div>
+                                            <div className="post-like" id={`post-like-${post.id}`} onClick={() => this.likePost(post)}>Like</div>
                                             <div className="post-comment" onClick={() => this.clickComment(post.id)}>Comment</div>
                                         </div>
                                         <hr />
@@ -287,7 +297,7 @@ class Post extends React.Component {
                                     <LikePostContainer post={post} type="post" />
                                     <hr />
                                     <div className="likeAndComment">
-                                        <div className="post-like" onClick={() => this.likePost(post)}>Like</div>
+                                        <div className="post-like" id={`post-like-${post.id}`} onClick={() => this.likePost(post)}>Like</div>
                                         <div className="post-comment" onClick={() => this.clickComment(post.id)}>Comment</div>
                                     </div>
                                     <hr />

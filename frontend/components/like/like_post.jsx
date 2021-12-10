@@ -11,8 +11,21 @@ class LikePost extends React.Component {
     }
 
     // componentDidUpdate(prevState) {
-    //     if (this.state.likes !== prevState.likes) {
-            
+    //     if (Object.values(this.state.likes).length !== Object.values(prevState.likes).length) {
+    //         let LikedPosts = [];
+
+    //         Object.values(this.props.likes).forEach(like => {
+    //             if (like.like_type === "Post") {
+    //                 LikedPosts.push(like.like_id)
+    //             }
+    //         })
+
+    //         let likeButton = document.getElementById(`post-like-${this.state.id}`)
+
+    //         if (likeButton && !LikedPosts.includes(this.state.id)) {
+    //             likeButton.classList.remove("post-liked")
+    //             likeButton.classList.add("post-like")
+    //         }
     //     }
     // }
 
@@ -59,13 +72,37 @@ class LikePost extends React.Component {
         //         return commentLikeCount = count;
         //     })
         // }
-        let postLikes = 0;
+        let postLikesCount = 0;
 
         Object.values(this.props.likes).forEach(like => {
             if (like.like_id === this.state.id) {
-                postLikes++;
+                postLikesCount++;
             }
         })
+
+        let LikedPosts = [];
+
+        Object.values(this.props.likes).forEach(like => {
+            if (like.like_type === "Post") {
+                LikedPosts.push(like.like_id)
+            }
+        })
+
+        let likeButton = document.getElementById(`post-like-${this.state.id}`)
+
+        if (likeButton && LikedPosts.includes(this.state.id)) {
+            likeButton.classList.remove("post-like")
+            likeButton.classList.add("post-liked")
+        }
+        
+        // if (likeButton && !LikedPosts.includes(this.state.id)) {
+        //     likeButton.classList.remove("post-liked")
+        //     likeButton.classList.add("post-like")
+        // }
+
+
+        // likeButton.classList.remove("post-like")
+        // likeButton.classList.add("post-liked")
 
         // const renderLikes = this.props.type === "post" ? (
         //     <div className="post-like-count">
@@ -94,7 +131,7 @@ class LikePost extends React.Component {
         return (
             <div className="post-like-count">
                 <img />
-                <p>{postLikes === 0 ? null : postLikes}</p>
+                <p>{postLikesCount === 0 ? null : postLikesCount}</p>
                 {/* <p>1</p> */}
             </div>
         )
