@@ -151,7 +151,7 @@ class Post extends React.Component {
                                         <LikePostContainer post={post} type="post"/>
                                         <hr/>
                                         <div className="likeAndComment">
-                                            <div id={`post-like-${post.id}`} onClick={() => this.likePost(post)}>Like</div>
+                                            <div className="post-like" id={`post-like-${post.id}`} onClick={() => this.likePost(post)}>Like</div>
                                             <div className="post-comment" onClick={() => this.clickComment(post.id)}>Comment</div>
                                         </div>
                                         <hr/>
