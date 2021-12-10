@@ -59,22 +59,6 @@ class LikePost extends React.Component {
         //         return commentLikeCount = count;
         //     })
         // }
-
-        // const renderLikes = this.props.typePost === "post" ? (
-        //     <div className="post-like-count">
-        //         <img />
-        //         <p>{this.state.postLikes}</p>
-        //         {/* <p>1</p> */}
-        //     </div>
-        // ) : (
-        //     <div className="comment-like-count">
-        //         <img />
-        //         <p>{this.state.commentLikes}</p>
-        //         {/* <p>1</p> */}
-        //     </div>
-        // )
-
-        // let postLikes = null;
         let postLikes = 0;
 
         Object.values(this.props.likes).forEach(like => {
@@ -83,11 +67,29 @@ class LikePost extends React.Component {
             }
         })
 
+        // const renderLikes = this.props.type === "post" ? (
+        //     <div className="post-like-count">
+        //         <img />
+        //         <p>{postLikes}</p>
+        //         {/* <p>1</p> */}
+        //     </div>
+        // ) : (
+        //     <div className="comment-like-count">
+        //         <img />
+        //         {/* <p>{commentLikes}</p> */}
+        //         <p>7</p>
+        //     </div>
+        // )
+
+        // let postLikes = null;
+
         // if (!this.props.post.likes) {
         //     return null
         // }
         // console.log(commentLikeCount)
         // console.log(postLikeCount)
+
+
 
         return (
             <div className="post-like-count">

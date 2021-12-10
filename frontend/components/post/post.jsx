@@ -8,6 +8,7 @@ import LikePostContainer from "../like/like_post";
 
 
 
+
 class Post extends React.Component {
     constructor(props) {
         super(props);
@@ -141,11 +142,7 @@ class Post extends React.Component {
                                         <span className="post-body">{post.body}</span>
                                         <br/>
                                         <img className="post-picture" src={post.photoUrl} />
-                                        <LikePostContainer post={post} typePost="post"/>
-                                        {/* <div className="post-like-count">
-                                            <img />
-                                            <p>{Object.values(this.props.likes).length}</p>
-                                        </div> */}
+                                        <LikePostContainer post={post} type="post"/>
                                         <hr/>
                                         <div className="likeAndComment">
                                             <div className="post-like" id={`like-button-${post.id}`} onClick={() => this.likePost(post)}>Like</div>
@@ -177,7 +174,7 @@ class Post extends React.Component {
                 </div>
                 {/* <div className="newsfeed-posts"> */}
                     <ul className="newsfeed-posts">
-                        {Object.values(posts).reverse().map(post => {
+                        {Object.values(posts).reverse().map((post, idx) => {
                             if (friendIds.includes(post.author_id) && (post.user_id === userId || post.user_id === 0)) {
                                 let months = { 1: "January", 2: "February", 3: "March", 4: "April", 5: "May", 6: "June", 7: "July", 8: "August", 9: "September", 10: "October", 11: "November", 12: "December" };
                                 let currentYear = this.state.date;
@@ -216,10 +213,10 @@ class Post extends React.Component {
                                         <span className="post-body">{post.body}</span>
                                         <br />
                                         <img className="post-picture" src={post.photoUrl} />
-                                        {/* <LikePostContainer post={post} typePost="post" /> */}
+                                        <LikePostContainer post={post} type="post" />
                                         <hr />
                                         <div className="likeAndComment">
-                                            <div className="post-like">Like</div>
+                                            <div className="post-like" onClick={() => this.likePost(post)}>Like</div>
                                             <div className="post-comment" onClick={() => this.clickComment(post.id)}>Comment</div>
                                         </div>
                                         <hr />
@@ -247,7 +244,7 @@ class Post extends React.Component {
                 </div>
                 {/* <div className="newsfeed-posts"> */}
                 <ul className="newsfeed-posts">
-                    {Object.values(posts).reverse().map(post => {
+                    {Object.values(posts).reverse().map((post, idx) => {
                         if (userFriendIds.includes(post.author_id) && post.user_id === userId) {
                             let months = { 1: "January", 2: "February", 3: "March", 4: "April", 5: "May", 6: "June", 7: "July", 8: "August", 9: "September", 10: "October", 11: "November", 12: "December" };
                             let currentYear = this.state.date;
@@ -287,10 +284,10 @@ class Post extends React.Component {
                                     <span className="post-body">{post.body}</span>
                                     <br />
                                     <img className="post-picture" src={post.photoUrl} />
-                                    {/* <LikePostContainer post={post} typePost="post" /> */}
+                                    <LikePostContainer post={post} type="post" />
                                     <hr />
                                     <div className="likeAndComment">
-                                        <div className="post-like">Like</div>
+                                        <div className="post-like" onClick={() => this.likePost(post)}>Like</div>
                                         <div className="post-comment" onClick={() => this.clickComment(post.id)}>Comment</div>
                                     </div>
                                     <hr />

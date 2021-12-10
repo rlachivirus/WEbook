@@ -7,10 +7,7 @@ class LikeComment extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            likes: this.props.comment.likes.length,
-            // commentLikes: this.props.comment.likes.length
-        }
+        this.state = this.props.comment
     }
 
     render() {
@@ -57,6 +54,13 @@ class LikeComment extends React.Component {
     //     })
     // }
 
+        let commentLikes = 0;
+
+        Object.values(this.props.likes).forEach(like => {
+            if (like.like_id === this.state.id) {
+                postLikes++;
+            }
+        })
         // const renderLikes = this.props.typePost === "post" ? (
         //     <div className="post-like-count">
         //         <img />
@@ -77,7 +81,7 @@ class LikeComment extends React.Component {
         return (
             <div className="comment-like-count">
                 <img />
-                <p>{this.state.likes}</p>
+                <p>{commentLikes}</p>
                 {/* <p>1</p> */}
             </div>
         )

@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 import { createLike, deleteLike, fetchLikes } from '../../actions/like_actions';
 import { withRouter } from 'react-router-dom';
-import LikeComment from './like_comment';
-import LikePost from './like_post';
+// import Like from './like';
 
 const mapStateToProps = (state, ownProps) => ({
     // post: state.entities.posts[ownProps.id],
@@ -32,4 +31,4 @@ const mapDispatchToProps = dispatch => ({
 })
 
 // export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LikeComment));
-// export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LikePost));
+// export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Like));
