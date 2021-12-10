@@ -58,7 +58,7 @@ class LikeComment extends React.Component {
 
         Object.values(this.props.likes).forEach(like => {
             if (like.like_id === this.state.id) {
-                postLikes++;
+                commentLikes++;
             }
         })
         // const renderLikes = this.props.typePost === "post" ? (
@@ -81,7 +81,7 @@ class LikeComment extends React.Component {
         return (
             <div className="comment-like-count">
                 <img />
-                <p>{commentLikes}</p>
+                <p>{commentLikes === 0 ? null : commentLikes}</p>
                 {/* <p>1</p> */}
             </div>
         )

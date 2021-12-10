@@ -150,7 +150,7 @@ class Post extends React.Component {
                                         </div>
                                         <hr/>
                                         <div id={`input-${post.id}`} style={{ display: "none" }}>
-                                            <CommentContainer currentUserId={this.props.currentUserId} postId={post.id} />
+                                            <CommentContainer currentUserId={this.props.currentUserId} postId={post.id} likes={this.props.likes}/>
                                             {/* <input className="commentInput" type="text" placeholder="Write a Comment..." />
                                             <p>check</p>
                                             <p>check</p>
@@ -221,7 +221,7 @@ class Post extends React.Component {
                                         </div>
                                         <hr />
                                         <div id={`input-${post.id}`} style={{ display: "none" }}>
-                                            <CommentContainer currentUserId={this.props.currentUserId} postId={post.id} />
+                                            <CommentContainer currentUserId={this.props.currentUserId} postId={post.id} likes={this.props.likes}/>
                                             {/* <input className="commentInput" type="text" placeholder="Write a Comment..." />
                                             <p>check</p>
                                             <p>check</p>
@@ -292,7 +292,7 @@ class Post extends React.Component {
                                     </div>
                                     <hr />
                                     <div id={`input-${post.id}`} style={{ display: "none" }}>
-                                        <CommentContainer currentUserId={this.props.currentUserId} postId={post.id} />
+                                        <CommentContainer currentUserId={this.props.currentUserId} postId={post.id} likes={this.props.likes}/>
                                         {/* <input className="commentInput" type="text" placeholder="Write a Comment..." />
                                         <p>check</p>
                                         <p>check</p>

@@ -14,6 +14,7 @@ class Comment extends React.Component {
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.likeComment = this.likeComment.bind(this);
     }
 
     update(field) {
@@ -33,6 +34,34 @@ class Comment extends React.Component {
         if (commentInput.value !== "") {
             commentInput.value = "";
             commentInput.blur();
+        }
+    }
+
+    likeComment(comment) {
+        // let postIds = [];
+
+        // Object.values(this.props.posts).forEach(post => {
+        //     postIds.push(post.)
+        // })
+        let likeId = null;
+        // debugger
+        Object.values(this.props.likes).forEach(like => {
+            if (like.like_id === comment.id && like.like_type === "Comment" && this.props.currentUserId === like.user_id) {
+                return likeId = like.id
+            }
+        })
+        // let likeButton = document.getElementById(`like-button-${post.id}`)
+
+
+        if (likeId) {
+            this.props.deleteLike(likeId)
+        } else {
+            const formData = new FormData();
+            formData.append('like[like_id]', comment.id);
+            formData.append('like[like_type]', "Comment");
+            formData.append('like[user_id]', this.props.currentUserId);
+            this.props.createLike(formData)
+            // likeButton.style.color = "blue"
         }
     }
 
@@ -57,7 +86,7 @@ class Comment extends React.Component {
                                             {comment.body}
                                         </p>
                                         <LikeCommentContainer comment={comment} typeComment="comment"/>
-                                        <p className="comment-like" id={`comment-like-${comment.id}`}>Like</p>
+                                        <p className="comment-like" id={`comment-like-${comment.id}`} onClick={() => this.likeComment(comment)}>Like</p>
                                         <CommentEditFormContainer comment={comment} />
                                     </div>
                                     <CommentEditButton comment={comment} />
