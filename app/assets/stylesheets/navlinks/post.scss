@@ -201,27 +201,82 @@
                     height: auto;
                 }
 
+                .comment-like {
+                    // position: absolute;
+                    font-size: 13px;
+                    font-weight: 600;
+                    top: 5px;
+                    // left: 10px;
+                    display: inline-block;
+                    position: relative;
+                    left: 10px;
+                }
+
+                .comment-liked {
+                    // position: relative;
+                    font-size: 13px;
+                    font-weight: 600;
+                    top: 5px;
+                    // left: 10px;
+                    display: inline-block;
+                    color: blue;
+                    position: relative;
+                    left: 10px;
+                }
+
                 .comment-like-count {
                     position: relative;
                     // border: 1px solid red;
-                    height: 0;
+                    // height: 0;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    height: 13px;
 
-                    p {
-                        left: 100%;
+                    div {
                         position: relative;
-                        top: -13px;
-                        display: inline-block;
+                        top: -10px;
+                        background-color: transparent;
+                        display: inline-table;
+                        left: 10px;
+
+
+                        img {
+                            width: 25px;
+                            height: auto;
+                            border-radius: 50px;
+                            object-fit: cover;
+                            margin-right: 2px;
+                        }
+    
+                        p {
+                            // left: 100%;
+                            // position: relative;
+                            top: -13px;
+                            display: inline-block;
+                            background-color: transparent;
+                        }
                     }
                 }
 
                 .post-like-count {
                     position: relative;
-                    left: 30px;
+                    left: 5px;
                     background-color: transparent;
+                    display: flex;
+                    flex-direction: row;
+                    column-gap: 5px;
+                    margin-bottom: 5px;
 
+                    img {
+                        width: 20px;
+                        height: auto;
+                        border-radius: 50px;
+                        object-fit: cover;
+                    }
+                    
                     p {
                         display: inline-block;
-
                     }
                 }
 
@@ -613,8 +668,19 @@
             .post-like-count {
                 position: relative;
                 // border: 1px solid red;
-                left: 30px;
+                left: 5px;
                 background-color: transparent;
+                display: flex;
+                flex-direction: row;
+                column-gap: 5px;
+                margin-bottom: 5px;
+
+                img {
+                    width: 20px;
+                    height: auto;
+                    border-radius: 50px;
+                    object-fit: cover;
+                }
 
                 p {
                     display: inline-block;
