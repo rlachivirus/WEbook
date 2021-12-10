@@ -3,8 +3,9 @@ import * as LikesUtil from '../util/like_util';
 export const ADD_LIKE = 'ADD_LIKE';
 export const REMOVE_LIKE = 'REMOVE_LIKE';
 export const RECEIVE_ALL_LIKES = 'RECEIVE_ALL_LIKES';
+export const RECEIVE_LIKE = 'RECEIVE_LIKE';
 
-export const addLike = like => ({
+export const addLike = (like) => ({
     type: ADD_LIKE,
     like
 });

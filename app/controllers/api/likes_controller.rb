@@ -5,6 +5,11 @@ class Api::LikesController < ApplicationController
         render :index
     end
 
+    def show
+        @like = Like.find_by(id: params[:id])
+        render :show
+    end
+    
     def create
         @like = Like.new(like_params)
 

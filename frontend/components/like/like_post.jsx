@@ -7,11 +7,14 @@ class LikePost extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            likes: this.props.post.likes.length,
-            // commentLikes: this.props.comment.likes.length
-        }
+        this.state = this.props.post
     }
+
+    // componentDidUpdate(prevState) {
+    //     if (this.state.likes !== prevState.likes) {
+            
+    //     }
+    // }
 
     render() {
         // debugger
@@ -71,13 +74,25 @@ class LikePost extends React.Component {
         //     </div>
         // )
 
+        // let postLikes = null;
+        let postLikes = 0;
+
+        Object.values(this.props.likes).forEach(like => {
+            if (like.like_id === this.state.id) {
+                postLikes++;
+            }
+        })
+
+        // if (!this.props.post.likes) {
+        //     return null
+        // }
         // console.log(commentLikeCount)
         // console.log(postLikeCount)
-        // debugger
+
         return (
             <div className="post-like-count">
                 <img />
-                <p>{this.state.postLikes}</p>
+                <p>{postLikes}</p>
                 {/* <p>1</p> */}
             </div>
         )

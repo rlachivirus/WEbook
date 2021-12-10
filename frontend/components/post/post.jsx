@@ -55,23 +55,22 @@ class Post extends React.Component {
         // })
         let likeId = null;
 
-        this.props.currentUser.likes.forEach(like => {
-            if (like.like_id === post.id && like.like_type === "Post") {
+        Object.values(this.props.likes).forEach(like => {
+            if (like.like_id === post.id && like.like_type === "Post" && this.props.currentUserId === post.author_id) {
                 return likeId = like.id
             }
         })
-        // debugger
+        // let likeButton = document.getElementById(`like-button-${post.id}`)
+
 
         if (likeId) {
             this.props.deleteLike(likeId)
-                .then(res => console.log(res))
         } else {
-            // debugger
             const formData = new FormData();
             formData.append('like[like_id]', post.id);
             formData.append('like[like_type]', "Post");
             this.props.createLike(formData)
-                .then(res => console.log(res))
+            // likeButton.style.color = "blue"
         }
     }
 
@@ -144,11 +143,11 @@ class Post extends React.Component {
                                         <LikePostContainer post={post} typePost="post"/>
                                         {/* <div className="post-like-count">
                                             <img />
-                                            <p>{post.likes.length}</p>
+                                            <p>{Object.values(this.props.likes).length}</p>
                                         </div> */}
                                         <hr/>
                                         <div className="likeAndComment">
-                                            <div className="post-like" onClick={() => this.likePost(post)}>Like</div>
+                                            <div className="post-like" id={`like-button-${post.id}`} onClick={() => this.likePost(post)}>Like</div>
                                             <div className="post-comment" onClick={() => this.clickComment(post.id)}>Comment</div>
                                         </div>
                                         <hr/>
@@ -216,7 +215,7 @@ class Post extends React.Component {
                                         <span className="post-body">{post.body}</span>
                                         <br />
                                         <img className="post-picture" src={post.photoUrl} />
-                                        <LikePostContainer post={post} typePost="post" />
+                                        {/* <LikePostContainer post={post} typePost="post" /> */}
                                         <hr />
                                         <div className="likeAndComment">
                                             <div className="post-like">Like</div>
@@ -287,7 +286,7 @@ class Post extends React.Component {
                                     <span className="post-body">{post.body}</span>
                                     <br />
                                     <img className="post-picture" src={post.photoUrl} />
-                                    <LikePostContainer post={post} typePost="post" />
+                                    {/* <LikePostContainer post={post} typePost="post" /> */}
                                     <hr />
                                     <div className="likeAndComment">
                                         <div className="post-like">Like</div>
