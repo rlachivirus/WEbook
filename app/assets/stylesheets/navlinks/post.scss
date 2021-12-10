@@ -215,11 +215,11 @@
                 .comment-liked {
                     // position: relative;
                     font-size: 13px;
-                    font-weight: 600;
+                    font-weight: 900;
                     top: 5px;
                     // left: 10px;
                     display: inline-block;
-                    color: blue;
+                    color: #1475f3;
                     position: relative;
                     left: 10px;
                 }
@@ -291,9 +291,10 @@
                         height: 35px;
                         width: 50%;
                         text-align: center;
-                        line-height: 2;
+                        line-height: 2.5;
                         border-radius: 5px;
                         cursor: pointer;
+
                     }
 
                     .post-like:hover {
@@ -304,10 +305,11 @@
                         height: 35px;
                         width: 50%;
                         text-align: center;
-                        line-height: 2;
+                        line-height: 2.5;
                         border-radius: 5px;
                         cursor: pointer;
-                        color: blue;
+                        color: #1475f3;
+                        font-weight: 900;
                     }
 
                     .post-liked:hover {
@@ -318,7 +320,7 @@
                         height: 35px;
                         width: 50%;
                         text-align: center;
-                        line-height: 2;
+                        line-height: 2.5;
                         border-radius: 5px;
                         cursor: pointer;
                     }
@@ -708,9 +710,10 @@
                     height: 35px;
                     width: 50%;
                     text-align: center;
-                    line-height: 2;
+                    line-height: 2.5;
                     border-radius: 5px;
                     cursor: pointer;
+                    
                 }
 
                 .post-like:hover {
@@ -721,10 +724,11 @@
                     height: 35px;
                     width: 50%;
                     text-align: center;
-                    line-height: 2;
+                    line-height: 2.5;
                     border-radius: 5px;
                     cursor: pointer;
-                    color: blue;
+                    color: #1475f3;
+                    font-weight: 900;
                 }
 
                 .post-liked:hover {
@@ -735,7 +739,7 @@
                     height: 35px;
                     width: 50%;
                     text-align: center;
-                    line-height: 2;
+                    line-height: 2.5;
                     border-radius: 5px;
                     cursor: pointer;
                 }
