@@ -94,7 +94,7 @@ class LikePost extends React.Component {
         return (
             <div className="post-like-count">
                 <img />
-                <p>{postLikes}</p>
+                <p>{postLikes === 0 ? null : postLikes}</p>
                 {/* <p>1</p> */}
             </div>
         )
