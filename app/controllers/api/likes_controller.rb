@@ -9,7 +9,7 @@ class Api::LikesController < ApplicationController
         @like = Like.find_by(id: params[:id])
         render :show
     end
-    
+
     def create
         @like = Like.new(like_params)
 
@@ -33,7 +33,7 @@ class Api::LikesController < ApplicationController
     private
 
     def like_params
-        params.require(:like).permit(:like_id, :like_type)
+        params.require(:like).permit(:like_id, :like_type, :user_id)
     end
 
 end

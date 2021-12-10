@@ -56,7 +56,7 @@ class Post extends React.Component {
         let likeId = null;
 
         Object.values(this.props.likes).forEach(like => {
-            if (like.like_id === post.id && like.like_type === "Post" && this.props.currentUserId === post.author_id) {
+            if (like.like_id === post.id && like.like_type === "Post" && this.props.currentUserId === like.user_id) {
                 return likeId = like.id
             }
         })
@@ -69,6 +69,7 @@ class Post extends React.Component {
             const formData = new FormData();
             formData.append('like[like_id]', post.id);
             formData.append('like[like_type]', "Post");
+            formData.append('like[user_id]', this.props.currentUserId);
             this.props.createLike(formData)
             // likeButton.style.color = "blue"
         }
