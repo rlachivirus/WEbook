@@ -16,7 +16,7 @@ class CommentEditForm extends React.Component {
         let escapeInfo = document.getElementById(`comment-edit-${this.state.id}-p`)
         let comment = document.getElementById(`comment-${this.state.id}`)
         let commentEditButton = document.getElementById(`comment-edit-button-${this.state.id}`);
-        let commentLike = document.getElementById(`comment-like-${this.state.id}`);
+        let commentLikeDiv = document.getElementById(`comment-like-div-${this.state.id}`);
         let commentDiv = document.getElementById(`comment-div-${this.state.id}`);
         let originalState = this.originalState;
 
@@ -30,7 +30,7 @@ class CommentEditForm extends React.Component {
                     escapeInfo.style.display = "none";
                     comment.style.display = "";
                     commentEditButton.style.display = "";
-                    commentLike.style.display = "";
+                    commentLikeDiv.style.display = "";
 
                     // const oldState = Object.assign({}, this.props.comment);
                     // return oldState
@@ -63,7 +63,7 @@ class CommentEditForm extends React.Component {
         let escapeInfo = document.getElementById(`comment-edit-${this.state.id}-p`)
         let comment = document.getElementById(`comment-${this.state.id}`)
         let commentEditButton = document.getElementById(`comment-edit-button-${this.state.id}`);
-        let commentLike = document.getElementById(`comment-like-${this.state.id}`);
+        let commentLikeDiv = document.getElementById(`comment-like-div-${this.state.id}`);
         let commentDiv = document.getElementById(`comment-div-${this.state.id}`);
 
 
@@ -75,7 +75,7 @@ class CommentEditForm extends React.Component {
             escapeInfo.style.display = "none";
             comment.style.display = "";
             commentEditButton.style.display = "";
-            commentLike.style.display = "";
+            commentLikeDiv.style.display = "";
 
             // this.setState({
             //     body: newState.body

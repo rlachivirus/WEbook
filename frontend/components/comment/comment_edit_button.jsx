@@ -35,7 +35,7 @@ class CommentEditButton extends React.Component {
         let escapeInfo = document.getElementById(`comment-edit-${this.props.comment.id}-p`);
         let comment = document.getElementById(`comment-${this.props.comment.id}`);
         let commentEditButton = document.getElementById(`comment-edit-button-${this.props.comment.id}`);
-        let commentLike = document.getElementById(`comment-like-${this.props.comment.id}`);
+        let commentLikeDiv = document.getElementById(`comment-like-div-${this.props.comment.id}`);
         let commentDiv = document.getElementById(`comment-div-${this.props.comment.id}`);
 
         if (commentToEdit.style.display === "none") {
@@ -44,7 +44,7 @@ class CommentEditButton extends React.Component {
             escapeInfo.style.display = "";
             comment.style.display = "none";
             commentEditButton.style.display = "none";
-            commentLike.style.display = "none";
+            commentLikeDiv.style.display = "none";
         }
     }
 

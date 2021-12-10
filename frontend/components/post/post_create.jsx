@@ -20,7 +20,9 @@ class CreatePost extends React.Component {
         return this.setState({ photoFile: e.currentTarget.files[0] })
     }
 
-    handleSubmit() {
+    handleSubmit(e) {
+        e.preventDefault();
+        
         const formData = new FormData();
         formData.append('post[author_id]', this.props.currentUserId);
         formData.append('post[body]', this.state.body);

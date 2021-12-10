@@ -21,7 +21,9 @@ class Comment extends React.Component {
         return e => { this.setState({ [field]: e.currentTarget.value }) }
     }
 
-    handleSubmit() {
+    handleSubmit(e) {
+        e.preventDefault();
+        
         const formData = new FormData();
         formData.append('comment[body]', this.state.body);
         formData.append('comment[author_id]', this.props.currentUserId);

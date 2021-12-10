@@ -9,46 +9,47 @@ class LikeComment extends React.Component {
 
         // this.state = this.props.comment;
         this.state = {
-            commentLikesCount: 0
+            id: this.props.comment.id,
+            // commentLikesCount: null
         }
 
         this.likeComment = this.likeComment.bind(this);
     }
 
     componentDidMount() {
-        let commentLikesCount = 0;
+        // let commentCount = 0;
 
-        Object.values(this.props.likes).forEach(like => {
-            if (like.like_id === this.props.comment.id) {
-                commentLikesCount++;
-            }
-        })
-        debugger
-        this.setState({ commentLikesCount: commentLikesCount })
-        debugger
-        let LikedComments = [];
+        // Object.values(this.props.likes).forEach(like => {
+        //     if (like.like_id === this.state.id) {
+        //         commentCount++;
+        //     }
+        // })
+        // debugger
+        // this.setState({ commentLikesCount: commentCount })
+        // debugger
+        let likedComments = [];
 
         Object.values(this.props.likes).forEach(like => {
             if (this.props.currentUserId === like.user_id && like.like_type === "Comment") {
-                LikedComments.push(like.like_id)
+                likedComments.push(like.like_id)
             }
         })
 
-        let likeButton = document.getElementById(`comment-like-${this.props.comment.id}`)
+        let likeButton = document.getElementById(`comment-like-${this.state.id}`)
 
-        if (likeButton && LikedComments.includes(this.props.comment.id)) {
+        if (likeButton && likedComments.includes(this.state.id)) {
             likeButton.classList.remove("comment-like")
             likeButton.classList.add("comment-liked")
         }
 
         // debugger
-        if (likeButton && !LikedComments.includes(this.props.comment.id)) {
+        if (likeButton && !likedComments.includes(this.state.id)) {
             likeButton.classList.remove("comment-liked")
             likeButton.classList.add("comment-like")
         }
     }
 
-    likeComment(comment) {
+    likeComment(commentId) {
         // let postIds = [];
 
         // Object.values(this.props.posts).forEach(post => {
@@ -57,7 +58,7 @@ class LikeComment extends React.Component {
         let likeId = null;
         // debugger
         Object.values(this.props.likes).forEach(like => {
-            if (like.like_id === comment.id && like.like_type === "Comment" && this.props.currentUserId === like.user_id) {
+            if (like.like_id === commentId && like.like_type === "Comment" && this.props.currentUserId === like.user_id) {
                 return likeId = like.id
             }
         })
@@ -68,13 +69,48 @@ class LikeComment extends React.Component {
             this.props.deleteLike(likeId)
         } else {
             const formData = new FormData();
-            formData.append('like[like_id]', comment.id);
+            formData.append('like[like_id]', commentId);
             formData.append('like[like_type]', "Comment");
             formData.append('like[user_id]', this.props.currentUserId);
             this.props.createLike(formData)
             // likeButton.style.color = "blue"
         }
     }
+
+    // componentDidMount() {
+    //     this.updateLikes();
+    // }
+
+    // updateLikes() {
+    //     let commentLikesCount = 0;
+
+    //     Object.values(this.props.likes).forEach(like => {
+    //         if (like.like_id === this.props.comment.id) {
+    //             commentLikesCount++;
+    //         }
+    //     })
+
+    //     let LikedComments = [];
+
+    //     Object.values(this.props.likes).forEach(like => {
+    //         if (this.props.currentUserId === like.user_id && like.like_type === "Comment") {
+    //             LikedComments.push(like.like_id)
+    //         }
+    //     })
+
+    //     let likeButton = document.getElementById(`comment-like-${this.props.comment.id}`)
+
+    //     if (likeButton && LikedComments.includes(this.props.comment.id)) {
+    //         likeButton.classList.remove("comment-like")
+    //         likeButton.classList.add("comment-liked")
+    //     }
+
+    //     // debugger
+    //     if (likeButton && !LikedComments.includes(this.props.comment.id)) {
+    //         likeButton.classList.remove("comment-liked")
+    //         likeButton.classList.add("comment-like")
+    //     }
+    // }
 
     render() {
         // debugger
@@ -120,34 +156,36 @@ class LikeComment extends React.Component {
     //     })
     // }
         ////////////////////
-        // let commentLikesCount = 0;
+        let commentLikesCount = 0;
 
-        // Object.values(this.props.likes).forEach(like => {
-        //     if (like.like_id === this.state.id) {
-        //         commentLikesCount++;
-        //     }
-        // })
+        Object.values(this.props.likes).forEach(like => {
+            if (like.like_id === this.state.id) {
+                commentLikesCount++;
+            }
+        })
 
-        // let LikedComments = [];
+        // this.setState({ commentLikesCount: commentCount })
 
-        // Object.values(this.props.likes).forEach(like => {
-        //     if (this.props.currentUserId === like.user_id && like.like_type === "Comment") {
-        //         LikedComments.push(like.like_id)
-        //     }
-        // })
+        let likedComments = [];
 
-        // let likeButton = document.getElementById(`comment-like-${this.state.id}`)
+        Object.values(this.props.likes).forEach(like => {
+            if (this.props.currentUserId === like.user_id && like.like_type === "Comment") {
+                likedComments.push(like.like_id)
+            }
+        })
 
-        // if (likeButton && LikedComments.includes(this.state.id)) {
-        //     likeButton.classList.remove("comment-like")
-        //     likeButton.classList.add("comment-liked")
-        // }
+        let likeButton = document.getElementById(`comment-like-${this.state.id}`)
 
-        // // debugger
-        // if (likeButton && !LikedComments.includes(this.state.id)) {
-        //     likeButton.classList.remove("comment-liked")
-        //     likeButton.classList.add("comment-like")
-        // }
+        if (likeButton && likedComments.includes(this.state.id)) {
+            likeButton.classList.remove("comment-like")
+            likeButton.classList.add("comment-liked")
+        }
+
+        // debugger
+        if (likeButton && !likedComments.includes(this.state.id)) {
+            likeButton.classList.remove("comment-liked")
+            likeButton.classList.add("comment-like")
+        }
         /////////////////////////////
         
         // const renderLikes = this.props.typePost === "post" ? (
@@ -168,11 +206,11 @@ class LikeComment extends React.Component {
         // console.log(postLikeCount)
         // debugger
         return (
-            <div className="comment-like-count">
-                <p className="comment-like" id={`comment-like-${this.props.comment.id}`} onClick={() => this.likeComment(this.props.comment)}>Like</p>
+            <div className="comment-like-count" id={`comment-like-div-${this.state.id}`}>
+                <p className="comment-like" id={`comment-like-${this.state.id}`} onClick={() => this.likeComment(this.state.id)}>Like</p>
                 <div>
-                    <img src={this.state.commentLikesCount === 0 ? null : window.thumbsUpIcon}/>
-                    <p>{this.state.commentLikesCount === 0 ? null : this.state.commentLikesCount}</p>
+                    <img src={commentLikesCount === 0 ? null : window.thumbsUpIcon}/>
+                    <p>{commentLikesCount === 0 ? null : commentLikesCount}</p>
                 </div>
             </div>
         )
