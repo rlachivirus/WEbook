@@ -2,7 +2,7 @@ class Post < ApplicationRecord
 
     validates :body, presence: true
 
-    has_many :comments,
+    has_many :comments, dependent: :destroy,
         foreign_key: :post_id,
         class_name: :Comment
 
@@ -12,5 +12,5 @@ class Post < ApplicationRecord
 
     has_one_attached :photo
 
-    has_many :likes, as: :like
+    has_many :likes, as: :like, dependent: :destroy
 end

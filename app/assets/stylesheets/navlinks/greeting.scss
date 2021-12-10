@@ -169,7 +169,7 @@
                 box-shadow: 0 0 2px rgb(165, 165, 165), 0 0 5px rgb(184, 182, 182);
                 border-radius: 10px;
                 // border: 2px solid black;
-                height: 110px;
+                height: 115px;
                 width: 250px;
                 top: 55px;
                 right: 0px;
@@ -177,6 +177,7 @@
                 flex-direction: column;
                 justify-content: space-between;
                 padding: 5px;
+                background-color: white;
 
                 .profile-button {
                     // background-color: black;
@@ -192,13 +193,14 @@
                         height: 43px;
                         width: 43px;
                         object-fit: cover;
-                        margin-left: 5px;
+                        // margin-left: 5px;
+                        margin: 5px;
                     }
 
                     p {
                         background-color: transparent;
                         height: 45px;
-                        width: auto;
+                        // width: auto;
                         margin-right: 10px;
                     }                    
                 }

@@ -10,5 +10,5 @@ class Comment < ApplicationRecord
         foreign_key: :post_id,
         class_name: :Post
 
-    has_many :likes, as: :like
+    has_many :likes, as: :like, dependent: :destroy
 end
