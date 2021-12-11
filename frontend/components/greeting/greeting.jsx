@@ -1,16 +1,18 @@
 import React from "react";
 import { Link } from 'react-router-dom'
-// import PostContainer from "../post/post_container";
+import FriendRequestContainer from "../friend/friend_request_container"
 
 class Greeting extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            status: 'closed'
+            status: 'closed',
+            notification: 'closed'
         }
 
         this.handleClick = this.handleClick.bind(this);
+        this.handleNotification = this.handleNotification.bind(this);
         this.closeDropDown = this.closeDropDown.bind(this);
     }
 
@@ -27,19 +29,34 @@ class Greeting extends React.Component {
         }
     }
 
+    handleNotification() {
+        // debugger
+        if (this.state.notification === 'closed') {
+            this.setState({ notification: 'open'})
+        }
+    }
+
     closeDropDown() {
-        this.setState({
-            status: 'closed'
-        })
+        if (this.state.status === 'open') {
+            this.setState({
+                status: 'closed'
+            })
+        }
+        
+        if (this.state.notification === 'open') {
+            this.setState({
+                notification: 'closed'
+            })
+        }
     }
 
     componentDidUpdate() {
-        const { status } = this.state;
+        const { status, notification } = this.state;
 
         setTimeout(() => {
-            if (status === 'open') {
+            if (status === 'open' || notification === 'open') {
                 window.addEventListener('click', this.closeDropDown)
-            } else {
+            } else  {
                 window.removeEventListener('click', this.closeDropDown)
             }
         }, 0)
@@ -47,6 +64,14 @@ class Greeting extends React.Component {
     
     render () {
         const { currentUser, logout, openModal } = this.props;
+
+        const notification = this.state.notification === 'open' ? (
+            <div className="notification" onClick={this.handleNotification}>?
+                <FriendRequestContainer />
+            </div>
+        ) : (
+            <div className="notification" onClick={this.handleNotification}>?</div>
+        )
 
         const menuButton = this.state.status === 'open' ? (
             <div className="account-button2" onClick={this.handleClick}>▼
@@ -83,13 +108,14 @@ class Greeting extends React.Component {
                         <img className="profile-picture" src={this.props.currentUser.photoUrl} />
                         <p>{this.props.currentUser.fname}</p>
                     </Link>
-                    <div className="notification"></div>
+                    {notification}
                     {menuButton}
                 </div>
             </div>
         ) : (
             null
             )
+
         return (
             <div className="greeting">
                 {greeting}

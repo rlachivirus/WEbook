@@ -34,12 +34,12 @@ class Friend extends React.Component {
         const formData1 = new FormData();
         formData1.append('friend[user_id]', this.props.currentUserId);
         formData1.append('friend[friend_id]', this.props.friendId);
-        formData1.append('friend[status]', "Friends");
+        formData1.append('friend[status]', "Pending");
 
         const formData2 = new FormData();
         formData2.append('friend[user_id]', this.props.friendId);
         formData2.append('friend[friend_id]', this.props.currentUserId);
-        formData2.append('friend[status]', "Friends");
+        formData2.append('friend[status]', "Pending");
 
         // for (var pair of formData.entries()) {
         //     console.log(pair[0], pair[1]);
@@ -72,6 +72,7 @@ class Friend extends React.Component {
     }
 
     render() {
+        // debugger
         const { currentUserId, friendId } = this.props;
 
         let friender;

@@ -220,6 +220,26 @@
                     background-color: rgba(223, 223, 223, 0.651);
                 }
             }
+
+        }
+
+        .notification {
+
+            .friend-request-lists {
+                position: absolute;
+                box-shadow: 0 0 2px rgb(165, 165, 165), 0 0 5px rgb(184, 182, 182);
+                border-radius: 10px;
+                // border: 2px solid black;
+                height: 115px;
+                width: 250px;
+                top: 55px;
+                right: 0px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 5px;
+                background-color: white;
+            }
         }
 
         .account-button2:hover {
