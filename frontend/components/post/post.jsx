@@ -102,11 +102,19 @@ class Post extends React.Component {
         const friendIds = [currentUserId];
         friends.forEach(friend => friendIds.push(friend.friend_id));
 
-
         const userFriendIds = [];
         if (this.props.entities.users[userId]) {
             this.props.entities.users[userId].friends.forEach(friend => userFriendIds.push(friend.friend_id));
         }
+
+        const hideCreatePost = userFriendIds.includes(currentUserId) ? (
+            <div className="create-post">
+                <img className="profile-picture" src={this.props.users[this.props.currentUserId].photoUrl} />
+                <div className="create-button" onClick={() => this.openModal({ type: 'createPost', currentUserId: this.props.currentUserId, userId: this.props.userId, createPost: this.props.createPost, currentUser: this.props.currentUser })}>{`Write something to your friend...`}</div>
+            </div>
+        ) : (
+            null
+        )
 
         const showFeeds = !this.props.entities.users[userId] ? (
             <div className="newsfeed">
@@ -244,10 +252,11 @@ class Post extends React.Component {
             </div>
         ) : (
             <div className="profile-feed">
-                <div className="create-post">
+                {/* <div className="create-post">
                     <img className="profile-picture" src={this.props.users[this.props.currentUserId].photoUrl} />
                     <div className="create-button" onClick={() => this.openModal({ type: 'createPost', currentUserId: this.props.currentUserId, userId: this.props.userId, createPost: this.props.createPost, currentUser: this.props.currentUser })}>{`Write something to your friend...`}</div>
-                </div>
+                </div> */}
+                {hideCreatePost}
                 {/* <div className="newsfeed-posts"> */}
                 <ul className="newsfeed-posts">
                     {Object.values(posts).reverse().map((post, idx) => {

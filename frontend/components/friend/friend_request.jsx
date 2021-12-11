@@ -5,7 +5,7 @@ class FriendRequest extends React.Component {
         super(props);
 
         this.acceptRequest = this.acceptRequest.bind(this);
-        this.deleteRequest = this.deleteRequest.bind.bind(this);
+        this.deleteRequest = this.deleteRequest.bind(this);
     }
 
     componentDidMount() {
@@ -62,6 +62,26 @@ class FriendRequest extends React.Component {
     }
 
     deleteRequest(friendId) {
+
+        const { currentUserId } = this.props;
+
+        // for (var pair of formData.entries()) {
+        //     console.log(pair[0], pair[1]);
+        // }
+
+        let friender;
+        Object.values(this.props.friends).forEach(table => {
+            if ((table.user_id === currentUserId) && (table.friend_id === friendId)) {
+                friender = table.id;
+            }
+        })
+
+        let friendee;
+        Object.values(this.props.friends).forEach(table => {
+            if ((table.user_id === friendId) && (table.friend_id === currentUserId)) {
+                friendee = table.id;
+            }
+        })
 
         this.props.deleteFriend(friender)
         this.props.deleteFriend(friendee)
