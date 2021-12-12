@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
-import { fetchFriends } from '../../actions/friend_actions';
 import Greeting from './greeting';
 import { withRouter } from 'react-router-dom';
 

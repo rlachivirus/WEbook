@@ -16,6 +16,10 @@ class Greeting extends React.Component {
         this.closeDropDown = this.closeDropDown.bind(this);
     }
 
+    componentDidMount() {
+
+    }
+
     scrollToTop = () => {
         window.scrollTo({
             top: 0,
@@ -65,12 +69,24 @@ class Greeting extends React.Component {
     render () {
         const { currentUser, logout, openModal } = this.props;
 
+        // let pendingNotificationCount = [];
+        // console.log(this.props)
+        // if (currentUser) {
+        //     Object.values(currentUser.friends).forEach(friend => {
+        //         if (friend.status === "Pending") {
+        //             pendingNotificationCount.push(friend)
+        //         }
+        //     })
+        // }
+
         const notification = this.state.notification === 'open' ? (
             <div className="notification" onClick={this.handleNotification}>?
                 <FriendRequestContainer />
             </div>
         ) : (
-            <div className="notification" onClick={this.handleNotification}>?</div>
+            <div className="notification" onClick={this.handleNotification}>?
+                {/* <p>{pendingNotificationCount.length > 0 ? `${pendingNotificationCount.length}+` : null}</p> */}
+            </div>
         )
 
         const menuButton = this.state.status === 'open' ? (
