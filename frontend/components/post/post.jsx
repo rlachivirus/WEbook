@@ -102,7 +102,7 @@ class Post extends React.Component {
         const friendIds = [currentUserId];
         friends.forEach(friend => friendIds.push(friend.friend_id));
 
-        const userFriendIds = [];
+        const userFriendIds = [userId];
         if (this.props.entities.users[userId]) {
             this.props.entities.users[userId].friends.forEach(friend => userFriendIds.push(friend.friend_id));
         }
@@ -189,7 +189,7 @@ class Post extends React.Component {
                 {/* <div className="newsfeed-posts"> */}
                     <ul className="newsfeed-posts">
                         {Object.values(posts).reverse().map((post, idx) => {
-                            if (friendIds.includes(post.author_id) && (post.user_id === userId || post.user_id === 0)) {
+                            if (friendIds.includes(post.author_id && post.user_id === userId) || (post.author_id === currentUserId && post.user_id === 0)) {
                                 let months = { 1: "January", 2: "February", 3: "March", 4: "April", 5: "May", 6: "June", 7: "July", 8: "August", 9: "September", 10: "October", 11: "November", 12: "December" };
                                 let currentYear = this.state.date;
                                 let postYear = parseInt(post.created_at.slice(0, 10).split("-")[0]) !== currentYear ? `, ${post.created_at.slice(0, 10).split("-")[0]}` : "";
@@ -260,7 +260,7 @@ class Post extends React.Component {
                 {/* <div className="newsfeed-posts"> */}
                 <ul className="newsfeed-posts">
                     {Object.values(posts).reverse().map((post, idx) => {
-                        if (userFriendIds.includes(post.author_id) && post.user_id === userId) {
+                        if ((userFriendIds.includes(post.author_id) && post.user_id === userId) || (post.author_id === userId && post.user_id === 0)) {
                             let months = { 1: "January", 2: "February", 3: "March", 4: "April", 5: "May", 6: "June", 7: "July", 8: "August", 9: "September", 10: "October", 11: "November", 12: "December" };
                             let currentYear = this.state.date;
                             let postYear = parseInt(post.created_at.slice(0, 10).split("-")[0]) !== currentYear ? `, ${post.created_at.slice(0, 10).split("-")[0]}` : "";
