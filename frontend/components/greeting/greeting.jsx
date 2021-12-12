@@ -69,15 +69,15 @@ class Greeting extends React.Component {
     render () {
         const { currentUser, logout, openModal } = this.props;
 
-        // let pendingNotificationCount = [];
-        // console.log(this.props)
-        // if (currentUser) {
-        //     Object.values(currentUser.friends).forEach(friend => {
-        //         if (friend.status === "Pending") {
-        //             pendingNotificationCount.push(friend)
-        //         }
-        //     })
-        // }
+        let pendingNotificationCount = [];
+        console.log(this.props)
+        if (currentUser) {
+            Object.values(currentUser.friends).forEach(friend => {
+                if (friend.status === "Pending") {
+                    pendingNotificationCount.push(friend)
+                }
+            })
+        }
 
         const notification = this.state.notification === 'open' ? (
             <div className="notification" onClick={this.handleNotification}>?
@@ -85,7 +85,7 @@ class Greeting extends React.Component {
             </div>
         ) : (
             <div className="notification" onClick={this.handleNotification}>?
-                {/* <p>{pendingNotificationCount.length > 0 ? `${pendingNotificationCount.length}+` : null}</p> */}
+                <p>{pendingNotificationCount.length > 0 ? `${pendingNotificationCount.length}+` : null}</p>
             </div>
         )
 

@@ -107,7 +107,7 @@ class FriendRequest extends React.Component {
         const showFriendRequests = (
             <ul className="friend-request-lists">
                 {this.props.userFriends.map((friend, idx) => {
-                    if (friend.status === "Pending") {
+                    if (currentUserId !== friend.requester && friend.status === "Pending") {
                         return (
                             <li key={`${friend.id}-${idx}`} id={`friend-request-${friend.id}`}>
                                 <img className="profile-picture" src={this.props.users[friend.friend_id].photoUrl}/>
