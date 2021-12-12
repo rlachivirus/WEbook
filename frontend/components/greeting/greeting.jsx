@@ -8,7 +8,8 @@ class Greeting extends React.Component {
 
         this.state = {
             status: 'closed',
-            notification: 'closed'
+            notification: 'closed',
+            // notificationCount: null
         }
 
         this.handleClick = this.handleClick.bind(this);
@@ -17,7 +18,19 @@ class Greeting extends React.Component {
     }
 
     componentDidMount() {
+        // this.props.fetchUsers();
 
+        // let pendingNotificationCount = [];
+
+        // if (this.props.currentUser) {
+        //     Object.values(this.props.currentUser.friends).forEach(friend => {
+        //         if (friend.status === "Pending") {
+        //             pendingNotificationCount.push(friend)
+        //         }
+        //     })
+        // }
+
+        // this.setState({ notificationCount: pendingNotificationCount.length })
     }
 
     scrollToTop = () => {
@@ -86,6 +99,8 @@ class Greeting extends React.Component {
         ) : (
             <div className="notification" onClick={this.handleNotification}>?
                 <p>{pendingNotificationCount.length > 0 ? `${pendingNotificationCount.length}+` : null}</p>
+                {/* <p>{this.state.notificationCount !== null ? `${this.state.notificationCount}+` : null}</p> */}
+                {/* <p>{`${this.state.notificationCount}+`}</p> */}
             </div>
         )
 

@@ -22,7 +22,7 @@ class Friend extends React.Component {
     componentDidUpdate(prevProps) {
         if (this.props.friends !== prevProps.friends) {
             this.props.fetchUser(this.props.currentUserId)
-            this.props.fetchUser(this.props.friendId)
+            // this.props.fetchUser(this.props.friendId)
         }
     }
 

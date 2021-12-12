@@ -10,6 +10,14 @@ class FriendRequest extends React.Component {
 
     componentDidMount() {
         this.props.fetchFriends();
+        // this.props.fetchUsers();
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.friends !== prevProps.friends) {
+            this.props.fetchUser(this.props.currentUserId);
+            // this.props.fetchUser(this.props.friendId)
+        }
     }
 
     acceptRequest(friendId) {
@@ -48,7 +56,11 @@ class FriendRequest extends React.Component {
         formData2.append('friend[status]', "Friends");
 
         this.props.updateFriend(formData1);
-        this.props.updateFriend(formData2);
+        this.props.updateFriend(formData2)
+            .then(this.props.fetchUser(this.props.currentUserId));
+
+        
+
         // if (friender && friendee) {
         //     this.props.deleteFriend(friender)
         //     this.props.deleteFriend(friendee)
@@ -85,22 +97,24 @@ class FriendRequest extends React.Component {
 
         this.props.deleteFriend(friender)
         this.props.deleteFriend(friendee)
+            .then(this.props.fetchUser(this.props.currentUserId));
+
     }
 
     render() {
         const { currentUserId, friendId } = this.props;
 
         let friender;
-        Object.values(this.props.friends).forEach(table => {
-            if ((table.user_id === currentUserId) && (table.friend_id === friendId)) {
-                friender = table.id;
+        Object.values(this.props.friends).forEach(friend => {
+            if (friend.user_id === currentUserId && friend.friend_id === friendId && friend.status === "Friends") {
+                friender = friend.id;
             }
         })
 
         let friendee;
-        Object.values(this.props.friends).forEach(table => {
-            if ((table.user_id === friendId) && (table.friend_id === currentUserId)) {
-                friendee = table.id;
+        Object.values(this.props.friends).forEach(friend => {
+            if (friend.user_id === friendId && friend.friend_id === currentUserId && friend.status === "Friends") {
+                friendee = friend.id;
             }
         })
 

@@ -25,6 +25,13 @@ class Post extends React.Component {
         this.props.fetchUsers();
         this.props.fetchComments();
         this.props.fetchLikes();
+
+        // const friendIds = [this.props.currentUserId];
+        // this.props.friends.forEach(friend => {
+        //     if (friend.status === 'Friends') {
+        //         friendIds.push(friend.friend_id)
+        //     }
+        // });
     }
 
     // componentWillUnmount() {
@@ -105,6 +112,7 @@ class Post extends React.Component {
                 friendIds.push(friend.friend_id)
             }
         });
+        console.log(friendIds)
 
         const userFriendIds = [userId];
         if (this.props.entities.users[userId]) {
