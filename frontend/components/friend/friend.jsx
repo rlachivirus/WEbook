@@ -34,7 +34,7 @@ class Friend extends React.Component {
         const formData1 = new FormData();
         formData1.append('friend[user_id]', this.props.currentUserId);
         formData1.append('friend[friend_id]', this.props.friendId);
-        formData1.append('friend[status]', "Pending");
+        formData1.append('friend[status]', "");
 
         const formData2 = new FormData();
         formData2.append('friend[user_id]', this.props.friendId);
@@ -81,8 +81,8 @@ class Friend extends React.Component {
                 friender = friend.id;
             }
 
-            if (friend.user_id === currentUserId && friend.friend_id === friendId && friend.status === "Pending") {
-                friender = "pending";
+            if (friend.user_id === currentUserId && friend.friend_id === friendId && friend.status === "") {
+                friender = "";
             }
         })
 
@@ -105,7 +105,7 @@ class Friend extends React.Component {
             <div className="friend-button"
                 onClick="" style={{ backgroundColor: "#dbdbdb", color: "black"}}>Edit Profile
             </div>
-        ) : friender === "pending" && friendee === "pending" ? (
+        ) : friender === "" && friendee === "pending" ? (
             <div className="friend-button">Requested</div>
         ) : (
             <div className="friend-button"
