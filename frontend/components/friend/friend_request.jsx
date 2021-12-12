@@ -13,12 +13,12 @@ class FriendRequest extends React.Component {
         // this.props.fetchUsers();
     }
 
-    componentDidUpdate(prevProps) {
-        if (this.props.friends !== prevProps.friends) {
-            this.props.fetchUser(this.props.currentUserId);
-            // this.props.fetchUser(this.props.friendId)
-        }
-    }
+    // componentDidUpdate(prevProps) {
+    //     if (this.props.friends !== prevProps.friends) {
+    //         this.props.fetchUser(this.props.currentUserId);
+    //         // this.props.fetchUser(this.props.friendId)
+    //     }
+    // }
 
     acceptRequest(friendId) {
         // e.preventDefault();
@@ -55,7 +55,8 @@ class FriendRequest extends React.Component {
         // formData2.append('friend[friend_id]', this.props.currentUserId);
         formData2.append('friend[status]', "Friends");
 
-        this.props.updateFriend(formData1);
+        this.props.updateFriend(formData1)
+            .then(this.props.fetchUser(friendId));
         this.props.updateFriend(formData2)
             .then(this.props.fetchUser(this.props.currentUserId));
 
@@ -96,6 +97,7 @@ class FriendRequest extends React.Component {
         })
 
         this.props.deleteFriend(friender)
+            .then(this.props.fetchUser(friendId));
         this.props.deleteFriend(friendee)
             .then(this.props.fetchUser(this.props.currentUserId));
 
