@@ -76,28 +76,48 @@ class Friend extends React.Component {
         const { currentUserId, friendId } = this.props;
 
         let friender;
-        Object.values(this.props.friends).forEach(table => {
-            if ((table.user_id === currentUserId) && (table.friend_id === friendId)) {
-                friender = table.id;
+        Object.values(this.props.friends).forEach(friend => {
+            if (friend.user_id === currentUserId && friend.friend_id === friendId && friend.status === "Friends") {
+                friender = friend.id;
+            }
+
+            if (friend.user_id === currentUserId && friend.friend_id === friendId && friend.status === "Pending") {
+                friender = "pending";
             }
         })
 
         let friendee;
-        Object.values(this.props.friends).forEach(table => {
-            if ((table.user_id === friendId) && (table.friend_id === currentUserId)) {
-                friendee = table.id;
+        Object.values(this.props.friends).forEach(friend => {
+            if (friend.user_id === friendId && friend.friend_id === currentUserId && friend.status === "Friends") {
+                friendee = friend.id;
+            }
+
+            if (friend.user_id === friendId && friend.friend_id === currentUserId && friend.status === "Pending") {
+                friendee = "pending";
             }
         })
+
+        const friendButton = parseInt(friender) && parseInt(friendee) ? (
+            <div className="friend-button"
+                onClick={this.handleClick}>Friends
+            </div>
+        ) : currentUserId === friendId ? (
+            <div className="friend-button"
+                onClick="">Edit Profile
+            </div>
+        ) : friender === "pending" && friendee === "pending" ? (
+            <div className="friend-button">Requested</div>
+        ) : (
+            <div className="friend-button"
+                onClick={this.handleClick}>Add Friend
+            </div>
+        )
 
         // const buttonName = if (this.props.friends[friendee].status === "Friends") {
             
         // }
-        return (
-            <div className="friend-button"
-                onClick={this.handleClick}>{friender && friendee ? "Friends" : currentUserId === friendId ? "Add to Story" : "Add Friend"}
-            </div>
-        )
-        }
+        return friendButton
+    }
 }
 
 export default Friend

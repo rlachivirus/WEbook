@@ -46,7 +46,7 @@ class FriendRequest extends React.Component {
         // formData2.append('friend[user_id]', this.props.friendId);
         // formData2.append('friend[friend_id]', this.props.currentUserId);
         formData2.append('friend[status]', "Friends");
-        debugger
+
         this.props.updateFriend(formData1);
         this.props.updateFriend(formData2);
         // if (friender && friendee) {
