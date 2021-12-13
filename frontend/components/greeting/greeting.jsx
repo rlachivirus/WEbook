@@ -99,7 +99,7 @@ class Greeting extends React.Component {
             </div>
         ) : (
             <div className="notification" onClick={this.handleNotification}>
-                <p className="notification-count">{pendingNotificationCount.length > 0 ? pendingNotificationCount.length : null}</p>
+                    <p className="notification-count" style={pendingNotificationCount.length > 0 ? null : { display: "none"}}>{pendingNotificationCount.length > 0 ? pendingNotificationCount.length : null}</p>
                 <img className="notification-logo" src={window.notification} />
                 {/* <p>{this.state.notificationCount !== null ? `${this.state.notificationCount}+` : null}</p> */}
                 {/* <p>{`${this.state.notificationCount}+`}</p> */}

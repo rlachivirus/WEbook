@@ -125,7 +125,10 @@ class Post extends React.Component {
 
         const hideCreatePost = userFriendIds.includes(currentUserId) ? (
             <div className="create-post">
-                <img className="profile-picture" src={this.props.users[this.props.currentUserId].photoUrl} />
+                {/* <img className="profile-picture" src={this.props.users[this.props.currentUserId].photoUrl} /> */}
+                <Link to={`/users/${this.props.currentUserId}`}>
+                    <img className="profile-picture" src={this.props.users[this.props.currentUserId].photoUrl} />
+                </Link>
                 <div className="create-button" onClick={() => this.openModal({ type: 'createPost', currentUserId: this.props.currentUserId, userId: this.props.userId, createPost: this.props.createPost, currentUser: this.props.currentUser })}>{`Write something to your friend...`}</div>
             </div>
         ) : (
@@ -166,7 +169,9 @@ class Post extends React.Component {
                 </div>
                 <div className="newsfeed-middle">
                     <div className="create-post">
-                        <img className="profile-picture" src={this.props.users[this.props.currentUserId].photoUrl} />
+                        <Link to={`/users/${this.props.currentUserId}`}>
+                            <img className="profile-picture" src={this.props.users[this.props.currentUserId].photoUrl} />
+                        </Link>
                         <div className="create-button" onClick={() => this.openModal({ type: 'createPost', currentUserId: this.props.currentUserId, userId: this.props.userId, createPost: this.props.createPost, currentUser: this.props.currentUser })}>{`What's on your mind, ${this.props.currentUser.fname}?`}</div>
                     </div>
                     <ul className="newsfeed-posts">
@@ -179,19 +184,35 @@ class Post extends React.Component {
                                 let postDay = post.created_at.slice(0, 10).split("-")[2];
                                 let postName;
 
+                                // if (this.props.users[post.user_id]) {
+                                //     postName = post.author_id === post.user_id ? `${post.fname} ${post.lname}` : `${post.fname} ${post.lname} ▸ ${this.props.users[post.user_id].fname} ${this.props.users[post.user_id].lname}`
+                                // } else {
+                                //     postName = `${post.fname} ${post.lname}`
+                                // }
+
                                 if (this.props.users[post.user_id]) {
-                                    postName = post.author_id === post.user_id ? `${post.fname} ${post.lname}` : `${post.fname} ${post.lname} ▸ ${this.props.users[post.user_id].fname} ${this.props.users[post.user_id].lname}`
+                                    postName = post.author_id === post.user_id ? (
+                                    <Link className="post-name" to={`/users/${post.author_id}`}>{`${post.fname} ${post.lname}`}</Link>) : (
+                                    <div>
+                                        <Link className="post-name" to={`/users/${post.author_id}`}>{`${post.fname} ${post.lname}`}</Link>
+                                        <span> ▸ </span>
+                                        <Link className="post-name" to={`/users/${post.user_id}`}>{`${users[post.user_id].fname} ${users[post.user_id].lname}`}</Link>
+                                    </div>
+                                    )
                                 } else {
-                                    postName = `${post.fname} ${post.lname}`
+                                    postName = <Link className="post-name" to={`/users/${post.author_id}`}>{`${post.fname} ${post.lname}`}</Link>
                                 }
 
                                 return (
                                     <li key={`${post.id}-${idx}`} id={post.id} className="post">
                                         <div className="post-top">
                                             <div className="post-top-left">
-                                                <img className="profile-picture" src={this.props.users[post.author_id].photoUrl} />
+                                                <Link to={`/users/${post.author_id}`}>
+                                                    <img className="profile-picture" src={this.props.users[post.author_id].photoUrl} />
+                                                </Link>
                                                 <div className="post-nameAndDate">
-                                                    <span className="post-name">{postName}</span>
+                                                    {/* <span className="post-name">{postName}</span> */}
+                                                    {postName}
                                                     <span className="post-date">{`${postMonth} ${postDay}${postYear}`}</span>
                                                 </div>
                                             </div>
@@ -244,7 +265,10 @@ class Post extends React.Component {
         ) : userId === currentUserId ? (
             <div className="profile-feed">
                 <div className="create-post">
-                    <img className="profile-picture" src={this.props.users[this.props.currentUserId].photoUrl} />
+                    {/* <img className="profile-picture" src={this.props.users[this.props.currentUserId].photoUrl} /> */}
+                    <Link to={`/users/${this.props.currentUserId}`}>
+                        <img className="profile-picture" src={this.props.users[this.props.currentUserId].photoUrl} />
+                    </Link>
                     <div className="create-button" onClick={() => this.openModal({ type: 'createPost', currentUserId: this.props.currentUserId, userId: this.props.userId, createPost: this.props.createPost, currentUser: this.props.currentUser })}>{`What's on your mind, ${this.props.currentUser.fname}?`}</div>
                 </div>
                 {/* <div className="newsfeed-posts"> */}
@@ -258,10 +282,22 @@ class Post extends React.Component {
                                 let postDay = post.created_at.slice(0, 10).split("-")[2];
                                 let postName;
 
+                                // if (this.props.users[post.user_id]) {
+                                //     postName = post.author_id === post.user_id ? `${post.fname} ${post.lname}` : `${post.fname} ${post.lname} ▸ ${this.props.users[post.user_id].fname} ${this.props.users[post.user_id].lname}`
+                                // } else {
+                                //     postName = `${post.fname} ${post.lname}`
+                                // }
                                 if (this.props.users[post.user_id]) {
-                                    postName = post.author_id === post.user_id ? `${post.fname} ${post.lname}` : `${post.fname} ${post.lname} ▸ ${this.props.users[post.user_id].fname} ${this.props.users[post.user_id].lname}`
+                                    postName = post.author_id === post.user_id ? (
+                                        <Link className="post-name" to={`/users/${post.author_id}`}>{`${post.fname} ${post.lname}`}</Link>) : (
+                                        <div>
+                                            <Link className="post-name" to={`/users/${post.author_id}`}>{`${post.fname} ${post.lname}`}</Link>
+                                            <span> ▸ </span>
+                                            <Link className="post-name" to={`/users/${post.user_id}`}>{`${users[post.user_id].fname} ${users[post.user_id].lname}`}</Link>
+                                        </div>
+                                    )
                                 } else {
-                                    postName = `${post.fname} ${post.lname}`
+                                    postName = <Link className="post-name" to={`/users/${post.author_id}`}>{`${post.fname} ${post.lname}`}</Link>
                                 }
 
                                 return (
@@ -276,9 +312,13 @@ class Post extends React.Component {
                                     <li key={`${post.id}-${idx}`} id={post.id} className="post">
                                         <div className="post-top">
                                             <div className="post-top-left">
-                                                <img className="profile-picture" src={this.props.users[post.author_id].photoUrl} />
+                                                {/* <img className="profile-picture" src={this.props.users[post.author_id].photoUrl} /> */}
+                                                <Link to={`/users/${post.author_id}`}>
+                                                    <img className="profile-picture" src={this.props.users[post.author_id].photoUrl} />
+                                                </Link>
                                                 <div className="post-nameAndDate">
-                                                    <span className="post-name">{postName}</span>
+                                                    {/* <span className="post-name">{postName}</span> */}
+                                                    {postName}
                                                     <span className="post-date">{`${postMonth} ${postDay}${postYear}`}</span>
                                                 </div>
                                             </div>
@@ -329,10 +369,22 @@ class Post extends React.Component {
                             let postDay = post.created_at.slice(0, 10).split("-")[2];
                             let postName;
 
+                            // if (this.props.users[post.user_id]) {
+                            //     postName = post.author_id === post.user_id ? `${post.fname} ${post.lname}` : `${post.fname} ${post.lname} ▸ ${this.props.users[post.user_id].fname} ${this.props.users[post.user_id].lname}`
+                            // } else {
+                            //     postName = `${post.fname} ${post.lname}`
+                            // }
                             if (this.props.users[post.user_id]) {
-                                postName = post.author_id === post.user_id ? `${post.fname} ${post.lname}` : `${post.fname} ${post.lname} ▸ ${this.props.users[post.user_id].fname} ${this.props.users[post.user_id].lname}`
+                                postName = post.author_id === post.user_id ? (
+                                    <Link className="post-name" to={`/users/${post.author_id}`}>{`${post.fname} ${post.lname}`}</Link>) : (
+                                    <div>
+                                        <Link className="post-name" to={`/users/${post.author_id}`}>{`${post.fname} ${post.lname}`}</Link>
+                                        <span> ▸ </span>
+                                        <Link className="post-name" to={`/users/${post.user_id}`}>{`${users[post.user_id].fname} ${users[post.user_id].lname}`}</Link>
+                                    </div>
+                                )
                             } else {
-                                postName = `${post.fname} ${post.lname}`
+                                postName = <Link className="post-name" to={`/users/${post.author_id}`}>{`${post.fname} ${post.lname}`}</Link>
                             }
 
                             return (
@@ -348,9 +400,13 @@ class Post extends React.Component {
                                 <li key={`${post.id}-${idx}`} id={post.id} className="post">
                                     <div className="post-top">
                                         <div className="post-top-left">
-                                            <img className="profile-picture" src={this.props.users[post.author_id].photoUrl} />
+                                            {/* <img className="profile-picture" src={this.props.users[post.author_id].photoUrl} /> */}
+                                            <Link to={`/users/${post.author_id}`}>
+                                                <img className="profile-picture" src={this.props.users[post.author_id].photoUrl} />
+                                            </Link>
                                             <div className="post-nameAndDate">
-                                                <span className="post-name">{postName}</span>
+                                                {/* <span className="post-name">{postName}</span> */}
+                                                {postName}
                                                 <span className="post-date">{`${postMonth} ${postDay}${postYear}`}</span>
                                             </div>
                                         </div>
