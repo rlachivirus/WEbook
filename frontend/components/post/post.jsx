@@ -134,7 +134,36 @@ class Post extends React.Component {
 
         const showFeeds = !this.props.entities.users[userId] ? (
             <div className="newsfeed">
-                <div className="newsfeed-left"></div>
+                <div className="newsfeed-left">
+                    <Link className="newsfeed-left-buttons" to={`/users/${this.props.currentUserId}`}>
+                        <img src={this.props.currentUser.photoUrl} />
+                        <p>{`${this.props.currentUser.fname} ${this.props.currentUser.lname}`}</p>
+                    </Link>
+                    <a className="newsfeed-left-buttons" href="https://www.linkedin.com/in/albertck/" target="_blank">
+                        <img src={window.linkedin} />
+                        <p>LinkedIn</p>
+                    </a>
+                    <a className="newsfeed-left-buttons" href="https://angel.co/u/albert-kim-39" target="_blank">
+                        <img src={window.angellist} />
+                        <p>AngelList</p>
+                    </a>
+                    <a className="newsfeed-left-buttons" href="https://rlachivirus.github.io/albertck/" target="_blank">
+                        <img src={window.portfolio} />
+                        <p>Portfolio</p>
+                    </a>
+                    <a className="newsfeed-left-buttons" href="https://github.com/rlachivirus" target="_blank">
+                        <img src={window.github} />
+                        <p>GitHub</p>
+                    </a>
+                    <a className="newsfeed-left-buttons" href="https://rlachivirus.github.io/Keyboard-Tiles/" target="_blank">
+                        <img src={window.keyboard} />
+                        <p>Keyboard-Tiles</p>
+                    </a>
+                    <a className="newsfeed-left-buttons" href="https://moviefridays.herokuapp.com/#/login" target="_blank">
+                        <img src={window.movie} />
+                        <p>Movie Fridays</p>
+                    </a>
+                </div>
                 <div className="newsfeed-middle">
                     <div className="create-post">
                         <img className="profile-picture" src={this.props.users[this.props.currentUserId].photoUrl} />
