@@ -215,7 +215,7 @@ class Post extends React.Component {
                                         <div className="post-top">
                                             <div className="post-top-left">
                                                 <Link to={`/users/${post.author_id}`}>
-                                                    <img className="profile-picture" src={this.props.users[post.author_id].photoUrl} />
+                                                    <img className="profile-picture" src={this.props.users[post.author_id] ? this.props.users[post.author_id].photoUrl : null} />
                                                 </Link>
                                                 <div className="post-nameAndDate">
                                                     {/* <span className="post-name">{postName}</span> */}
@@ -321,7 +321,7 @@ class Post extends React.Component {
                                             <div className="post-top-left">
                                                 {/* <img className="profile-picture" src={this.props.users[post.author_id].photoUrl} /> */}
                                                 <Link to={`/users/${post.author_id}`}>
-                                                    <img onClick={this.scrollToTop} className="profile-picture" src={this.props.users[post.author_id].photoUrl} />
+                                                    <img onClick={this.scrollToTop} className="profile-picture" src={this.props.users[post.author_id] ? this.props.users[post.author_id].photoUrl : null} />
                                                 </Link>
                                                 <div className="post-nameAndDate">
                                                     {/* <span className="post-name">{postName}</span> */}
@@ -409,7 +409,7 @@ class Post extends React.Component {
                                         <div className="post-top-left">
                                             {/* <img className="profile-picture" src={this.props.users[post.author_id].photoUrl} /> */}
                                             <Link to={`/users/${post.author_id}`}>
-                                                <img className="profile-picture" onClick={this.scrollToTop} src={this.props.users[post.author_id].photoUrl} />
+                                                <img className="profile-picture" onClick={this.scrollToTop} src={this.props.users[post.author_id] ? this.props.users[post.author_id].photoUrl : null} />
                                             </Link>
                                             <div className="post-nameAndDate">
                                                 {/* <span className="post-name">{postName}</span> */}

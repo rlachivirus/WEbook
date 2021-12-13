@@ -269,7 +269,7 @@
                 padding-top: 10px;
                 font-size: 16px;
                 font-weight: 600;
-                background-color: rgba($color: #dbdbdb, $alpha: 1.0);
+                background-color: rgba(226, 225, 225, 0.541);
                 height: 35px;
                 width: 300px;
                 margin-left: 26px;
@@ -277,6 +277,10 @@
                 text-align: center;
                 cursor: pointer;
                 border-radius: 7px;
+            }
+
+            .profile-edit-button1:hover {
+                background-color: rgba(194, 194, 194, 0.479);
             }
         }
         
