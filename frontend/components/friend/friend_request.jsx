@@ -125,11 +125,11 @@ class FriendRequest extends React.Component {
                 {this.props.userFriends.map((friend, idx) => {
                     if (friend.status === "Pending") {
                         return (
-                            <li key={`${friend.id}-${idx}`} id={`friend-request-${friend.id}`}>
+                            <li key={`${friend.id}-${idx}`} className="friend-request" id={`friend-request-${friend.id}`}>
                                 <img className="profile-picture" src={this.props.users[friend.friend_id].photoUrl}/>
-                                <div>
-                                    <p>{this.props.users[friend.friend_id].fname}</p>
-                                    <div>
+                                <div className="friend-info">
+                                    <p className="friend-name">{this.props.users[friend.friend_id].fname}</p>
+                                    <div className="accept-or-decline">
                                         <p onClick={() => this.acceptRequest(friend.friend_id)}>Confirm</p>
                                         <p onClick={() => this.deleteRequest(friend.friend_id)}>Delete</p>
                                     </div>
