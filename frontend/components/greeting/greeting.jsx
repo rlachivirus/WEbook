@@ -78,8 +78,8 @@ class Greeting extends React.Component {
             }
         }, 0)
     }
-    
     render () {
+        console.log(this.props)
         const { currentUser, logout, openModal } = this.props;
 
         let pendingNotificationCount = [];
@@ -123,19 +123,20 @@ class Greeting extends React.Component {
                 {/* <p className="greeting-welcome">Welcome, {currentUser.fname}</p> */}
                 <div className="greeting-left">
                     <Link className="we-button" to="/">WE</Link>
-                    <div className="searchbar"></div>
+                    {/* <div className="searchbar"></div> */}
                 </div>
-                <div className="greeting-center">
+                <div className={this.props.location.pathname !== "/posts" ? "greeting-center" : "greeting-center-post"}>
+                    <Link to="/posts"><img className="homeButton" src={window.homeButton} /></Link>
                     {/* <div className="github"></div> */}
                     {/* <div className="linkedin"></div> */}
-                    <a href="https://github.com/rlachivirus" target="_blank"><img className="github" src={window.github} /></a>
+                    {/* <a href="https://github.com/rlachivirus" target="_blank"><img className="github" src={window.github} /></a>
                     <a href="https://www.linkedin.com/in/albertck/" target="_blank"><img className="linkedin" src={window.linkedin} /></a>
-                    <a href="https://rlachivirus.github.io/albertck/" target="_blank"><img className="portfolio" src={window.portfolio} /></a>
+                    <a href="https://rlachivirus.github.io/albertck/" target="_blank"><img className="portfolio" src={window.portfolio} /></a> */}
                     {/* <div className="portfolio"></div> */}
                 </div>
                 <div className="greeting-right">
                     {/* <div className="profile-button">{this.props.currentUser.fname}</div> */}
-                    <Link className="profile-button-outside" to={`/users/${currentUser.id}`} onClick={this.scrollToTop}>
+                    <Link className={this.props.location.pathname !== `/users/${currentUser.id}` ? "profile-button-outside" : "profile-button-in-profile"} to={`/users/${currentUser.id}`} onClick={this.scrollToTop}>
                         <img className="profile-picture" src={this.props.currentUser.photoUrl} />
                         <p>{this.props.currentUser.fname}</p>
                     </Link>
