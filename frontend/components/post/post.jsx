@@ -34,6 +34,13 @@ class Post extends React.Component {
         // });
     }
 
+    scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+
     // componentWillUnmount() {
 
     // }
@@ -127,7 +134,7 @@ class Post extends React.Component {
             <div className="create-post">
                 {/* <img className="profile-picture" src={this.props.users[this.props.currentUserId].photoUrl} /> */}
                 <Link to={`/users/${this.props.currentUserId}`}>
-                    <img className="profile-picture" src={this.props.users[this.props.currentUserId].photoUrl} />
+                    <img className="profile-picture" onClick={this.scrollToTop} src={this.props.users[this.props.currentUserId].photoUrl} />
                 </Link>
                 <div className="create-button" onClick={() => this.openModal({ type: 'createPost', currentUserId: this.props.currentUserId, userId: this.props.userId, createPost: this.props.createPost, currentUser: this.props.currentUser })}>{`Write something to your friend...`}</div>
             </div>
@@ -267,7 +274,7 @@ class Post extends React.Component {
                 <div className="create-post">
                     {/* <img className="profile-picture" src={this.props.users[this.props.currentUserId].photoUrl} /> */}
                     <Link to={`/users/${this.props.currentUserId}`}>
-                        <img className="profile-picture" src={this.props.users[this.props.currentUserId].photoUrl} />
+                        <img onClick={this.scrollToTop} className="profile-picture" src={this.props.users[this.props.currentUserId].photoUrl} />
                     </Link>
                     <div className="create-button" onClick={() => this.openModal({ type: 'createPost', currentUserId: this.props.currentUserId, userId: this.props.userId, createPost: this.props.createPost, currentUser: this.props.currentUser })}>{`What's on your mind, ${this.props.currentUser.fname}?`}</div>
                 </div>
@@ -289,15 +296,15 @@ class Post extends React.Component {
                                 // }
                                 if (this.props.users[post.user_id]) {
                                     postName = post.author_id === post.user_id ? (
-                                        <Link className="post-name" to={`/users/${post.author_id}`}>{`${post.fname} ${post.lname}`}</Link>) : (
+                                        <Link onClick={this.scrollToTop} className="post-name" to={`/users/${post.author_id}`}>{`${post.fname} ${post.lname}`}</Link>) : (
                                         <div>
-                                            <Link className="post-name" to={`/users/${post.author_id}`}>{`${post.fname} ${post.lname}`}</Link>
+                                            <Link className="post-name" onClick={this.scrollToTop} to={`/users/${post.author_id}`}>{`${post.fname} ${post.lname}`}</Link>
                                             <span> ▸ </span>
-                                            <Link className="post-name" to={`/users/${post.user_id}`}>{`${users[post.user_id].fname} ${users[post.user_id].lname}`}</Link>
+                                            <Link className="post-name" onClick={this.scrollToTop} to={`/users/${post.user_id}`}>{`${users[post.user_id].fname} ${users[post.user_id].lname}`}</Link>
                                         </div>
                                     )
                                 } else {
-                                    postName = <Link className="post-name" to={`/users/${post.author_id}`}>{`${post.fname} ${post.lname}`}</Link>
+                                    postName = <Link onClick={this.scrollToTop} className="post-name" to={`/users/${post.author_id}`}>{`${post.fname} ${post.lname}`}</Link>
                                 }
 
                                 return (
@@ -314,7 +321,7 @@ class Post extends React.Component {
                                             <div className="post-top-left">
                                                 {/* <img className="profile-picture" src={this.props.users[post.author_id].photoUrl} /> */}
                                                 <Link to={`/users/${post.author_id}`}>
-                                                    <img className="profile-picture" src={this.props.users[post.author_id].photoUrl} />
+                                                    <img onClick={this.scrollToTop} className="profile-picture" src={this.props.users[post.author_id].photoUrl} />
                                                 </Link>
                                                 <div className="post-nameAndDate">
                                                     {/* <span className="post-name">{postName}</span> */}
@@ -376,15 +383,15 @@ class Post extends React.Component {
                             // }
                             if (this.props.users[post.user_id]) {
                                 postName = post.author_id === post.user_id ? (
-                                    <Link className="post-name" to={`/users/${post.author_id}`}>{`${post.fname} ${post.lname}`}</Link>) : (
+                                    <Link className="post-name" onClick={this.scrollToTop} to={`/users/${post.author_id}`}>{`${post.fname} ${post.lname}`}</Link>) : (
                                     <div>
-                                        <Link className="post-name" to={`/users/${post.author_id}`}>{`${post.fname} ${post.lname}`}</Link>
+                                        <Link className="post-name" onClick={this.scrollToTop} to={`/users/${post.author_id}`}>{`${post.fname} ${post.lname}`}</Link>
                                         <span> ▸ </span>
-                                        <Link className="post-name" to={`/users/${post.user_id}`}>{`${users[post.user_id].fname} ${users[post.user_id].lname}`}</Link>
+                                        <Link className="post-name" onClick={this.scrollToTop} to={`/users/${post.user_id}`}>{`${users[post.user_id].fname} ${users[post.user_id].lname}`}</Link>
                                     </div>
                                 )
                             } else {
-                                postName = <Link className="post-name" to={`/users/${post.author_id}`}>{`${post.fname} ${post.lname}`}</Link>
+                                postName = <Link className="post-name" onClick={this.scrollToTop} to={`/users/${post.author_id}`}>{`${post.fname} ${post.lname}`}</Link>
                             }
 
                             return (
@@ -402,7 +409,7 @@ class Post extends React.Component {
                                         <div className="post-top-left">
                                             {/* <img className="profile-picture" src={this.props.users[post.author_id].photoUrl} /> */}
                                             <Link to={`/users/${post.author_id}`}>
-                                                <img className="profile-picture" src={this.props.users[post.author_id].photoUrl} />
+                                                <img className="profile-picture" onClick={this.scrollToTop} src={this.props.users[post.author_id].photoUrl} />
                                             </Link>
                                             <div className="post-nameAndDate">
                                                 {/* <span className="post-name">{postName}</span> */}
