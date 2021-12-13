@@ -98,7 +98,7 @@ class Post extends React.Component {
     }
 
     render() {
-        const { posts, friends, userId, currentUserId } = this.props;
+        const { posts, friends, userId, currentUserId, users } = this.props;
 
         // const createPost = (
         //     <div className="create-post">
@@ -139,6 +139,10 @@ class Post extends React.Component {
                         <img src={this.props.currentUser.photoUrl} />
                         <p>{`${this.props.currentUser.fname} ${this.props.currentUser.lname}`}</p>
                     </Link>
+                    <a className="newsfeed-left-buttons" href="https://rlachivirus.github.io/albertck/" target="_blank">
+                        <img src={window.portfolio} />
+                        <p>Portfolio</p>
+                    </a>
                     <a className="newsfeed-left-buttons" href="https://www.linkedin.com/in/albertck/" target="_blank">
                         <img src={window.linkedin} />
                         <p>LinkedIn</p>
@@ -146,10 +150,6 @@ class Post extends React.Component {
                     <a className="newsfeed-left-buttons" href="https://angel.co/u/albert-kim-39" target="_blank">
                         <img src={window.angellist} />
                         <p>AngelList</p>
-                    </a>
-                    <a className="newsfeed-left-buttons" href="https://rlachivirus.github.io/albertck/" target="_blank">
-                        <img src={window.portfolio} />
-                        <p>Portfolio</p>
                     </a>
                     <a className="newsfeed-left-buttons" href="https://github.com/rlachivirus" target="_blank">
                         <img src={window.github} />
@@ -223,7 +223,23 @@ class Post extends React.Component {
                         })}
                     </ul>
                 </div>
-                <div className="newsfeed-right"></div>
+                {/* <div className="newsfeed-right"> */}
+                    <ul className="newsfeed-right">Friends
+                    <hr/>
+                    {Object.values(users).map((friend, idx) => {
+                        if (friendIds.includes(friend.id) && friend.id !== currentUserId) {
+                            return (
+                            <li key={`${friend.id}-${idx}`}>
+                                <Link className="newsfeed-right-friends" to={`/users/${friend.id}`}>
+                                    <img src={friend.photoUrl} />
+                                    <p>{`${friend.fname} ${friend.lname}`}</p>
+                                </Link>
+                            </li>
+                            )
+                        }
+                        })}
+                    </ul>
+                {/* </div> */}
             </div>
         ) : userId === currentUserId ? (
             <div className="profile-feed">
