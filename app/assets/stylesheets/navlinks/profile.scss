@@ -20,7 +20,8 @@
         top: 60px;
         height: 260px;
         width: 100%;
-        background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(37,37,37,1) 11%, rgba(255,255,255,1) 100%);
+        // background: linear-gradient(to bottom, #176fd3 0%, #1f77db 11%, rgba(255,255,255,1) 100%);
+        background: linear-gradient(to bottom, #929292 0%, #acacac 11%, rgba(255,255,255,1) 100%);
         z-index: 6;
     }
 
@@ -36,7 +37,10 @@
         position: absolute;
         // border: 2px solid rgba($color: #247bdf, $alpha: 1.0);
         border-radius: 0 0 10px 10px;
-        background-color: rgba($color: #247bdf, $alpha: 1.0);
+        // background-color: rgba($color: #75b3fa52, $alpha: 1.0);
+        // background-color: rgba(51, 129, 219, 0.438);
+        // background-color: #247bdf42;
+        background-color: #1475f3c2;
         height: 340px;
         // height: 30%;
         width: 65%;

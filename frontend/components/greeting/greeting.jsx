@@ -93,12 +93,14 @@ class Greeting extends React.Component {
         }
 
         const notification = this.state.notification === 'open' ? (
-            <div className="notification" onClick={this.handleNotification}>?
+            <div className="notification" onClick={this.handleNotification}>
+                <img className="notification-logo" src={window.notification} />
                 <FriendRequestContainer />
             </div>
         ) : (
-            <div className="notification" onClick={this.handleNotification}>?
-                <p>{pendingNotificationCount.length > 0 ? `${pendingNotificationCount.length}+` : null}</p>
+            <div className="notification" onClick={this.handleNotification}>
+                <p className="notification-count">{pendingNotificationCount.length > 0 ? pendingNotificationCount.length : null}</p>
+                <img className="notification-logo" src={window.notification} />
                 {/* <p>{this.state.notificationCount !== null ? `${this.state.notificationCount}+` : null}</p> */}
                 {/* <p>{`${this.state.notificationCount}+`}</p> */}
             </div>
