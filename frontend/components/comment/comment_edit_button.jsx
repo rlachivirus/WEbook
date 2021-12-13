@@ -71,8 +71,8 @@ class CommentEditButton extends React.Component {
             null
         ) : (
             <div className="comment-edit-options">
-                <div onClick={this.openEdit} className="edit" >Edit</div>
-                <div onClick={this.handleDelete} className="delete">Delete</div>
+                <p onClick={this.openEdit} className="edit" >Edit</p>
+                <p onClick={this.handleDelete} className="delete">Delete</p>
             </div>
         )
 

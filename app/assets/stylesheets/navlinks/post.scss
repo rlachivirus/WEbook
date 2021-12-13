@@ -255,6 +255,7 @@
                             width: 30px;
                             line-height: 0.35;
                             padding-left: 4.5px;
+                            cursor: pointer;
                         }
 
                         .button:hover {
@@ -264,7 +265,23 @@
                     
                     .post-edit-options {
                         position: absolute;
-                        top: 50px;
+                        top: 32px;
+                        height: auto;
+                        width: 70px;
+                        right: 0;
+                        box-shadow: 0 1px 2px #cfcfcf;
+                        padding: 5px;
+                        border-radius: 10px;
+                        cursor: pointer;
+
+                        p {
+                            border-radius: 5px;
+                            padding-left: 3px;
+                        }
+
+                        p:hover {
+                            background-color: rgba(226, 225, 225, 0.541);
+                        }
                     }
                     
                 }
@@ -737,6 +754,7 @@
                         width: 30px;
                         line-height: 0.35;
                         padding-left: 4.5px;
+                        cursor: pointer;
                     }
 
                     .button:hover {
@@ -746,7 +764,23 @@
                 
                 .post-edit-options {
                     position: absolute;
-                    top: 50px;
+                    top: 32px;
+                    height: auto;
+                    width: 70px;
+                    right: 0;
+                    box-shadow: 0 1px 2px #cfcfcf;
+                    padding: 5px;
+                    border-radius: 10px;
+                    cursor: pointer;
+
+                    p {
+                        border-radius: 5px;
+                        padding-left: 3px;
+                    }
+
+                    p:hover {
+                        background-color: rgba(226, 225, 225, 0.541);
+                    }
                 }
                 
             }
