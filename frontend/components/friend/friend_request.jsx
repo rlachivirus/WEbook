@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 
 class FriendRequest extends React.Component {
     constructor(props) {
@@ -126,9 +127,9 @@ class FriendRequest extends React.Component {
                     if (friend.status === "Pending") {
                         return (
                             <li key={`${friend.id}-${idx}`} className="friend-request" id={`friend-request-${friend.id}`}>
-                                <img className="profile-picture" src={this.props.users[friend.friend_id].photoUrl}/>
+                                <Link to={`/users/${friend.friend_id}`}><img className="profile-picture" src={this.props.users[friend.friend_id].photoUrl} /></Link>
                                 <div className="friend-info">
-                                    <p className="friend-name">{this.props.users[friend.friend_id].fname}</p>
+                                    <Link to={`/users/${friend.friend_id}`}><p className="friend-name">{this.props.users[friend.friend_id].fname}</p></Link>
                                     <div className="accept-or-decline">
                                         <p onClick={() => this.acceptRequest(friend.friend_id)}>Confirm</p>
                                         <p onClick={() => this.deleteRequest(friend.friend_id)}>Delete</p>

@@ -148,8 +148,10 @@
                 cursor: pointer;
                 // margin-top: 50px;
                 margin-bottom: 40px;
+            }
 
-
+            .create-button:hover {
+                background-color: rgba(194, 194, 194, 0.479);
             }
 
 
@@ -630,8 +632,10 @@
             cursor: pointer;
             // margin-top: 50px;
             margin-bottom: 40px;
+        }
 
-
+        .create-button:hover {
+            background-color: rgba(194, 194, 194, 0.479);
         }
 
 
