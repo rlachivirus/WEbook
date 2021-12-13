@@ -76,17 +76,21 @@ class CommentEditButton extends React.Component {
             </div>
         )
 
-        return (
-            <div className="comment-edit-button" id={`comment-edit-button-${this.props.comment.id}`}>
-                <p className="button" onClick={this.handleClick}>...</p>
-                {commentEditDeleteBox}
-            </div>
-        )
+        if (this.props.comment.author_id === this.props.currentUserId) {
+            return (
+                <div className="comment-edit-button" id={`comment-edit-button-${this.props.comment.id}`}>
+                    <p className="button" onClick={this.handleClick}>...</p>
+                    {commentEditDeleteBox}
+                </div>
+            )
+        } else {
+            return null;
+        }
     }
 }
 
 const mapStateToProps = (state, ownProps) => ({
-
+    currentUserId: state.session.id,
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 import { fetchUser } from "../../actions/user_actions";
 import CommentEditButton from './comment_edit_button';
 import CommentEditFormContainer from './comment_edit_container';
@@ -72,7 +73,7 @@ class Comment extends React.Component {
         return (
             <div>
                 <form className="comment-create-form" onSubmit={this.handleSubmit}>
-                    <img className="profile-picture" src={this.props.users[this.props.currentUserId].photoUrl} />
+                    <Link to={`/users/${this.props.currentUserId}`}><img className="profile-picture" src={this.props.users[this.props.currentUserId] ? this.props.users[this.props.currentUserId].photoUrl : null} /></Link>
                     <input type="text" className="commentInput" id={`inputPlaceholder-${this.props.postId}`} autoComplete="off" onChange={this.update('body')} placeholder={`What's on your mind?`} />
                 </form>
                 <ul>
@@ -80,10 +81,10 @@ class Comment extends React.Component {
                         if (comment.post_id === this.props.postId) {
                             return (
                                 <li className="comment-list" key={`${comment.id}-${idx}`}>
-                                    <img className="profile-picture" src={this.props.users[comment.author_id].photoUrl} />
+                                    <Link to={`/users/${comment.author_id}`}><img className="profile-picture" src={this.props.users[comment.author_id] ? this.props.users[comment.author_id].photoUrl : null} /></Link>
                                     <div className="comment-div" id={`comment-div-${comment.id}`} style={{ width: "" }}>
                                         <p className="comment-body" id={`comment-${comment.id}`} style={{ backgroundColor: "rgba(226, 225, 225, 0.541)"}}>
-                                            {`${comment.fname} ${comment.lname} `}
+                                            <Link className="link" to={`/users/${comment.author_id}`}>{`${comment.fname} ${comment.lname} `}</Link>
                                             <br/>
                                             {comment.body}
                                         </p>

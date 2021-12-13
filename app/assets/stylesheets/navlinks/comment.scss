@@ -65,6 +65,10 @@
         // word-wrap: break-word;
         font-size: 16px;
         // word-break: break-all;
+
+        .link {
+            background-color: transparent;
+        }
     }
 
     .comment-body::first-line {

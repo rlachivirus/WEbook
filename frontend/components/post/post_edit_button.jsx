@@ -63,17 +63,23 @@ class PostEditButton extends React.Component {
             </div>
         )
 
-        return (
-            <div className="post-edit-button">
-                <p className="button" onClick={this.handleClick}>...</p>
-                {editDeleteBox}
-            </div>
-        )
+        if (this.props.post.author_id === this.props.currentUserId) {
+            return (
+                <div className="post-edit-button">
+                    <p className="button" onClick={this.handleClick}>...</p>
+                    {editDeleteBox}
+                </div>
+            )
+        } else {
+            return null;
+        }
+
     }
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    post: state.entities.posts[ownProps.id]
+    post: state.entities.posts[ownProps.id],
+    currentUserId: state.session.id,
 });
 
 const mapDispatchToProps = dispatch => ({
