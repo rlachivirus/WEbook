@@ -13,6 +13,7 @@ class Friend extends React.Component {
         // })
 
         this.handleClick = this.handleClick.bind(this)
+        this.openModal = this.openModal.bind(this);
     }
 
     componentDidMount() {
@@ -71,6 +72,11 @@ class Friend extends React.Component {
 
     }
 
+    openModal(obj) {
+        // debugger
+        this.props.openModal(obj);
+    }
+
     render() {
         // debugger
         const { currentUserId, friendId } = this.props;
@@ -102,8 +108,11 @@ class Friend extends React.Component {
                 onClick={this.handleClick}>Friends
             </div>
         ) : currentUserId === friendId ? (
-            <div className="friend-button"
-                onClick="" style={{ backgroundColor: "#dbdbdb", color: "black"}}>Edit Profile
+            // <div className="friend-button"
+            //     onClick="" style={{ backgroundColor: "#dbdbdb", color: "black"}}>Edit Profile
+            // </div>
+            <div className="friend-button" 
+                style={{ backgroundColor: "#dbdbdb", color: "black"}} onClick={() => this.openModal({type: "profileEdit", user: this.props.user})}>Edit Profile
             </div>
         ) : friender === "" && friendee === "pending" ? (
                     <div className="friend-button" style={{ backgroundColor: "#dbdbdb", color: "black" }}>Requested</div>

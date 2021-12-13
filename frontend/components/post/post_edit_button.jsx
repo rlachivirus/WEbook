@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 import { openModal } from "../../actions/modal_actions";
-import { deletePost } from "../../actions/post_actions";
+import { deletePost, fetchPosts } from "../../actions/post_actions";
 import { Link } from 'react-router-dom';
 
 class PostEditButton extends React.Component {
@@ -41,7 +41,7 @@ class PostEditButton extends React.Component {
         })
     }
 
-    componentDidUpdate() {
+    componentDidMount() {
         const { status } = this.state;
 
         setTimeout(() => {
@@ -79,6 +79,7 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => ({
     openModal: modal => dispatch(openModal(modal)),
     deletePost: (postId) => dispatch(deletePost(postId)),
+    fetchPosts: () => dispatch(fetchPosts())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostEditButton);

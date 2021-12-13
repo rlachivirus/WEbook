@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { deleteComment } from '../../actions/comment_actions';
+import { deleteComment, fetchComments } from '../../actions/comment_actions';
 
 class CommentEditButton extends React.Component {
     constructor(props) {
@@ -90,7 +90,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    deleteComment: (commentId) => dispatch(deleteComment(commentId))
+    deleteComment: (commentId) => dispatch(deleteComment(commentId)),
+    fetchComments: () => dispatch(fetchComments())
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CommentEditButton));

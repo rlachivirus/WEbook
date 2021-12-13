@@ -35,12 +35,12 @@ class Profile extends React.Component {
         }
         const friendsIds = [];
 
-        const editButton2 = user.id === this.props.sessionId ? (
-            // <Link className="profile-edit-button2" to={`/users/${user.id}/edit`}>Edit Profile</Link>
-            <div className="profile-edit-button2" onClick={() => this.openModal({type: "profileEdit", user: this.props.user})}>Edit Profile</div>
-        ) : (
-            <div className="profile-edit-button2">Message</div>
-        )
+        // const editButton2 = user.id === this.props.sessionId ? (
+        //     // <Link className="profile-edit-button2" to={`/users/${user.id}/edit`}>Edit Profile</Link>
+        //     <div className="profile-edit-button2" onClick={() => this.openModal({type: "profileEdit", user: this.props.user})}>Edit Profile</div>
+        // ) : (
+        //     <div className="profile-edit-button2">Message</div>
+        // )
 
         return (
             <div>
@@ -53,7 +53,7 @@ class Profile extends React.Component {
                     <div className="profile-name">{`${user.fname} ${user.lname}`}</div>
                     <div className="friend-edit-button">
                         <FriendContainer />
-                        {editButton2}
+                        {/* {editButton2} */}
                     </div>
                     {/* </div> */}
                     <div className="profile-fixed-bar">
