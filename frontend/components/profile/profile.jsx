@@ -65,8 +65,7 @@ class Profile extends React.Component {
                     <hr className="profile-hr"/>
                     <div className="profile-nav-bar">
                         <div>Posts</div>
-                        <div>About</div>
-                        <div>Friends</div>
+                        <Link to={`/users/${this.props.currentUserId}/friends`}><div>Friends</div></Link>
                     </div>
                 </div>
 
@@ -93,7 +92,7 @@ class Profile extends React.Component {
 
                             <div className="user-friends-list">
                                 {user.friends.forEach(friend => {
-                                    if (friend.status === "Friends") {
+                                    if (friend.status === "Friends" && friendsIds.length < 6) {
                                         friendsIds.push(friend.friend_id)
                                     }
                                 })}

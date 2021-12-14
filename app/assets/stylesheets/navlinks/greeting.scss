@@ -23,14 +23,14 @@
 
         .we-button {
             // border: 2px solid black;
-            background-color: black;
-            color: white;
-            font-size: 33px;
-            border-radius: 50%;
-            height: 47px;
-            width: 47px;
-            font-weight: 900;
-            line-height: 50px;
+            // background-color: black;
+            // color: white;
+            // font-size: 33px;
+            border-radius: 50px;
+            height: 50px;
+            width: 50px;
+            // font-weight: 900;
+            // line-height: 50px;
         }
     
         .searchbar {
@@ -306,6 +306,8 @@
                 border-radius: 10px;
                 // border: 2px solid black;
                 height: auto;
+                max-height: 700px;
+                overflow: scroll;
                 width: 250px;
                 top: 55px;
                 right: -65px;

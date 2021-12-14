@@ -123,7 +123,7 @@ class Greeting extends React.Component {
             <div className="greeting-header">
                 {/* <p className="greeting-welcome">Welcome, {currentUser.fname}</p> */}
                 <div className="greeting-left">
-                    <Link className="we-button" to="/">WE</Link>
+                    <Link to="/"><img className="we-button" src={window.webook}/></Link>
                     {/* <div className="searchbar"></div> */}
                 </div>
                 <div className={this.props.location.pathname !== "/posts" ? "greeting-center" : "greeting-center-post"}>
