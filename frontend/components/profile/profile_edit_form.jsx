@@ -13,7 +13,8 @@ class ProfileEditForm extends React.Component {
             lname: user.lname,
             bio: user.bio,
             birthday: user.birthday,
-            photoFile: null
+            photoFile: null,
+            photoUrl: null
         }
 
         // this.handlePhotoSubmit = this.handlePhotoSubmit.bind(this);
@@ -27,8 +28,17 @@ class ProfileEditForm extends React.Component {
 
     handleFile(e) {
         e.preventDefault();
+        const file = e.currentTarget.files[0];
+        const fileReader = new FileReader();
+        
+        fileReader.onloadend = () => {
+            this.setState({ photoFile: file, photoUrl: fileReader.result })
+        };
 
-        return this.setState({ photoFile: e.currentTarget.files[0] })
+        if (file) {
+            fileReader.readAsDataURL(file);
+        }
+
         // const file = e.currentTarget.files[0];
         // const fileReader = new FileReader();
         // fileReader.onloadend = () => {
@@ -50,7 +60,7 @@ class ProfileEditForm extends React.Component {
 
         const formData = new FormData();
         formData.append('user[id]', this.state.id);
-        formData.append('user[email]', this.state.email);
+        // formData.append('user[email]', this.state.email);
         formData.append('user[fname]', this.state.fname);
         formData.append('user[lname]', this.state.lname);
         formData.append('user[bio]', this.state.bio);
@@ -91,6 +101,7 @@ class ProfileEditForm extends React.Component {
     render() {
         const { email, fname, lname, bio, birthday } = this.state;
 
+        const preview = this.state.photoUrl ? <img src={this.state.photoUrl} /> : <div className="empty-space"></div>;
         return (
             <div className="profile-edit-form">
                 {/* <form onSubmit={this.handlePhotoSubmit}>
@@ -99,17 +110,21 @@ class ProfileEditForm extends React.Component {
                 </form> */}
 
                 <form className="session-form" onSubmit={this.handleSubmit}>
-                    <input type="file" onChange={this.handleFile} />
+
+                    <p className="title">Edit Profile</p>
+                    <div className="cancel" onClick={this.props.closeModal}>X</div>
+                    <hr/>
+                    
                     <div className="session-form-input">
-                        <label>Email
+                        {/* <label>Email: 
                             <input
                                 className="session-form-field"
                                 type="text"
                                 onChange={this.update('email')}
                                 value={email}
                             />
-                        </label>
-                        <label>First Name
+                        </label> */}
+                        <label>First Name: 
                             <input
                                 className="session-form-field"
                                 type="text"
@@ -117,7 +132,7 @@ class ProfileEditForm extends React.Component {
                                 value={fname}
                             />
                         </label>
-                        <label>Last Name
+                        <label>Last Name: 
                             <input
                                 className="session-form-field"
                                 type="text"
@@ -125,15 +140,16 @@ class ProfileEditForm extends React.Component {
                                 value={lname}
                             />
                         </label>
-                        <label>Biography
-                            <input
+                        <label>Biography:
+                            <br/>
+                            <textarea
                                 className="session-form-field"
-                                type="textarea"
+                                // type="textarea"
                                 onChange={this.update('bio')}
                                 value={bio}
                             />
                         </label>
-                        <label>Birthday
+                        <label>Birthday: 
                             <input
                                 className="session-form-field"
                                 type="text"
@@ -142,11 +158,11 @@ class ProfileEditForm extends React.Component {
                             />
                         </label>
                     </div>
-                    <div>
-                    <button className="button">Submit Changes</button>
-                    </div>
-                    <div>
-                    <div onClick={this.props.closeModal}>Cancel</div>
+                    {preview}
+                    <input className="select-picture" type="file" onChange={this.handleFile} />
+                    <div className="submit-cancel">
+                        {/* <div className="cancel" onClick={this.props.closeModal}>Cancel</div> */}
+                        <button className="submit">Submit Changes</button>
                     </div>
                 </form>
             </div>
