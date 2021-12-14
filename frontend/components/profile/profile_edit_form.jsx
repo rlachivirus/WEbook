@@ -100,8 +100,8 @@ class ProfileEditForm extends React.Component {
 
     render() {
         const { email, fname, lname, bio, birthday } = this.state;
-
         const preview = this.state.photoUrl ? <img src={this.state.photoUrl} /> : <div className="empty-space"></div>;
+
         return (
             <div className="profile-edit-form">
                 {/* <form onSubmit={this.handlePhotoSubmit}>

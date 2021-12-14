@@ -7,7 +7,8 @@ class CreatePost extends React.Component {
 
         this.state = {
             body: "",
-            photoFile: null
+            photoFile: null,
+            photoUrl: null
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,8 +17,16 @@ class CreatePost extends React.Component {
 
     handleFile(e) {
         e.preventDefault();
+        const file = e.currentTarget.files[0];
+        const fileReader = new FileReader();
 
-        return this.setState({ photoFile: e.currentTarget.files[0] })
+        fileReader.onloadend = () => {
+            this.setState({ photoFile: file, photoUrl: fileReader.result })
+        };
+
+        if (file) {
+            fileReader.readAsDataURL(file);
+        }
     }
 
     handleSubmit(e) {
@@ -41,14 +50,18 @@ class CreatePost extends React.Component {
         return e => { this.setState({ [field]: e.currentTarget.value }) }
     }
     render() {
+        const preview = this.state.photoUrl ? <img src={this.state.photoUrl} /> : <div className="empty-space"></div>;
+
         return (
             <div className="create-post-modal">
                 <div className="create-post">
                     <p className="title">Create Post</p>
-                    <div onClick={this.props.closeModal}>X</div>
-                    <form onSubmit={this.handleSubmit}>
+                    <div className="cancel" onClick={this.props.closeModal}>X</div>
+                    <hr/>
+                    <form className="input-form" onSubmit={this.handleSubmit}>
                         <textarea onChange={this.update('body')} placeholder={`What's on your mind?`} />
-                        <input type="file" onChange={this.handleFile} />
+                        {preview}
+                        <input className="select-picture" type="file" onChange={this.handleFile} />
                         <button className="create-post-button">Post</button>
                     </form>
                 </div>
