@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from 'react-router-dom'
 import FriendContainer from '../friend/friend_container';
+import FriendListContainer from '../friend/friend_list';
 import PostContainer from '../post/post_container';
+
 
 class Profile extends React.Component {
     constructor(props) {
@@ -41,6 +43,12 @@ class Profile extends React.Component {
         // ) : (
         //     <div className="profile-edit-button2">Message</div>
         // )
+        // const showPostOrFriends = this.props.location.pathname === `/users/${this.props.currentUserId}/friends` ? (
+        //     <FriendListContainer />
+        // ) : (
+        //     <PostContainer />
+        // )
+        // console.log(this.props)
 
         return (
             <div>
@@ -66,13 +74,15 @@ class Profile extends React.Component {
                     </div>
                     <hr className="profile-hr"/>
                     <div className="profile-nav-bar">
-                        <div style={this.props.currentUserId === this.props.userId ? { display: "" } : { display: "none" }}>Posts</div>
+                        {/* <div style={this.props.currentUserId === this.props.userId ? { display: "" } : { display: "none" }}>Posts</div> */}
+                        <Link to={`/users/${this.props.currentUserId}`} style={this.props.currentUserId === this.props.userId ? { display: "" } : { display: "none" }}><div>Posts</div></Link>
                         <Link to={`/users/${this.props.currentUserId}/friends`} style={this.props.currentUserId === this.props.userId ? { display: "" } : { display: "none" }}><div>Friends</div></Link>
                     </div>
                 </div>
 
+                <FriendListContainer />
 
-                <div className="middle-page">
+                {/* <div className="middle-page">
                     <div className="middle-left-side">
                         <div className="profile-edit">
                             <p>Intro</p>
@@ -113,7 +123,7 @@ class Profile extends React.Component {
                             <PostContainer />
                         </div>
                     </div>
-                </div>
+                </div> */}
 
 
             </div>
