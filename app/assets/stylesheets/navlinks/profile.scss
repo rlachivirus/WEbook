@@ -452,3 +452,142 @@
 //     top: 20%;
 //     z-index: 10;
 // }
+
+.friend-lists-background {
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+    // background-color: white;
+    // height: auto;
+    // width: 70%;
+    margin-top: 20px;
+
+    .friend-lists {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        row-gap: 20px;
+        flex-wrap: wrap;
+        width: 60%;
+        background-color: white;
+        box-shadow: 0 0 5px rgb(207, 207, 207);
+        border-radius: 10px;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+
+        .title {
+            font-size: 40px;
+            font-weight: 700;
+            width: 90%;
+            margin-top: 10px;
+            background-color: transparent;
+
+        }
+
+        .friend {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            width: 400px;
+            background-color: transparent;
+
+            .friend-info-div {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: 0 0 5px rgb(207, 207, 207);
+
+
+                .friend-info {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    column-gap: 20px;
+                    align-items: center;
+                    border-radius: 10px;
+                    background-color: transparent;
+                    padding: 10px;
+    
+                    .profile-picture {
+                        height: 100px;
+                        width: 100px;
+                        object-fit: cover;
+                        border-radius: 10px;
+                        background-color: transparent;
+                        border: 0.5px solid rgba(207, 207, 207, 0.329);
+                    }
+
+                    .profile-picture:hover {
+                        box-shadow: 0 0 5px rgb(207, 207, 207);
+                    }
+    
+                    .friend-name {
+                        font-size: 20px;
+                        font-weight: 600;
+                        background-color: transparent;
+                    }
+
+                    .friend-name:hover {
+                        text-decoration: underline;
+                    }
+                }
+
+                .unfriend-button {
+                    position: relative;
+                    border-radius: 50px;
+                    background-color: transparent;
+                    margin-right: 10px;
+
+                    .button {
+                        font-size: 40px;
+                        border-radius: 50px;
+                        height: 30px;
+                        width: 30px;
+                        line-height: 0.35;
+                        padding-left: 5.5px;
+                        cursor: pointer;
+                    }
+
+                    .button:hover {
+                        background-color: rgba(226, 225, 225, 0.541);
+                    }
+
+                    .unfriend-option {
+                        position: absolute;
+                        top: 32px;
+                        height: auto;
+                        width: 73px;
+                        right: 0;
+                        box-shadow: 0 1px 2px #cfcfcf;
+                        padding: 5px;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        background-color: white;
+
+                        p {
+                            border-radius: 5px;
+                            padding-left: 3px;
+                            background-color: white;
+                        }
+    
+                        p:hover {
+                            background-color: rgba(226, 225, 225, 0.541);
+                        }
+                    }
+                }
+
+                .unfriend-button:hover {
+                    background-color: rgba(226, 225, 225, 0.541);
+                }
+
+            }
+
+        }
+    }
+}

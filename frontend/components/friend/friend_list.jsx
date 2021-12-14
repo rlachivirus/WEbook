@@ -1,9 +1,5 @@
 import React from "react";
 import { Link } from 'react-router-dom'
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { fetchFriends, deleteFriend } from '../../actions/friend_actions';
-import { fetchUser, fetchUsers } from '../../actions/user_actions';
 
 class FriendList extends React.Component {
     constructor(props) {
@@ -18,10 +14,10 @@ class FriendList extends React.Component {
         this.handleDelete = this.handleDelete.bind(this);
     }
 
-    componentDidMount() {
-        // this.props.fetchUsers();
-        this.props.fetchFriends();
-    }
+    // componentDidMount() {
+    //     // this.props.fetchUsers();
+    //     this.props.fetchFriends();
+    // }
 
     handleClick() {
         this.state.status === 'closed' ? (
@@ -72,9 +68,9 @@ class FriendList extends React.Component {
         })
 
         this.props.deleteFriend(friender)
-            .then(this.props.fetchUser(friendId));
+            // .then(this.props.fetchUser(friendId));
         this.props.deleteFriend(friendee)
-            .then(this.props.fetchUser(currentUserId));
+            // .then(this.props.fetchUser(currentUserId));
 
     }
 
@@ -83,46 +79,23 @@ class FriendList extends React.Component {
             null
         ) : (
             <div className="unfriend-option">
-                <p onClick={() => this.handleDelete(friend.friend_id)} className="unfriend">Unfriend</p>
+                <p onClick={() => this.handleDelete(this.props.friend.friend_id)} className="unfriend">Unfriend</p>
             </div>
         )
-        console.log(this.props.users[2])
+
         return (
-            <div className="friend-lists">
-                <p>Friends</p>
-                <ul>
-                    {this.props.userFriends.map((friend, idx) => {
-                        if (friend.status === "Friends" && this.props.users[friend.friend_id]) {
-                            return (
-                                <li key={`${friend.id}-${idx}`} className="friend" id={`friend-${friend.id}`}>
-                                    <div className="friend-info">
-                                        <Link to={`/users/${friend.friend_id}`}><img className="profile-picture" src={this.props.users[friend.friend_id].photoUrl} /></Link>
-                                        <Link to={`/users/${friend.friend_id}`}><p className="friend-name">{`${this.props.users[friend.friend_id].fname} ${this.props.users[friend.friend_id].lname}`}</p></Link>
-                                    </div>
-                                    <p className="button" onClick={this.handleClick}>...</p>
-                                    {unFriendButton}
-                                </li>
-                            )
-                        }
-                    })}
-                </ul>
-            </div>
+                <div className="friend-info-div">
+                    <div className="friend-info">
+                        <Link to={`/users/${this.props.friend.friend_id}`}><img className="profile-picture" src={this.props.users[this.props.friend.friend_id].photoUrl} /></Link>
+                        <Link to={`/users/${this.props.friend.friend_id}`}><p className="friend-name">{`${this.props.users[this.props.friend.friend_id].fname} ${this.props.users[this.props.friend.friend_id].lname}`}</p></Link>
+                    </div>
+                    <div className="unfriend-button">
+                        <p className="button" onClick={this.handleClick}>...</p>
+                        {unFriendButton}
+                    </div>
+                </div>
         )
     }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-    friends: state.entities.friends,
-    currentUserId: state.session.id,
-    userFriends: state.entities.users[state.session.id].friends,
-    users: state.entities.users,
-});
-
-const mapDispatchToProps = dispatch => ({
-    fetchUser: (userId) => dispatch(fetchUser(userId)),
-    deleteFriend: (friendId) => dispatch(deleteFriend(friendId)),
-    fetchUsers: () => dispatch(fetchUsers()),
-    fetchFriends: () => dispatch(fetchFriends()),
-});
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FriendList));
+export default FriendList

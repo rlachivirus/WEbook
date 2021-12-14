@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom'
+import FriendButtonContainer from '../friend/friend_button_container';
 import FriendContainer from '../friend/friend_container';
-import FriendListContainer from '../friend/friend_list';
 import PostContainer from '../post/post_container';
 
 
@@ -43,12 +43,53 @@ class Profile extends React.Component {
         // ) : (
         //     <div className="profile-edit-button2">Message</div>
         // )
-        // const showPostOrFriends = this.props.location.pathname === `/users/${this.props.currentUserId}/friends` ? (
-        //     <FriendListContainer />
-        // ) : (
-        //     <PostContainer />
-        // )
-        // console.log(this.props)
+        const showPostOrFriends = this.props.location.pathname === `/users/${this.props.currentUserId}/friends` ? (
+            <FriendContainer />
+        ) : (
+            <div className="middle-page">
+                <div className="middle-left-side">
+                    <div className="profile-edit">
+                        <p>Intro</p>
+                        <p>{`Hi! My name is ${user.fname} ${user.lname}`}</p>
+                        <p>{user.bio}</p>
+                        <p>{user.birthday}</p>
+                        {
+                            user.id === this.props.sessionId ? (
+                                <div className="profile-edit-button1" onClick={() => this.props.openModal({ type: 'profileEdit', user: this.props.user })}>Edit User Info!</div>
+                            ) : (
+                                null
+                            )
+                        }
+                    </div>
+
+
+                    <div className="user-friends">
+                        <p>Friends</p>
+
+                        <div className="user-friends-list">
+                            {user.friends.forEach(friend => {
+                                if (friend.status === "Friends" && friendsIds.length < 6) {
+                                    friendsIds.push(friend.friend_id)
+                                }
+                            })}
+                            {Object.values(this.props.users).map((friend, idx) => {
+                                if (user.id !== friend.id && friendsIds.includes(friend.id)) {
+                                    return <Link key={`${friend.id}-${idx}`} to={`/users/${friend.id}`} onClick={() => window.scrollTo(0, 0)}><div><img className="user-friend" src={friend.photoUrl} /><p className="friend-name">{`${friend.fname} ${friend.lname}`}</p></div></Link>
+                                }
+                            })
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div className="middle-right-side">
+                    <div className="posts-comments">
+                        <PostContainer />
+                    </div>
+                </div>
+            </div>
+        )
+
 
         return (
             <div>
@@ -62,7 +103,7 @@ class Profile extends React.Component {
                         <div className="profile-name">{`${user.fname} ${user.lname}`}</div>
                     </div>
                     <div className="friend-edit-button">
-                        <FriendContainer />
+                        <FriendButtonContainer />
                         {/* {editButton2} */}
                     </div>
                     {/* </div> */}
@@ -80,7 +121,8 @@ class Profile extends React.Component {
                     </div>
                 </div>
 
-                <FriendListContainer />
+                {showPostOrFriends}
+                {/* <FriendContainer /> */}
 
                 {/* <div className="middle-page">
                     <div className="middle-left-side">
