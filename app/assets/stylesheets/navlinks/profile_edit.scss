@@ -40,7 +40,7 @@
     border: 1.5px solid white;
     background-color: white;
     box-shadow: 0 0 7px rgb(207, 207, 207), 0 0 10px rgb(238, 238, 238);
-    height: 400px;
+    height: 410px;
     width: 430px;
     border-radius: 10px;
     padding: 2px;
@@ -53,6 +53,7 @@
         text-align: center;
         background-color: transparent;
         position: relative;
+        margin-top: 5px;
 
     }
 
@@ -60,8 +61,8 @@
         position: absolute;
         background-color: white;
         cursor: pointer;
-        top: 2px;
-        right: 8px;
+        top: 5px;
+        right: 11px;
         font-size: 25px;
         font-weight: 900;
     }
@@ -93,6 +94,7 @@
                 border: 1.5px solid rgb(212, 212, 212);
                 border-radius: 10px;
                 width: 95%;
+                resize: none;
             }
         }
 
@@ -134,6 +136,8 @@
             border-radius: 5px;
             margin-top: 15px;
             font-weight: 500;
+            width: 90%;
+            text-align: center;
 
         }
 

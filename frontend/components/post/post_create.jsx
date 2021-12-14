@@ -43,12 +43,15 @@ class CreatePost extends React.Component {
     render() {
         return (
             <div className="create-post-modal">
-                <p onClick={this.props.closeModal}>X</p>
-                <form onSubmit={this.handleSubmit}>
-                    <textarea onChange={this.update('body')} placeholder={`What's on your mind?`} />
-                    <input type="file" onChange={this.handleFile} />
-                    <button className="create-post-button">Post</button>
-                </form>
+                <div className="create-post">
+                    <p className="title">Create Post</p>
+                    <div onClick={this.props.closeModal}>X</div>
+                    <form onSubmit={this.handleSubmit}>
+                        <textarea onChange={this.update('body')} placeholder={`What's on your mind?`} />
+                        <input type="file" onChange={this.handleFile} />
+                        <button className="create-post-button">Post</button>
+                    </form>
+                </div>
             </div>
         )
     }
