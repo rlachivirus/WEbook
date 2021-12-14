@@ -119,7 +119,6 @@ class Post extends React.Component {
                 friendIds.push(friend.friend_id)
             }
         });
-        console.log(friendIds)
 
         const userFriendIds = [userId];
         if (this.props.entities.users[userId]) {

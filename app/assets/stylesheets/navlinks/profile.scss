@@ -83,6 +83,7 @@
         top: 79%;
         left: 65.3%;
         z-index: 6;
+        background-color: transparent;
 
         .friend-button {
             // position: absolute;
@@ -100,7 +101,50 @@
             cursor: pointer;
             border-radius: 7px;
             background-color: rgba($color: #1475f3, $alpha: 1.0);
+        }
 
+        .friend-button:hover {
+            background-color: #0369ee;
+        }
+
+        .requested-button {
+            // position: absolute;
+            // border: 2px solid black;
+            padding-top: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            color: black;
+            height: 35px;
+            width: 100px;
+            // top: 62%;
+            // left: 65.3%;
+            z-index: 6;
+            text-align: center;
+            border-radius: 7px;
+            background-color: #dbdbdb;
+            cursor: default;
+        }
+
+        .edit-button {
+            // position: absolute;
+            // border: 2px solid black;
+            padding-top: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            color: black;
+            height: 35px;
+            width: 100px;
+            // top: 62%;
+            // left: 65.3%;
+            z-index: 6;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 7px;
+            background-color: rgba(226, 225, 225, 0.541);
+        }
+
+        .edit-button:hover {
+            background-color: rgba(194, 194, 194, 0.479);
         }
     
         // .profile-edit-button2 {

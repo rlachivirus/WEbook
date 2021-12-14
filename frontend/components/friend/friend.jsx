@@ -111,11 +111,11 @@ class Friend extends React.Component {
             // <div className="friend-button"
             //     onClick="" style={{ backgroundColor: "#dbdbdb", color: "black"}}>Edit Profile
             // </div>
-            <div className="friend-button" 
-                style={{ backgroundColor: "#dbdbdb", color: "black"}} onClick={() => this.openModal({type: "profileEdit", user: this.props.user})}>Edit Profile
+            <div className="edit-button" 
+                onClick={() => this.openModal({type: "profileEdit", user: this.props.user})}>Edit Profile
             </div>
         ) : friender === "" && friendee === "pending" ? (
-                    <div className="friend-button" style={{ backgroundColor: "#dbdbdb", color: "black" }}>Requested</div>
+            <div className="requested-button">Requested</div>
         ) : (
             <div className="friend-button"
                 onClick={this.handleClick}>Add Friend

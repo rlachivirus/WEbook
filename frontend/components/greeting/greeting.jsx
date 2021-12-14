@@ -79,11 +79,10 @@ class Greeting extends React.Component {
         }, 0)
     }
     render () {
-        console.log(this.props)
         const { currentUser, logout, openModal } = this.props;
 
         let pendingNotificationCount = [];
-        console.log(this.props)
+        
         if (currentUser) {
             Object.values(currentUser.friends).forEach(friend => {
                 if (friend.status === "Pending") {
@@ -111,9 +110,9 @@ class Greeting extends React.Component {
                 <div className="menu-open">
                     <Link className="profile-button" to={`/users/${currentUser.id}`} onClick={this.scrollToTop}>
                         <img className="profile-picture" src={this.props.currentUser.photoUrl} />
-                        <p>{`${currentUser.fname} ${currentUser.lname} Profile`}</p>
+                        <p>{`${currentUser.fname} Profile`}</p>
                     </Link>
-                    <button className="logout-button" onClick={() => logout()}>Log Out</button>
+                    <button className="logout-button" onClick={() => logout().then(() => window.scrollTo(0, 0))}>Log Out</button>
                 </div>
             </div>
         ) : (
