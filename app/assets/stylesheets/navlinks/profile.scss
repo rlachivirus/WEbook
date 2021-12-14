@@ -6,9 +6,10 @@
 .profile-background {
     position: relative;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+    // flex-wrap: wrap;
     // border: 2px solid black;
     // box-shadow: 0 0 5px rgb(207, 207, 207);
     height: 625px;
@@ -47,32 +48,67 @@
         top: 60px;
         z-index: 6;
         // transform: translate(30%);
+        // transition: ease all .5s;
     }
 
-    .profile-picture {
+    @media only screen and (max-width: 1200px) {
+        .cover-photo {
+            width: 80%;
+        }
+    }
+
+    @media only screen and (max-width: 500px) {
+        .cover-photo {
+            width: 100%;
+        }
+    }
+
+    .picture-name {
         position: absolute;
-        border-radius: 50%;
-        border: 4px solid white;
+        // border-radius: 50%;
+        // border: 4px solid white;
         // top: 365px;
         top: 59%;
         // left: 283px;
         left: 19.5%;
-        height: 180px;
-        width: 180px;
-        object-fit: cover;
+        // height: 180px;
+        // width: 180px;
+        // object-fit: cover;
         z-index: 6;
         // object-position: 50% 50%;
         // background-size: 10px;
-    }
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        column-gap: 20px;
+        background-color: transparent;
 
-    .profile-name {
-        position: absolute;
-        background-color: white;
-        font-size: 35px;
-        font-weight: 700;
-        top: 69%;
-        left: 480px;
-        z-index: 6;
+
+        .profile-picture {
+            // position: absolute;
+            border-radius: 50%;
+            border: 4px solid white;
+            // // top: 365px;
+            // top: 59%;
+            // // left: 283px;
+            // left: 19.5%;
+            height: 180px;
+            width: 180px;
+            object-fit: cover;
+            // z-index: 6;
+            // // object-position: 50% 50%;
+            // // background-size: 10px;
+        }
+    
+        .profile-name {
+            // position: absolute;
+            background-color: transparent;
+            font-size: 35px;
+            font-weight: 700;
+            // top: 69%;
+            // left: 480px;
+            // z-index: 6;
+        }
     }
 
     .friend-edit-button {
@@ -81,7 +117,7 @@
         gap: 10px;
         position: absolute;
         top: 79%;
-        left: 65.3%;
+        right: 20%;
         z-index: 6;
         background-color: transparent;
 
@@ -183,7 +219,7 @@
             border-radius: 10px;
             // padding-top: 23px;
             // padding: 15px;
-            height: 65px;
+            height: 60px;
             // width: 150px;
             // top: 340px;
             left: 20%;
@@ -195,6 +231,7 @@
             justify-content: space-around;
             align-items: center;
             column-gap: 10px;
+            top: 3px;
 
             .profile-picture2 {
                 border-radius: 50px;
@@ -223,7 +260,7 @@
         top: 563px;
         // margin-top: 15px;
         // margin-left: -19px;
-        width: 100%;
+        width: 60%;
         color: rgb(194, 194, 194);
         z-index: 5;
     }
@@ -249,9 +286,10 @@
             border-radius: 10px;
             padding-top: 18px;
             // padding: 15px;
-            height: 55.5px;
+            height: 52px;
             width: 100px;
             top: 3px;
+            margin-top: 2px;
             font-size: 17px;
             text-align: center;
             z-index: 2;

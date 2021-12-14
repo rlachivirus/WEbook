@@ -9,6 +9,7 @@ const mapStateToProps = (state, ownProps) => ({
     sessionId: state.session.id,
     user: state.entities.users[ownProps.match.params.userId],
     currentUserId: state.session.id,
+    userId: parseInt(ownProps.match.params.userId),
 })
 
 const mapDispatchToProps = dispatch => ({

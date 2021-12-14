@@ -49,8 +49,10 @@ class Profile extends React.Component {
                     <div className="background-layer"></div>
                     <div className="cover-photo"></div>
                     {/* <div className="picture-and-buttons"> */}
-                    <img className="profile-picture" src={user.photoUrl} />
-                    <div className="profile-name">{`${user.fname} ${user.lname}`}</div>
+                    <div className="picture-name">
+                        <img className="profile-picture" src={user.photoUrl} />
+                        <div className="profile-name">{`${user.fname} ${user.lname}`}</div>
+                    </div>
                     <div className="friend-edit-button">
                         <FriendContainer />
                         {/* {editButton2} */}
@@ -64,8 +66,8 @@ class Profile extends React.Component {
                     </div>
                     <hr className="profile-hr"/>
                     <div className="profile-nav-bar">
-                        <div>Posts</div>
-                        <Link to={`/users/${this.props.currentUserId}/friends`}><div>Friends</div></Link>
+                        <div style={this.props.currentUserId === this.props.userId ? { display: "" } : { display: "none" }}>Posts</div>
+                        <Link to={`/users/${this.props.currentUserId}/friends`} style={this.props.currentUserId === this.props.userId ? { display: "" } : { display: "none" }}><div>Friends</div></Link>
                     </div>
                 </div>
 
