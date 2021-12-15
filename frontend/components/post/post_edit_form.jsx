@@ -26,14 +26,18 @@ class PostEditForm extends React.Component {
 
     render() {
         return (
-            <div className="edit-delete-button">
-                <div className="edit-background">
-                    <form onSubmit={this.handleEdit}>
+            <div className="edit-post-modal">
+                <div className="edit-post">
+                    <p className="title">Edit Post</p>
+                    <div className="cancel" onClick={this.props.closeModal}>X</div>
+                    <hr/>
+                    <form className="edit-form" onSubmit={this.handleEdit}>
                         <textarea
                             value={this.state.body}
                             onChange={this.update('body')}
                         />
-                        <button>edit</button>
+                        <input className="select-picture" type="file" onChange={this.handleFile} />
+                        <button className="edit-post-button">Edit</button>
                     </form>
                 </div>
             </div>
