@@ -3,8 +3,7 @@ import { fetchUser, updateUser, updateUserPhoto } from '../../actions/user_actio
 import ProfileEditForm from './profile_edit_form';
 import { withRouter } from 'react-router-dom';
 
-const mapStateToProps = (state, ownProps) => ({
-    // user: state.entities.users[ownProps.match.params.userId]
+const mapStateToProps = (state) => ({
     user: state.ui.modal.user
 })
 
