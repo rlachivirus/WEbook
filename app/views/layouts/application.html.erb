@@ -7,6 +7,10 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <meta property="og:title" content="WEbook"/>
+    <meta property="og:image" content="<%= image_url('app/assets/images/webookLogin.png') %>"/>
+    <meta property="og:description" content="A Facebook clone."/>
+    <meta property="og:url" content="https://w3book.herokuapp.com/"/>
 
     <script type="text/javascript">
       window.linkedin = "<%= image_url('linkedinLogo.png') %>";
