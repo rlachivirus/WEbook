@@ -9,7 +9,6 @@ class Greeting extends React.Component {
         this.state = {
             status: 'closed',
             notification: 'closed',
-            // notificationCount: null
         }
 
         this.handleClick = this.handleClick.bind(this);
@@ -17,22 +16,6 @@ class Greeting extends React.Component {
         this.closeDropDown = this.closeDropDown.bind(this);
 
         this.removeDropDown;
-    }
-
-    componentDidMount() {
-        // this.props.fetchUsers();
-
-        // let pendingNotificationCount = [];
-
-        // if (this.props.currentUser) {
-        //     Object.values(this.props.currentUser.friends).forEach(friend => {
-        //         if (friend.status === "Pending") {
-        //             pendingNotificationCount.push(friend)
-        //         }
-        //     })
-        // }
-
-        // this.setState({ notificationCount: pendingNotificationCount.length })
     }
 
     scrollToTop = () => {
@@ -49,7 +32,6 @@ class Greeting extends React.Component {
     }
 
     handleNotification() {
-        // debugger
         if (this.state.notification === 'closed') {
             this.setState({ notification: 'open'})
         }
@@ -89,7 +71,7 @@ class Greeting extends React.Component {
     }
 
     render () {
-        const { currentUser, logout, openModal } = this.props;
+        const { currentUser, logout } = this.props;
 
         let pendingNotificationCount = [];
         
@@ -110,8 +92,6 @@ class Greeting extends React.Component {
             <div className="notification" onClick={this.handleNotification}>
                     <p className="notification-count" style={pendingNotificationCount.length > 0 ? null : { display: "none"}}>{pendingNotificationCount.length > 0 ? pendingNotificationCount.length : null}</p>
                 <img className="notification-logo" src={window.notification} />
-                {/* <p>{this.state.notificationCount !== null ? `${this.state.notificationCount}+` : null}</p> */}
-                {/* <p>{`${this.state.notificationCount}+`}</p> */}
             </div>
         )
 
@@ -131,22 +111,13 @@ class Greeting extends React.Component {
 
         const greeting = currentUser ? (
             <div className="greeting-header">
-                {/* <p className="greeting-welcome">Welcome, {currentUser.fname}</p> */}
                 <div className="greeting-left">
                     <Link to="/"><img className="we-button" src={window.webook}/></Link>
-                    {/* <div className="searchbar"></div> */}
                 </div>
                 <div className={this.props.location.pathname !== "/posts" ? "greeting-center" : "greeting-center-post"}>
                     <Link to="/posts"><img className="homeButton" src={window.homeButton} /></Link>
-                    {/* <div className="github"></div> */}
-                    {/* <div className="linkedin"></div> */}
-                    {/* <a href="https://github.com/rlachivirus" target="_blank"><img className="github" src={window.github} /></a>
-                    <a href="https://www.linkedin.com/in/albertck/" target="_blank"><img className="linkedin" src={window.linkedin} /></a>
-                    <a href="https://rlachivirus.github.io/albertck/" target="_blank"><img className="portfolio" src={window.portfolio} /></a> */}
-                    {/* <div className="portfolio"></div> */}
                 </div>
                 <div className="greeting-right">
-                    {/* <div className="profile-button">{this.props.currentUser.fname}</div> */}
                     <Link className={this.props.location.pathname !== `/users/${currentUser.id}` ? "profile-button-outside" : "profile-button-in-profile"} to={`/users/${currentUser.id}`} onClick={this.scrollToTop}>
                         <img className="profile-picture" src={this.props.currentUser.photoUrl} />
                         <p>{this.props.currentUser.fname}</p>

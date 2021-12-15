@@ -8,11 +8,6 @@ import { fetchUsers } from '../../actions/user_actions';
 const mapStateToProps = ({ session, entities: { users } }) => ({
     currentUser: users[session.id]
 })
-// const mapStateToProps = (state) => ({
-//     currentUser: state.entities.users[state.session.id],
-//     users: state.entities.users,
-//     userFriends: state.entities.users[state.session.id],
-// })
 
 const mapDispatchToProps = dispatch => ({
     logout: () => dispatch(logout()),
