@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from 'react-router-dom';
 
 class CommentEditForm extends React.Component {
     constructor(props) {
@@ -32,27 +31,13 @@ class CommentEditForm extends React.Component {
                     commentEditButton.style.display = "";
                     commentLikeDiv.style.display = "";
 
-                    // const oldState = Object.assign({}, this.props.comment);
-                    // return oldState
-                    // this.state = this.originalState
-                    // console.log(`inside keydown - ${state}`)
-                    // console.log(`inside keydown - ${originalState}`)
-                    // this.setState((props) => ({
-                        //     body: props.comment.body
-                        // }))
-                        this.setState({
-                            body: originalState.body
-                        })
-                    }
-                // console.log("pressed ESCAPE")
+                    this.setState({
+                        body: originalState.body
+                    })
+                }
             }
 
         })
-        // console.log(this.originalState)
-        // console.log(this.state)
-        // console.log(this.props)
-        // return this.setState({ body: prevBody })
-        // { this.setState({ [field]: e.currentTarget.value }) }
     }
 
     handleEdit(e) {
@@ -76,10 +61,6 @@ class CommentEditForm extends React.Component {
             comment.style.display = "";
             commentEditButton.style.display = "";
             commentLikeDiv.style.display = "";
-
-            // this.setState({
-            //     body: newState.body
-            // })
         }
 
         this.originalState.body = newState.body

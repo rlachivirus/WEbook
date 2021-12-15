@@ -16,11 +16,6 @@ class FriendList extends React.Component {
         this.removeDropDown;
     }
 
-    // componentDidMount() {
-    //     // this.props.fetchUsers();
-    //     this.props.fetchFriends();
-    // }
-
     handleClick() {
         this.state.status === 'closed' ? (
             this.setState({ status: 'open' })
@@ -55,12 +50,7 @@ class FriendList extends React.Component {
     }
 
     handleDelete(friendId) {
-
         const { currentUserId } = this.props;
-
-        // for (var pair of formData.entries()) {
-        //     console.log(pair[0], pair[1]);
-        // }
 
         let friender;
         Object.values(this.props.friends).forEach(table => {
@@ -77,10 +67,7 @@ class FriendList extends React.Component {
         })
 
         this.props.deleteFriend(friender)
-            // .then(this.props.fetchUser(friendId));
         this.props.deleteFriend(friendee)
-            // .then(this.props.fetchUser(currentUserId));
-
     }
 
     render() {

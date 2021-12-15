@@ -6,8 +6,6 @@ import FriendRequest from './friend_request';
 
 const mapStateToProps = (state, ownProps) => ({
     friends: state.entities.friends,
-    // friendTable: state.entities.users[ownProps.match.params.userId].friends,
-    // currentUserTable: state.entities.users[state.session.id].friends,
     users: state.entities.users,
     userFriends: state.entities.users[state.session.id].friends,
     friendId: parseInt(ownProps.match.params.userId),

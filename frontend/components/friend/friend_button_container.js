@@ -7,8 +7,6 @@ import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => ({
     friends: state.entities.friends,
-    // friendTable: state.entities.users[ownProps.match.params.userId].friends,
-    // currentUserTable: state.entities.users[state.session.id].friends,
     friendId: parseInt(ownProps.match.params.userId),
     currentUserId: state.session.id,
     user: state.entities.users[ownProps.match.params.userId]

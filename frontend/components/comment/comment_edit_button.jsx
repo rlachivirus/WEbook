@@ -98,7 +98,7 @@ class CommentEditButton extends React.Component {
     }
 }
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
     currentUserId: state.session.id,
 });
 

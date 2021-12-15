@@ -11,24 +11,10 @@ class FriendRequest extends React.Component {
 
     componentDidMount() {
         this.props.fetchFriends();
-        // this.props.fetchUsers();
     }
 
-    // componentDidUpdate(prevProps) {
-    //     if (this.props.friends !== prevProps.friends) {
-    //         this.props.fetchUser(this.props.currentUserId);
-    //         // this.props.fetchUser(this.props.friendId)
-    //     }
-    // }
-
     acceptRequest(friendId) {
-        // e.preventDefault();
-
         const { currentUserId } = this.props;
-
-        // for (var pair of formData.entries()) {
-        //     console.log(pair[0], pair[1]);
-        // }
 
         let friender;
         Object.values(this.props.friends).forEach(table => {
@@ -46,42 +32,20 @@ class FriendRequest extends React.Component {
 
         const formData1 = new FormData();
         formData1.append('friend[id]', friender);
-        // formData1.append('friend[user_id]', this.props.currentUserId);
-        // formData1.append('friend[friend_id]', this.props.friendId);
         formData1.append('friend[status]', "Friends");
 
         const formData2 = new FormData();
         formData2.append('friend[id]', friendee);
-        // formData2.append('friend[user_id]', this.props.friendId);
-        // formData2.append('friend[friend_id]', this.props.currentUserId);
         formData2.append('friend[status]', "Friends");
 
         this.props.updateFriend(formData1)
             .then(this.props.fetchUser(friendId));
         this.props.updateFriend(formData2)
             .then(this.props.fetchUser(this.props.currentUserId));
-
-        
-
-        // if (friender && friendee) {
-        //     this.props.deleteFriend(friender)
-        //     this.props.deleteFriend(friendee)
-        // } else if (currentUserId === friendId) {
-        //     null
-        // } else {
-        //     this.props.createFriend(formData1)
-        //     this.props.createFriend(formData2)
-        // }
-
     }
 
     deleteRequest(friendId) {
-
         const { currentUserId } = this.props;
-
-        // for (var pair of formData.entries()) {
-        //     console.log(pair[0], pair[1]);
-        // }
 
         let friender;
         Object.values(this.props.friends).forEach(table => {

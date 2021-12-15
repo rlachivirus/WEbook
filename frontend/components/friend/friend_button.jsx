@@ -1,16 +1,8 @@
 import React from "react";
-import { Link } from 'react-router-dom'
 
 class FriendButton extends React.Component {
     constructor(props) {
         super(props);
-                
-        // let friendeeStatus = null;
-        // Object.values(this.props.friends).forEach(table => {
-        //     if ((table.user_id === friendId) && (table.friend_id === currentUserId)) {
-        //         friendeeStatus = table.status;
-        //     }
-        // })
 
         this.handleClick = this.handleClick.bind(this)
         this.openModal = this.openModal.bind(this);
@@ -23,7 +15,6 @@ class FriendButton extends React.Component {
     componentDidUpdate(prevProps) {
         if (this.props.friends !== prevProps.friends) {
             this.props.fetchUser(this.props.currentUserId)
-            // this.props.fetchUser(this.props.friendId)
         }
     }
 
@@ -41,10 +32,6 @@ class FriendButton extends React.Component {
         formData2.append('friend[user_id]', this.props.friendId);
         formData2.append('friend[friend_id]', this.props.currentUserId);
         formData2.append('friend[status]', "Pending");
-
-        // for (var pair of formData.entries()) {
-        //     console.log(pair[0], pair[1]);
-        // }
 
         let friender;
         Object.values(this.props.friends).forEach(table => {
@@ -73,12 +60,10 @@ class FriendButton extends React.Component {
     }
 
     openModal(obj) {
-        // debugger
         this.props.openModal(obj);
     }
 
     render() {
-        // debugger
         const { currentUserId, friendId } = this.props;
 
         let friender;
@@ -108,9 +93,6 @@ class FriendButton extends React.Component {
                 onClick={this.handleClick}>Friends
             </div>
         ) : currentUserId === friendId ? (
-            // <div className="friend-button"
-            //     onClick="" style={{ backgroundColor: "#dbdbdb", color: "black"}}>Edit Profile
-            // </div>
             <div className="edit-button" 
                 onClick={() => this.openModal({type: "profileEdit", user: this.props.user})}>Edit Profile
             </div>
@@ -122,9 +104,6 @@ class FriendButton extends React.Component {
             </div>
         )
 
-        // const buttonName = if (this.props.friends[friendee].status === "Friends") {
-            
-        // }
         return friendButton
     }
 }

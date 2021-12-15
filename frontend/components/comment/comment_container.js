@@ -1,19 +1,11 @@
 import { connect } from 'react-redux';
 import { createComment, deleteComment, fetchComments, updateComment, fetchComment } from '../../actions/comment_actions';
-import { fetchUser, fetchUsers } from '../../actions/user_actions'
 import { createLike, deleteLike } from '../../actions/like_actions'
 import { withRouter } from 'react-router-dom';
 import Comment from './comment';
 
-const mapStateToProps = (state, ownProps) => ({
-    // post: state.entities.posts[ownProps.id],
-    // posts: state.entities.posts,
-    // userId: parseInt(ownProps.match.params.userId),
-    // entities: state.entities,
+const mapStateToProps = (state) => ({
     users: state.entities.users,
-    // friends: state.entities.users[state.session.id].friends,
-    // currentUser: state.entities.users[state.session.id],
-    // currentUserId: state.session.id
     comments: state.entities.comments
 })
 
