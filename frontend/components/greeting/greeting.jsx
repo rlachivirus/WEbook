@@ -15,6 +15,8 @@ class Greeting extends React.Component {
         this.handleClick = this.handleClick.bind(this);
         this.handleNotification = this.handleNotification.bind(this);
         this.closeDropDown = this.closeDropDown.bind(this);
+
+        this.removeDropDown;
     }
 
     componentDidMount() {
@@ -70,7 +72,7 @@ class Greeting extends React.Component {
     componentDidUpdate() {
         const { status, notification } = this.state;
 
-        setTimeout(() => {
+        this.removeDropDown = setTimeout(() => {
             if (status === 'open' || notification === 'open') {
                 window.addEventListener('click', this.closeDropDown)
             } else  {
@@ -78,6 +80,14 @@ class Greeting extends React.Component {
             }
         }, 0)
     }
+
+    componentWillUnmount() {
+        clearTimeout(this.removeDropDown);
+        this.setState = () => {
+            return;
+        }
+    }
+
     render () {
         const { currentUser, logout, openModal } = this.props;
 

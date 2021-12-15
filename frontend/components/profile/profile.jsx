@@ -116,8 +116,12 @@ class Profile extends React.Component {
                     <hr className="profile-hr"/>
                     <div className="profile-nav-bar">
                         {/* <div style={this.props.currentUserId === this.props.userId ? { display: "" } : { display: "none" }}>Posts</div> */}
-                        <Link to={`/users/${this.props.currentUserId}`} style={this.props.currentUserId === this.props.userId ? { display: "" } : { display: "none" }}><div>Posts</div></Link>
-                        <Link to={`/users/${this.props.currentUserId}/friends`} style={this.props.currentUserId === this.props.userId ? { display: "" } : { display: "none" }}><div>Friends</div></Link>
+                        <Link to={`/users/${this.props.currentUserId}`} style={this.props.currentUserId === this.props.userId ? { display: "" } : { display: "none" }}>
+                            <div className={this.props.location.pathname === `/users/${this.props.currentUserId}/friends` ? "notSelected" : "selected" }>Posts</div>
+                        </Link>
+                        <Link to={`/users/${this.props.currentUserId}/friends`} style={this.props.currentUserId === this.props.userId ? { display: "" } : { display: "none" }}>
+                            <div className={this.props.location.pathname === `/users/${this.props.currentUserId}/friends` ? "selected" : "notSelected"}>Friends</div>
+                        </Link>
                     </div>
                 </div>
 

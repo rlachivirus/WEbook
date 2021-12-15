@@ -16,6 +16,8 @@ class PostEditButton extends React.Component {
         this.handleDelete = this.handleDelete.bind(this);
         this.openModal = this.openModal.bind(this);
         this.closeDropDown = this.closeDropDown.bind(this);
+
+        this.removeDropDown;
     }
 
     handleClick() {
@@ -44,13 +46,20 @@ class PostEditButton extends React.Component {
     componentDidUpdate() {
         const { status } = this.state;
 
-        setTimeout(() => {
+        this.removeDropDown = setTimeout(() => {
             if (status === 'open') {
                 window.addEventListener('click', this.closeDropDown)
             } else {
                 window.removeEventListener('click', this.closeDropDown)
             }
         }, 0)
+    }
+
+    componentWillUnmount() {
+        clearTimeout(this.removeDropDown);
+        this.setState = () => {
+            return;
+        }
     }
 
     render() {

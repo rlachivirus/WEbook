@@ -15,6 +15,8 @@ class CommentEditButton extends React.Component {
         this.handleDelete = this.handleDelete.bind(this);
         this.closeDropDown = this.closeDropDown.bind(this);
         this.openEdit = this.openEdit.bind(this);
+
+        this.removeDropDown;
     }
 
     handleClick() {
@@ -57,13 +59,20 @@ class CommentEditButton extends React.Component {
     componentDidUpdate() {
         const { status } = this.state;
 
-        setTimeout(() => {
+        this.removeDropDown = setTimeout(() => {
             if (status === 'open') {
                 window.addEventListener('click', this.closeDropDown)
             } else {
                 window.removeEventListener('click', this.closeDropDown)
             }
         }, 0)
+    }
+
+    componentWillUnmount() {
+        clearTimeout(this.removeDropDown);
+        this.setState = () => {
+            return;
+        }
     }
 
     render() {
