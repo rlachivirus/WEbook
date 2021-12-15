@@ -14,6 +14,7 @@ I used the word 'we' to describe how I feel about Facebook nowadays. The app is 
 When I started this project, I wanted to clone Facebook as best as I could because I thought I would learn a lot from copying. As a result, I located the login form on the right side of the page and used a modal for the sign up form. One thing I did differently compared to the actual app is the error rendeing. Instead of redirecting to another page to render the errors or have only exclamation points to empty inputs, I made sure the errors rendered underneath the input that caused the error.
 
 <img src="app/assets/images/readMePictures/login.png" width="50%" height="auto"/>
+<img src="app/assets/images/readMePictures/signup.png" width="50%" height="auto"/>
 
 ## Post & Comment
 
