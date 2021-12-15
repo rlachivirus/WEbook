@@ -21,10 +21,3 @@ export const fetchLikes = () => (
         url: '/api/likes'
     })
 );
-
-// export const fetchLike = (likeId) => (
-//     $.ajax({
-//         method: 'GET',
-//         url: `/api/likes/${likeId}`
-//     })
-// )

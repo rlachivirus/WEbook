@@ -7,7 +7,6 @@ const postsReducer = (state = {}, action) => {
     switch (action.type) {
         case ADD_POST:
             nextState[action.post.id] = action.post;
-            // nextState.table = action.friend;
             return nextState;
         case RECEIVE_POST:
             nextState[action.post.id] = action.post
