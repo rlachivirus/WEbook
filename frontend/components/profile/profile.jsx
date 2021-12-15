@@ -66,7 +66,7 @@ class Profile extends React.Component {
                             })}
                             {Object.values(this.props.users).map((friend, idx) => {
                                 if (user.id !== friend.id && friendsIds.includes(friend.id)) {
-                                    return <Link key={`${friend.id}-${idx}`} to={`/users/${friend.id}`} onClick={() => window.scrollTo(0, 0)}><div><img className="user-friend" src={friend.photoUrl} /><p className="friend-name">{`${friend.fname} ${friend.lname}`}</p></div></Link>
+                                    return <Link key={`${friend.id}-${idx}`} to={`/users/${friend.id}`} onClick={() => window.scrollTo(0, 0)}><div><img className="user-friend" src={friend.photoUrl} /><p className="friend-name">{friend.fname}</p></div></Link>
                                 }
                             })
                             }
