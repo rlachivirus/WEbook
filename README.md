@@ -19,13 +19,19 @@ When I started this project, I wanted to clone Facebook as best as I could becau
 
 In WEbook, you are able to create posts which includes functionalities such as edit/delete, upload picture, like, and comment. In the comments section, you are able to comment on a post and like the comment as well. Additionally, all the photos and names shown in the post and comment sections redirect you to the user's profile.
 
+<img src="app/assets/images/readMePictures/post.png" width="50%" height="auto"/><img src="app/assets/images/readMePictures/comment.png" width="50%" height="auto"/>
+
 ## Friends
 
 WEbook has the functionality to request friend. When the request is sent out, the user receiving the request needs to accept in order for both you and the user to become friends. There is also the functionality to decline, so the user can reject the request as well. On top of the notification button, a number pops up to indicate how many friend requests the user has. Additionally, you are able to check your friends list in your profile page when you click on the 'Friends' button that is next to the 'Posts' button.
 
+<img src="app/assets/images/readMePictures/friendRequest2.png" width="50%" height="auto"/><img src="app/assets/images/readMePictures/friends.png" width="50%" height="auto"/>
+
 ## Modals
 
 A modal is rendered when you create/edit a post or edit your profile. In the modal, you are able to type anything you desire and also uplaod pictures. The modal also allows you to previe pictures you are about to upload.
+
+<img src="app/assets/images/readMePictures/createPost.png" width="50%" height="auto"/><img src="app/assets/images/readMePictures/editProfile.png" width="50%" height="auto"/>
 
 # Technologies Used
 
