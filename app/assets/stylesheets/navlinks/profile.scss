@@ -318,25 +318,32 @@
                 background-color: white;
                 padding: 12px;
 
-                .user-friend {
-                    object-fit: cover;
-                    height: 103px;
-                    width: 103px;
-                    border-radius: 7px;
-                    background-color: white;
-                }
+                .friend-info {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    background-color: transparent;
 
-                .friend-name {
-                    margin: 0;
-                    padding: 5px;
-                    font-size: 14px;
-                    font-weight: 600;
-                    background-color: white;
-                    border-color: white;
-                }
-
-                .friend-name:hover {
-                    text-decoration: underline;
+                    .user-friend {
+                        object-fit: cover;
+                        height: 103px;
+                        width: 103px;
+                        border-radius: 7px;
+                        background-color: white;
+                    }
+    
+                    .friend-name {
+                        margin: 0;
+                        padding: 5px;
+                        font-size: 14px;
+                        font-weight: 600;
+                        background-color: white;
+                        border-color: white;
+                    }
+    
+                    .friend-name:hover {
+                        text-decoration: underline;
+                    }
                 }
             }
         }
