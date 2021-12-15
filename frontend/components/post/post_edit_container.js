@@ -4,7 +4,7 @@ import PostEditForm from './post_edit_form';
 import { withRouter } from 'react-router-dom';
 import { openModal } from '../../actions/modal_actions';
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
 
 })
 

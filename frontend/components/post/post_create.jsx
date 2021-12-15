@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from 'react-router-dom';
 
 class CreatePost extends React.Component {
     constructor(props) {
@@ -41,7 +40,6 @@ class CreatePost extends React.Component {
             formData.append('post[photo]', this.state.photoFile);
         }
 
-        // debugger
         this.props.createPost(formData);
         this.props.closeModal();
     }

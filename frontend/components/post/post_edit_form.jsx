@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from 'react-router-dom';
 
 class PostEditForm extends React.Component {
     constructor(props) {
@@ -34,7 +33,6 @@ class PostEditForm extends React.Component {
                             value={this.state.body}
                             onChange={this.update('body')}
                         />
-                        {/* <input type="file" onChange={this.handleFile} /> */}
                         <button>edit</button>
                     </form>
                 </div>

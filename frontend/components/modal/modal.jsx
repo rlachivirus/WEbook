@@ -1,5 +1,4 @@
 import React from 'react';
-import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
 import ProfileEditContainer from '../profile/profile_edit_container';
 import PostEditContainer from '../post/post_edit_container';
@@ -18,7 +17,6 @@ function Modal({ modal, closeModal }) {
             break;
         case 'profileEdit':
             component = <ProfileEditContainer closeModal={closeModal} />;
-            // debugger
             break;
         case 'createPost':
             component = <CreatePost closeModal={closeModal} currentUserId={modal.currentUserId} userId={modal.userId} createPost={modal.createPost} currentUser={modal.currentUser} />;
@@ -33,8 +31,6 @@ function Modal({ modal, closeModal }) {
     return (
         <div className="modal-background" onClick={closeModal}>
             <div className="modal-child" onClick={e => e.stopPropagation()}>
-                {/* <div onClick={closeModal} className="close-x">X</div> */}
-                {/* <SignupFormContainer closeModal={closeModal} /> */}
                 {component}
             </div>
         </div>
