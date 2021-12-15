@@ -60,7 +60,7 @@ class LikeComment extends React.Component {
         let commentLikesCount = 0;
 
         Object.values(this.props.likes).forEach(like => {
-            if (like.like_id === this.state.id) {
+            if (like.like_id === this.state.id && like.like_type === "Comment") {
                 commentLikesCount++;
             }
         })

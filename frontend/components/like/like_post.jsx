@@ -39,7 +39,7 @@ class LikePost extends React.Component {
         let postLikesCount = 0;
 
         Object.values(this.props.likes).forEach(like => {
-            if (like.like_id === this.state.id) {
+            if (like.like_id === this.state.id && like.like_type === "Post") {
                 postLikesCount++;
             }
         })
