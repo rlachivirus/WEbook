@@ -1,27 +1,15 @@
-// .profile-edit-form {
-//     position: relative;
-//     z-index: 10;
-// }
-
 .profile-background {
     position: relative;
     display: flex;
     flex-direction: column;
-    // justify-content: center;
     align-items: center;
-    // flex-wrap: wrap;
-    // border: 2px solid black;
-    // box-shadow: 0 0 5px rgb(207, 207, 207);
     height: 625px;
-    // z-index: 5;
-    // background-color: blue;
 
     .background-shadow {
         position: absolute;
         top: 60px;
         height: 260px;
         width: 100%;
-        // background: linear-gradient(to bottom, #176fd3 0%, #1f77db 11%, rgba(255,255,255,1) 100%);
         background: linear-gradient(to bottom, #929292 0%, #acacac 11%, rgba(255,255,255,1) 100%);
         z-index: 6;
     }
@@ -36,19 +24,12 @@
     
     .cover-photo {
         position: absolute;
-        // border: 2px solid rgba($color: #247bdf, $alpha: 1.0);
         border-radius: 0 0 10px 10px;
-        // background-color: rgba($color: #75b3fa52, $alpha: 1.0);
-        // background-color: rgba(51, 129, 219, 0.438);
-        // background-color: #247bdf42;
         background-color: #1475f3c2;
         height: 340px;
-        // height: 30%;
         width: 65%;
         top: 60px;
         z-index: 6;
-        // transform: translate(30%);
-        // transition: ease all .5s;
     }
 
     @media only screen and (max-width: 1200px) {
@@ -65,18 +46,9 @@
 
     .picture-name {
         position: absolute;
-        // border-radius: 50%;
-        // border: 4px solid white;
-        // top: 365px;
         top: 59%;
-        // left: 283px;
         left: 19.5%;
-        // height: 180px;
-        // width: 180px;
-        // object-fit: cover;
         z-index: 6;
-        // object-position: 50% 50%;
-        // background-size: 10px;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -85,29 +57,17 @@
 
 
         .profile-picture {
-            // position: absolute;
             border-radius: 50%;
             border: 4px solid white;
-            // // top: 365px;
-            // top: 59%;
-            // // left: 283px;
-            // left: 19.5%;
             height: 180px;
             width: 180px;
             object-fit: cover;
-            // z-index: 6;
-            // // object-position: 50% 50%;
-            // // background-size: 10px;
         }
     
         .profile-name {
-            // position: absolute;
             background-color: transparent;
             font-size: 35px;
             font-weight: 700;
-            // top: 69%;
-            // left: 480px;
-            // z-index: 6;
         }
     }
 
@@ -122,16 +82,12 @@
         background-color: transparent;
 
         .friend-button {
-            // position: absolute;
-            // border: 2px solid black;
             padding-top: 10px;
             font-size: 16px;
             font-weight: 600;
             color: white;
             height: 35px;
             width: 100px;
-            // top: 62%;
-            // left: 65.3%;
             z-index: 6;
             text-align: center;
             cursor: pointer;
@@ -144,16 +100,12 @@
         }
 
         .requested-button {
-            // position: absolute;
-            // border: 2px solid black;
             padding-top: 10px;
             font-size: 16px;
             font-weight: 600;
             color: black;
             height: 35px;
             width: 100px;
-            // top: 62%;
-            // left: 65.3%;
             z-index: 6;
             text-align: center;
             border-radius: 7px;
@@ -162,16 +114,12 @@
         }
 
         .edit-button {
-            // position: absolute;
-            // border: 2px solid black;
             padding-top: 10px;
             font-size: 16px;
             font-weight: 600;
             color: black;
             height: 35px;
             width: 100px;
-            // top: 62%;
-            // left: 65.3%;
             z-index: 6;
             text-align: center;
             cursor: pointer;
@@ -182,29 +130,10 @@
         .edit-button:hover {
             background-color: rgba(194, 194, 194, 0.479);
         }
-    
-        // .profile-edit-button2 {
-        //     // position: absolute;
-        //     padding-top: 10px;
-        //     font-size: 16px;
-        //     font-weight: 600;
-        //     // border: 2px solid black;
-        //     background-color: rgba($color: #dbdbdb, $alpha: 1.0);
-        //     height: 35px;
-        //     width: 100px;
-        //     // top: 62%;
-        //     // left: 88%;
-        //     z-index: 6;
-        //     text-align: center;
-        //     cursor: pointer;
-        //     border-radius: 7px;
-
-        // }
     }
 
     .profile-fixed-bar {
         position: fixed;
-        // border: 2px solid red;
         box-shadow: 0 0 5px rgb(207, 207, 207);
         background-color: white;
         height: 65px;
@@ -214,18 +143,11 @@
 
         .profile-button {
             position: absolute;
-            // background-color: rgb(165, 158, 158);
-            // box-shadow: 0 1px 2px rgb(207, 207, 207);
             border-radius: 10px;
-            // padding-top: 23px;
-            // padding: 15px;
             height: 60px;
-            // width: 150px;
-            // top: 340px;
             left: 20%;
             font-size: 17px;
             font-weight: 500;
-            // text-align: center;
             display: flex;
             flex-direction: row;
             justify-content: space-around;
@@ -243,8 +165,6 @@
 
             p {
                 background-color: transparent;
-                // height: 45px;
-                // width: auto;
                 margin-right: 10px;
             }  
         }
@@ -256,10 +176,7 @@
 
     .profile-hr {
         position: relative;
-        // top: 70.7%;
         top: 563px;
-        // margin-top: 15px;
-        // margin-left: -19px;
         width: 60%;
         color: rgb(194, 194, 194);
         z-index: 5;
@@ -267,25 +184,21 @@
 
     .profile-nav-bar {
         position: absolute;
-        // border: 2px solid blue;
         box-shadow: 0 1px 2px rgb(207, 207, 207);
         height: 57px;
         width: 100%;
         top: 565px;
-        // z-index: 4;
         background-color: white;
         display: flex;
         flex-direction: row;
         justify-content: center;
 
         .notSelected {
-            // position: absolute;
             background-color: white;
             font-weight: 500;
             color: rgb(122, 122, 122);
             border-radius: 10px;
             padding-top: 18px;
-            // padding: 15px;
             height: 52px;
             width: 100px;
             top: 3px;
@@ -301,12 +214,10 @@
         }
 
         .selected {
-            // position: absolute;
             background-color: white;
             font-weight: 500;
             color: rgb(122, 122, 122);
             padding-top: 18px;
-            // padding: 15px;
             height: 52px;
             width: 100px;
             top: 3px;
@@ -318,14 +229,6 @@
             border-bottom: 3px solid #1475f3;
         }
     }
-
-    // .profile-fixed-bar {
-        // position: fixed;
-        // border: 2px solid red;
-        // height: 60px;
-        // width: 100%;
-        // top: 500px;
-    // }
 }
 
 .middle-page {
@@ -339,11 +242,8 @@
         display: flex;
         flex-direction: column;
         gap: 15px 15px;
-        // height: 110vh;
-
 
         .profile-edit {
-            // border: 2px solid black;
             background-color: white;
             border: 1px solid rgb(231, 231, 231);
             box-shadow: 0 1px 2px rgb(207, 207, 207);
@@ -367,7 +267,6 @@
 
             p:nth-child(3) {
                 width: 330px;
-                // height: 150px;
                 height: auto;
                 max-height: 150px;
                 overflow: scroll;
@@ -394,7 +293,6 @@
         }
         
         .user-friends {
-            // border: 2px solid black;
             background-color: white;
             border: 1px solid rgb(231, 231, 231);
             box-shadow: 0 1px 2px rgb(207, 207, 207);
@@ -426,7 +324,6 @@
                     width: 103px;
                     border-radius: 7px;
                     background-color: white;
-                    // margin: 0;
                 }
 
                 .friend-name {
@@ -449,12 +346,6 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        // border: 2px solid black;
-        // background-color: white;
-        // border: 1px solid rgb(231, 231, 231);
-        // box-shadow: 0 1px 2px rgb(207, 207, 207);
-        // border-radius: 10px;
-        // height: 1000px;
         width: 500px;
         margin: 0;
         padding: 0;
@@ -464,21 +355,10 @@
     }
 }    
 
-// .friend-botton {
-//     // position: relative;
-//     border: 2px solid black;
-//     top: 20%;
-//     z-index: 10;
-// }
-
 .friend-lists-background {
     display: flex;
     flex-direction: column;
-    // justify-content: center;
     align-items: center;
-    // background-color: white;
-    // height: auto;
-    // width: 70%;
     margin-top: 20px;
 
     .friend-lists {
