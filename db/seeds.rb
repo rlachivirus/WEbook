@@ -11,25 +11,25 @@ require 'faker'
 User.destroy_all
 ApplicationRecord.connection.reset_pk_sequence!('users')
 
-name1 = Faker::Movies::HarryPotter.unique.character.split(" ")
-name2 = Faker::Movies::HarryPotter.unique.character.split(" ")
-name3 = Faker::Movies::HarryPotter.unique.character.split(" ")
-name4 = Faker::Movies::HarryPotter.unique.character.split(" ")
-name5 = Faker::Movies::HarryPotter.unique.character.split(" ")
-name6 = Faker::Movies::HarryPotter.unique.character.split(" ")
-name7 = Faker::Movies::HarryPotter.unique.character.split(" ")
-name8 = Faker::Movies::HarryPotter.unique.character.split(" ")
-name9 = Faker::Movies::HarryPotter.unique.character.split(" ")
-name10 = Faker::Movies::HarryPotter.unique.character.split(" ")
-name11 = Faker::Movies::HarryPotter.unique.character.split(" ")
-name12 = Faker::Movies::HarryPotter.unique.character.split(" ")
-name13 = Faker::Movies::HarryPotter.unique.character.split(" ")
-name14 = Faker::Movies::HarryPotter.unique.character.split(" ")
-name15 = Faker::Movies::HarryPotter.unique.character.split(" ")
-name16 = Faker::Movies::HarryPotter.unique.character.split(" ")
-name17 = Faker::Movies::HarryPotter.unique.character.split(" ")
-name18 = Faker::Movies::HarryPotter.unique.character.split(" ")
-name19 = Faker::Movies::HarryPotter.unique.character.split(" ")
+name1 = ["Frank", "Longbottom"]
+name2 = ["Armando", "Dippet"]
+name3 = ["Bill", "Weasley"]
+name4 = ["Ariana", "Dumbledore"]
+name5 = ["Zacharias", "Smith"]
+name6 = ["Cuthbert", "Binns"]
+name7 = ["Rowena", "Ravenclaw"]
+name8 = ["Graham", "Montague"]
+name9 = ["Petunia", "Dursley"]
+name10 = ["Bathilda", "Bagshot"]
+name11 = ["Horace", "Slughorn"]
+name12 = ["Gregory", "Goyle"]
+name13 = ["Ignotus", "Peverell"]
+name14 = ["Charlie", "Weasley"]
+name15 = ["Igor", "Karkaroff"]
+name16 = ["Olympe", "Maxime"]
+name17 = ["Susan", "Bones"]
+name18 = ["Demelza", "Robins"]
+name19 = ["Kingsley", "Shacklebolt"]
 
 demoUser = User.create!(email: 'demo@email.com', password: 'password', fname: 'De', lname: 'Mo', bio: "I'm a Demo.", birthday: '2021-11-15')
 user1 = User.create!(email: 'user1@email.com', password: 'password', fname: name1[0], lname: name1[1], bio: Faker::Movies::HarryPotter.unique.quote, birthday: String(Faker::Date.unique.birthday))
@@ -61,7 +61,7 @@ user5.photo.attach(io: File.open("app/assets/images/emojis/emoji5.png"), filenam
 user6.photo.attach(io: File.open("app/assets/images/emojis/emoji6.jpg"), filename: "emoji6.jpg")
 user7.photo.attach(io: File.open("app/assets/images/emojis/emoji7.png"), filename: "emoji7.png")
 user8.photo.attach(io: File.open("app/assets/images/emojis/emoji8.png"), filename: "emoji8.png")
-user9.photo.attach(io: File.open("app/assets/images/emojis/emoji9.jpg"), filename: "emoji9.jpg")
+user9.photo.attach(io: File.open("app/assets/images/emojis/emoji9.jpeg"), filename: "emoji9.jpeg")
 user10.photo.attach(io: File.open("app/assets/images/emojis/emoji10.png"), filename: "emoji10.png")
 user11.photo.attach(io: File.open("app/assets/images/emojis/emoji11.png"), filename: "emoji11.png")
 user12.photo.attach(io: File.open("app/assets/images/emojis/emoji12.png"), filename: "emoji12.png")
