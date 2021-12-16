@@ -5,13 +5,13 @@
 # Overview
 WEbook is a Facebook clone which allows you to interact with your friends. Similar to the actual app, you can visit your friends' profile, add posts to either the main newsfeed or your and your friend's profile page, and comment on those posts. Additionally, you can also upload pictures and like both posts and comments. Not to forget, you are able to request to be friends with other users but you and the user will only become friends when the other user accepts the friend request.
 
-I used the word 'we' to describe how I feel about Facebook nowadays. The app is one of the important social networking apps that helps connect people globally. Simultaneously, however, I thought the platform became a place where people just uploaded random and meaningless posts as well. Thus, I thought the word 'we' described the platform well because 'we' means 'us' but it can also be interpreted as 'whatever.'
+I used the word 'we' to describe how I feel about Facebook nowadays. The app is one of the important social networking apps that helps connect people globally. Simultaneously, however, I thought the platform became a place where people just uploaded random and meaningless posts as well. Thus, I thought the word 'we' described the platform well because 'we' means 'us' but it can also be interpreted as 'whatever'.
 
 # Features
 
 ## Account Creation and Authentication
 
-When I started this project, I wanted to clone Facebook as best as I could because I thought I would learn a lot from copying. As a result, I located the login form on the right side of the page and used a modal for the sign up form. One thing I did differently compared to the actual app is the error rendering. Instead of redirecting to another page to render the errors or have only exclamation points to empty inputs, I made sure the errors rendered underneath the input that caused the error.
+When I started this project, I wanted to clone Facebook as best as I could because I thought I would learn a lot from copying. As a result, I located the login form on the right side of the page and used a modal for the sign up form just like Facebook. One thing I did differently compared to the actual app is the error rendering. Instead of redirecting to another page to render the errors or have only exclamation points to empty inputs, I made sure the errors rendered underneath the input that caused the error.
 
 <img src="app/assets/images/readMePictures/login.png" width="50%" height="auto"/><img src="app/assets/images/readMePictures/signup.png" width="50%" height="auto"/>
 
@@ -66,7 +66,7 @@ WEbook has the functionality to request friend. When the request is sent out, th
 
 ## Modals
 
-A modal is rendered when you create/edit a post or edit your profile. In the modal, you are able to type anything you desire and also uplaod pictures. The modal also allows you to previe pictures you are about to upload.
+A modal is rendered when you create/edit a post or edit your profile. In the modal, you are able to type anything you desire and also upload pictures. The modal also allows you to preview pictures you are about to upload.
 
 <img src="app/assets/images/readMePictures/createPost.png" width="50%" height="auto"/><img src="app/assets/images/readMePictures/editProfile.png" width="50%" height="auto"/>
 
