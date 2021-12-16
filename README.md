@@ -11,15 +11,52 @@ I used the word 'we' to describe how I feel about Facebook nowadays. The app is 
 
 ## Account Creation and Authentication
 
-When I started this project, I wanted to clone Facebook as best as I could because I thought I would learn a lot from copying. As a result, I located the login form on the right side of the page and used a modal for the sign up form. One thing I did differently compared to the actual app is the error rendeing. Instead of redirecting to another page to render the errors or have only exclamation points to empty inputs, I made sure the errors rendered underneath the input that caused the error.
+When I started this project, I wanted to clone Facebook as best as I could because I thought I would learn a lot from copying. As a result, I located the login form on the right side of the page and used a modal for the sign up form. One thing I did differently compared to the actual app is the error rendering. Instead of redirecting to another page to render the errors or have only exclamation points to empty inputs, I made sure the errors rendered underneath the input that caused the error.
 
 <img src="app/assets/images/readMePictures/login.png" width="50%" height="auto"/><img src="app/assets/images/readMePictures/signup.png" width="50%" height="auto"/>
+
+```js
+<input
+    className="fname-field"
+    type="text"
+    onChange={this.update("fname")}
+    value={fname}
+    placeholder="First Name"
+    style={ errors.includes("Fname can't be blank") ? (
+      { borderColor: "red" }
+    ) : (
+      { borderColor: "" }
+    )}
+/>
+
+<p className="fnameError" style={errors.includes("Fname can't be blank") ? ({ display: "" }) : ({ display: "none" })}>
+    First name can't be blank!
+</p>
+```
 
 ## Post & Comment
 
 In WEbook, you are able to create posts which includes functionalities such as edit/delete, upload picture, like, and comment. In the comments section, you are able to comment on a post and like the comment as well. Additionally, all the photos and names shown in the post and comment sections redirect you to the user's profile.
 
 <img src="app/assets/images/readMePictures/post.png" width="50%" height="auto"/><img src="app/assets/images/readMePictures/comment.png" width="50%" height="auto"/>
+
+```js
+handleSubmit(e) {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append('post[author_id]', this.props.currentUserId);
+    formData.append('post[body]', this.state.body);
+    formData.append('post[user_id]', this.props.userId);
+
+    if (this.state.photoFile) {
+        formData.append('post[photo]', this.state.photoFile);
+    }
+
+    this.props.createPost(formData);
+    this.props.closeModal();
+}
+```
 
 ## Friends
 
@@ -32,6 +69,32 @@ WEbook has the functionality to request friend. When the request is sent out, th
 A modal is rendered when you create/edit a post or edit your profile. In the modal, you are able to type anything you desire and also uplaod pictures. The modal also allows you to previe pictures you are about to upload.
 
 <img src="app/assets/images/readMePictures/createPost.png" width="50%" height="auto"/><img src="app/assets/images/readMePictures/editProfile.png" width="50%" height="auto"/>
+
+```js
+function Modal({ modal, closeModal }) {
+    let component;
+    
+    if (!modal) {
+        return null;
+    }
+
+    switch (modal.type) {
+        case 'editPost':
+            component = <PostEditContainer closeModal={closeModal} post={modal.post} id={modal.id} />;
+            break;
+        default:
+            return null;
+    }
+    
+    return (
+        <div className="modal-background" onClick={closeModal}>
+            <div className="modal-child" onClick={e => e.stopPropagation()}>
+                {component}
+            </div>
+        </div>
+    );
+}
+```
 
 # Technologies Used
 
