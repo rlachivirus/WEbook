@@ -111,7 +111,7 @@ class SessionForm extends React.Component {
                             <li>Built</li><li>with</li><li>React</li><li>Redux</li><li>JavaScript</li><li>Node.js</li><li>JQuery</li><li>Jbuilder</li><li>HTML</li><li>SCSS</li><li>Postgres</li><li>Ruby on Rails</li>
                         </ul>
 
-                        <p>AK © 2021</p>
+                        <p>AK © 2022</p>
                     </div>
                 </div>
             </div>
