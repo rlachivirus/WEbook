@@ -147,7 +147,7 @@ class Post extends React.Component {
                                 let months = { 1: "January", 2: "February", 3: "March", 4: "April", 5: "May", 6: "June", 7: "July", 8: "August", 9: "September", 10: "October", 11: "November", 12: "December" };
                                 let currentYear = this.state.date;
                                 let postYear = parseInt(post.created_at.slice(0, 10).split("-")[0]) !== currentYear ? `, ${post.created_at.slice(0, 10).split("-")[0]}` : "";
-                                let postMonth = months[post.created_at.slice(0, 10).split("-")[1]];
+                                let postMonth = months[parseInt(post.created_at.slice(0, 10).split("-")[1])];
                                 let postDay = post.created_at.slice(0, 10).split("-")[2];
                                 let postName;
 
@@ -228,7 +228,7 @@ class Post extends React.Component {
                                 let months = { 1: "January", 2: "February", 3: "March", 4: "April", 5: "May", 6: "June", 7: "July", 8: "August", 9: "September", 10: "October", 11: "November", 12: "December" };
                                 let currentYear = this.state.date;
                                 let postYear = parseInt(post.created_at.slice(0, 10).split("-")[0]) !== currentYear ? `, ${post.created_at.slice(0, 10).split("-")[0]}` : "";
-                                let postMonth = months[post.created_at.slice(0, 10).split("-")[1]];
+                                let postMonth = months[parseInt(post.created_at.slice(0, 10).split("-")[1])];
                                 let postDay = post.created_at.slice(0, 10).split("-")[2];
                                 let postName;
 
@@ -288,7 +288,7 @@ class Post extends React.Component {
                             let months = { 1: "January", 2: "February", 3: "March", 4: "April", 5: "May", 6: "June", 7: "July", 8: "August", 9: "September", 10: "October", 11: "November", 12: "December" };
                             let currentYear = this.state.date;
                             let postYear = parseInt(post.created_at.slice(0, 10).split("-")[0]) !== currentYear ? `, ${post.created_at.slice(0, 10).split("-")[0]}` : "";
-                            let postMonth = months[post.created_at.slice(0, 10).split("-")[1]];
+                            let postMonth = months[parseInt(post.created_at.slice(0, 10).split("-")[1])];
                             let postDay = post.created_at.slice(0, 10).split("-")[2];
                             let postName;
 
